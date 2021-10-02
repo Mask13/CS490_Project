@@ -18,11 +18,22 @@ else{
   <head>
     <meta charset="utf-8">
     <title>Admin</title>
-    <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
+    <div>
+      <titles style= "position:relative; top: 6">
+        Hello Admin
+      </titles>
+    <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
            class = "button" name="Login"> Logout
    </button>
-  </head>
+   </div>
+  </head><br>
   <style>
+      text{
+          font-size: 20px;
+      }
+      br {
+          line-height: 250%;
+          }
       body{
            background-color: #000033;
            background-image: url('https://images.unsplash.com/photo-1445905595283-21f8ae8a33d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80');
@@ -40,13 +51,14 @@ else{
               text-align: center;
               text-decoration: none;
               display: inline-block;
+              border-radius: 25px;
               font-size: 16px;
           }
           .label {
             padding: 12px 12px 12px 0;
             display: inline-block;
           }
-          .titles{
+          titles{
             width: 200px;
             text-align: center;
             font-size: 40;
@@ -59,17 +71,14 @@ else{
  </style>
   <body>
     <!-- Tests section -->
-    <center><header class=titles>Tests</header></center>
     <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
            class = "button" name="MNTest"> Make New Test
    </button>
-   <!-- display current tests that are made here -->
-
    <!-- Questons -->
-   <center><header class=titles>Questons</header></center>
    <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
           class = "button" name="MNTest"> Make New Question
   </button>
-  <!-- display current questions that in the bank here -->
+  <!-- display current students here-->
+  <center><titles style="position:relative; top:60">Students</titles></center>
   </body>
 </html>
