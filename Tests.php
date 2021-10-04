@@ -4,11 +4,14 @@
     <title>Admin</title>
     <div>
       <titles style= "position:relative; top: 6">
-        Hello Student
+        Tests
       </titles>
-    <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
+      <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
            class = "button" name="Login"> Logout
-   </button>
+      </button>
+      <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/AdminHome.php';"
+           class = "button" name="Login"> Home
+      </button>
    </div>
   </head><br>
   <style>
@@ -54,7 +57,19 @@
           }
  </style>
   <body>
-
-
+    <!-- Tests section -->
+    <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
+           class = "button" name="MNTest"> Make New Test
+   </button><br><br>
+   <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
+   <form name="loginform" id="myForm" method="POST">
+     <input type= "number" id="TestID"></input>
+      <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
+             class = "button" name="MNTest"> Delete
+     </button>
+     <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
+            class = "button" name="MNTest"> Edit
+    </button>
+   </form>
   </body>
 </html>

@@ -1,14 +1,16 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Admin</title>
     <div>
       <titles style= "position:relative; top: 6">
-        Hello Student
+        New Test
       </titles>
-    <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
+      <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
            class = "button" name="Login"> Logout
-   </button>
+      </button>
+      <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/AdminHome.php';"
+           class = "button" name="Login"> Home
+      </button>
    </div>
   </head><br>
   <style>
@@ -54,7 +56,21 @@
           }
  </style>
   <body>
-
-
+    <!-- Display All Questons -->
+   <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
+   <form name="NewTest" id="myForm" method="POST">
+     <input type="text" name="TestName" placeholder="Test Name"></input><br>
+     <input type= "number" id="Q1ID" placeholder="Question 1 ID"></input><br>
+     <input type= "number" id="Q1P" placeholder="Question 1 Points"></input><br>
+     <input type= "number" id="Q2ID" placeholder="Question 2 ID"></input><br>
+     <input type= "number" id="Q2P" placeholder="Question 2 Points"></input><br>
+     <input type= "number" id="Q3ID" placeholder="Question 3 ID"></input><br>
+     <input type= "number" id="Q3P" placeholder="Question 3 Points"></input><br>
+     <input type= "number" id="Q4ID" placeholder="Question 4 ID"></input><br>
+     <input type= "number" id="Q4P" placeholder="Question 4 Points"></input><br>
+     <input type= "number" id="Q5ID" placeholder="Question 5 ID"></input><br>
+     <input type= "number" id="Q4P" placeholder="Question 5 Points"></input><br>
+     <input class= "button" type="submit" value="Make Test"/>
+   </form>
   </body>
 </html>
