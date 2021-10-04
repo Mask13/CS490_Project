@@ -1,10 +1,9 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Admin</title>
     <div>
       <titles style= "position:relative; top: 6">
-        Questions
+        New Question
       </titles>
       <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
            class = "button" name="Login"> Logout
@@ -57,19 +56,13 @@
           }
  </style>
   <body>
-    <!-- Tests section -->
-    <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/MNQuestion.php';"
-           class = "button" name="MNTest"> Make New Question
-   </button><br><br>
-   <!-- Display all Questions with a SQL Query. View Test, and Delete Test -->
-   <form name="loginform" id="myForm" method="POST">
-     <input type= "number" id="QuestionID"></input>
-      <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
-             class = "button" name="MNTest"> Delete
-     </button>
-     <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
-            class = "button" name="MNTest"> Edit
-    </button>
+    <!-- Display All Questons -->
+   <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
+   <form name="NewQuestion" id="myForm" method="POST">
+     <input type= "Text" id="QT" placeholder="Question Text"></input><br>
+     <input type= "Text" id="QI" placeholder="Question Input"></input><br>
+     <input type= "Text" id="QA" placeholder="Expected Output"></input><br>
+     <input class= "button" type="submit" value="Make Question"/>
    </form>
   </body>
 </html>
