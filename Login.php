@@ -135,9 +135,10 @@ if(isset($_POST['username'])&& isset($_POST['password'])){
     if($result){
         $userpassword = $result['password'];
         if(password_verify($passWord, $userpassword)){
-            $_SESSION['IsAdmiin'] = $result['IsAdmin'];
+            $_SESSION['IsAdmin'] = $result['IsAdmin'];
+						$_SESSION['UID'] = $result['UID']
             //echo $_SESSION['IsAdmiin'];
-            if($_SESSION['IsAdmiin']==0){
+            if($_SESSION['IsAdmin']==0){
                 echo'<script type="text/javascript">window.open("https://web.njit.edu/~as3655/CS490/UserHome.php","_self");</script>';
             }
             else{

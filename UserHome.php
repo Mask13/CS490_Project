@@ -1,3 +1,17 @@
+<?php
+session_start();
+require ("config.php");
+if(isset($_SESSION['UID'])){
+  if($_SESSION['IsAdmin']== 0){}
+  else{
+    header("Location: https://web.njit.edu/~as3655/CS490/Login.php");
+  }
+}
+else{
+  header("Location: https://web.njit.edu/~as3655/CS490/Login.php");
+}
+?>
+?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -54,7 +68,30 @@
           }
  </style>
   <body>
+    <form action="Request_Test" method="post">
+      <?php
+          include "config.php";
+          $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+          $db= new PDO($connection_string, $dbuser, $dbpass);
+          try{
+            $sql = "SELECT EID, Exam_Name from exams";
 
+            echo "<select id='testID' name='testID' value=''>Tests</option>"; // list box select command
 
+            foreach ($dbo->query($sql) as $row){//Array or records stored in $row
+              echo "<option value=$row[EID]>$row[Exam_Name]</option>";
+            }
+
+            echo "</select>";// Closing of list box
+          }
+       ?>
+       <input class= "button" type="submit" value="See tests"/>
+    </form>
   </body>
 </html>
+<?php
+    if(isset($_POST["Request_Test"]) && isset($_POST["testID"])){
+      $_SESSION['testID'] = $_POST['testID'];
+      //redirect to test taking page
+    }
+ ?>

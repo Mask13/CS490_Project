@@ -62,14 +62,28 @@
            class = "button" name="MNTest"> Make New Test
    </button><br><br>
    <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
+   <?php
+       include "config.php";
+       $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+       $db= new PDO($connection_string, $dbuser, $dbpass);
+       try{
+         $sql = "SELECT EID, Exam_Name, Total_Points from exams";
+         echo "<tbody>"; // list box select command
+         foreach ($db->query($sql) as $row){//Array or records stored in $row
+           echo "<tr>";
+           echo "<td>$row[EID]</td>";
+           echo "<td>$row[Exam_Name]</td>";
+           echo "<td>$row[Total_Points]</td>";
+           echo "</tr>";
+         }
+
+         echo "</tbody>";// Closing of list box
+       }
+    ?>
    <form name="loginform" id="myForm" method="POST">
      <input type= "number" id="TestID"></input>
-      <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
-             class = "button" name="MNTest"> Delete
-     </button>
-     <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
-            class = "button" name="MNTest"> Edit
-    </button>
+      <input class = "button" type="submit" value="Delete"></input>
+     <input class = "button" type="submit" value="Edit"></input>
    </form>
   </body>
 </html>

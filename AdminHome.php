@@ -1,10 +1,8 @@
 <?php
 session_start();
 require ("config.php");
-if(isset($_SESSION['id'])){
-  if($_SESSION['IsAdmiin']== 1){
-    echo 'hello admin';
-  }
+if(isset($_SESSION['UID'])){
+  if($_SESSION['IsAdmin']== 1){}
   else{
     header("Location: https://web.njit.edu/~as3655/CS490/Login.php");
   }
@@ -80,5 +78,50 @@ else{
   </button>
   <!-- display current students here-->
   <center><titles style="position:relative; top:60">Students</titles></center>
+  <form action="Request_Test" method="post">
+    <?php
+        include "config.php";
+        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+        $db= new PDO($connection_string, $dbuser, $dbpass);
+        try{
+          $sql ="SELECT UID, Username from users Where IsAdmin = 0";
+
+          echo "<select id='studentID' name='studentID' value=''>Student Name</option>"; // list box select command
+
+          foreach ($dbo->query($sql) as $row){//Array or records stored in $row
+            echo "<option value=$row[UID]>$row[Username]</option>";
+          }
+
+          echo "</select>";// Closing of list box
+        }
+     ?>
+     <input class= "button" type="submit" value="See tests"/>
+  </form>
+
   </body>
 </html>
+
+<?php
+    if(isset($_POST["Request_Test"]) && isset($_POST["studentID"])){
+      GetTests();
+    }
+    function GetTests(){
+      include "config.php";
+      $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+      $db= new PDO($connection_string, $dbuser, $dbpass);
+      try{
+        $sql = "SELECT EID, result, ResultID from results Where UID = $_POST['studentID']";
+        echo "<tbody>"; // list box select command
+        foreach ($db->query($sql) as $row){//Array or records stored in $row
+          $sql2 = "SELECT Exam_Name from exams Where EID = $row['EID']";
+          $db->query($sql2) as $row2
+          echo "<tr>";
+          echo "<td>$row2[Exam_Name]</td>";
+          echo "<td>$row[result]</td>";
+          echo "</tr>";
+        }
+
+        echo "</tbody>";// Closing of list box
+      }
+    }
+ ?>
