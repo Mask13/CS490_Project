@@ -61,15 +61,48 @@
     <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/MNQuestion.php';"
            class = "button" name="MNTest"> Make New Question
    </button><br><br>
-   <!-- Display all Questions with a SQL Query. View Test, and Delete Test -->
-   <form name="loginform" id="myForm" method="POST">
-     <input type= "number" id="QuestionID"></input>
-      <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
-             class = "button" name="MNTest"> Delete
-     </button>
-     <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
-            class = "button" name="MNTest"> Edit
-    </button>
+   <!-- Display all Questions with a SQL Query. -->
+   <?php
+       require "config.php";
+       $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+       $db= new PDO($connection_string, $dbuser, $dbpass);
+       try{
+         $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer from `questions`";
+         echo "<tbody>"; // list box select command
+         foreach ($db->query($sql) as $row){//Array or records stored in $row
+           echo "<tr>";
+           echo "<td>$row[questionID]</td>";
+           echo "<td>$row[questionText]</td>";
+           echo "<td>$row[category]</td>";
+           echo "<td>$row[difficultyLevel]</td>";
+           echo "<td>$row[Answer]</td>";
+           echo "</tr>";
+         }
+
+         echo "</tbody>";// Closing of list box
+       }
+    ?>
+   <form id="myForm" method="POST">
+     <input type= "number" id="questionID"></input>
+      <input class = "button" type="submit" id="Delete" value="Delete"></input>
+     <input class = "button" type="submit" id="Edit" value="Edit"></input>
    </form>
   </body>
 </html>
+
+<?php
+    if(isset($_POST["TestID"])){
+      if(isset($_POST["Delete"])){
+        try{
+          require ("config.php");
+          $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+          $db= new PDO($connection_string, $dbuser, $dbpass);
+          $sql = $db->prepare("DELETE FROM `questions` WHERE questionID = :id");
+          $r = $sql->execute(array(":id"=>$_POST["questionID"]));
+          echo "<pre>" . var_export($r, true) . "</pre>";
+          echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
+          header("Refresh:0");
+        }
+      }
+    }
+ ?>

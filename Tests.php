@@ -63,7 +63,7 @@
    </button><br><br>
    <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
    <?php
-       include "config.php";
+       require "config.php";
        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
        $db= new PDO($connection_string, $dbuser, $dbpass);
        try{
@@ -80,10 +80,27 @@
          echo "</tbody>";// Closing of list box
        }
     ?>
-   <form name="loginform" id="myForm" method="POST">
+   <form name="Testform" id="myForm" method="POST">
      <input type= "number" id="TestID"></input>
-      <input class = "button" type="submit" value="Delete"></input>
-     <input class = "button" type="submit" value="Edit"></input>
+      <input class = "button" type="submit" id="Delete" value="Delete"></input>
+     <input class = "button" type="submit" id="Edit" value="Edit"></input>
    </form>
   </body>
 </html>
+
+<?php
+    if(isset($_POST["TestID"])){
+      if(isset($_POST["Delete"])){
+        try{
+          require ("config.php");
+          $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+          $db= new PDO($connection_string, $dbuser, $dbpass);
+          $sql = $db->prepare("DELETE FROM `exams` WHERE EID = :id");
+          $r = $sql->execute(array(":id"=>$_POST["TestID"]));
+          echo "<pre>" . var_export($r, true) . "</pre>";
+          echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
+          header("Refresh:0");
+        }
+      }
+    }
+ ?>

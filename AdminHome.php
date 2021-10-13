@@ -80,7 +80,7 @@ else{
   <center><titles style="position:relative; top:60">Students</titles></center>
   <form action="Request_Test" method="post">
     <?php
-        include "config.php";
+        require "config.php";
         $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
         $db= new PDO($connection_string, $dbuser, $dbpass);
         try{
@@ -106,7 +106,7 @@ else{
       GetTests();
     }
     function GetTests(){
-      include "config.php";
+      require "config.php";
       $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
       $db= new PDO($connection_string, $dbuser, $dbpass);
       try{

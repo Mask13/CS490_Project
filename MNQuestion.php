@@ -62,7 +62,25 @@
      <input type= "Text" id="QT" placeholder="Question Text"></input><br>
      <input type= "Text" id="QI" placeholder="Question Input"></input><br>
      <input type= "Text" id="QA" placeholder="Expected Output"></input><br>
+     <input type= "Text" id="QC" placeholder="Question Category"></input><br>
+     <input type= "Text" id="QD" placeholder="Question Difficulty"></input><br>
      <input class= "button" type="submit" value="Make Question"/>
    </form>
   </body>
 </html>
+
+<?php
+  require "config.php";
+  $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+  $db= new PDO($connection_string, $dbuser, $dbpass);
+  if(isset($_POST['QT'] && isset($_POST['QI']) && isset($_POST['QA'] && isset($_POST['QC']) && isset($_POST['QD'])){
+    try{
+      $sql = $db->prepare("INSERT INTO `questions`
+                  (questionText, category, difficultyLevel, Answer) VALUES
+                  (:QT, :QC, :QD, :QA)");
+      $params = array(":QT"=> $_POST['QT'], ":QC"=>$_POST['QC'], ":QD"=>$_POST['QD'], ":QA"=>$_POST['QA']);
+      $r = $sql->execute($params);
+      echo "<pre>" . var_export($r, true) . "</pre>";
+      echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
+    }
+ ?>
