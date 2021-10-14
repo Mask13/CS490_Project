@@ -136,7 +136,7 @@ if(isset($_POST['username'])&& isset($_POST['password'])){
         $userpassword = $result['password'];
         if(password_verify($passWord, $userpassword)){
             $_SESSION['IsAdmin'] = $result['IsAdmin'];
-						$_SESSION['UID'] = $result['UID']
+						$_SESSION['UID'] = $result['UID'];
             //echo $_SESSION['IsAdmiin'];
             if($_SESSION['IsAdmin']==0){
                 echo'<script type="text/javascript">window.open("http://localhost/CS490/UserHome.php","_self");</script>';
