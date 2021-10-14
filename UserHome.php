@@ -68,7 +68,7 @@ else{
           }
  </style>
   <body>
-    <form action="Request_Test" method="post">
+    <form method="post">
       <?php
           include "config.php";
           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -78,19 +78,20 @@ else{
 
             echo "<select id='testID' name='testID' value=''>Tests</option>"; // list box select command
 
-            foreach ($dbo->query($sql) as $row){//Array or records stored in $row
+            foreach ($db->query($sql) as $row){//Array or records stored in $row
               echo "<option value=$row[EID]>$row[Exam_Name]</option>";
             }
 
             echo "</select>";// Closing of list box
           }
+          finally{}
        ?>
        <input class= "button" type="submit" value="See tests"/>
     </form>
   </body>
 </html>
 <?php
-    if(isset($_POST["Request_Test"]) && isset($_POST["testID"])){
+    if(isset($_POST["testID"])){
       $_SESSION['testID'] = $_POST['testID'];
       //redirect to test taking page
     }

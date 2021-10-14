@@ -37,45 +37,46 @@ else{
           $params = array(":QID"=> $QIDS['Q1']);
           $sql2->execute($params);
           $QText = $sql2->fetch(PDO::FETCH_ASSOC);
-          echo "<lable for=Q1A> $QText['questionText'] </lable>";
-          echo "<input type='text' id='Q1A'></input>"
+          echo "<lable for=Q1A> $QText[questionText] </lable>";
+          echo "<input type='text' name = 'Q1A' id='Q1A'></input>";
           //Q2
-          if($result['Q2'] != NULL){
+          if($QIDS['Q2'] != NULL && $QIDS['Q2'] != 0){
             $sql2 = $db->prepare("SELECT questionText from questions Where questionID = :QID");
             $params = array(":QID"=> $QIDS['Q2']);
             $sql2->execute($params);
             $QText = $sql2->fetch(PDO::FETCH_ASSOC);
-            echo "<lable for=Q2A> $QText['questionText'] </lable>";
-            echo "<input type='text' id='Q2A'></input>"
+            echo "<lable for=Q2A> $QText[questionText] </lable>";
+            echo "<input type='text' id='Q2A'></input>";
           }
           //Q3
-          if($result['Q3'] != NULL){
+          if($QIDS['Q3'] != NULL){
             $sql2 = $db->prepare("SELECT questionText from questions Where questionID = :QID");
             $params = array(":QID"=> $QIDS['Q3']);
             $sql2->execute($params);
             $QText = $sql2->fetch(PDO::FETCH_ASSOC);
-            echo "<lable for=Q3A> $QText['questionText'] </lable>";
-            echo "<input type='text' id='Q3A'></input>"
+            echo "<lable for=Q3A> $QText[questionText] </lable>";
+            echo "<input type='text' id='Q3A'></input>";
           }
           //Q4
-          if($result['Q4'] != NULL){
+          if($QIDS['Q4'] != NULL){
             $sql2 = $db->prepare("SELECT questionText from questions Where questionID = :QID");
             $params = array(":QID"=> $QIDS['Q4']);
             $sql2->execute($params);
             $QText = $sql2->fetch(PDO::FETCH_ASSOC);
-            echo "<lable for=Q4A> $QText['questionText'] </lable>";
-            echo "<input type='text' id='Q4A'></input>"
+            echo "<lable for=Q4A> $QText[questionText] </lable>";
+            echo "<input type='text' id='Q4A'></input>";
           }
           //Q5
-          if($result['Q5'] != NULL){
+          if($QIDS['Q5'] != NULL){
             $sql2 = $db->prepare("SELECT questionText from questions Where questionID = :QID");
             $params = array(":QID"=> $QIDS['Q5']);
             $sql2->execute($params);
             $QText = $sql2->fetch(PDO::FETCH_ASSOC);
-            echo "<lable for=Q5A> $QText['questionText'] </lable>";
-            echo "<input type='text' id='Q5A'></input>"
+            echo "<lable for=Q5A> $QText[questionText] </lable>";
+            echo "<input type='text' id='Q5A'></input>";
           }
         }
+        finally{}
        ?>
        <input type="submit" value="Submit">
      </form>
@@ -107,5 +108,4 @@ if (isset($_POST['Q1A'])){
   $stmt->execute($params);
   echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 }
-
  ?>

@@ -58,7 +58,7 @@
  </style>
   <body>
     <!-- Tests section -->
-    <button type="button" onclick="location.href = 'http://localhost/CS490/MNQuestion.php';"
+    <button type="button" onclick="location.href = 'MNQuestion.php';"
            class = "button" name="MNTest"> Make New Question
    </button><br><br>
    <!-- Display all Questions with a SQL Query. -->
@@ -81,6 +81,7 @@
 
          echo "</tbody>";// Closing of list box
        }
+       finally{}
     ?>
    <form id="myForm" method="POST">
      <input type= "number" id="questionID"></input>
@@ -103,6 +104,7 @@
           echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
           header("Refresh:0");
         }
+        finally{}
       }
     }
  ?>

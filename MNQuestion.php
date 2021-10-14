@@ -59,11 +59,11 @@
     <!-- Display All Questons -->
    <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
    <form name="NewQuestion" id="myForm" method="POST">
-     <input type= "Text" id="QT" placeholder="Question Text"></input><br>
-     <input type= "Text" id="QI" placeholder="Question Input"></input><br>
-     <input type= "Text" id="QA" placeholder="Expected Output"></input><br>
-     <input type= "Text" id="QC" placeholder="Question Category"></input><br>
-     <input type= "Text" id="QD" placeholder="Question Difficulty"></input><br>
+     <input type= "Text" name = "QT" id="QT" placeholder="Question Text"></input><br>
+     <input type= "Text" name = "QI" id="QI" placeholder="Question Input"></input><br>
+     <input type= "Text" name = "QA" id="QA" placeholder="Expected Output"></input><br>
+     <input type= "Text" name = "QC" id="QC" placeholder="Question Category"></input><br>
+     <input type= "Text" name = "QD" id="QD" placeholder="Question Difficulty"></input><br>
      <input class= "button" type="submit" value="Make Question"/>
    </form>
   </body>
@@ -73,7 +73,8 @@
   require "config.php";
   $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
   $db= new PDO($connection_string, $dbuser, $dbpass);
-  if(isset($_POST['QT'] && isset($_POST['QI']) && isset($_POST['QA'] && isset($_POST['QC']) && isset($_POST['QD'])){
+  if(isset($_POST['QT']) && isset($_POST['QA']) && isset($_POST['QC']) && isset($_POST['QD'])) {
+    echo "trying";
     try{
       $sql = $db->prepare("INSERT INTO `questions`
                   (questionText, category, difficultyLevel, Answer) VALUES
@@ -83,4 +84,6 @@
       echo "<pre>" . var_export($r, true) . "</pre>";
       echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
     }
+    finally{}
+  }
  ?>

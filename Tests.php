@@ -6,10 +6,10 @@
       <titles style= "position:relative; top: 6">
         Tests
       </titles>
-      <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
+      <button style= "float:right;"type="button" onclick="location.href = 'Logout.php';"
            class = "button" name="Login"> Logout
       </button>
-      <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/AdminHome.php';"
+      <button style= "float:right;"type="button" onclick="location.href = 'AdminHome.php';"
            class = "button" name="Login"> Home
       </button>
    </div>
@@ -58,7 +58,7 @@
  </style>
   <body>
     <!-- Tests section -->
-    <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
+    <button type="button" onclick="location.href = 'MNTest.php';"
            class = "button" name="MNTest"> Make New Test
    </button><br><br>
    <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
@@ -76,9 +76,9 @@
            echo "<td>$row[Total_Points]</td>";
            echo "</tr>";
          }
-
          echo "</tbody>";// Closing of list box
        }
+       finally{}
     ?>
    <form name="Testform" id="myForm" method="POST">
      <input type= "number" id="TestID"></input>
@@ -101,6 +101,7 @@
           echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
           header("Refresh:0");
         }
+        finally{}
       }
     }
  ?>

@@ -69,11 +69,11 @@ else{
  </style>
   <body>
     <!-- Tests section -->
-    <button type="button" onclick="location.href = 'http://localhost/CS490/Tests.php';"
+    <button type="button" onclick="location.href = 'Tests.php';"
            class = "button" name="MNTest"> Make New Test
    </button>
    <!-- Questons -->
-   <button type="button" onclick="location.href = 'http://localhost/CS490/Questions.php';"
+   <button type="button" onclick="location.href = 'Questions.php';"
           class = "button" name="MNTest"> Make New Question
   </button>
   <!-- display current students here-->
@@ -91,9 +91,9 @@ else{
           foreach ($dbo->query($sql) as $row){//Array or records stored in $row
             echo "<option value=$row[UID]>$row[Username]</option>";
           }
-
           echo "</select>";// Closing of list box
         }
+        finally{}
      ?>
      <input class= "button" type="submit" value="See tests"/>
   </form>
@@ -110,18 +110,19 @@ else{
       $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
       $db= new PDO($connection_string, $dbuser, $dbpass);
       try{
-        $sql = "SELECT EID, result, ResultID from results Where UID = $_POST['studentID']";
+        $sql = "SELECT EID, result, ResultID from results Where UID = '$_POST[studentID]'";
         echo "<tbody>"; // list box select command
         foreach ($db->query($sql) as $row){//Array or records stored in $row
-          $sql2 = "SELECT Exam_Name from exams Where EID = $row['EID']";
-          $db->query($sql2) as $row2
+          $sql2 = $db->prepare("SELECT Exam_Name from exams Where EID = '$row[EID]'");
+          $sql2->execute();
+          $row2 = $sql2->fetch(PDO::FETCH_ASSOC);
           echo "<tr>";
           echo "<td>$row2[Exam_Name]</td>";
           echo "<td>$row[result]</td>";
           echo "</tr>";
         }
-
         echo "</tbody>";// Closing of list box
       }
+      finally{}
     }
  ?>
