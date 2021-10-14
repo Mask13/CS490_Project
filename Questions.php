@@ -58,7 +58,7 @@
  </style>
   <body>
     <!-- Tests section -->
-    <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/MNQuestion.php';"
+    <button type="button" onclick="location.href = 'http://localhost/CS490/MNQuestion.php';"
            class = "button" name="MNTest"> Make New Question
    </button><br><br>
    <!-- Display all Questions with a SQL Query. -->

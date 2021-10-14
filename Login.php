@@ -124,7 +124,7 @@ if(isset($_POST['username'])&& isset($_POST['password'])){
     {
         $db = new PDO($connection_string, $dbuser, $dbpass);
         //CHANGE FOR NEW DATABASE
-        $stmt = $db->prepare("SELECT IsAdmin, username, password, UID from `acc.login` where username = :username LIMIT 1");
+        $stmt = $db->prepare("SELECT IsAdmin, username, password, UID from `users` where username = :username LIMIT 1");
 
         $params = array(":username"=> $userName);
         $stmt->execute($params);
@@ -139,10 +139,10 @@ if(isset($_POST['username'])&& isset($_POST['password'])){
 						$_SESSION['UID'] = $result['UID']
             //echo $_SESSION['IsAdmiin'];
             if($_SESSION['IsAdmin']==0){
-                echo'<script type="text/javascript">window.open("https://web.njit.edu/~as3655/CS490/UserHome.php","_self");</script>';
+                echo'<script type="text/javascript">window.open("http://localhost/CS490/UserHome.php","_self");</script>';
             }
             else{
-                echo'<script type="text/javascript">window.open("https://web.njit.edu/~as3655/CS490/AdminHome.php","_self");</script>';
+                echo'<script type="text/javascript">window.open("http://localhost/CS490/AdminHome.php","_self");</script>';
             }
         }
     }

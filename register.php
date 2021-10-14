@@ -29,7 +29,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
   try{
   $db= new PDO($connection_string, $dbuser, $dbpass);
   echo "should have connected";
-  $stmt = $db->prepare("INSERT INTO `acc.login`
+  $stmt = $db->prepare("INSERT INTO `users`
             (username, password) VALUES
             (:username, :password)");
   $params = array(":username"=> $username, ":password"=> $password);

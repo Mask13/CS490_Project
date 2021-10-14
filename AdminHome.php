@@ -4,11 +4,11 @@ require ("config.php");
 if(isset($_SESSION['UID'])){
   if($_SESSION['IsAdmin']== 1){}
   else{
-    header("Location: https://web.njit.edu/~as3655/CS490/Login.php");
+    header("Location: http://localhost/CS490/Login.php");
   }
 }
 else{
-  header("Location: https://web.njit.edu/~as3655/CS490/Login.php");
+  header("Location: http://localhost/CS490/Login.php");
 }
 ?>
 
@@ -20,7 +20,7 @@ else{
       <titles style= "position:relative; top: 6">
         Hello Admin
       </titles>
-    <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
+    <button style= "float:right;"type="button" onclick="location.href = 'http://localhost/CS490/Logout.php';"
            class = "button" name="Login"> Logout
    </button>
    </div>
@@ -69,11 +69,11 @@ else{
  </style>
   <body>
     <!-- Tests section -->
-    <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
+    <button type="button" onclick="location.href = 'http://localhost/CS490/Tests.php';"
            class = "button" name="MNTest"> Make New Test
    </button>
    <!-- Questons -->
-   <button type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
+   <button type="button" onclick="location.href = 'http://localhost/CS490/Questions.php';"
           class = "button" name="MNTest"> Make New Question
   </button>
   <!-- display current students here-->

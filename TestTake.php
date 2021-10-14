@@ -4,15 +4,15 @@ require ("config.php");
 if(isset($_SESSION['UID'])){
   if($_SESSION['IsAdmin']== 0){}
   else{
-    header("Location: https://web.njit.edu/~as3655/CS490/Login.php");
+    header("Location: http://localhost/CS490/Login.php");
   }
 }
 else{
-  header("Location: https://web.njit.edu/~as3655/CS490/Login.php");
+  header("Location: http://localhost/CS490/Login.php");
 }
 if(isset($_SESSION['testID'])){}
 else{
-  header("Location: https://web.njit.edu/~as3655/CS490/UserHome.php");
+  header("Location: http://localhost/CS490/UserHome.php");
 }
 ?>
 <html lang="en" dir="ltr">
