@@ -87,7 +87,7 @@ foreach ($questions as $value) {
     print_r($output);
     echo "$stat";
     // if nothing is returned, then it is "Correct"
-    if ($stat == 0) {
+    if (count($output) == 0) {
       $Correct = TRUE;
     }
     // else, then it is "Incorrect"
