@@ -4,11 +4,11 @@ require ("config.php");
 if(isset($_SESSION['UID'])){
   if($_SESSION['IsAdmin']== 0){}
   else{
-    header("Location: https://web.njit.edu/~as3655/CS490/Login.php");
+    header("Location: https://web.njit.edu/~kz236/CS490/Login.php");
   }
 }
 else{
-  header("Location: https://web.njit.edu/~as3655/CS490/Login.php");
+  header("Location: https://web.njit.edu/~kz236/CS490/Login.php");
 }
 ?>
 ?>
@@ -20,7 +20,7 @@ else{
       <titles style= "position:relative; top: 6">
         Hello Student
       </titles>
-    <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
+    <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~kz236/CS490/Logout.php';"
            class = "button" name="Login"> Logout
    </button>
    </div>
@@ -88,11 +88,38 @@ else{
        ?>
        <input class= "button" type="submit" value="See tests"/>
     </form>
+    <?php
+        require "config.php";
+        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+        $db= new PDO($connection_string, $dbuser, $dbpass);
+        try{
+          $sql = "SELECT EID, result, comments, newGrade from results Where UID = '$_SESSION[UID]'";
+          echo "<table>"; // list box select command
+          echo "<tr>";
+          echo "<td>EID</td>";
+          echo "<td>result</td>";
+          echo "<td>comments</td>";
+          echo "<td>New Grade</td>";
+          echo "</tr>";
+          foreach ($db->query($sql) as $row){//Array or records stored in $row
+            echo "<tr>";
+            echo "<td>$row[EID]</td>";
+            echo "<td>$row[result]</td>";
+            echo "<td>$row[comments]</td>";
+            echo "<td>$row[newGrade]</td>";
+            echo "</tr>";
+          }
+          echo "</table>";// Closing of list box
+        }
+        finally{}
+     ?>
   </body>
 </html>
 <?php
     if(isset($_POST["testID"])){
       $_SESSION['testID'] = $_POST['testID'];
       //redirect to test taking page
+      header("Location: https://web.njit.edu/~kz236/CS490/TestTake.php");
+      exit();
     }
  ?>

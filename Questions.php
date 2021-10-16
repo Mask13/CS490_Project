@@ -6,10 +6,10 @@
       <titles style= "position:relative; top: 6">
         Questions
       </titles>
-      <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
+      <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~kz236/CS490/Logout.php';"
            class = "button" name="Login"> Logout
       </button>
-      <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/AdminHome.php';"
+      <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~kz236/CS490/AdminHome.php';"
            class = "button" name="Login"> Home
       </button>
    </div>

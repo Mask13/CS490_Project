@@ -4,11 +4,11 @@ require ("config.php");
 if(isset($_SESSION['UID'])){
   if($_SESSION['IsAdmin']== 1){}
   else{
-    header("Location: http://localhost/CS490/Login.php");
+    header("Location: https://web.njit.edu/~kz236/CS490/Login.php");
   }
 }
 else{
-  header("Location: http://localhost/CS490/Login.php");
+  header("Location: https://web.njit.edu/~kz236/CS490/Login.php");
 }
 ?>
 
@@ -20,7 +20,7 @@ else{
       <titles style= "position:relative; top: 6">
         Hello Admin
       </titles>
-    <button style= "float:right;"type="button" onclick="location.href = 'http://localhost/CS490/Logout.php';"
+    <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~kz236/CS490/Logout.php';"
            class = "button" name="Login"> Logout
    </button>
    </div>
@@ -70,11 +70,11 @@ else{
   <body>
     <!-- Tests section -->
     <button type="button" onclick="location.href = 'Tests.php';"
-           class = "button" name="MNTest"> Make New Test
+           class = "button" name="MNTest"> View Tests
    </button>
    <!-- Questons -->
    <button type="button" onclick="location.href = 'Questions.php';"
-          class = "button" name="MNTest"> Make New Question
+          class = "button" name="MNTest"> View Questions
   </button>
   <!-- display current students here-->
   <center><titles style="position:relative; top:60">Students</titles></center>

@@ -5,10 +5,10 @@
       <titles style= "position:relative; top: 6">
         New Test
       </titles>
-      <button style= "float:right;"type="button" onclick="location.href = 'http://localhost/CS490/Logout.php';"
+      <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~kz236/CS490/Logout.php';"
            class = "button" name="Login"> Logout
       </button>
-      <button style= "float:right;"type="button" onclick="location.href = 'http://localhost/CS490/AdminHome.php';"
+      <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~kz236/CS490/AdminHome.php';"
            class = "button" name="Login"> Home
       </button>
    </div>
@@ -57,6 +57,27 @@
  </style>
   <body>
     <!-- Display All Questons -->
+    <?php
+        require "config.php";
+        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+        $db= new PDO($connection_string, $dbuser, $dbpass);
+        try{
+          $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer from `questions`";
+          echo "<tbody>"; // list box select command
+          foreach ($db->query($sql) as $row){//Array or records stored in $row
+            echo "<tr>";
+            echo "<td>$row[questionID]</td>";
+            echo "<td>$row[questionText]</td>";
+            echo "<td>$row[category]</td>";
+            echo "<td>$row[difficultyLevel]</td>";
+            echo "<td>$row[Answer]</td>";
+            echo "</tr>";
+          }
+
+          echo "</tbody>";// Closing of list box
+        }
+        finally{}
+     ?>
    <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
    <form name="NewTest" id="myForm" method="POST">
      <input type="text" name="TestName" id="TestName" placeholder="Test Name"></input><br>
