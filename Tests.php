@@ -68,7 +68,12 @@
        $db= new PDO($connection_string, $dbuser, $dbpass);
        try{
          $sql = "SELECT EID, Exam_Name, Total_Points from exams";
-         echo "<tbody>"; // list box select command
+         echo "<table>"; // list box select command
+         echo "<tr>";
+         echo "<td>EID</td>";
+         echo "<td>Exam Name</td>";
+         echo "<td>Total Points</td>";
+         echo "</tr>";
          foreach ($db->query($sql) as $row){//Array or records stored in $row
            echo "<tr>";
            echo "<td>$row[EID]</td>";
@@ -76,19 +81,48 @@
            echo "<td>$row[Total_Points]</td>";
            echo "</tr>";
          }
-         echo "</tbody>";// Closing of list box
+         echo "</table>";// Closing of list box
        }
        finally{}
     ?>
    <form name="Testform" id="myForm" method="POST">
-     <input type= "number" id="TestID"></input>
-      <input class = "button" type="submit" id="Delete" value="Delete"></input>
-     <input class = "button" type="submit" id="Edit" value="Edit"></input>
+     <input type= "number" name = "TestID" id="TestID" placeholder="EID"></input>
+      <input class = "button" type="submit" name = "Delete" id="Delete" value="Delete"></input>
+      <input class = "button" type="submit" name = "Edit" id="Edit" value="Edit"></input>
    </form>
+   <?php
+       require "config.php";
+       $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+       $db= new PDO($connection_string, $dbuser, $dbpass);
+       try{
+         $sql = "SELECT UID, Username from `users` WHERE IsAdmin= 0 ";
+         echo "<table>"; // list box select command
+         echo "<tr>";
+         echo "<td>UID</td>";
+         echo "<td>Username</td>";
+         echo "</tr>";
+         foreach ($db->query($sql) as $row){//Array or records stored in $row
+           echo "<tr>";
+           echo "<td>$row[UID]</td>";
+           echo "<td>$row[Username]</td>";
+           echo "</tr>";
+         }
+         echo "</table>";// Closing of list box
+       }
+       finally{}
+    ?>
+   <form name="SIDForm" id="myForm" method="POST">
+     <input type= "number" name = "SID" id="SID" placeholder="SID"></input>
+      <input class = "button" type="submit" name = "SetSID" id="SetSID" value="SetSID"></input>
+   </form>
+   <button type="button" onclick="location.href = 'autograde.php'"
+          class = "button" name="autograde"> autograde
+  </button>
   </body>
 </html>
 
 <?php
+    session_start();
     if(isset($_POST["TestID"])){
       if(isset($_POST["Delete"])){
         try{
@@ -103,5 +137,13 @@
         }
         finally{}
       }
+      if(isset($_POST["Edit"])){
+        $_SESSION["EID"] = $_POST["TestID"];
+      }
     }
+
+    if(isset($_POST["SID"])){
+      $_SESSION["SID"] = $_POST["SID"];
+    }
+
  ?>
