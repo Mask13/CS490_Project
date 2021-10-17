@@ -68,7 +68,14 @@
        $db= new PDO($connection_string, $dbuser, $dbpass);
        try{
          $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer from `questions`";
-         echo "<tbody>"; // list box select command
+         echo "<table>"; // list box select command
+         echo "<tr>";
+         echo "<td>Question ID</td>";
+         echo "<td>Question Text</td>";
+         echo "<td>Catagory</td>";
+         echo "<td>Difficulty</td>";
+         echo "<td>Answer</td>";
+         echo "</tr>";
          foreach ($db->query($sql) as $row){//Array or records stored in $row
            echo "<tr>";
            echo "<td>$row[questionID]</td>";
@@ -79,7 +86,7 @@
            echo "</tr>";
          }
 
-         echo "</tbody>";// Closing of list box
+         echo "</table>";// Closing of list box
        }
        finally{}
     ?>

@@ -63,7 +63,14 @@
         $db= new PDO($connection_string, $dbuser, $dbpass);
         try{
           $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer from `questions`";
-          echo "<tbody>"; // list box select command
+          echo "<table>"; // list box select command
+          echo "<tr>";
+          echo "<td>Question ID</td>";
+          echo "<td>Question Text</td>";
+          echo "<td>Catagory</td>";
+          echo "<td>Difficulty</td>";
+          echo "<td>Answer</td>";
+          echo "</tr>";
           foreach ($db->query($sql) as $row){//Array or records stored in $row
             echo "<tr>";
             echo "<td>$row[questionID]</td>";
@@ -74,7 +81,7 @@
             echo "</tr>";
           }
 
-          echo "</tbody>";// Closing of list box
+          echo "</table>";// Closing of list box
         }
         finally{}
      ?>
@@ -156,9 +163,8 @@
       echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
       $EID = $sql->fetch();
       $sql2 = $db->prepare("UPDATE `QuestionAssignments`
-                  SET Q3= ':Q3', Q3P=':Q3P' WHERE EID = ':EID' ");
-      $params = array(":EID"=> $EID, ":Q3"=>$_POST['Q3ID'], ":Q3P"=>$_POST['Q3P']);
-      $r = $sql2->execute($params);
+                  SET Q3= '$_POST[Q3ID]', Q3P='$_POST[Q3P]' WHERE EID = '$EID[EID]' ");
+      $r = $sql2->execute();
       echo "<pre>" . var_export($r, true) . "</pre>";
       echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
     }
@@ -173,9 +179,8 @@
       echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
       $EID = $sql->fetch();
       $sql2 = $db->prepare("UPDATE `QuestionAssignments`
-                  SET Q4= ':Q4', Q4P=':Q4P' WHERE EID = ':EID' ");
-      $params = array(":EID"=> $EID, ":Q4"=>$_POST['Q4ID'], ":Q4P"=>$_POST['Q4P']);
-      $r = $sql2->execute($params);
+                  SET Q4= '$_POST[Q4ID]', Q4P='$_POST[Q4P]' WHERE EID = '$EID[EID]' ");
+      $r = $sql2->execute();
       echo "<pre>" . var_export($r, true) . "</pre>";
       echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
     }
@@ -190,9 +195,8 @@
       echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
       $EID = $sql->fetch();
       $sql2 = $db->prepare("UPDATE `QuestionAssignments`
-                  SET Q5= ':Q5', Q5P=':Q5P' WHERE EID = ':EID' ");
-      $params = array(":EID"=> $EID, ":Q5"=>$_POST['Q5ID'], ":Q5P"=>$_POST['Q5P']);
-      $r = $sql2->execute($params);
+                  SET Q5= '$_POST[Q5ID]', Q5P='$_POST[Q5P]' WHERE EID = '$EID[EID]' ");
+      $r = $sql2->execute();
       echo "<pre>" . var_export($r, true) . "</pre>";
       echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
     }

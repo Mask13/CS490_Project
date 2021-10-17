@@ -79,7 +79,7 @@ else{
   <!-- display current students here-->
   <center><titles style="position:relative; top:60">Students</titles></center>
   <form action="Request_Test" method="post">
-    <?php
+      <?php
         require "config.php";
         $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
         $db= new PDO($connection_string, $dbuser, $dbpass);
@@ -88,7 +88,7 @@ else{
 
           echo "<select id='studentID' name='studentID' value=''>Student Name</option>"; // list box select command
 
-          foreach ($dbo->query($sql) as $row){//Array or records stored in $row
+          foreach ($db->query($sql) as $row){//Array or records stored in $row
             echo "<option value=$row[UID]>$row[Username]</option>";
           }
           echo "</select>";// Closing of list box
@@ -97,12 +97,15 @@ else{
      ?>
      <input class= "button" type="submit" value="See tests"/>
   </form>
-
+  <form method="post">
+    <input type="number" name="EID" value="EID">
+    <input type="" name="" value="">
+  </form>
   </body>
 </html>
 
 <?php
-    if(isset($_POST["Request_Test"]) && isset($_POST["studentID"])){
+    if(isset($_POST["Request_Test"]) || isset($_POST["studentID"])){
       GetTests();
     }
     function GetTests(){
