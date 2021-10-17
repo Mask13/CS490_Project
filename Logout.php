@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>My Project - Logout</title>
-		<button class = "button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Login.php';"
+		<button class = "button" onclick="location.href = 'Login.php';"
     type="button" name="Login"> Login</button>
 	</head>
   <style>

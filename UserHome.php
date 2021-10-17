@@ -4,11 +4,11 @@ require ("config.php");
 if(isset($_SESSION['UID'])){
   if($_SESSION['IsAdmin']== 0){}
   else{
-    header("Location: https://web.njit.edu/~as3655/CS490/Login.php");
+    header("Location: Login.php");
   }
 }
 else{
-  header("Location: https://web.njit.edu/~as3655/CS490/Login.php");
+  header("Location: Login.php");
 }
 ?>
 ?>
@@ -20,7 +20,7 @@ else{
       <titles style= "position:relative; top: 6">
         Hello Student
       </titles>
-    <button style= "float:right;"type="button" onclick="location.href = 'https://web.njit.edu/~as3655/CS490/Logout.php';"
+    <button style= "float:right;"type="button" onclick="location.href = 'Logout.php';"
            class = "button" name="Login"> Logout
    </button>
    </div>
@@ -119,7 +119,7 @@ else{
     if(isset($_POST["testID"])){
       $_SESSION['testID'] = $_POST['testID'];
       //redirect to test taking page
-      header("Location: https://web.njit.edu/~as3655/CS490/TestTake.php");
+      header("Location: TestTake.php");
       exit();
     }
  ?>
