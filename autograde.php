@@ -83,11 +83,12 @@ foreach ($questions as $value) {
 
     // Alternative: We could do a checking of two files and compare the answers of them using the quick diff command
 
-    exec("diff <(python gradera.py) <(python graderb.py) 2>&1", $output, $stat);
-    print_r($output);
-    echo "$stat";
+    $output = exec("diff <(python gradera.py) <(python graderb.py)");
+    echo "$output";
+    echo "$dataAnswer";
+    echo "$dataString";
     // if nothing is returned, then it is "Correct"
-    if (count($output) == 0) {
+    if (strlen($output) == 0) {
       $Correct = TRUE;
     }
     // else, then it is "Incorrect"
@@ -112,7 +113,7 @@ foreach ($questions as $value) {
     echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
 
 
-    //$qPoints = $r["$value"];
+    $qPoints = $r["$value"];
 
     // Global Counter //
     if ($Correct == TRUE) {

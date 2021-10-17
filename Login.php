@@ -119,11 +119,11 @@ if(isset($_POST['username'])&& isset($_POST['password'])){
     //$passWord = password_hash($passWord, password_bcrypt);
     //filter thing here
 
-    $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+		require "config.php";
+		$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+		$db= new PDO($connection_string, $dbuser, $dbpass);
     try
     {
-        $db = new PDO($connection_string, $dbuser, $dbpass);
-        //CHANGE FOR NEW DATABASE
         $stmt = $db->prepare("SELECT IsAdmin, username, password, UID from `users` where username = :username LIMIT 1");
 
         $params = array(":username"=> $userName);
