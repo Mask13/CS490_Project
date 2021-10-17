@@ -1,6 +1,6 @@
 <?php
-$dbuser = "UCID";
-$dbpass = "PASSWORD";
-$dbhost = "afsconnect";
-$dbdatabase = "as3655";
+$dbuser = getenv("dbuser");
+$dbpass = getenv("dbpass");
+$dbhost = getenv("dbhost");
+$dbdatabase = getenv("dbdatabase");
 ?>
