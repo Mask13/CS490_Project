@@ -84,7 +84,7 @@ foreach ($questions as $value) {
 
     // Alternative: We could do a checking of two files and compare the answers of them using the quick diff command
 
-    exec("diff <(python gradera.py) <(python graderb.py)", $output, $stat);
+    $output = exec("diff <(python gradera.py) <(python graderb.py)");
     echo "$output";
     echo "$dataAnswer";
     echo "$dataString";
