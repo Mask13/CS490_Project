@@ -84,12 +84,12 @@ foreach ($questions as $value) {
 
     // Alternative: We could do a checking of two files and compare the answers of them using the quick diff command
 
-    $output = exec("diff <(python gradera.py) <(python graderb.py)");
-    echo "$output";
-    echo "$dataAnswer";
-    echo "$dataString";
+    $output1 = exec("python gradera.py");
+    $output2 = exec("python graderb.py");
+    echo "$output1";
+    echo "$output2";
     // if nothing is returned, then it is "Correct"
-    if (strlen($output) == 0) {
+    if (strcasecmp($output1, $output2) == 0) {
       $Correct = TRUE;
     }
     // else, then it is "Incorrect"
