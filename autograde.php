@@ -38,8 +38,8 @@ foreach ($questions as $value) {
     $r = $s->fetch(PDO::FETCH_ASSOC);
 
     $dataString = $r["Submission"];
-    chdir("/app");
-    file_put_contents("gradera.py", $dataString. " ");
+    chdir("app");
+    file_put_contents("gradera.py", "$dataString");
     $StringLen = strlen($dataString);
 
     // Alternative //
@@ -65,7 +65,7 @@ foreach ($questions as $value) {
     $r = $s->fetch(PDO::FETCH_ASSOC);
 
     $dataAnswer = $r["Answer"];
-    file_put_contents("graderb.py", $dataAnswer. " ");
+    file_put_contents("graderb.py", "$dataAnswer");
     $AnswerLen = strlen($dataAnswer);
 
     // Alternative //
@@ -84,7 +84,7 @@ foreach ($questions as $value) {
 
     // Alternative: We could do a checking of two files and compare the answers of them using the quick diff command
 
-    exec("diff <(python gradera.py) <(python graderb.py) 2>&1", $output, $stat);
+    exec("diff <(python gradera.py) <(python graderb.py)", $output, $stat);
     echo "$output";
     echo "$dataAnswer";
     echo "$dataString";
