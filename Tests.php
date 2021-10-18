@@ -88,7 +88,7 @@
    <form name="Testform" id="myForm" method="POST">
      <input type= "number" name = "TestID" id="TestID" placeholder="EID"></input>
       <input class = "button" type="submit" name = "Delete" id="Delete" value="Delete"></input>
-      <input class = "button" type="submit" name = "Edit" id="Edit" value="Edit"></input>
+      <input class = "button" type="submit" name = "Edit" id="Edit" value="Submit ID"></input>
    </form>
    <?php
        require "config.php";

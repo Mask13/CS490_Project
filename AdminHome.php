@@ -113,7 +113,7 @@ else{
 
   if(isset($_POST["RID"]) && isset($_POST["comments"]) && isset($_POST["newGrade"])){
     echo "this is doing shit";
-    $sql = $db->prepare("UPDATE results SET comments='$_POST[comments]', newGrade = '$_POST[newGrade]' Where resultID= '$_POST[RID]'");
+    $sql = $db->prepare("UPDATE results SET released = 1, comments='$_POST[comments]', newGrade = '$_POST[newGrade]' Where resultID= '$_POST[RID]'");
     $sql->execute();
   }
 

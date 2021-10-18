@@ -86,14 +86,14 @@ else{
           }
           finally{}
        ?>
-       <input class= "button" type="submit" value="See tests"/>
+       <input class= "button" type="submit" value="Take test"/>
     </form>
     <?php
         require "config.php";
         $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
         $db= new PDO($connection_string, $dbuser, $dbpass);
         try{
-          $sql = "SELECT EID, result, comments, newGrade from results Where UID = '$_SESSION[UID]'";
+          $sql = "SELECT EID, result, comments, newGrade from results Where UID = '$_SESSION[UID]' and released = 1";
           echo "<table>"; // list box select command
           echo "<tr>";
           echo "<td>EID</td>";
