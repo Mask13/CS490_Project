@@ -38,7 +38,7 @@ foreach ($questions as $value) {
     $r = $s->fetch(PDO::FETCH_ASSOC);
 
     $dataString = $r["Submission"];
-    chdir("/app")
+    chdir("/app");
     file_put_contents("gradera.py", $dataString);
     $StringLen = strlen($dataString);
 
