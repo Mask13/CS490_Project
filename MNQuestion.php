@@ -109,7 +109,7 @@
       echo "trying 2";
     try{
       $sql = $db->prepare("INSERT INTO `questions`
-                  (functionName, questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3) VALUES
+                  (functionName, questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2) VALUES
                   (:QFN, :QT, :QC, :QD, :QI1, :QA1, :QI2, :QA2)");
       $params = array(":QFN"=> $_POST['QFN'], ":QT"=> $_POST['QT'], ":QC"=>$_POST['QC'], ":QD"=>$_POST['QD'], ":QA1"=>$_POST['QA1'],
         ":QA2"=>$_POST['QA2'], ":QI1"=>$_POST['QI1'], ":QI2"=>$_POST['QI2']);
@@ -123,7 +123,7 @@
     echo "trying 3";
     try{
       $sql = $db->prepare("INSERT INTO `questions`
-                  (functionName, questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3) VALUES
+                  (functionName, questionText, category, difficultyLevel, QI1, Answer1) VALUES
                   (:QFN, :QT, :QC, :QD, :QI1, :QA1)");
       $params = array(":QFN"=> $_POST['QFN'], ":QT"=> $_POST['QT'], ":QC"=>$_POST['QC'], ":QD"=>$_POST['QD'], ":QA1"=>$_POST['QA1'], ":QI1"=>$_POST['QI1']);
       $r = $sql->execute($params);
