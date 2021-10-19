@@ -73,10 +73,10 @@
      <input class= "formInput1" type= "Text" name = "QT" id="QT" placeholder="Question Text"></input><br>
      <input class= "formInput1" type= "Text" name = "QI1" id="QI1" placeholder="Question Test 1"></input><br>
      <input class= "formInput1" type= "Text" name = "QA1" id="QA1" placeholder="Answer 1"></input><br>
-     <input class= "formInput1" type= "Text" name = "QI1" id="QI2" placeholder="Question Test 2"></input><br>
-     <input class= "formInput1" type= "Text" name = "QA1" id="QA2" placeholder="Answer 2"></input><br>
-     <input class= "formInput1" type= "Text" name = "QI1" id="QI3" placeholder="Question Test 3"></input><br>
-     <input class= "formInput1" type= "Text" name = "QA1" id="QA3" placeholder="Answer 3"></input><br>
+     <input class= "formInput1" type= "Text" name = "QI2" id="QI2" placeholder="Question Test 2"></input><br>
+     <input class= "formInput1" type= "Text" name = "QA2" id="QA2" placeholder="Answer 2"></input><br>
+     <input class= "formInput1" type= "Text" name = "QI3" id="QI3" placeholder="Question Test 3"></input><br>
+     <input class= "formInput1" type= "Text" name = "QA3" id="QA3" placeholder="Answer 3"></input><br>
      <input class= "formInput1" type= "Text" name = "QC" id="QC" placeholder="Question Category"></input><br>
      <input class= "formInput1" type= "Text" name = "QD" id="QD" placeholder="Question Difficulty"></input><br>
      <input class= "formInput1" type= "Text" name = "QFN" id ="QFN" placeholder="Function Name"></input><br>
