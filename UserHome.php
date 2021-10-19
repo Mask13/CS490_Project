@@ -111,7 +111,7 @@ else{
             echo "<td>$row[comments]</td>";
             echo "<td>$row[newGrade]</td>";
             echo "<td>$r[Total_Points]</td>";
-            echo "<td>$percent</td>";
+            echo "<td>$percent."%"</td>";
             echo "</tr>";
           }
           echo "</table>";// Closing of list box
