@@ -17,6 +17,7 @@ finally{}
 // global variable for total Points for student
 global $studentPoints;
 global $counterCorrect;
+global $messedup;
 
 // for loop for all questions in the exam
 $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
@@ -67,6 +68,14 @@ foreach ($questions as $value) {
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $funcName = $r["functionName"];
 
+        if(str_contains($dataString, "def ".$funcName."(")){}
+        else{
+          $messedup = true;
+          $brokenProg = explode("(",$dataString);
+          $brokenProg[0]= "def ".$funcName;
+          $dataString = implode("(", $brokenProg);
+        }
+
         // full String for the command used in python file
         $pycommand = $dataString."\nprint(".$funcName."(".$Qinput."))";
 
@@ -115,8 +124,13 @@ foreach ($questions as $value) {
     echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
 
     $qPoints = $r["$value"];
-
-    $studentPoints +=($counterCorrect/$testAmount) * $qPoints;
+    if($messedup){
+      $studentPoints +=(.95)*($counterCorrect/$testAmount) * $qPoints;
+      $messedup = false;
+    }
+    else{
+      $studentPoints +=($counterCorrect/$testAmount) * $qPoints;
+    }
     $testAmount = 0;
     $counterCorrect = 0;
     echo "$studentPoints";
