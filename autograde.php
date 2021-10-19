@@ -73,6 +73,7 @@ foreach ($questions as $value) {
         $strOutput = NULL;
         $stat = NULL;
         $output = exec("python gradera.py", $strOutput, $stat);
+        echo "student output";
         echo "$output";
 
         // =======================================================
@@ -84,6 +85,7 @@ foreach ($questions as $value) {
         $s->execute();
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $Ansinput = $r["$aInput"];
+        echo "Expected Output";
         echo "$Ansinput";
 
         // =======================================================
