@@ -43,7 +43,8 @@ foreach ($questions as $value) {
 
     $dataString = $r["Submission"];
     //chdir("app");
-
+    $value .="P";
+    
     // going thru Question Input
     for($x = 1; $x <= 3; $x++) {
       // getting each test case
@@ -107,7 +108,7 @@ foreach ($questions as $value) {
 
         // if "Correct", adds to StudentResult Counter(Global)
 
-        $value .="P";
+
         $s = $db->prepare("SELECT $value FROM QuestionAssignments WHERE EID = '$EID' ");
         $s->execute();
         $r = $s->fetch(PDO::FETCH_ASSOC);
