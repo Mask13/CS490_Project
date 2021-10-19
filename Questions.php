@@ -74,7 +74,12 @@
          echo "<td>Question Text</td>";
          echo "<td>Catagory</td>";
          echo "<td>Difficulty</td>";
-         echo "<td>Answer</td>";
+         echo "<td>Input</td>";
+         echo "<td>Expected Output:</td>";
+         echo "<td>Input</td>";
+         echo "<td>Expected Output:</td>";
+         echo "<td>Input</td>";
+         echo "<td>Expected Output:</td>";
          echo "</tr>";
          foreach ($db->query($sql) as $row){//Array or records stored in $row
            echo "<tr>";
@@ -82,7 +87,12 @@
            echo "<td>$row[questionText]</td>";
            echo "<td>$row[category]</td>";
            echo "<td>$row[difficultyLevel]</td>";
-           echo "<td>$row[Answer]</td>";
+           echo "<td>$row[QI1]</td>";
+           echo "<td>$row[Answer1]</td>";
+           echo "<td>$row[QI2]</td>";
+           echo "<td>$row[Answer2]</td>";
+           echo "<td>$row[QI3]</td>";
+           echo "<td>$row[Answer3]</td>";
            echo "</tr>";
          }
 
