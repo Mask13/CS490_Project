@@ -16,6 +16,7 @@ finally{}
 
 // global variable for total Points for student
 global $studentPoints;
+global $counterCorrect = 0;
 
 // for loop for all questions in the exam
 $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
@@ -44,7 +45,7 @@ foreach ($questions as $value) {
     $dataString = $r["Submission"];
     //chdir("app");
     $value .="P";
-    
+
     // going thru Question Input
     for($x = 1; $x <= 3; $x++) {
       // getting each test case
@@ -95,45 +96,29 @@ foreach ($questions as $value) {
 
         // if ran answer is the same as the expected output($Ansinput) then "Correct"
         if($output == $Ansinput) {
-          $Correct = TRUE;
+          $counterCorrect += 1;
         }
         // else, "incorrect"
         else {
-          $Correct = FALSE;
+          $counterCorrect += 0;
         }
-
-        // =======================================================
-        // Giving Points
-        // =======================================================
-
-        // if "Correct", adds to StudentResult Counter(Global)
-
-
-        $s = $db->prepare("SELECT $value FROM QuestionAssignments WHERE EID = '$EID' ");
-        $s->execute();
-        $r = $s->fetch(PDO::FETCH_ASSOC);
-        echo "<pre>" . var_export($r, true) . "</pre>";
-        echo "$value";
-        echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
-
-        $qPoints = $r["$value"];
-
-        // Test Case Checks //
-        if ($Correct == TRUE) {
-          $testRatio += 1;
-        }
-        else {
-          $testRatio += 0;
-        }
-
-        // amount of points for each question
-        $eachQPoint = ($testRatio * $qPoints) / $testAmount;
-
-        // added to studentPoints for the total student points
-        $studentPoints += $eachQPoint;
-        echo "$studentPoints";
       }
     }
+    // =======================================================
+    // Giving Points
+    // =======================================================
+    $s = $db->prepare("SELECT $value FROM QuestionAssignments WHERE EID = '$EID' ");
+    $s->execute();
+    $r = $s->fetch(PDO::FETCH_ASSOC);
+    echo "<pre>" . var_export($r, true) . "</pre>";
+    echo "$value";
+    echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
+
+    $qPoints = $r["$value"];
+
+    $studentPoints+=($counterCorrect/$testAmount) * $qPoints;
+    $testAmount = 0;
+    $counterCorrect = 0;
   }
 }
 
