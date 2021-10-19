@@ -39,6 +39,7 @@ else{
           $QText = $sql2->fetch(PDO::FETCH_ASSOC);
           echo "<lable for=Q1A> $QText[questionText] </lable>";
           echo "<input type='text' name = 'Q1A' id='Q1A'></input>";
+          echo "<br>";
           //Q2
           if($QIDS['Q2'] != NULL && $QIDS['Q2'] != 0){
             $sql2 = $db->prepare("SELECT questionText from questions Where questionID = :QID");
@@ -47,6 +48,7 @@ else{
             $QText = $sql2->fetch(PDO::FETCH_ASSOC);
             echo "<lable for=Q2A> $QText[questionText] </lable>";
             echo "<input type='text' name = 'Q2A' id='Q2A'></input>";
+            echo "<br>";
           }
           //Q3
           if($QIDS['Q3'] != NULL && $QIDS['Q3'] != 0){
@@ -56,6 +58,7 @@ else{
             $QText = $sql2->fetch(PDO::FETCH_ASSOC);
             echo "<lable for=Q3A> $QText[questionText] </lable>";
             echo "<input type='text' name = 'Q3A' id='Q3A'></input>";
+            echo "<br>";
           }
           //Q4
           if($QIDS['Q4'] != NULL){
@@ -65,6 +68,7 @@ else{
             $QText = $sql2->fetch(PDO::FETCH_ASSOC);
             echo "<lable for=Q4A> $QText[questionText] </lable>";
             echo "<input type='text' name = 'Q4A' id='Q4A'></input>";
+            echo "<br>";
           }
           //Q5
           if($QIDS['Q5'] != NULL){
@@ -74,6 +78,7 @@ else{
             $QText = $sql2->fetch(PDO::FETCH_ASSOC);
             echo "<lable for=Q5A> $QText[questionText] </lable>";
             echo "<input type='text' name = 'Q5A' id='Q5A'></input>";
+            echo "<br>";
           }
         }
         finally{}
