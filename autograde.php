@@ -16,7 +16,7 @@ finally{}
 
 // global variable for total Points for student
 global $studentPoints;
-global $counterCorrect = 0;
+global $counterCorrect;
 
 // for loop for all questions in the exam
 $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
