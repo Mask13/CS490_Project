@@ -24,6 +24,7 @@ foreach ($questions as $value) {
   $r = $s->fetch(PDO::FETCH_ASSOC);
   $qID = $r["$value"];
   if ($r["$value"] != NULL && $r["$value"] != 0) {
+    
     // =======================================================
     // Getting Student Answers
     // =======================================================
@@ -39,65 +40,54 @@ foreach ($questions as $value) {
 
     $dataString = $r["Submission"];
     chdir("app");
-    file_put_contents("gradera.py", "$dataString");
-    $StringLen = strlen($dataString);
+    
+    // going thru Question Input
+    for($x = 1; $x <= 3; $x++) {
+      
+      // getting each test case
+      $qInput = "QI".$x;
+      $s = $db->prepare("SELECT $qInput FROM questions WHERE questionID = '$qID'");
+      $s->execute();
+      $r = $s->fetch(PDO::FETCH_ASSOC);
+      $Qinput = $r["$qInput"];
 
-    // Alternative //
-    /*
-    $dataString = $r["Submission"];
-    file_put_contents("grader.py", $dataString);
-    $StringLen = strlen($dataString);
-    */
+      // getting function name
+      $s = $db->prepare("SELECT functionName FROM questions WHERE questionID = '$qID'");
+      $s->execute();
+      $r = $s->fetch(PDO::FETCH_ASSOC);
+      $funcName = $r["functionName"];
 
+      // full String for the command used in python file
+      $pycommand = $dataString."\n print(".$funcName."(".$Qinput."))";
 
-    // =======================================================
-    // Getting Actual Answers
-    // =======================================================
+      file_put_contents("gradera.py", $pycommand);
 
-    //$s = $db->prepare("SELECT QuestionID FROM answers WHERE resultID = '$reID' ");
-    //$s->execute();
-    //$r = $s->fetch(PDO::FETCH_ASSOC);
+      $output = exec("python gradera.py");
+      echo "$output";
+      
+      // =======================================================
+      // Getting Actual Answers
+      // =======================================================
 
-    //$qID = $r["QuestionID"];
+      $aInput = "Answer".$x;
+      $s = $db->prepare("SELECT $aInput FROM questions WHERE questionID = '$qID'");
+      $s->execute();
+      $r = $s->fetch(PDO::FETCH_ASSOC);
+      $Ansinput = $r["$aInput"];
+      echo "$Ansinput";
+      // =======================================================
+      // Comparing Answers
+      // =======================================================
 
-    $s = $db->prepare("SELECT Answer FROM questions WHERE questionID = '$qID'");
-    $s->execute();
-    $r = $s->fetch(PDO::FETCH_ASSOC);
-
-    $dataAnswer = $r["Answer"];
-    file_put_contents("graderb.py", "$dataAnswer");
-    $AnswerLen = strlen($dataAnswer);
-
-    // Alternative //
-    /*
-    $dataAsnwer = $r["Answer"];
-    file_put_contents("grader.py", $dataAnswer, FILE_APPEND);
-    $AnswerLen = strlen($dataAnswer);
-    */
-
-
-    // =======================================================
-    // Comparing Answers
-    // =======================================================
-
-    // exec(): do the checking of the two strings
-
-    // Alternative: We could do a checking of two files and compare the answers of them using the quick diff command
-
-    $output1 = exec("python gradera.py");
-    $output2 = exec("python graderb.py");
-    echo "$output1";
-    echo "$output2";
-    // if nothing is returned, then it is "Correct"
-    if (strcasecmp($output1, $output2) == 0) {
-      $Correct = TRUE;
+      // if ran answer is the same as the expected output($Ansinput) then "Correct"
+      if($output == $Ansinput) {
+        $Correct = TRUE;
+      }
+      // else, "incorrect"
+      else {
+        $Correct = FALSE;
+      }
     }
-    // else, then it is "Incorrect"
-    else {
-      $Correct = FALSE;
-    }
-
-    // Boolean Check for "Correct" or "Incorrect" //
 
     // =======================================================
     // Giving Points
