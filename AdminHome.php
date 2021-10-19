@@ -100,7 +100,7 @@ else{
   <form method="post">
     <input type="number" name="RID" placeholder="RID">
     <input type="text" name="comments" placeholder="Comment">
-    <input type="number" name="newGrade" placeholder="New Grade">
+    <input type="number" step="0.01" name="newGrade" placeholder="New Grade">
     <input type="submit" value="release grade">
   </form>
   </body>
