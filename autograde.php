@@ -134,7 +134,6 @@ foreach ($questions as $value) {
   }
 }
 
-
 $s = $db->prepare("SELECT Total_Points FROM exam WHERE EID = '$EID' ");
 $s->execute();
 $r = $s->fetch(PDO::FETCH_ASSOC);
