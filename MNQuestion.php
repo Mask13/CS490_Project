@@ -79,6 +79,7 @@
      <input class= "formInput1" type= "Text" name = "QA1" id="QA3" placeholder="Answer 3"></input><br>
      <input class= "formInput1" type= "Text" name = "QC" id="QC" placeholder="Question Category"></input><br>
      <input class= "formInput1" type= "Text" name = "QD" id="QD" placeholder="Question Difficulty"></input><br>
+     <input class= "formInput1" type= "Text" name = "QFN" id ="QFN" placeholder="Function Name"></input><br>
      <input class= "formInput1" class= "button" type="submit" value="Make Question"/>
    </form>
   </body>
@@ -88,14 +89,14 @@
   require "config.php";
   $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
   $db= new PDO($connection_string, $dbuser, $dbpass);
-  if(isset($_POST['QT']) && isset($_POST['QA']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1'])
+  if(isset($_POST['QFN']) && isset($_POST['QT']) && isset($_POST['QA']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1'])
     && isset($_POST['QA2']) && isset($_POST['QA3']) && isset($_POST['QI1']) && isset($_POST['QI2']) && isset($_POST['QI3'])){
 
     try{
       $sql = $db->prepare("INSERT INTO `questions`
-                  (questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3) VALUES
-                  (:QT, :QC, :QD, :QI1, :QA1, :QI2, :QA2, :QI3, :QA3)");
-      $params = array(":QT"=> $_POST['QT'], ":QC"=>$_POST['QC'], ":QD"=>$_POST['QD'], ":QA1"=>$_POST['QA1'],
+                  (functionName, questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3) VALUES
+                  (:QFN, :QT, :QC, :QD, :QI1, :QA1, :QI2, :QA2, :QI3, :QA3)");
+      $params = array(":QFN"=> $_POST['QFN'], ":QT"=> $_POST['QT'], ":QC"=>$_POST['QC'], ":QD"=>$_POST['QD'], ":QA1"=>$_POST['QA1'],
         ":QA2"=>$_POST['QA2'], ":QA3"=>$_POST['QA3'], ":QI1"=>$_POST['QI1'], ":QI2"=>$_POST['QI2'], ":QI3"=>$_POST['QI3']);
       $r = $sql->execute($params);
       echo "<pre>" . var_export($r, true) . "</pre>";
@@ -103,13 +104,13 @@
     }
     finally{}
   }
-  elseif(isset($_POST['QT']) && isset($_POST['QA']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1'])
+  elseif(isset($_POST['QFN']) && isset($_POST['QT']) && isset($_POST['QA']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1'])
     && isset($_POST['QA2']) && isset($_POST['QI1']) && isset($_POST['QI2'])){
     try{
       $sql = $db->prepare("INSERT INTO `questions`
-                  (questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3) VALUES
-                  (:QT, :QC, :QD, :QI1, :QA1, :QI2, :QA2)");
-      $params = array(":QT"=> $_POST['QT'], ":QC"=>$_POST['QC'], ":QD"=>$_POST['QD'], ":QA1"=>$_POST['QA1'],
+                  (functionName, questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3) VALUES
+                  (:QFN, :QT, :QC, :QD, :QI1, :QA1, :QI2, :QA2)");
+      $params = array(":QFN"=> $_POST['QFN'], ":QT"=> $_POST['QT'], ":QC"=>$_POST['QC'], ":QD"=>$_POST['QD'], ":QA1"=>$_POST['QA1'],
         ":QA2"=>$_POST['QA2'], ":QI1"=>$_POST['QI1'], ":QI2"=>$_POST['QI2']);
       $r = $sql->execute($params);
       echo "<pre>" . var_export($r, true) . "</pre>";
@@ -117,12 +118,12 @@
     }
     finally{}
   }
-  elseif(isset($_POST['QT']) && isset($_POST['QA']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1']) && isset($_POST['QI1'])){
+  elseif(isset($_POST['QFN']) && isset($_POST['QT']) && isset($_POST['QA']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1']) && isset($_POST['QI1'])){
     try{
       $sql = $db->prepare("INSERT INTO `questions`
-                  (questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3) VALUES
-                  (:QT, :QC, :QD, :QI1, :QA1)");
-      $params = array(":QT"=> $_POST['QT'], ":QC"=>$_POST['QC'], ":QD"=>$_POST['QD'], ":QA1"=>$_POST['QA1'], ":QI1"=>$_POST['QI1']);
+                  (functionName, questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3) VALUES
+                  (:QFN, :QT, :QC, :QD, :QI1, :QA1)");
+      $params = array(":QFN"=> $_POST['QFN'], ":QT"=> $_POST['QT'], ":QC"=>$_POST['QC'], ":QD"=>$_POST['QD'], ":QA1"=>$_POST['QA1'], ":QI1"=>$_POST['QI1']);
       $r = $sql->execute($params);
       echo "<pre>" . var_export($r, true) . "</pre>";
       echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
