@@ -23,6 +23,8 @@ foreach ($questions as $value) {
   $s-> execute();
   $r = $s->fetch(PDO::FETCH_ASSOC);
   $qID = $r["$value"];
+  
+  // Null Check: Questions
   if ($r["$value"] != NULL && $r["$value"] != 0) {
     
     // =======================================================
@@ -43,75 +45,81 @@ foreach ($questions as $value) {
     
     // going thru Question Input
     for($x = 1; $x <= 3; $x++) {
-      
       // getting each test case
       $qInput = "QI".$x;
       $s = $db->prepare("SELECT $qInput FROM questions WHERE questionID = '$qID'");
       $s->execute();
       $r = $s->fetch(PDO::FETCH_ASSOC);
       $Qinput = $r["$qInput"];
-
-      // getting function name
-      $s = $db->prepare("SELECT functionName FROM questions WHERE questionID = '$qID'");
-      $s->execute();
-      $r = $s->fetch(PDO::FETCH_ASSOC);
-      $funcName = $r["functionName"];
-
-      // full String for the command used in python file
-      $pycommand = $dataString."\n print(".$funcName."(".$Qinput."))";
-
-      file_put_contents("gradera.py", $pycommand);
-
-      $output = exec("python gradera.py");
-      echo "$output";
       
-      // =======================================================
-      // Getting Actual Answers
-      // =======================================================
+      // Null Check: Question Inputs
+      if ($Qinput != NULL && $Qinput != 0) {
+        
+        // getting function name
+        $s = $db->prepare("SELECT functionName FROM questions WHERE questionID = '$qID'");
+        $s->execute();
+        $r = $s->fetch(PDO::FETCH_ASSOC);
+        $funcName = $r["functionName"];
 
-      $aInput = "Answer".$x;
-      $s = $db->prepare("SELECT $aInput FROM questions WHERE questionID = '$qID'");
-      $s->execute();
-      $r = $s->fetch(PDO::FETCH_ASSOC);
-      $Ansinput = $r["$aInput"];
-      echo "$Ansinput";
-      // =======================================================
-      // Comparing Answers
-      // =======================================================
+        // full String for the command used in python file
+        $pycommand = $dataString."\n print(".$funcName."(".$Qinput."))";
 
-      // if ran answer is the same as the expected output($Ansinput) then "Correct"
-      if($output == $Ansinput) {
-        $Correct = TRUE;
+        file_put_contents("gradera.py", $pycommand);
+
+        $output = exec("python gradera.py");
+        echo "$output";
+      
+        // =======================================================
+        // Getting Actual Answers
+        // =======================================================
+
+        $aInput = "Answer".$x;
+        $s = $db->prepare("SELECT $aInput FROM questions WHERE questionID = '$qID'");
+        $s->execute();
+        $r = $s->fetch(PDO::FETCH_ASSOC);
+        $Ansinput = $r["$aInput"];
+        echo "$Ansinput";
+        
+        // =======================================================
+        // Comparing Answers
+        // =======================================================
+
+        // if ran answer is the same as the expected output($Ansinput) then "Correct"
+        if($output == $Ansinput) {
+          $Correct = TRUE;
+        }
+        // else, "incorrect"
+        else {
+          $Correct = FALSE;
+        }
+
+        // =======================================================
+        // Giving Points
+        // =======================================================
+
+        // if "Correct", adds to StudentResult Counter(Global)
+
+        $value .="P";
+        $s = $db->prepare("SELECT $value FROM QuestionAssignments WHERE EID = '$EID' ");
+        $s->execute();
+        $r = $s->fetch(PDO::FETCH_ASSOC);
+        echo "<pre>" . var_export($r, true) . "</pre>";
+        echo "$value";
+        echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
+
+
+        $qPoints = $r["$value"];
+
+        // Global Counter //
+        if ($Correct == TRUE) {
+          $studentPoints += $qPoints;
+        }
+        else {
+          $studentPoints += 0;
+        }
+
+
       }
-      // else, "incorrect"
-      else {
-        $Correct = FALSE;
-      }
-    }
-
-    // =======================================================
-    // Giving Points
-    // =======================================================
-
-    // if "Correct", adds to StudentResult Counter(Global)
-
-    $value .="P";
-    $s = $db->prepare("SELECT $value FROM QuestionAssignments WHERE EID = '$EID' ");
-    $s->execute();
-    $r = $s->fetch(PDO::FETCH_ASSOC);
-    echo "<pre>" . var_export($r, true) . "</pre>";
-    echo "$value";
-    echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
-
-
-    $qPoints = $r["$value"];
-
-    // Global Counter //
-    if ($Correct == TRUE) {
-      $studentPoints += $qPoints;
-    }
-    else {
-      $studentPoints += 0;
     }
   }
 }
