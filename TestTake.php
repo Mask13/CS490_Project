@@ -61,7 +61,7 @@ else{
             echo "<br>";
           }
           //Q4
-          if($QIDS['Q4'] != NULL){
+          if($QIDS['Q4'] != NULL && $QIDS['Q4'] != 0){
             $sql2 = $db->prepare("SELECT questionText from questions Where questionID = :QID");
             $params = array(":QID"=> $QIDS['Q4']);
             $sql2->execute($params);
@@ -71,7 +71,7 @@ else{
             echo "<br>";
           }
           //Q5
-          if($QIDS['Q5'] != NULL){
+          if($QIDS['Q5'] != NULL && $QIDS['Q5'] != 0){
             $sql2 = $db->prepare("SELECT questionText from questions Where questionID = :QID");
             $params = array(":QID"=> $QIDS['Q5']);
             $sql2->execute($params);
@@ -85,13 +85,6 @@ else{
        ?>
        <input type="submit" value="Submit">
      </form>
-     <script>
-      document.getElementById('test').addEventListener('keypress', function(event) {
-        if (event.keyCode == 13) {
-          event.preventDefault();
-        }
-      });
-     </script>
   </body>
 </html>
 
