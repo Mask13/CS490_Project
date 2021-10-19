@@ -67,6 +67,8 @@
   <body>
     <!-- Display All Questons -->
    <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
+   <br>
+   <br>
    <form name="NewQuestion" id="myForm" method="POST">
      <input class= "formInput1" type= "Text" name = "QT" id="QT" placeholder="Question Text"></input><br>
      <input class= "formInput1" type= "Text" name = "QI1" id="QI1" placeholder="Question Test 1"></input><br>
