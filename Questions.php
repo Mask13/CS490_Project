@@ -102,8 +102,8 @@
     ?>
    <form id="myForm" method="POST">
      <input type= "number" id="questionID"></input>
-      <input class = "button" type="submit" id="Delete" value="Delete"></input>
-     <input class = "button" type="submit" id="Edit" value="Edit"></input>
+      <input class = "button" type="submit" name="Delete" value="Delete"></input>
+     <input class = "button" type="submit" name="Edit" value="Edit"></input>
    </form>
   </body>
 </html>
