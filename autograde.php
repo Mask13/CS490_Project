@@ -68,8 +68,10 @@ foreach ($questions as $value) {
         $pycommand = $dataString."\n print(".$funcName."(".$Qinput.")";
 
         file_put_contents("gradera.py", $pycommand);
-
-        $output = exec("python gradera.py");
+        
+        $strOutput = NULL;
+        $stat = NULL;
+        $output = exec("python gradera.py", $strOutput, $stat);
         echo "$output";
 
         // =======================================================
