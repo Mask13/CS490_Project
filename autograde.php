@@ -65,7 +65,7 @@ foreach ($questions as $value) {
         $funcName = $r["functionName"];
 
         // full String for the command used in python file
-        $pycommand = $dataString."\n print(".$funcName."(".$Qinput."))";
+        $pycommand = $dataString."\n print(".$funcName."(".$Qinput.")";
 
         file_put_contents("gradera.py", $pycommand);
 
