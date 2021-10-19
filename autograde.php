@@ -41,7 +41,7 @@ foreach ($questions as $value) {
     $r = $s->fetch(PDO::FETCH_ASSOC);
 
     $dataString = $r["Submission"];
-    chdir("app");
+    //chdir("app");
 
     // going thru Question Input
     for($x = 1; $x <= 3; $x++) {
@@ -65,7 +65,7 @@ foreach ($questions as $value) {
         $funcName = $r["functionName"];
 
         // full String for the command used in python file
-        $pycommand = $dataString."\n print(".$funcName."(".$Qinput.")";
+        $pycommand = $dataString."\n print(".$funcName."(".$Qinput."))";
 
         file_put_contents("gradera.py", $pycommand);
         
