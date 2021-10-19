@@ -105,7 +105,7 @@ else{
             $sql2 = $db->prepare("SELECT Total_Points from exams Where EID = '$row[EID]'");
             $sql2->execute();
             $r = $sql2->fetch(PDO::FETCH_ASSOC);
-            $percent = $row['newGrade']/$r['Total_Points'];
+            $percent = 100 * $row['newGrade']/$r['Total_Points'];
             $percent .= '%';
             echo "<tr>";
             echo "<td>$row[EID]</td>";
