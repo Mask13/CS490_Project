@@ -21,7 +21,7 @@ else{
     <title>Test Taker</title>
   </head>
   <body>
-    <form method="post">
+    <form name= "test" id="test" method="post">
       <?php
         require "config.php";
         $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -85,6 +85,13 @@ else{
        ?>
        <input type="submit" value="Submit">
      </form>
+     <script>
+      document.getElementById('test').addEventListener('keypress', function(event) {
+        if (event.keyCode == 13) {
+          event.preventDefault();
+        }
+      });
+     </script>
   </body>
 </html>
 
