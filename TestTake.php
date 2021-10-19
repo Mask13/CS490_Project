@@ -83,7 +83,7 @@ else{
         }
         finally{}
        ?>
-       <input type="submit" value="Submit">
+       <input type="submit" action="UserHome.php" value="Submit">
      </form>
   </body>
 </html>
