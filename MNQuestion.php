@@ -29,6 +29,15 @@
            background-size: cover;
            color: #bcbdbe;
            }
+           .formInput1{
+             width: 100%;
+             padding: 10px;
+             border: 2px solid #c6a226;
+             border-radius: 25px;
+             box-sizing: border-box;
+             resize: vertical;
+             position: relative; bottom:50px;
+           }
 					 .button {
               background-color: Transparent;
               border: inset #c6a226;
@@ -59,16 +68,16 @@
     <!-- Display All Questons -->
    <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
    <form name="NewQuestion" id="myForm" method="POST">
-     <input type= "Text" name = "QT" id="QT" placeholder="Question Text"></input><br>
-     <input type= "Text" name = "QI1" id="QI1" placeholder="Question Test 1"></input><br>
-     <input type= "Text" name = "QA1" id="QA1" placeholder="Answer 1"></input><br>
-     <input type= "Text" name = "QI1" id="QI2" placeholder="Question Test 2"></input><br>
-     <input type= "Text" name = "QA1" id="QA2" placeholder="Answer 2"></input><br>
-     <input type= "Text" name = "QI1" id="QI3" placeholder="Question Test 3"></input><br>
-     <input type= "Text" name = "QA1" id="QA3" placeholder="Answer 3"></input><br>
-     <input type= "Text" name = "QC" id="QC" placeholder="Question Category"></input><br>
-     <input type= "Text" name = "QD" id="QD" placeholder="Question Difficulty"></input><br>
-     <input class= "button" type="submit" value="Make Question"/>
+     <input class= "formInput1" type= "Text" name = "QT" id="QT" placeholder="Question Text"></input><br>
+     <input class= "formInput1" type= "Text" name = "QI1" id="QI1" placeholder="Question Test 1"></input><br>
+     <input class= "formInput1" type= "Text" name = "QA1" id="QA1" placeholder="Answer 1"></input><br>
+     <input class= "formInput1" type= "Text" name = "QI1" id="QI2" placeholder="Question Test 2"></input><br>
+     <input class= "formInput1" type= "Text" name = "QA1" id="QA2" placeholder="Answer 2"></input><br>
+     <input class= "formInput1" type= "Text" name = "QI1" id="QI3" placeholder="Question Test 3"></input><br>
+     <input class= "formInput1" type= "Text" name = "QA1" id="QA3" placeholder="Answer 3"></input><br>
+     <input class= "formInput1" type= "Text" name = "QC" id="QC" placeholder="Question Category"></input><br>
+     <input class= "formInput1" type= "Text" name = "QD" id="QD" placeholder="Question Difficulty"></input><br>
+     <input class= "formInput1" class= "button" type="submit" value="Make Question"/>
    </form>
   </body>
 </html>
