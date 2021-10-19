@@ -55,6 +55,9 @@ foreach ($questions as $value) {
       // Null Check: Question Inputs
       if ($Qinput != NULL && $Qinput != 0) {
         
+        // getting amount of test cases
+        $testAmount += 1;
+
         // getting function name
         $s = $db->prepare("SELECT functionName FROM questions WHERE questionID = '$qID'");
         $s->execute();
@@ -107,20 +110,29 @@ foreach ($questions as $value) {
         echo "$value";
         echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
 
-
         $qPoints = $r["$value"];
 
-        // Global Counter //
+        // Test Case Checks //
         if ($Correct == TRUE) {
-          $studentPoints += $qPoints;
+          $testRatio += 1;
         }
         else {
-          $studentPoints += 0;
+          $testRatio += 0;
         }
 
+        // amount of points for each question
+        $eachQPoint = ($testRatio * $qPoints) / $testAmount;
 
+        // added to studentPoints for the total student points
+        $studentPoints += $eachQPoint;
+        echo "$studentPoints";
       }
     }
+
+    // global Student grade percentage
+    
+
+
   }
 }
 
