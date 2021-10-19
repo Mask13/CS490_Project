@@ -37,7 +37,7 @@ else{
           $params = array(":QID"=> $QIDS['Q1']);
           $sql2->execute($params);
           $QText = $sql2->fetch(PDO::FETCH_ASSOC);
-          echo "<lable for=Q1A> $QText[questionText] </lable>";
+          echo "<lable for=Q1A> $QText[questionText] </lable><br>";
           echo "<textarea form = 'test' name = 'Q1A' id='Q1A'></textarea>";
           echo "<br>";
           //Q2
@@ -46,7 +46,7 @@ else{
             $params = array(":QID"=> $QIDS['Q2']);
             $sql2->execute($params);
             $QText = $sql2->fetch(PDO::FETCH_ASSOC);
-            echo "<lable for=Q2A> $QText[questionText] </lable>";
+            echo "<lable for=Q2A> $QText[questionText] </lable><br>";
             echo "<textarea form = 'test' name = 'Q2A' id='Q2A'></textarea>";
             echo "<br>";
           }
@@ -56,7 +56,7 @@ else{
             $params = array(":QID"=> $QIDS['Q3']);
             $sql2->execute($params);
             $QText = $sql2->fetch(PDO::FETCH_ASSOC);
-            echo "<lable for=Q3A> $QText[questionText] </lable>";
+            echo "<lable for=Q3A> $QText[questionText] </lable><br>";
             echo "<textarea form = 'test' name = 'Q3A' id='Q3A'></textarea>";
             echo "<br>";
           }
@@ -66,7 +66,7 @@ else{
             $params = array(":QID"=> $QIDS['Q4']);
             $sql2->execute($params);
             $QText = $sql2->fetch(PDO::FETCH_ASSOC);
-            echo "<lable for=Q4A> $QText[questionText] </lable>";
+            echo "<lable for=Q4A> $QText[questionText] </lable> <br>";
             echo "<textarea form = 'test' name = 'Q4A' id='Q4A'></textarea>";
             echo "<br>";
           }
@@ -76,7 +76,7 @@ else{
             $params = array(":QID"=> $QIDS['Q5']);
             $sql2->execute($params);
             $QText = $sql2->fetch(PDO::FETCH_ASSOC);
-            echo "<lable for=Q5A> $QText[questionText] </lable>";
+            echo "<lable for=Q5A> $QText[questionText] </lable> <br>";
             echo "<textarea form = 'test' name = 'Q5A' id='Q5A'></textarea>";
             echo "<br>";
           }
