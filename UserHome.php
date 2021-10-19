@@ -96,16 +96,22 @@ else{
           echo "<table>"; // list box select command
           echo "<tr>";
           echo "<td>EID</td>";
-          echo "<td>result</td>";
           echo "<td>comments</td>";
-          echo "<td>New Grade</td>";
+          echo "<td>Result</td>";
+          echo "<td>Total Points Possible</td>";
+          echo "<td>Percent Grade</td>";
           echo "</tr>";
           foreach ($db->query($sql) as $row){//Array or records stored in $row
+            $sql2 = $db->prepare("SELECT Total_Points from exams Where EID = '$row[EID]'");
+            $sql2->execute();
+            $r = $sql2->fetch(PDO::FETCH_ASSOC);
+            $percent = $row['newGrade']/$r['Total_Points'];
             echo "<tr>";
             echo "<td>$row[EID]</td>";
-            echo "<td>$row[result]</td>";
             echo "<td>$row[comments]</td>";
             echo "<td>$row[newGrade]</td>";
+            echo "<td>$r[Total_Points]</td>";
+            echo "<td>$percent</td>";
             echo "</tr>";
           }
           echo "</table>";// Closing of list box
