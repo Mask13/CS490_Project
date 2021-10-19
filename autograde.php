@@ -28,7 +28,7 @@ foreach ($questions as $value) {
 
   // Null Check: Questions
   if ($r["$value"] != NULL && $r["$value"] != 0) {
-
+    echo "$value";
     // =======================================================
     // Getting Student Answers
     // =======================================================
