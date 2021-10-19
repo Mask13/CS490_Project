@@ -13,6 +13,7 @@ try {
   $sql->execute();
 }
 finally{}
+
 // global variable for total Points for student
 global $studentPoints;
 
@@ -130,17 +131,18 @@ foreach ($questions as $value) {
         echo "$studentPoints";
       }
     }
-
-    $s = $db->prepare("SELECT Total_Points FROM exam WHERE EID = '$EID' ");
-    $s->execute();
-    $r = $s->fetch(PDO::FETCH_ASSOC);
-    $totalPoints = $r["Total_Points"];
-
-    // global Student grade percentage
-    $studentPercent = $studentPoints / $totalPoints;
-    echo "$studentPercent";
   }
 }
+
+
+$s = $db->prepare("SELECT Total_Points FROM exam WHERE EID = '$EID' ");
+$s->execute();
+$r = $s->fetch(PDO::FETCH_ASSOC);
+$totalPoints = $r["Total_Points"];
+
+// global Student grade percentage
+$studentPercent = $studentPoints / $totalPoints;
+echo "$studentPercent";
 
 $sql = $db->prepare("UPDATE results SET result= '$studentPoints' Where EID = '$_SESSION[EID]' and UID = '$_SESSION[SID]'");
 $sql->execute();
