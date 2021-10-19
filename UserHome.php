@@ -95,11 +95,11 @@ else{
           $sql = "SELECT EID, result, comments, newGrade from results Where UID = '$_SESSION[UID]' and released = 1";
           echo "<table>"; // list box select command
           echo "<tr>";
-          echo "<td>EID</td>";
-          echo "<td>comments</td>";
-          echo "<td>Result</td>";
-          echo "<td>Total Points Possible</td>";
-          echo "<td>Percent Grade</td>";
+          echo "<td>|EID|</td>";
+          echo "<td>|Comments|</td>";
+          echo "<td>|Result|</td>";
+          echo "<td>|Total Points Possible|</td>";
+          echo "<td>|Percent Grade|</td>";
           echo "</tr>";
           foreach ($db->query($sql) as $row){//Array or records stored in $row
             $sql2 = $db->prepare("SELECT Total_Points from exams Where EID = '$row[EID]'");
@@ -108,11 +108,11 @@ else{
             $percent = 100 * $row['newGrade']/$r['Total_Points'];
             $percent .= '%';
             echo "<tr>";
-            echo "<td>$row[EID]</td>";
-            echo "<td>$row[comments]</td>";
-            echo "<td>$row[newGrade]</td>";
-            echo "<td>$r[Total_Points]</td>";
-            echo "<td>$percent</td>";
+            echo "<td>|$row[EID]|</td>";
+            echo "<td>|$row[comments]|</td>";
+            echo "<td>|$row[newGrade]|</td>";
+            echo "<td>|$r[Total_Points]|</td>";
+            echo "<td>|$percent|</td>";
             echo "</tr>";
           }
           echo "</table>";// Closing of list box
