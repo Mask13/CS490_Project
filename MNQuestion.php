@@ -30,7 +30,7 @@
            color: #bcbdbe;
            }
            .formInput1{
-             width: 100%;
+             width: 50%;
              padding: 10px;
              border: 2px solid #c6a226;
              border-radius: 25px;
