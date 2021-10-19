@@ -67,7 +67,7 @@
        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
        $db= new PDO($connection_string, $dbuser, $dbpass);
        try{
-         $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer from `questions`";
+         $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, QI1, QI2, QI3  from `questions`";
          echo "<table>"; // list box select command
          echo "<tr>";
          echo "<td>Question ID</td>";
