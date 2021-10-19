@@ -23,10 +23,10 @@ foreach ($questions as $value) {
   $s-> execute();
   $r = $s->fetch(PDO::FETCH_ASSOC);
   $qID = $r["$value"];
-  
+
   // Null Check: Questions
   if ($r["$value"] != NULL && $r["$value"] != 0) {
-    
+
     // =======================================================
     // Getting Student Answers
     // =======================================================
@@ -42,7 +42,7 @@ foreach ($questions as $value) {
 
     $dataString = $r["Submission"];
     chdir("app");
-    
+
     // going thru Question Input
     for($x = 1; $x <= 3; $x++) {
       // getting each test case
@@ -51,10 +51,10 @@ foreach ($questions as $value) {
       $s->execute();
       $r = $s->fetch(PDO::FETCH_ASSOC);
       $Qinput = $r["$qInput"];
-      
+
       // Null Check: Question Inputs
-      if ($Qinput != NULL && $Qinput != 0) {
-        
+      if ($Qinput != NULL && strlen($Qinput) != 0) {
+
         // getting amount of test cases
         $testAmount += 1;
 
@@ -71,7 +71,7 @@ foreach ($questions as $value) {
 
         $output = exec("python gradera.py");
         echo "$output";
-      
+
         // =======================================================
         // Getting Actual Answers
         // =======================================================
@@ -82,7 +82,7 @@ foreach ($questions as $value) {
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $Ansinput = $r["$aInput"];
         echo "$Ansinput";
-        
+
         // =======================================================
         // Comparing Answers
         // =======================================================
@@ -128,12 +128,12 @@ foreach ($questions as $value) {
         echo "$studentPoints";
       }
     }
-    
+
     $s = $db->prepare("SELECT Total_Points FROM exam WHERE EID = '$EID' ");
     $s->execute();
     $r = $s->fetch(PDO::FETCH_ASSOC);
     $totalPoints = $r["Total_Points"];
-    
+
     // global Student grade percentage
     $studentPercent = $studentPoints / $totalPoints;
     echo "$studentPercent";
