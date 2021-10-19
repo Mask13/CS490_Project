@@ -123,18 +123,7 @@ foreach ($questions as $value) {
   }
 }
 
-$s = $db->prepare("SELECT Total_Points FROM exam WHERE EID = '$EID' ");
-$t = $s->execute();
-$r = $s->fetch(PDO::FETCH_ASSOC);
-$totalPoints = $r["Total_Points"];
-echo "<pre>" . var_export($t, true) . "</pre>";
-echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
-
 echo "$studentPoints";
-
-// global Student grade percentage
-$studentPercent = $studentPoints / $totalPoints;
-echo "$studentPercent";
 
 $sql = $db->prepare("UPDATE results SET result= '$studentPoints' Where EID = '$_SESSION[EID]' and UID = '$_SESSION[SID]'");
 $r = $sql->execute();
