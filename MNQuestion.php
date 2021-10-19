@@ -89,8 +89,7 @@
   require "config.php";
   $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
   $db= new PDO($connection_string, $dbuser, $dbpass);
-  if(isset($_POST['QFN']) && isset($_POST['QT']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1'])
-    && isset($_POST['QA2']) && isset($_POST['QA3']) && isset($_POST['QI1']) && isset($_POST['QI2']) && isset($_POST['QI3'])){
+  if(isset($_POST['QFN']) && isset($_POST['QT']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1']) && isset($_POST['QA2']) && isset($_POST['QA3']) && isset($_POST['QI1']) && isset($_POST['QI2']) && isset($_POST['QI3'])){
     echo "trying";
     try{
       $sql = $db->prepare("INSERT INTO `questions`
@@ -104,9 +103,8 @@
     }
     finally{}
   }
-  elseif(isset($_POST['QFN']) && isset($_POST['QT']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1'])
-    && isset($_POST['QA2']) && isset($_POST['QI1']) && isset($_POST['QI2'])){
-      echo "trying 2";
+  elseif(isset($_POST['QFN']) && isset($_POST['QT']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1']) && isset($_POST['QI1']) && isset($_POST['QA2']) && isset($_POST['QI2'])){
+    echo "trying 2";
     try{
       $sql = $db->prepare("INSERT INTO `questions`
                   (functionName, questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2) VALUES
