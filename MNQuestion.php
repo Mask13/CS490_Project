@@ -79,7 +79,7 @@
   $db= new PDO($connection_string, $dbuser, $dbpass);
   if(isset($_POST['QT']) && isset($_POST['QA']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1'])
     && isset($_POST['QA2']) && isset($_POST['QA3']) && isset($_POST['QI1']) && isset($_POST['QI2']) && isset($_POST['QI3'])){
-    echo "trying";
+
     try{
       $sql = $db->prepare("INSERT INTO `questions`
                   (questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3) VALUES
@@ -92,9 +92,8 @@
     }
     finally{}
   }
-  elif(isset($_POST['QT']) && isset($_POST['QA']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1'])
+  elseif(isset($_POST['QT']) && isset($_POST['QA']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1'])
     && isset($_POST['QA2']) && isset($_POST['QI1']) && isset($_POST['QI2'])){
-    echo "trying";
     try{
       $sql = $db->prepare("INSERT INTO `questions`
                   (questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3) VALUES
@@ -107,8 +106,7 @@
     }
     finally{}
   }
-  elif(isset($_POST['QT']) && isset($_POST['QA']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1']) && isset($_POST['QI1'])){
-    echo "trying";
+  elseif(isset($_POST['QT']) && isset($_POST['QA']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1']) && isset($_POST['QI1'])){
     try{
       $sql = $db->prepare("INSERT INTO `questions`
                   (questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3) VALUES
