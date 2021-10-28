@@ -17,7 +17,9 @@ finally{}
 // global variable for total Points for student
 global $studentPoints;
 global $counterCorrect;
-global $messedup;
+global $messedupName;
+global $messedupConstrain;
+global $TestCaseArray;
 
 // for loop for all questions in the exam
 $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
@@ -70,7 +72,7 @@ foreach ($questions as $value) {
 
         if(str_contains($dataString, "def ".$funcName."(")){}
         else{
-          $messedup = true;
+          $messedupName = true;
           $brokenProg = explode("(",$dataString);
           $brokenProg[0]= "def ".$funcName;
           $dataString = implode("(", $brokenProg);
@@ -106,9 +108,11 @@ foreach ($questions as $value) {
         // if ran answer is the same as the expected output($Ansinput) then "Correct"
         if($output == $Ansinput) {
           $counterCorrect += 1;
+          $TestCaseArray[] = true;
         }
         // else, "incorrect"
         else {
+          $TestCaseArray[] = false;
           $counterCorrect += 0;
         }
       }
@@ -124,13 +128,17 @@ foreach ($questions as $value) {
     echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
 
     $qPoints = $r["$value"];
-    if($messedup){
-      $studentPoints +=(.95)*($counterCorrect/$testAmount) * $qPoints;
-      $messedup = false;
+    if($messedupName){
+      $studentPoints +=($counterCorrect/$testAmount) * ($qPoints-2);
     }
     else{
-      $studentPoints +=($counterCorrect/$testAmount) * $qPoints;
+      $studentPoints += 1 + ($counterCorrect/$testAmount) * ($qPoints-2);
     }
+    if($messedupConstrain){}
+    else{
+      $studentPoints += 1
+    }
+    $messedupName = false;
     $testAmount = 0;
     $counterCorrect = 0;
     echo "$studentPoints";
