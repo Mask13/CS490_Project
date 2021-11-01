@@ -32,6 +32,7 @@ foreach ($questions as $value) {
   // Null Check: Questions
   if ($r["$value"] != NULL && $r["$value"] != 0) {
     echo "$value";
+
     // =======================================================
     // Getting Student Answers
     // =======================================================
@@ -86,8 +87,8 @@ foreach ($questions as $value) {
         $strOutput = NULL;
         $stat = NULL;
         $output = exec("python gradera.py", $strOutput, $stat);
-        echo "student output";
-        echo "$output";
+        //echo "student output";
+        //echo "$output";
 
         // =======================================================
         // Getting Actual Answers
@@ -98,8 +99,8 @@ foreach ($questions as $value) {
         $s->execute();
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $Ansinput = $r["$aInput"];
-        echo "Expected Output";
-        echo "$Ansinput";
+        //echo "Expected Output";
+        //echo "$Ansinput";
 
         // =======================================================
         // Comparing Answers
@@ -123,9 +124,9 @@ foreach ($questions as $value) {
     $s = $db->prepare("SELECT $value FROM QuestionAssignments WHERE EID = '$EID' ");
     $s->execute();
     $r = $s->fetch(PDO::FETCH_ASSOC);
-    echo "<pre>" . var_export($r, true) . "</pre>";
-    echo "$value";
-    echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
+    //echo "<pre>" . var_export($r, true) . "</pre>";
+    //echo "$value";
+    //echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
 
     $qPoints = $r["$value"];
     if($messedupName){
@@ -138,6 +139,74 @@ foreach ($questions as $value) {
     else{
       $studentPoints += 1
     }
+
+    // =======================================================
+    // Making the Table
+    // =======================================================
+
+    
+    
+    // Displaying the autograding table
+
+    echo "<style>";
+    echo " table, th, td {";
+    echo " border:1px solid black;}";
+    echo "</style>";
+    
+    echo "<h2>Results of AutoGrader</h2>"; 
+    echo "<table style='width:100%'>"; 
+    echo "	<tr height='40px'>";
+    echo "		<th>Question Number</th>";
+    echo "		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$value'</td>";  // Q# from questionassignments
+    echo "		<td style='text-align: center; vertical-align: middle;'>(Change Grade)</td>";
+    echo "	</tr>";
+    echo "	<tr>";
+    echo "		<th>Question Text</th>";
+    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Write a function...</td>"; // questionText from  questions
+    echo "		<td style='text-align: center; vertical-align: middle;'>10 pts (Total Q Points)</td>"; // QPoints from questionassignments
+    echo "	</tr>";
+    echo "	<tr>";
+    echo "		<th>Submission</th>";
+    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>def findSum(a,b): return a+b</td>"; // Submission from answers
+    echo "		<td style='text-align: center; vertical-align: middle;'>10 / 10 (Student Grade)</td>"; // Total Score
+    echo "	</tr>";
+    echo "	<tr>";
+    echo "		<th>Function Name</th>";
+    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>'findSum'</td>"; // functionName from questions
+    echo "		<td style='text-align: center; vertical-align: middle;'>2 / 2</td>"; // funcName Score
+    echo "	</tr>";
+    echo "	<tr>";
+    echo "		<th>Constraints</th>";
+    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Text Input</td>";
+    echo "		<td style='text-align: center; vertical-align: middle;'>1 / 1</td>";
+    echo "	</tr>";
+    echo " 	<tr>";
+    echo "		<th></th>";
+    echo "		<th>Expected Output</th>";
+    echo "		<th>Student Submission</th>";
+    echo "		<th></th>";
+    echo "	</tr>";
+    echo "	<tr>";
+    echo "		<th>Test Case 1 Answers</th>"; 
+    echo " 		<td style='text-align: center; vertical-align: middle;'>6</td>"; // Answer1 from questions
+    echo "		<td style='text-align: center; vertical-align: middle;'>6</td>"; // 
+    echo "		<td style='text-align: center; vertical-align: middle;'>3.33 / 3.33 (CDP)</td>";
+    echo "	</tr>";
+    echo "	<tr>";
+    echo "		<th>Test Case 2 Answers</th>";
+    echo " 		<td style='text-align: center; vertical-align: middle;'>10</td>"; // Answer2 from questions
+    echo "		<td style='text-align: center; vertical-align: middle;'>10</td>"; //
+    echo "		<td style='text-align: center; vertical-align: middle;'>3.33 / 3.33 (CDP)</td>";
+    echo "	</tr>";
+    echo "	<tr>";
+    echo "		<th>Test Case 3 Answers</th>";
+    echo " 		<td style='text-align: center; vertical-align: middle;'>5</td>"; // Answer3 from questions
+    echo "		<td style='text-align: center; vertical-align: middle;'>5</td>"; //
+    echo "		<td style='text-align: center; vertical-align: middle;'>3.33 / 3.33 (CDP)</td>";
+    echo "	</tr>";
+    echo "</table>";
+
+
     $messedupName = false;
     $testAmount = 0;
     $counterCorrect = 0;
