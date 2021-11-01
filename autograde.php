@@ -157,7 +157,7 @@ foreach ($questions as $value) {
     echo "<table style='width:100%'>"; 
     echo "	<tr height='40px'>";
     echo "		<th>Question Number</th>";
-    echo "		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$value'</td>";  // Q# from questionassignments
+    echo "		<td style='text-align: center; vertical-align: middle;' colspan='2'>Q2</td>";  // Q# from questionassignments
     echo "		<td style='text-align: center; vertical-align: middle;'>(Change Grade)</td>";
     echo "	</tr>";
     echo "	<tr>";
