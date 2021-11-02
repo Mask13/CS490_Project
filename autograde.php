@@ -246,13 +246,10 @@ foreach ($questions as $value) {
     $testAmount = 0;
     $counterCorrect = 0;
     $studentPoints = 0;
-    //echo "$studentPoints";
   }
 
   $outputArray = array();
 }
-
-//echo "$studentPoints";
 
 $sql = $db->prepare("UPDATE results SET result= '$studentPoints' Where EID = '$_SESSION[EID]' and UID = '$_SESSION[SID]'");
 $r = $sql->execute();
