@@ -23,8 +23,8 @@ global $studentPoints;
 global $counterCorrect;
 global $messedupName;
 global $messedupConstrain;
-global $TestCaseArray;
 
+$TestCaseArray = array();
 
 $outputArray = array();
 
@@ -114,18 +114,19 @@ foreach ($questions as $value) {
         // if ran answer is the same as the expected output($Ansinput) then "Correct"
         if($output == $Ansinput) {
           $counterCorrect += 1;
-          $TestCaseArray[] = true;
+          array_push($TestCaseArray, TRUE);
         }
         // else, "incorrect"
         else {
-          $TestCaseArray[] = false;
           $counterCorrect += 0;
+          array_push($TestCaseArray, FALSE);
         }
       }
     }
     // =======================================================
     // Giving Points
     // =======================================================
+    
     $s = $db->prepare("SELECT $value FROM QuestionAssignments WHERE EID = '$EID' ");
     $s->execute();
     $r = $s->fetch(PDO::FETCH_ASSOC);
@@ -134,16 +135,19 @@ foreach ($questions as $value) {
     //echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
 
     $qPoints = $r["$value"];
+
+    $FNPoints = 0;
+
     if($messedupName){
-      $studentPoints +=($counterCorrect/$testAmount) * ($qPoints-2);
+      $studentPoints +=($counterCorrect/$testAmount) - 2;
     }
     else{
-      $studentPoints += 1 + ($counterCorrect/$testAmount) * ($qPoints-2);
+      $studentPoints += ($counterCorrect/$testAmount);
     }
-    if($messedupConstrain){}
+    /*if($messedupConstrain){} // **need to do for Constraints** //
     else{
       $studentPoints += 1;
-    }
+    }*/
 
     // =======================================================
     // Making the Table
@@ -217,13 +221,24 @@ foreach ($questions as $value) {
       $expAnswer = $r["$aInput00"];
       
       $y = $x-1;
+
+      $CDP = $qPoints / $testAmount;
       
       echo "		<th>$testCaseName</th>"; 
       echo " 		<td style='text-align: center; vertical-align: middle;'>'$expAnswer'</td>"; // Answer1 from questions
       echo "		<td style='text-align: center; vertical-align: middle;'>'$outputArray[$y]'</td>"; // Student Output
-      echo "		<td style='text-align: center; vertical-align: middle;'>3.33 / 3.33 (CDP)</td>";
-      echo "	</tr>";
-      echo "	<tr>";
+
+      if (TestCaseArray[$y] == TRUE) {
+        echo "		<td style='text-align: center; vertical-align: middle;'> '$CDP'/ '$CDP' (CDP)</td>";
+        echo "	</tr>";
+        echo "	<tr>";
+      }
+      else {
+        echo "		<td style='text-align: center; vertical-align: middle;'> 0 / '$CDP' (CDP)</td>";
+        echo "	</tr>";
+        echo "	<tr>";
+      }
+      
     }
 
     echo "</table>";
