@@ -85,12 +85,12 @@
      <input class= "formInput1" type= "Text" name = "QC" id="QC" placeholder="Question Category"></input><br>
      <input class= "formInput1" type= "Text" name = "QD" id="QD" placeholder="Question Difficulty"></input><br>
      <input class= "formInput1" type= "Text" name = "QFN" id ="QFN" placeholder="Function Name"></input><br>
-      <label for="F">For Loop</label><br>
-     <input class= "formInput1" type= "radio" name = "QCN" id="F" value="F"></input><br>
-     <label for="W">While Loop</label><br>
-     <input class= "formInput1" type= "radio" name = "QCN"  id="W" value="W"></input><br>
-     <label for="R">Recursion</label><br>
-     <input class= "formInput1" type= "radio" name = "QCN" id="R" value="R"></input><br>
+     <label for="F">For Loop</label>
+     <input type= "radio" name = "QCN" id="F" value="F"></input><br>
+     <label for="W">While Loop</label>
+     <input type= "radio" name = "QCN"  id="W" value="W"></input><br>
+     <label for="R">Recursion</label>
+     <input type= "radio" name = "QCN" id="R" value="R"></input><br>
      <input class= "button" class= "button" type="submit" value="Make Question"/>
    </form>
   </body>
