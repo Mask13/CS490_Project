@@ -217,7 +217,7 @@ foreach ($questions as $value) {
       $testCaseName = $testString.$x." Answers";
 
       $aInput00 = "Answer".$x;
-      $s = $db->prepare("SELECT $aInput FROM questions WHERE questionID = '$qID'");
+      $s = $db->prepare("SELECT $aInput00 FROM questions WHERE questionID = '$qID'");
       $s->execute();
       $r = $s->fetch(PDO::FETCH_ASSOC);
       $expAnswer = $r["$aInput00"];
