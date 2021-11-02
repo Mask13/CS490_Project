@@ -140,7 +140,7 @@ foreach ($questions as $value) {
     }
     if($messedupConstrain){}
     else{
-      $studentPoints += 1
+      $studentPoints += 1;
     }
 
     // =======================================================
