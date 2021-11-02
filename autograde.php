@@ -24,8 +24,7 @@ global $counterCorrect;
 global $messedupName;
 global $messedupConstrain;
 global $TestCaseArray;
-
-
+global $outputArray;
 
 
 // for loop for all questions in the exam
@@ -91,7 +90,9 @@ foreach ($questions as $value) {
 
         $strOutput = NULL;
         $stat = NULL;
-        $output.$x = exec("python gradera.py", $strOutput, $stat);
+
+        $output = exec("python gradera.py", $strOutput, $stat);
+        $outputArray[] = exec("python gradera.py", $strOutput, $stat);
         //echo "student output";
         //echo "$output";
 
@@ -112,7 +113,7 @@ foreach ($questions as $value) {
         // =======================================================
 
         // if ran answer is the same as the expected output($Ansinput) then "Correct"
-        if($output.$x == $Ansinput) {
+        if($output == $Ansinput) {
           $counterCorrect += 1;
           $TestCaseArray[] = true;
         }
@@ -224,11 +225,11 @@ foreach ($questions as $value) {
       $s->execute();
       $r = $s->fetch(PDO::FETCH_ASSOC);
       $expAnswer = $r["$aInput00"];
-      $output00 = $output.$x;
+      
       
       echo "		<th>$testCaseName</th>"; 
       echo " 		<td style='text-align: center; vertical-align: middle;'>'$expAnswer'</td>"; // Answer1 from questions
-      echo "		<td style='text-align: center; vertical-align: middle;'>'$output00'</td>"; // Student Output
+      echo "		<td style='text-align: center; vertical-align: middle;'>'$outputArray['$x']'</td>"; // Student Output
       echo "		<td style='text-align: center; vertical-align: middle;'>3.33 / 3.33 (CDP)</td>";
       echo "	</tr>";
       echo "	<tr>";
@@ -239,6 +240,7 @@ foreach ($questions as $value) {
     $testAmount = 0;
     $counterCorrect = 0;
     //echo "$studentPoints";
+    unset(outputArray[]);
   }
 }
 
