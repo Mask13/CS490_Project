@@ -38,7 +38,6 @@ foreach ($questions as $value) {
 
   // Null Check: Questions
   if ($r["$value"] != NULL && $r["$value"] != 0) {
-    echo "$value";
 
     // =======================================================
     // Getting Student Answers
@@ -237,7 +236,7 @@ foreach ($questions as $value) {
     $messedupName = false;
     $testAmount = 0;
     $counterCorrect = 0;
-    echo "$studentPoints";
+    //echo "$studentPoints";
   }
 }
 
@@ -245,8 +244,6 @@ echo "$studentPoints";
 
 $sql = $db->prepare("UPDATE results SET result= '$studentPoints' Where EID = '$_SESSION[EID]' and UID = '$_SESSION[SID]'");
 $r = $sql->execute();
-echo "<pre>" . var_export($r, true) . "</pre>";
-echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
 ?>
 
 </body>
