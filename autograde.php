@@ -1,5 +1,6 @@
 <html>
 <body>
+<h2>Results of AutoGrader</h2>
 
 <?php
 // =======================================================
@@ -23,6 +24,9 @@ global $counterCorrect;
 global $messedupName;
 global $messedupConstrain;
 global $TestCaseArray;
+
+
+
 
 // for loop for all questions in the exam
 $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
@@ -158,8 +162,7 @@ foreach ($questions as $value) {
     echo " table, th, td {";
     echo " border:1px solid black;}";
     echo "</style>";
-
-    echo "<h2>Results of AutoGrader</h2>"; 
+ 
     echo "<table style='width:100%'>"; 
     echo "	<tr height='40px'>";
     echo "		<th>Question Number</th>";
