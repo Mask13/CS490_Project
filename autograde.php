@@ -218,10 +218,11 @@ foreach ($questions as $value) {
       $r = $s->fetch(PDO::FETCH_ASSOC);
       $expAnswer = $r["$aInput00"];
       
+      $y = $x-1;
       
       echo "		<th>$testCaseName</th>"; 
       echo " 		<td style='text-align: center; vertical-align: middle;'>'$expAnswer'</td>"; // Answer1 from questions
-      echo "		<td style='text-align: center; vertical-align: middle;'>'$outputArray[$x]'</td>"; // Student Output
+      echo "		<td style='text-align: center; vertical-align: middle;'>'$outputArray[$y]'</td>"; // Student Output
       echo "		<td style='text-align: center; vertical-align: middle;'>3.33 / 3.33 (CDP)</td>";
       echo "	</tr>";
       echo "	<tr>";
