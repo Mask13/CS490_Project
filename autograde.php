@@ -229,7 +229,7 @@ foreach ($questions as $value) {
       
       echo "		<th>$testCaseName</th>"; 
       echo " 		<td style='text-align: center; vertical-align: middle;'>'$expAnswer'</td>"; // Answer1 from questions
-      echo "		<td style='text-align: center; vertical-align: middle;'>'$outputArray['$x']'</td>"; // Student Output
+      echo "		<td style='text-align: center; vertical-align: middle;'>'$outputArray[$x]'</td>"; // Student Output
       echo "		<td style='text-align: center; vertical-align: middle;'>3.33 / 3.33 (CDP)</td>";
       echo "	</tr>";
       echo "	<tr>";
