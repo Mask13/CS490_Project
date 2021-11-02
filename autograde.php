@@ -225,9 +225,11 @@ foreach ($questions as $value) {
       $r = $s->fetch(PDO::FETCH_ASSOC);
       $expAnswer = $r["$aInput00"];
       
+      $output00 = exec("python gradera.py", NULL, NULL);
+
       echo "		<th>$testCaseName</th>"; 
       echo " 		<td style='text-align: center; vertical-align: middle;'>'$expAnswer'</td>"; // Answer1 from questions
-      echo "		<td style='text-align: center; vertical-align: middle;'>7</td>"; // Student Output
+      echo "		<td style='text-align: center; vertical-align: middle;'>'$output00'</td>"; // Student Output
       echo "		<td style='text-align: center; vertical-align: middle;'>3.33 / 3.33 (CDP)</td>";
       echo "	</tr>";
       echo "	<tr>";
