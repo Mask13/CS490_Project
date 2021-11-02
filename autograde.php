@@ -168,9 +168,14 @@ foreach ($questions as $value) {
     echo "	</tr>";
     echo "	<tr>";
 
+    $s = $db->prepare("SELECT questionText FROM questions WHERE questionID = '$qID'");
+    $s->execute();
+    $r = $s->fetch(PDO::FETCH_ASSOC);
+
+    $qText = $r["questionText"];
 
     echo "		<th>Question Text</th>";
-    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Write a function...</td>"; // questionText from  questions
+    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$qText'</td>"; // questionText from  questions
     echo "		<td style='text-align: center; vertical-align: middle;'>10 pts (Total Q Points)</td>"; // QPoints from questionassignments
     echo "	</tr>";
     echo "	<tr>";
