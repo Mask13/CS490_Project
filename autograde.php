@@ -162,7 +162,7 @@ foreach ($questions as $value) {
     echo " border:1px solid black;}";
     echo "</style>";
     
-    echo "<h2></h2>";
+    echo "<br>";
     echo "<table style='width:100%'>"; 
     echo "	<tr height='40px'>";
     echo "		<th>Question Number</th>";
@@ -232,6 +232,8 @@ foreach ($questions as $value) {
       echo "	</tr>";
       echo "	<tr>";
     }
+
+    echo "<br>";
 
     $messedupName = false;
     $testAmount = 0;
