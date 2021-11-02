@@ -92,11 +92,10 @@ foreach ($questions as $value) {
 
         $strOutput = NULL;
         $stat = NULL;
-
         $output = exec("python gradera.py", $strOutput, $stat);
         array_push($outputArray, $output);
-        //echo "student output";
-        //echo "$output";
+
+        echo "$output";
 
         // =======================================================
         // Getting Actual Answers
@@ -185,30 +184,21 @@ foreach ($questions as $value) {
     echo "		<td style='text-align: center; vertical-align: middle;'>'$qPoints' pts (Total Q Points)</td>"; // QPoints from questionassignments
     echo "	</tr>";
     echo "	<tr>";
-
-    
-
     echo "		<th>Submission</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$dataString'</td>"; // Submission from answers
     echo "		<td style='text-align: center; vertical-align: middle;'>5 / '$qPoints' (Student Grade)</td>"; // Total Score
     echo "	</tr>";
     echo "	<tr>";
-
-
     echo "		<th>Function Name</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$funcName'</td>"; // functionName from questions
     echo "		<td style='text-align: center; vertical-align: middle;'>2 / 2</td>"; // funcName Score
     echo "	</tr>";
     echo "	<tr>";
-
-
     echo "		<th>Constraints</th>";
-    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Text Input</td>";
+    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Text Input</td>"; 
     echo "		<td style='text-align: center; vertical-align: middle;'>1 / 1</td>";
     echo "	</tr>";
     echo " 	<tr>";
-
-
     echo "		<th></th>";
     echo "		<th>Expected Output</th>";
     echo "		<th>Student Submission</th>";
