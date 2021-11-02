@@ -232,8 +232,9 @@ foreach ($questions as $value) {
     $testAmount = 0;
     $counterCorrect = 0;
     //echo "$studentPoints";
-    $outputArray = array();
   }
+
+  $outputArray = array();
 }
 
 //echo "$studentPoints";
