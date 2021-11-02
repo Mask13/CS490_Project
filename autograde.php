@@ -176,7 +176,7 @@ foreach ($questions as $value) {
 
     echo "		<th>Question Text</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$qText'</td>"; // questionText from  questions
-    echo "		<td style='text-align: center; vertical-align: middle;'>'' pts (Total Q Points)</td>"; // QPoints from questionassignments
+    echo "		<td style='text-align: center; vertical-align: middle;'>'$qPoints' pts (Total Q Points)</td>"; // QPoints from questionassignments
     echo "	</tr>";
     echo "	<tr>";
 
@@ -184,7 +184,7 @@ foreach ($questions as $value) {
 
     echo "		<th>Submission</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$dataString'</td>"; // Submission from answers
-    echo "		<td style='text-align: center; vertical-align: middle;'>10 / 10 (Student Grade)</td>"; // Total Score
+    echo "		<td style='text-align: center; vertical-align: middle;'>10./.'$qPoints' (Student Grade)</td>"; // Total Score
     echo "	</tr>";
     echo "	<tr>";
 
@@ -224,37 +224,11 @@ foreach ($questions as $value) {
       
       echo "		<th>$testCaseName</th>"; 
       echo " 		<td style='text-align: center; vertical-align: middle;'>'$expAnswer'</td>"; // Answer1 from questions
-      echo "		<td style='text-align: center; vertical-align: middle;'>7</td>"; // 
+      echo "		<td style='text-align: center; vertical-align: middle;'>7</td>"; // Student Output
       echo "		<td style='text-align: center; vertical-align: middle;'>3.33 / 3.33 (CDP)</td>";
       echo "	</tr>";
       echo "	<tr>";
     }
-
-    /*
-    echo "		<th>Test Case 1 Answers</th>"; 
-    echo " 		<td style='text-align: center; vertical-align: middle;'>6</td>"; // Answer1 from questions
-    echo "		<td style='text-align: center; vertical-align: middle;'>6</td>"; // 
-    echo "		<td style='text-align: center; vertical-align: middle;'>3.33 / 3.33 (CDP)</td>";
-    echo "	</tr>";
-    echo "	<tr>";
-
-
-    echo "		<th>Test Case 2 Answers</th>";
-    echo " 		<td style='text-align: center; vertical-align: middle;'>10</td>"; // Answer2 from questions
-    echo "		<td style='text-align: center; vertical-align: middle;'>10</td>"; //
-    echo "		<td style='text-align: center; vertical-align: middle;'>3.33 / 3.33 (CDP)</td>";
-    echo "	</tr>";
-    echo "	<tr>";
-
-
-    echo "		<th>Test Case 3 Answers</th>";
-    echo " 		<td style='text-align: center; vertical-align: middle;'>5</td>"; // Answer3 from questions
-    echo "		<td style='text-align: center; vertical-align: middle;'>5</td>"; //
-    echo "		<td style='text-align: center; vertical-align: middle;'>3.33 / 3.33 (CDP)</td>";
-    echo "	</tr>";
-    echo "</table>"; */
-
-
 
     $messedupName = false;
     $testAmount = 0;
