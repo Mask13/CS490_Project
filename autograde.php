@@ -231,9 +231,9 @@ foreach ($questions as $value) {
       echo "		<td style='text-align: center; vertical-align: middle;'>3.33 / 3.33 (CDP)</td>";
       echo "	</tr>";
       echo "	<tr>";
-      echo "</table>";
     }
 
+    echo "</table>";
     $messedupName = false;
     $testAmount = 0;
     $counterCorrect = 0;
