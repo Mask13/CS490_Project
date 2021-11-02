@@ -38,7 +38,6 @@ foreach ($questions as $value) {
 
   // Null Check: Questions
   if ($r["$value"] != NULL && $r["$value"] != 0) {
-    echo "$value";
 
     // =======================================================
     // Getting Student Answers
@@ -162,7 +161,8 @@ foreach ($questions as $value) {
     echo " table, th, td {";
     echo " border:1px solid black;}";
     echo "</style>";
- 
+    
+    echo "<h2></h2>";
     echo "<table style='width:100%'>"; 
     echo "	<tr height='40px'>";
     echo "		<th>Question Number</th>";
@@ -187,7 +187,7 @@ foreach ($questions as $value) {
 
     echo "		<th>Submission</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$dataString'</td>"; // Submission from answers
-    echo "		<td style='text-align: center; vertical-align: middle;'>10./.'$qPoints' (Student Grade)</td>"; // Total Score
+    echo "		<td style='text-align: center; vertical-align: middle;'>5 / '$qPoints' (Student Grade)</td>"; // Total Score
     echo "	</tr>";
     echo "	<tr>";
 
@@ -236,7 +236,7 @@ foreach ($questions as $value) {
     $messedupName = false;
     $testAmount = 0;
     $counterCorrect = 0;
-    echo "$studentPoints";
+    //echo "$studentPoints";
   }
 }
 
@@ -244,8 +244,6 @@ echo "$studentPoints";
 
 $sql = $db->prepare("UPDATE results SET result= '$studentPoints' Where EID = '$_SESSION[EID]' and UID = '$_SESSION[SID]'");
 $r = $sql->execute();
-echo "<pre>" . var_export($r, true) . "</pre>";
-echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
 ?>
 
 </body>
