@@ -150,8 +150,8 @@ foreach ($questions as $value) {
 
     // Displaying the autograding table
 
-    $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-    $db= new PDO($connection_string, $dbuser, $dbpass);
+    //$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+    //$db= new PDO($connection_string, $dbuser, $dbpass);
     
     echo "<style>";
     echo " table, th, td {";
