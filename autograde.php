@@ -91,7 +91,7 @@ foreach ($questions as $value) {
 
         $strOutput = NULL;
         $stat = NULL;
-        $output = exec("python gradera.py", $strOutput, $stat);
+        $output.$x = exec("python gradera.py", $strOutput, $stat);
         //echo "student output";
         //echo "$output";
 
@@ -112,7 +112,7 @@ foreach ($questions as $value) {
         // =======================================================
 
         // if ran answer is the same as the expected output($Ansinput) then "Correct"
-        if($output == $Ansinput) {
+        if($output.$x == $Ansinput) {
           $counterCorrect += 1;
           $TestCaseArray[] = true;
         }
@@ -224,9 +224,8 @@ foreach ($questions as $value) {
       $s->execute();
       $r = $s->fetch(PDO::FETCH_ASSOC);
       $expAnswer = $r["$aInput00"];
+      $output00 = $output.$x;
       
-      $output00 = exec("python gradera.py", NULL, NULL);
-
       echo "		<th>$testCaseName</th>"; 
       echo " 		<td style='text-align: center; vertical-align: middle;'>'$expAnswer'</td>"; // Answer1 from questions
       echo "		<td style='text-align: center; vertical-align: middle;'>'$output00'</td>"; // Student Output
