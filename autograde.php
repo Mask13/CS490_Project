@@ -176,20 +176,21 @@ foreach ($questions as $value) {
 
     echo "		<th>Question Text</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$qText'</td>"; // questionText from  questions
-    echo "		<td style='text-align: center; vertical-align: middle;'>10 pts (Total Q Points)</td>"; // QPoints from questionassignments
+    echo "		<td style='text-align: center; vertical-align: middle;'>'' pts (Total Q Points)</td>"; // QPoints from questionassignments
     echo "	</tr>";
     echo "	<tr>";
 
+    
 
     echo "		<th>Submission</th>";
-    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>def findSum(a,b): return a+b</td>"; // Submission from answers
+    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$dataString'</td>"; // Submission from answers
     echo "		<td style='text-align: center; vertical-align: middle;'>10 / 10 (Student Grade)</td>"; // Total Score
     echo "	</tr>";
     echo "	<tr>";
 
 
     echo "		<th>Function Name</th>";
-    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>'findSum'</td>"; // functionName from questions
+    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$funcName'</td>"; // functionName from questions
     echo "		<td style='text-align: center; vertical-align: middle;'>2 / 2</td>"; // funcName Score
     echo "	</tr>";
     echo "	<tr>";
@@ -210,6 +211,26 @@ foreach ($questions as $value) {
     echo "	<tr>";
 
 
+    for($x = 1; $x <= $testAmount; $x++) {
+      
+      $testString = "Test Case ";
+      $testCaseName = $testString.$x." Answers";
+
+      $aInput00 = "Answer".$x;
+      $s = $db->prepare("SELECT $aInput FROM questions WHERE questionID = '$qID'");
+      $s->execute();
+      $r = $s->fetch(PDO::FETCH_ASSOC);
+      $expAnswer = $r["$aInput00"];
+      
+      echo "		<th>$testCaseName</th>"; 
+      echo " 		<td style='text-align: center; vertical-align: middle;'>'$expAnswer'</td>"; // Answer1 from questions
+      echo "		<td style='text-align: center; vertical-align: middle;'>7</td>"; // 
+      echo "		<td style='text-align: center; vertical-align: middle;'>3.33 / 3.33 (CDP)</td>";
+      echo "	</tr>";
+      echo "	<tr>";
+    }
+
+    /*
     echo "		<th>Test Case 1 Answers</th>"; 
     echo " 		<td style='text-align: center; vertical-align: middle;'>6</td>"; // Answer1 from questions
     echo "		<td style='text-align: center; vertical-align: middle;'>6</td>"; // 
@@ -231,7 +252,7 @@ foreach ($questions as $value) {
     echo "		<td style='text-align: center; vertical-align: middle;'>5</td>"; //
     echo "		<td style='text-align: center; vertical-align: middle;'>3.33 / 3.33 (CDP)</td>";
     echo "	</tr>";
-    echo "</table>";
+    echo "</table>"; */
 
 
 
