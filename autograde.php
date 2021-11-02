@@ -24,7 +24,7 @@ global $counterCorrect;
 global $messedupName;
 global $messedupConstrain;
 global $TestCaseArray;
-global $outputArray;
+global $outputArray = array();
 
 
 // for loop for all questions in the exam
@@ -92,7 +92,7 @@ foreach ($questions as $value) {
         $stat = NULL;
 
         $output = exec("python gradera.py", $strOutput, $stat);
-        $outputArray[] = exec("python gradera.py", $strOutput, $stat);
+        array_push($outputArray, $output);
         //echo "student output";
         //echo "$output";
 
