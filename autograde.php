@@ -50,8 +50,7 @@ foreach ($questions as $value) {
     $r = $s->fetch(PDO::FETCH_ASSOC);
 
     $dataString = $r["Submission"];
-    //chdir("app");
-    $value .="P";
+    $value .="P"; // value changes to valueP
 
     // going thru Question Input
     for($x = 1; $x <= 3; $x++) {
@@ -153,6 +152,8 @@ foreach ($questions as $value) {
     //$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
     //$db= new PDO($connection_string, $dbuser, $dbpass);
     
+    $qNum = substr($value, 0, -1);
+
     echo "<style>";
     echo " table, th, td {";
     echo " border:1px solid black;}";
@@ -162,7 +163,7 @@ foreach ($questions as $value) {
     echo "<table style='width:100%'>"; 
     echo "	<tr height='40px'>";
     echo "		<th>Question Number</th>";
-    echo "		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$value'</td>";  // Q# from questionassignments
+    echo "		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$qNum'</td>";  // Q# from questionassignments
     echo "		<td style='text-align: center; vertical-align: middle;'>(Change Grade)</td>";
     echo "	</tr>";
     echo "	<tr>";
