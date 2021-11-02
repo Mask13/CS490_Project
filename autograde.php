@@ -1,3 +1,4 @@
+<html>
 <?php
 // =======================================================
 // Database Connection
@@ -150,7 +151,6 @@ foreach ($questions as $value) {
     $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
     $db= new PDO($connection_string, $dbuser, $dbpass);
     
-    echo "<html>";
     echo "<style>";
     echo " table, th, td {";
     echo " border:1px solid black;}";
@@ -224,7 +224,6 @@ foreach ($questions as $value) {
     echo "		<td style='text-align: center; vertical-align: middle;'>3.33 / 3.33 (CDP)</td>";
     echo "	</tr>";
     echo "</table>";
-    echo "</html>"
 
     }
 
@@ -247,3 +246,4 @@ $r = $sql->execute();
 echo "<pre>" . var_export($r, true) . "</pre>";
 echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
 ?>
+</html>
