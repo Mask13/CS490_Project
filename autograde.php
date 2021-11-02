@@ -227,11 +227,6 @@ foreach ($questions as $value) {
     echo "	</tr>";
     echo "</table>";
 
-    }
-
-      
-    
-
 
 
     $messedupName = false;
