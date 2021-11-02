@@ -240,7 +240,7 @@ foreach ($questions as $value) {
   }
 }
 
-echo "$studentPoints";
+//echo "$studentPoints";
 
 $sql = $db->prepare("UPDATE results SET result= '$studentPoints' Where EID = '$_SESSION[EID]' and UID = '$_SESSION[SID]'");
 $r = $sql->execute();
