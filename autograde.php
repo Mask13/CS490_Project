@@ -230,6 +230,7 @@ foreach ($questions as $value) {
     $messedupName = false;
     $testAmount = 0;
     $counterCorrect = 0;
+    $studentPoints = 0;
     //echo "$studentPoints";
   }
 
