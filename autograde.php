@@ -95,8 +95,6 @@ foreach ($questions as $value) {
         $output = exec("python gradera.py", $strOutput, $stat);
         array_push($outputArray, $output);
 
-        echo "$output";
-
         // =======================================================
         // Getting Actual Answers
         // =======================================================
