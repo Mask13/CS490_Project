@@ -184,7 +184,7 @@ foreach ($questions as $value) {
     echo "	<tr>";
     echo "		<th>Submission</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$dataString'</td>"; // Submission from answers
-    echo "		<td style='text-align: center; vertical-align: middle;'>5 / '$qPoints' (Student Grade)</td>"; // Total Score
+    echo "		<td style='text-align: center; vertical-align: middle;'>'$studentPoints' / '$qPoints' (Student Grade)</td>"; // Total Score
     echo "	</tr>";
     echo "	<tr>";
     echo "		<th>Function Name</th>";
