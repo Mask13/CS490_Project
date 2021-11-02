@@ -24,7 +24,9 @@ global $counterCorrect;
 global $messedupName;
 global $messedupConstrain;
 global $TestCaseArray;
-global $outputArray = array();
+
+
+$outputArray = array();
 
 
 // for loop for all questions in the exam
@@ -240,7 +242,7 @@ foreach ($questions as $value) {
     $testAmount = 0;
     $counterCorrect = 0;
     //echo "$studentPoints";
-    unset(outputArray[]);
+    $outputArray = array();
   }
 }
 
