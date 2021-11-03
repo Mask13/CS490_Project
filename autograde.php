@@ -241,6 +241,8 @@ foreach ($questions as $value) {
       
     }
 
+    echo '<pre>'; print_r($TestCaseArray); echo '</pre>';
+
     echo "</table>";
     $messedupName = false;
     $testAmount = 0;
