@@ -198,7 +198,7 @@ foreach ($questions as $value) {
     echo "	<tr height='40px'>";
     echo "		<th>Question Number</th>";
     echo "		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qNum</td>";  // Q# from questionassignments
-    echo "		<td style='text-align: center; vertical-align: middle;'>(Empty)</td>";
+    echo "		<th>Current Grade<th>";
     echo "	</tr>";
     echo "	<tr>";
 
