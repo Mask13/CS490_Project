@@ -23,6 +23,8 @@ global $studentPoints;
 global $counterCorrect;
 global $messedupName;
 global $messedupConstrain;
+global $finalScore;
+global $totalPoints;
 
 $TestCaseArray = array();
 
@@ -167,9 +169,12 @@ foreach ($questions as $value) {
     }
     if($messedupConstrain){} // **need to do for Constraints** //
     else{
+      $cPoints += 1;
       $testPoints += 1;
     }
 
+    $finalScore += $studentPoints;
+    $totalPoints += $qPoints;
     // =======================================================
     // Making the Table
     // =======================================================
@@ -209,7 +214,7 @@ foreach ($questions as $value) {
     echo "	<tr>";
     echo "		<th>Submission</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$dataString</td>"; // Submission from answers
-    echo "		<td style='text-align: center; vertical-align: middle;'>$studentPoints / $qPoints (Student Grade)</td>"; // Total Score
+    echo "		<td style='text-align: center; vertical-align: middle;'>$studentPoints / $qPoints (Question Grade)</td>"; // Total Score
     echo "	</tr>";
     echo "	<tr>";
     echo "		<th>Function Name</th>";
@@ -219,7 +224,7 @@ foreach ($questions as $value) {
     echo "	<tr>";
     echo "		<th>Constraints</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Text Input</td>"; 
-    echo "		<td style='text-align: center; vertical-align: middle;'>1 / 1</td>";
+    echo "		<td style='text-align: center; vertical-align: middle;'>$cPoints / 1</td>";
     echo "	</tr>";
     echo " 	<tr>";
     echo "		<th></th>";
@@ -269,10 +274,24 @@ foreach ($questions as $value) {
     $counterCorrect = 0;
     $studentPoints = 0;
     $FNPoints = 0;
+    $cPoints = 0;
+    
   }
 
   $outputArray = array();
 }
+
+$finalScore = 0;
+$totalPoints = 0;
+
+// final score
+
+echo"   <tr>";
+echo "		<th></th>";
+echo "		<th>Final Score</th>";
+echo "		<th>$finalScore / $totalPoints</th>";
+echo "		<th></th>";
+echo "	</tr>";
 
 $sql = $db->prepare("UPDATE results SET result= '$studentPoints' Where EID = '$_SESSION[EID]' and UID = '$_SESSION[SID]'");
 $r = $sql->execute();
