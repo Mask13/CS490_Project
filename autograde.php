@@ -77,7 +77,9 @@ foreach ($questions as $value) {
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $funcName = $r["functionName"];
 
-        if(str_contains($dataString, "def ".$funcName."(")){}
+        if(str_contains($dataString, "def ".$funcName."(")){
+          $messedupName = false;
+        }
         else{
           $messedupName = true;
           $brokenProg = explode("(",$dataString);
