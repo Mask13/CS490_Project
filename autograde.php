@@ -228,7 +228,7 @@ foreach ($questions as $value) {
       echo " 		<td style='text-align: center; vertical-align: middle;'>'$expAnswer'</td>"; // Answer1 from questions
       echo "		<td style='text-align: center; vertical-align: middle;'>'$outputArray[$y]'</td>"; // Student Output
 
-      if (TestCaseArray[$y] == TRUE) {
+      if ($TestCaseArray[$y] == TRUE) {
         echo "		<td style='text-align: center; vertical-align: middle;'> '$CDP'/ '$CDP' (CDP)</td>";
         echo "	</tr>";
         echo "	<tr>";
