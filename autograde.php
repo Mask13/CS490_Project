@@ -268,6 +268,7 @@ foreach ($questions as $value) {
       
     }
     echo "</table>";
+    
     $messedupName = false;
     $testAmount = 0;
     $counterCorrect = 0;
