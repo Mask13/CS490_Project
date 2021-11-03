@@ -25,6 +25,7 @@ global $messedupName;
 global $messedupConstrain;
 global $finalScore;
 global $totalPoints;
+global $finalPercent;
 
 $TestCaseArray = array();
 
@@ -281,13 +282,14 @@ foreach ($questions as $value) {
   $outputArray = array();
 }
 
+$finalPercent = $finalScore / $totalPoints;
 // final score
-
+echo "<br>";
 echo "<table style='width:100%'>"; 
-echo"   <tr>";
+echo "  <tr>";
 echo "		<th></th>";
 echo "		<th>Final Score</th>";
-echo "		<th>$finalScore / $totalPoints</th>";
+echo "		<th>$finalScore / $totalPoints = $finalPercent</th>";
 echo "		<th></th>";
 echo "	</tr>";
 echo "</table>";
@@ -295,6 +297,7 @@ echo "</table>";
 
 $finalScore = 0;
 $totalPoints = 0;
+$finalPercent = 0;
 
 $sql = $db->prepare("UPDATE results SET result= '$studentPoints' Where EID = '$_SESSION[EID]' and UID = '$_SESSION[SID]'");
 $r = $sql->execute();
