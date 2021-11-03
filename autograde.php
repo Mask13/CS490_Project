@@ -198,7 +198,7 @@ foreach ($questions as $value) {
     echo "	<tr height='40px'>";
     echo "		<th>Question Number</th>";
     echo "		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qNum</td>";  // Q# from questionassignments
-    echo "		<td style='text-align: center; vertical-align: middle;'>(Change Grade)</td>";
+    echo "		<td style='text-align: center; vertical-align: middle;'>(Empty)</td>";
     echo "	</tr>";
     echo "	<tr>";
 
@@ -210,12 +210,12 @@ foreach ($questions as $value) {
 
     echo "		<th>Question Text</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qText</td>"; // questionText from  questions
-    echo "		<td style='text-align: center; vertical-align: middle;'>$qPoints pts (Total Q Points)</td>"; // QPoints from questionassignments
+    echo "		<td style='text-align: center; vertical-align: middle;'>$qPoints pts</td>"; // QPoints from questionassignments
     echo "	</tr>";
     echo "	<tr>";
     echo "		<th>Submission</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$dataString</td>"; // Submission from answers
-    echo "		<td style='text-align: center; vertical-align: middle;'>$studentPoints / $qPoints (Question Grade)</td>"; // Total Score
+    echo "		<td style='text-align: center; vertical-align: middle;'>$studentPoints / $qPoints</td>"; // Total Score
     echo "	</tr>";
     echo "	<tr>";
     echo "		<th>Function Name</th>";
@@ -257,12 +257,12 @@ foreach ($questions as $value) {
       echo "		<td style='text-align: center; vertical-align: middle;'>$outputArray[$y]</td>"; // Student Output
 
       if ($outputArray[$y] == $expAnswer) {
-        echo "		<td style='text-align: center; vertical-align: middle;'> 100% (CDP)</td>";
+        echo "		<td style='text-align: center; vertical-align: middle;'> 100%</td>";
         echo "	</tr>";
         echo "	<tr>";
       }
       else {
-        echo "		<td style='text-align: center; vertical-align: middle;'> 0% (CDP)</td>";
+        echo "		<td style='text-align: center; vertical-align: middle;'> 0%</td>";
         echo "	</tr>";
         echo "	<tr>";
       }
