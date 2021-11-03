@@ -268,7 +268,6 @@ foreach ($questions as $value) {
       
     }
 
-    echo "</table>";
     $messedupName = false;
     $testAmount = 0;
     $counterCorrect = 0;
@@ -281,9 +280,6 @@ foreach ($questions as $value) {
   $outputArray = array();
 }
 
-$finalScore = 0;
-$totalPoints = 0;
-
 // final score
 
 echo"   <tr>";
@@ -292,6 +288,10 @@ echo "		<th>Final Score</th>";
 echo "		<th>$finalScore / $totalPoints</th>";
 echo "		<th></th>";
 echo "	</tr>";
+echo "</table>";
+
+$finalScore = 0;
+$totalPoints = 0;
 
 $sql = $db->prepare("UPDATE results SET result= '$studentPoints' Where EID = '$_SESSION[EID]' and UID = '$_SESSION[SID]'");
 $r = $sql->execute();
