@@ -165,7 +165,7 @@ foreach ($questions as $value) {
     }
     if($messedupConstrain){} // **need to do for Constraints** //
     else{
-      $studentPoints += 1;
+      $testPoints += 1;
     }
 
     // =======================================================
