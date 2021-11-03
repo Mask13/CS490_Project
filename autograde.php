@@ -112,14 +112,17 @@ foreach ($questions as $value) {
         // =======================================================
 
         // if ran answer is the same as the expected output($Ansinput) then "Correct"
+        //$thisRight = true;
+        //$thisWrong = false;
+        
         if($output == $Ansinput) {
           $counterCorrect += 1;
-          array_push($TestCaseArray, TRUE);
+          array_push($TestCaseArray, true);
         }
         // else, "incorrect"
         else {
           $counterCorrect += 0;
-          array_push($TestCaseArray, FALSE);
+          array_push($TestCaseArray, false);
         }
       }
     }
