@@ -143,6 +143,9 @@ foreach ($questions as $value) {
 
     $testPoints = $qPoints - (2 + 1);
 
+    // until we figure out constraints
+    $messedupConstrain = false;
+
     if($messedupName == false){
       $FNPoints += 2;
       if (($counterCorrect / $testAmount) == 1) {
@@ -160,10 +163,10 @@ foreach ($questions as $value) {
         $studentPoints += 0;
       }
     }
-    /*if($messedupConstrain){} // **need to do for Constraints** //
+    if($messedupConstrain){} // **need to do for Constraints** //
     else{
       $studentPoints += 1;
-    }*/
+    }
 
     // =======================================================
     // Making the Table
@@ -186,7 +189,7 @@ foreach ($questions as $value) {
     echo "<table style='width:100%'>"; 
     echo "	<tr height='40px'>";
     echo "		<th>Question Number</th>";
-    echo "		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$qNum'</td>";  // Q# from questionassignments
+    echo "		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qNum</td>";  // Q# from questionassignments
     echo "		<td style='text-align: center; vertical-align: middle;'>(Change Grade)</td>";
     echo "	</tr>";
     echo "	<tr>";
