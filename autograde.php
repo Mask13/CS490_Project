@@ -144,11 +144,12 @@ foreach ($questions as $value) {
     $testPoints = $qPoints - (2 + 1);
 
     if($messedupName == false){
+      $FNPoints += 2;
       if (($counterCorrect / $testAmount) == 1) {
         $studentPoints += $qPoints;
       }
       else {
-        $studentPoints += 2;
+        $studentPoints += $FNPoints;
       }
     }
     else{
@@ -197,18 +198,18 @@ foreach ($questions as $value) {
     $qText = $r["questionText"];
 
     echo "		<th>Question Text</th>";
-    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$qText'</td>"; // questionText from  questions
-    echo "		<td style='text-align: center; vertical-align: middle;'>'$qPoints' pts (Total Q Points)</td>"; // QPoints from questionassignments
+    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qText</td>"; // questionText from  questions
+    echo "		<td style='text-align: center; vertical-align: middle;'>$qPoints pts (Total Q Points)</td>"; // QPoints from questionassignments
     echo "	</tr>";
     echo "	<tr>";
     echo "		<th>Submission</th>";
-    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$dataString'</td>"; // Submission from answers
-    echo "		<td style='text-align: center; vertical-align: middle;'>'$studentPoints' / '$qPoints' (Student Grade)</td>"; // Total Score
+    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$dataString</td>"; // Submission from answers
+    echo "		<td style='text-align: center; vertical-align: middle;'>$studentPoints / $qPoints (Student Grade)</td>"; // Total Score
     echo "	</tr>";
     echo "	<tr>";
     echo "		<th>Function Name</th>";
-    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>'$funcName'</td>"; // functionName from questions
-    echo "		<td style='text-align: center; vertical-align: middle;'>2 / 2</td>"; // funcName Score
+    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$funcName</td>"; // functionName from questions
+    echo "		<td style='text-align: center; vertical-align: middle;'>$FNPoints / 2</td>"; // funcName Score
     echo "	</tr>";
     echo "	<tr>";
     echo "		<th>Constraints</th>";
@@ -241,8 +242,8 @@ foreach ($questions as $value) {
       //$testPoints = $qPoints - (2 + 1);
       
       echo "		<th>$testCaseName</th>"; 
-      echo " 		<td style='text-align: center; vertical-align: middle;'>'$expAnswer'</td>"; // Answer1 from questions
-      echo "		<td style='text-align: center; vertical-align: middle;'>'$outputArray[$y]'</td>"; // Student Output
+      echo " 		<td style='text-align: center; vertical-align: middle;'>$expAnswer</td>"; // Answer1 from questions
+      echo "		<td style='text-align: center; vertical-align: middle;'>$outputArray[$y]</td>"; // Student Output
 
       if ($outputArray[$y] == $expAnswer) {
         echo "		<td style='text-align: center; vertical-align: middle;'> 100% (CDP)</td>";
@@ -262,6 +263,7 @@ foreach ($questions as $value) {
     $testAmount = 0;
     $counterCorrect = 0;
     $studentPoints = 0;
+    $FNPoints = 0;
   }
 
   $outputArray = array();
