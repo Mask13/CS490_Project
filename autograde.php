@@ -282,14 +282,14 @@ foreach ($questions as $value) {
   $outputArray = array();
 }
 
-$finalPercent = $finalScore / $totalPoints;
+$finalPercent = ($finalScore / $totalPoints) * 100;
 // final score
 echo "<br>";
 echo "<table style='width:100%'>"; 
 echo "  <tr>";
 echo "		<th></th>";
 echo "		<th>Final Score</th>";
-echo "		<th>$finalScore / $totalPoints = $finalPercent</th>";
+echo "		<th>$finalScore / $totalPoints = $finalPercent%</th>";
 echo "		<th></th>";
 echo "	</tr>";
 echo "</table>";
