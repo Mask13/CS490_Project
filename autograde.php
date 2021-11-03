@@ -143,14 +143,21 @@ foreach ($questions as $value) {
 
     $testPoints = $qPoints - (2 + 1);
 
-    if($messedupName == false && ($counterCorrect / $testAmount) == 1){
-      $studentPoints += $qPoints;
-    }
-    elseif ($messedupName == false && ($counterCorrect / $testAmount) < 1){
-      $studentPoints += 2;
+    if($messedupName == false){
+      if (($counterCorrect / $testAmount) == 1) {
+        $studentPoints += $qPoints;
+      }
+      else {
+        $studentPoints += 2;
+      }
     }
     else{
-      $studentPoints += 0;
+      if (($counterCorrect / $testAmount) == 1) {
+        $studentPoints += $testPoints;
+      }
+      else {
+        $studentPoints += 0;
+      }
     }
     /*if($messedupConstrain){} // **need to do for Constraints** //
     else{
