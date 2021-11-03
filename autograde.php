@@ -267,7 +267,7 @@ foreach ($questions as $value) {
       }
       
     }
-
+    echo "</table>";
     $messedupName = false;
     $testAmount = 0;
     $counterCorrect = 0;
@@ -282,6 +282,7 @@ foreach ($questions as $value) {
 
 // final score
 
+echo "<table style='width:100%'>"; 
 echo"   <tr>";
 echo "		<th></th>";
 echo "		<th>Final Score</th>";
@@ -289,6 +290,7 @@ echo "		<th>$finalScore / $totalPoints</th>";
 echo "		<th></th>";
 echo "	</tr>";
 echo "</table>";
+
 
 $finalScore = 0;
 $totalPoints = 0;
