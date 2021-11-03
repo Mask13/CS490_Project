@@ -141,11 +141,16 @@ foreach ($questions as $value) {
 
     $FNPoints = 0;
 
-    if($messedupName){
-      $studentPoints +=($counterCorrect/$testAmount) * ($qPoints-2);
+    $testPoints = $qPoints - (2 + 1);
+
+    if($messedupName == false && ($counterCorrect / $testAmount) == 1){
+      $studentPoints += $qPoints;
+    }
+    elseif ($messedupName == false && ($counterCorrect / $testAmount) < 1){
+      $studentPoints += 2;
     }
     else{
-      $studentPoints += 1 + ($counterCorrect/$testAmount) * ($qPoints-2);
+      $studentPoints += 0;
     }
     /*if($messedupConstrain){} // **need to do for Constraints** //
     else{
@@ -225,7 +230,8 @@ foreach ($questions as $value) {
       
       $y = $x-1;
 
-      $CDP = $qPoints / $testAmount;
+      $CDP = ($qPoints * $counterCorrect) / $testAmount;
+      //$testPoints = $qPoints - (2 + 1);
       
       echo "		<th>$testCaseName</th>"; 
       echo " 		<td style='text-align: center; vertical-align: middle;'>'$expAnswer'</td>"; // Answer1 from questions
