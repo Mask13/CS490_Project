@@ -139,10 +139,10 @@ foreach ($questions as $value) {
     $FNPoints = 0;
 
     if($messedupName){
-      $studentPoints +=($counterCorrect/$testAmount) - 2;
+      $studentPoints +=($counterCorrect/$testAmount) * ($qPoints-2);
     }
     else{
-      $studentPoints += ($counterCorrect/$testAmount);
+      $studentPoints += 1 + ($counterCorrect/$testAmount) * ($qPoints-2);
     }
     /*if($messedupConstrain){} // **need to do for Constraints** //
     else{
