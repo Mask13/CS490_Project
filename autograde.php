@@ -245,12 +245,12 @@ foreach ($questions as $value) {
       echo "		<td style='text-align: center; vertical-align: middle;'>'$outputArray[$y]'</td>"; // Student Output
 
       if ($outputArray[$y] == $expAnswer) {
-        echo "		<td style='text-align: center; vertical-align: middle;'> '$CDP'/ '$CDP' (CDP)</td>";
+        echo "		<td style='text-align: center; vertical-align: middle;'> 100% (CDP)</td>";
         echo "	</tr>";
         echo "	<tr>";
       }
       else {
-        echo "		<td style='text-align: center; vertical-align: middle;'> 0 / '$CDP' (CDP)</td>";
+        echo "		<td style='text-align: center; vertical-align: middle;'> 0% (CDP)</td>";
         echo "	</tr>";
         echo "	<tr>";
       }
