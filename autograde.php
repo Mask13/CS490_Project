@@ -194,7 +194,7 @@ foreach ($questions as $value) {
     echo "</style>";
     
     echo "<br>";
-    echo "<form method='POST' action='http://jkorpela.fi/cgi-bin/echo.cgi'>";
+    echo "<form method='POST' action=''>";
     
     echo "<table style='width:100%'>"; 
     echo "	<tr height='40px'>";
