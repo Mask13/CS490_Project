@@ -251,6 +251,7 @@ foreach ($questions as $value) {
     echo "		<th>Expected Output</th>";
     echo "		<th>Student Submission</th>";
     echo "		<th></th>";
+    echo "		<th></th>";
     echo "	</tr>";
     echo "	<tr>";
 
