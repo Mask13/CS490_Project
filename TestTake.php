@@ -47,6 +47,11 @@ else{
       border: 1px solid #ccc;
       box-shadow: 1px 1px 1px #999;
     }
+    .label {
+      padding: 12px 12px 12px 0;
+      font-size:20px;
+      display: inline-block;
+    }
     body{
          background-color: #000033;
          background-image: url('https://images.unsplash.com/photo-1445905595283-21f8ae8a33d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80');
