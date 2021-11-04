@@ -39,9 +39,10 @@ else{
     letter-spacing: 1px;
     }
     textarea {
-      padding: 10px;
+      padding: 20px;
+      width: 600px;
       max-width: 100%;
-      line-height: 1;
+      line-height: 1.5;
       border-radius: 5px;
       border: 1px solid #ccc;
       box-shadow: 1px 1px 1px #999;
