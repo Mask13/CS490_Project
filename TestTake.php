@@ -33,19 +33,7 @@ else{
         margin-top: -250px;
         border-radius: 8px;
       }
-  #container:before{
-        width: 400px;
-        height: 550px;
-        content: "";
-        position: absolute;
-        top: -25px;
-        left: -25px;
-        bottom: 0;
-        right: 0;
-        background: inherit;
-        box-shadow: inset 0 0 0 200px rgba(255,255,255,0.2);
-        filter: blur(10px);
-      }
+  
     textarea {
     font-size: .8rem;
     letter-spacing: 1px;
