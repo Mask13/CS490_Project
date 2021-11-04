@@ -29,6 +29,7 @@ else{
         overflow: hidden;
         top: 50%;
         left: 50%;
+        border-style: groove;
         margin-left: -300px;
         margin-top: -250px;
         border-radius: 8px;
