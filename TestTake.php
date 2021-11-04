@@ -22,13 +22,15 @@ else{
   </head>
   <style>
   #container{
-        width: 75%;
+        width: 700px;
         height: 80%;
         background: inherit;
         position: absolute;
         overflow: hidden;
         top: 50%;
         left: 50%;
+        margin-left: -300px;
+        margin-top: -250px;
         border-radius: 8px;
       }
     textarea {
