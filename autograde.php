@@ -201,10 +201,7 @@ foreach ($questions as $value) {
     echo "		<th>Question Number</th>";
     echo "		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qNum</td>";  // Q# from questionassignments
     echo "		<th>Current Grade</th>";
-    echo "    <td>New Grade";
-    echo "      <input type='text' name='name'>";
-    echo " 			<input type='submit' value='Submit' name='B1'>";
-    echo "    </td>";
+    echo "    <th>Change Grade</th>";
     echo "	</tr>";
     echo "	<tr>";
 
