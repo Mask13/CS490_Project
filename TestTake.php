@@ -23,7 +23,7 @@ else{
   <style>
   #container{
         width: 700px;
-        height: 80%;
+        height: 200%;
         background: inherit;
         position: absolute;
         overflow: hidden;
@@ -41,7 +41,7 @@ else{
     textarea {
       padding: 10px;
       max-width: 100%;
-      line-height: 1.5;
+      line-height: 1;
       border-radius: 5px;
       border: 1px solid #ccc;
       box-shadow: 1px 1px 1px #999;
