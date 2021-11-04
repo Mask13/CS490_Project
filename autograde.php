@@ -215,7 +215,7 @@ foreach ($questions as $value) {
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qText</td>"; // questionText from  questions
     echo "		<td style='text-align: center; vertical-align: middle;'>$qPoints pts</td>"; // QPoints from questionassignments
     echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-    echo "      <input type='text' name='name'>";
+    echo "      <input type='text' name='name' size ='5'>";
     echo " 			<input type='submit' value='Submit' name='B1'>";
     echo "    </td>";
     echo "	</tr>";
@@ -224,7 +224,7 @@ foreach ($questions as $value) {
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$dataString</td>"; // Submission from answers
     echo "		<td style='text-align: center; vertical-align: middle;'>$studentPoints / $qPoints</td>"; // Total Score
     echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-    echo "      <input type='text' name='name'>";
+    echo "      <input type='text' name='name' size ='5'>";
     echo " 			<input type='submit' value='Submit' name='B1'>";
     echo "    </td>";
     echo "	</tr>";
@@ -233,7 +233,7 @@ foreach ($questions as $value) {
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$funcName</td>"; // functionName from questions
     echo "		<td style='text-align: center; vertical-align: middle;'>$FNPoints / 2</td>"; // funcName Score
     echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-    echo "      <input type='text' name='name'>";
+    echo "      <input type='text' name='name' size ='5'>";
     echo " 			<input type='submit' value='Submit' name='B1'>";
     echo "    </td>";
     echo "	</tr>";
@@ -242,7 +242,7 @@ foreach ($questions as $value) {
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Text Input</td>"; 
     echo "		<td style='text-align: center; vertical-align: middle;'>$cPoints / 1</td>";
     echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-    echo "      <input type='text' name='name'>";
+    echo "      <input type='text' name='name' size ='5'>";
     echo " 			<input type='submit' value='Submit' name='B1'>";
     echo "    </td>";
     echo "	</tr>";
@@ -278,7 +278,7 @@ foreach ($questions as $value) {
       if ($outputArray[$y] == $expAnswer) {
         echo "		<td style='text-align: center; vertical-align: middle;'> 100%</td>";
         echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
-        echo "      <input type='text' name='name'>";
+        echo "      <input type='text' name='name' size ='5'>";
         echo " 			<input type='submit' value='Submit' name='B1'>";
         echo "    </td>";
         echo "	</tr>";
@@ -287,7 +287,7 @@ foreach ($questions as $value) {
       else {
         echo "		<td style='text-align: center; vertical-align: middle;'> 0%</td>";
         echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
-        echo "      <input type='text' name='name'>";
+        echo "      <input type='text' name='name' size ='5'>";
         echo " 			<input type='submit' value='Submit' name='B1'>";
         echo "    </td>";
         echo "	</tr>";
