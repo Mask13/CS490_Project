@@ -29,8 +29,6 @@ else{
         overflow: hidden;
         top: 50%;
         left: 50%;
-        margin-left: -175px;
-        margin-top: -250px;
         border-radius: 8px;
       }
     textarea {
