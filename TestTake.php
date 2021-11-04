@@ -22,8 +22,8 @@ else{
   </head>
   <style>
   #container{
-        width: 650px;
-        height: 950px;
+        width: 75%;
+        height: 80%;
         background: inherit;
         position: absolute;
         overflow: hidden;
@@ -32,7 +32,6 @@ else{
         margin-left: -175px;
         margin-top: -250px;
         border-radius: 8px;
-        filter: blur(10px);
       }
     textarea {
     font-size: .8rem;
