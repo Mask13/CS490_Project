@@ -47,7 +47,7 @@ else{
       border: 1px solid #ccc;
       box-shadow: 1px 1px 1px #999;
     }
-    .label {
+    label {
       padding: 12px 12px 12px 0;
       font-size:20px;
       display: inline-block;
