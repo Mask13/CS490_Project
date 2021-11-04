@@ -33,6 +33,7 @@ else{
         margin-left: -300px;
         margin-top: -250px;
         border-radius: 8px;
+        font-size: 20px;
       }
     textarea {
     font-size: .8rem;
@@ -46,11 +47,6 @@ else{
       border-radius: 5px;
       border: 1px solid #ccc;
       box-shadow: 1px 1px 1px #999;
-    }
-    label {
-      padding: 12px 12px 12px 0;
-      font-size:20px;
-      display: inline-block;
     }
     body{
          background-color: #000033;
