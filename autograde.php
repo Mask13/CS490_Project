@@ -194,7 +194,7 @@ foreach ($questions as $value) {
     echo "</style>";
     
     echo "<br>";
-    echo "<form method='POST' action=''>";
+    echo "<form method='POST' action='graderSubmit.php'>";
     
     echo "<table style='width:100%'>"; 
     echo "	<tr height='40px'>";
