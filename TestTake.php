@@ -21,6 +21,31 @@ else{
     <title>Test Taker</title>
   </head>
   <style>
+  #container{
+        width: 350px;
+        height: 450px;
+        background: inherit;
+        position: absolute;
+        overflow: hidden;
+        top: 50%;
+        left: 50%;
+        margin-left: -175px;
+        margin-top: -250px;
+        border-radius: 8px;
+      }
+  #container:before{
+        width: 400px;
+        height: 550px;
+        content: "";
+        position: absolute;
+        top: -25px;
+        left: -25px;
+        bottom: 0;
+        right: 0;
+        background: inherit;
+        box-shadow: inset 0 0 0 200px rgba(255,255,255,0.2);
+        filter: blur(10px);
+      }
     textarea {
     font-size: .8rem;
     letter-spacing: 1px;
@@ -33,77 +58,89 @@ else{
       border: 1px solid #ccc;
       box-shadow: 1px 1px 1px #999;
     }
+    body{
+         background-color: #000033;
+         background-image: url('https://images.unsplash.com/photo-1445905595283-21f8ae8a33d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80');
+         height: 100%;
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         color: #bcbdbe;
+         }
+    }
   </style>
   <body>
-    <form name= "test" id="test" method="post">
-      <?php
-        require "config.php";
-        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-        $db= new PDO($connection_string, $dbuser, $dbpass);
-        try{
-          //Get IDs for Q1 - Q5
-          $sql = $db->prepare("SELECT Q1, Q2, Q3, Q4, Q5, Q1P, Q2P, Q3P, Q4P, Q5P from QuestionAssignments Where EID = :TID");
-          $params = array(":TID"=> $_SESSION['testID']);
-          $sql->execute($params);
-          $QIDS = $sql->fetch(PDO::FETCH_ASSOC);
-          //Q1
-          $sql2 = $db->prepare("SELECT questionText from questions Where questionID = :QID");
-          $params = array(":QID"=> $QIDS['Q1']);
-          $sql2->execute($params);
-          $QText = $sql2->fetch(PDO::FETCH_ASSOC);
-          echo "<lable for=Q1A> 1) ($QIDS[Q1P] Points) </lable>";
-          echo "<lable for=Q1A> $QText[questionText] </lable><br>";
-          echo "<textarea form = 'test' name = 'Q1A' id='Q1A'></textarea>";
-          echo "<br>";
-          //Q2
-          if($QIDS['Q2'] != NULL && $QIDS['Q2'] != 0){
+    <div id= container>
+      <form name= "test" id="test" method="post">
+        <?php
+          require "config.php";
+          $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+          $db= new PDO($connection_string, $dbuser, $dbpass);
+          try{
+            //Get IDs for Q1 - Q5
+            $sql = $db->prepare("SELECT Q1, Q2, Q3, Q4, Q5, Q1P, Q2P, Q3P, Q4P, Q5P from QuestionAssignments Where EID = :TID");
+            $params = array(":TID"=> $_SESSION['testID']);
+            $sql->execute($params);
+            $QIDS = $sql->fetch(PDO::FETCH_ASSOC);
+            //Q1
             $sql2 = $db->prepare("SELECT questionText from questions Where questionID = :QID");
-            $params = array(":QID"=> $QIDS['Q2']);
+            $params = array(":QID"=> $QIDS['Q1']);
             $sql2->execute($params);
             $QText = $sql2->fetch(PDO::FETCH_ASSOC);
-            echo "<lable for=Q2A> 1) ($QIDS[Q2P] Points) </lable>";
-            echo "<lable for=Q2A> $QText[questionText] </lable><br>";
-            echo "<textarea form = 'test' name = 'Q2A' id='Q2A'></textarea>";
+            echo "<lable for=Q1A> 1) ($QIDS[Q1P] Points) </lable>";
+            echo "<lable for=Q1A> $QText[questionText] </lable><br>";
+            echo "<textarea form = 'test' name = 'Q1A' id='Q1A'></textarea>";
             echo "<br>";
+            //Q2
+            if($QIDS['Q2'] != NULL && $QIDS['Q2'] != 0){
+              $sql2 = $db->prepare("SELECT questionText from questions Where questionID = :QID");
+              $params = array(":QID"=> $QIDS['Q2']);
+              $sql2->execute($params);
+              $QText = $sql2->fetch(PDO::FETCH_ASSOC);
+              echo "<lable for=Q2A> 2) ($QIDS[Q2P] Points) </lable>";
+              echo "<lable for=Q2A> $QText[questionText] </lable><br>";
+              echo "<textarea form = 'test' name = 'Q2A' id='Q2A'></textarea>";
+              echo "<br>";
+            }
+            //Q3
+            if($QIDS['Q3'] != NULL && $QIDS['Q3'] != 0){
+              $sql2 = $db->prepare("SELECT questionText from questions Where questionID = :QID");
+              $params = array(":QID"=> $QIDS['Q3']);
+              $sql2->execute($params);
+              $QText = $sql2->fetch(PDO::FETCH_ASSOC);
+              echo "<lable for=Q3A> 3) ($QIDS[Q3P] Points) </lable>";
+              echo "<lable for=Q3A> $QText[questionText] </lable><br>";
+              echo "<textarea form = 'test' name = 'Q3A' id='Q3A'></textarea>";
+              echo "<br>";
+            }
+            //Q4
+            if($QIDS['Q4'] != NULL && $QIDS['Q4'] != 0){
+              $sql2 = $db->prepare("SELECT questionText from questions Where questionID = :QID");
+              $params = array(":QID"=> $QIDS['Q4']);
+              $sql2->execute($params);
+              $QText = $sql2->fetch(PDO::FETCH_ASSOC);
+              echo "<lable for=Q4A> 4) ($QIDS[Q4P] Points) </lable>";
+              echo "<lable for=Q4A> $QText[questionText] </lable> <br>";
+              echo "<textarea form = 'test' name = 'Q4A' id='Q4A'></textarea>";
+              echo "<br>";
+            }
+            //Q5
+            if($QIDS['Q5'] != NULL && $QIDS['Q5'] != 0){
+              $sql2 = $db->prepare("SELECT questionText from questions Where questionID = :QID");
+              $params = array(":QID"=> $QIDS['Q5']);
+              $sql2->execute($params);
+              $QText = $sql2->fetch(PDO::FETCH_ASSOC);
+              echo "<lable for=Q5A> 5) ($QIDS[Q5P] Points) </lable>";
+              echo "<lable for=Q5A> $QText[questionText] </lable> <br>";
+              echo "<textarea form = 'test' name = 'Q5A' id='Q5A'></textarea>";
+              echo "<br>";
+            }
           }
-          //Q3
-          if($QIDS['Q3'] != NULL && $QIDS['Q3'] != 0){
-            $sql2 = $db->prepare("SELECT questionText from questions Where questionID = :QID");
-            $params = array(":QID"=> $QIDS['Q3']);
-            $sql2->execute($params);
-            $QText = $sql2->fetch(PDO::FETCH_ASSOC);
-            echo "<lable for=Q3A> 3) ($QIDS[Q3P] Points) </lable>";
-            echo "<lable for=Q3A> $QText[questionText] </lable><br>";
-            echo "<textarea form = 'test' name = 'Q3A' id='Q3A'></textarea>";
-            echo "<br>";
-          }
-          //Q4
-          if($QIDS['Q4'] != NULL && $QIDS['Q4'] != 0){
-            $sql2 = $db->prepare("SELECT questionText from questions Where questionID = :QID");
-            $params = array(":QID"=> $QIDS['Q4']);
-            $sql2->execute($params);
-            $QText = $sql2->fetch(PDO::FETCH_ASSOC);
-            echo "<lable for=Q4A> 4) ($QIDS[Q4P] Points) </lable>";
-            echo "<lable for=Q4A> $QText[questionText] </lable> <br>";
-            echo "<textarea form = 'test' name = 'Q4A' id='Q4A'></textarea>";
-            echo "<br>";
-          }
-          //Q5
-          if($QIDS['Q5'] != NULL && $QIDS['Q5'] != 0){
-            $sql2 = $db->prepare("SELECT questionText from questions Where questionID = :QID");
-            $params = array(":QID"=> $QIDS['Q5']);
-            $sql2->execute($params);
-            $QText = $sql2->fetch(PDO::FETCH_ASSOC);
-            echo "<lable for=Q5A> 5) ($QIDS[Q5P] Points) </lable>";
-            echo "<lable for=Q5A> $QText[questionText] </lable> <br>";
-            echo "<textarea form = 'test' name = 'Q5A' id='Q5A'></textarea>";
-            echo "<br>";
-          }
-        }
-        finally{}
-       ?>
-       <input type="submit" action="UserHome.php" value="Submit">
-     </form>
+          finally{}
+         ?>
+         <input type="submit" action="UserHome.php" value="Submit">
+       </form>
+    </div>
   </body>
 </html>
 
