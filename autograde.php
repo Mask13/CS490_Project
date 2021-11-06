@@ -215,8 +215,8 @@ foreach ($questions as $value) {
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qText</td>"; // questionText from  questions
     echo "		<td style='text-align: center; vertical-align: middle;'>$qPoints pts</td>"; // QPoints from questionassignments
     echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-    echo "      <input type='text' name='name' size ='5'>";
-    echo " 			<input type='submit' value='Submit' name='B1$qNum' size='5'>";
+    echo "      <input type='text' name='qPoints$qNum' size ='5'>";
+    echo " 			<input type='submit' value='Submit' name='B1' size='5'>";
     echo "    </td>";
     echo "	</tr>";
     echo "	<tr>";
@@ -224,8 +224,8 @@ foreach ($questions as $value) {
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$dataString</td>"; // Submission from answers
     echo "		<td style='text-align: center; vertical-align: middle;'>$studentPoints / $qPoints</td>"; // Total Score
     echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-    echo "      <input type='text' name='name' size ='5'>";
-    echo " 			<input type='submit' value='Submit' name='B2$qNum' size='5'>";
+    echo "      <input type='text' name='sPoints$qNum' size ='5'>";
+    echo " 			<input type='submit' value='Submit' name='B2' size='5'>";
     echo "    </td>";
     echo "	</tr>";
     echo "	<tr>";
@@ -233,8 +233,8 @@ foreach ($questions as $value) {
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$funcName</td>"; // functionName from questions
     echo "		<td style='text-align: center; vertical-align: middle;'>$FNPoints / 2</td>"; // funcName Score
     echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-    echo "      <input type='text' name='name' size ='5'>";
-    echo " 			<input type='submit' value='Submit' name='B3$qNum' size='5'>";
+    echo "      <input type='text' name='fPoints$qNum' size ='5'>";
+    echo " 			<input type='submit' value='Submit' name='B3' size='5'>";
     echo "    </td>";
     echo "	</tr>";
     echo "	<tr>";
@@ -242,8 +242,8 @@ foreach ($questions as $value) {
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Text Input</td>"; 
     echo "		<td style='text-align: center; vertical-align: middle;'>$cPoints / 1</td>";
     echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-    echo "      <input type='text' name='name' size ='5'>";
-    echo " 			<input type='submit' value='Submit' name='B4$qNum' size='5'>";
+    echo "      <input type='text' name='cPoints$qNum' size ='5'>";
+    echo " 			<input type='submit' value='Submit' name='B4' size='5'>";
     echo "    </td>";
     echo "	</tr>";
     echo " 	<tr>";
@@ -279,8 +279,8 @@ foreach ($questions as $value) {
       if ($outputArray[$y] == $expAnswer) {
         echo "		<td style='text-align: center; vertical-align: middle;'> 100%</td>";
         echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
-        echo "      <input type='text' name='name' size ='5'>";
-        echo " 			<input type='submit' value='Submit' name='B5$qNum' size='5'>";
+        echo "      <input type='text' name='rAns$qNum' size ='5'>";
+        echo " 			<input type='submit' value='Submit' name='B5' size='5'>";
         echo "    </td>";
         echo "	</tr>";
         echo "	<tr>";
@@ -288,8 +288,8 @@ foreach ($questions as $value) {
       else {
         echo "		<td style='text-align: center; vertical-align: middle;'> 0%</td>";
         echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
-        echo "      <input type='text' name='name' size ='5'>";
-        echo " 			<input type='submit' value='Submit' name='B6$qNum' size='5'>";
+        echo "      <input type='text' name='wAns$qNum' size ='5'>";
+        echo " 			<input type='submit' value='Submit' name='B6' size='5'>";
         echo "    </td>";
         echo "	</tr>";
         echo "	<tr>";
