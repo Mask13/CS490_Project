@@ -1,24 +1,24 @@
 <?php
 
-require ("config.php");
+require "config.php";
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 $db= new PDO($connection_string, $dbuser, $dbpass);
 
 session_start();
 $EID = $_SESSION['EID'];
 
-include "autograder.php";
+//include "autograder.php";
 
 $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
 foreach ($questions as $qNum) {
     if (isset($_POST["B1$qNum"])) {
         // updating points
-        $s = $db->prepare("SELECT $qNum FROM QuestionAssignments WHERE EID = $EID");
+        $s = $db->prepare("SELECT $qNum FROM QuestionAssignments WHERE EID = '$EID'");
         $s-> execute();
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $qID = $r["$qNum"];
 
-        $s = $db->prepare("UPDATE answers SET QP = $_POST['B1$qNum'] WHERE QuestionID = $qID");
+        $s = $db->prepare("UPDATE answers SET QP = '$_POST['B1$qNum']' WHERE QuestionID = '$qID'");
         $r = $s->execute();
 
         $qPoints = $_POST["B1$qNum"];
