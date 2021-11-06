@@ -15,7 +15,7 @@ foreach ($questions as $qNum) {
         $r = $s->execute();
 
         $qPoints = $_POST["B1$qNum"];
-        header("Refresh:0; url=autograde.php");
+        header("Refresh:1; url=autograde.php");
         echo "$qPoints";
     }
 
