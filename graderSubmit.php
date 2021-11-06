@@ -1,10 +1,12 @@
 <?php
 
+include "autograder.php";
+session_start();
+$EID = $_SESSION["EID"];
+
 require ("config.php");
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 $db= new PDO($connection_string, $dbuser, $dbpass);
-
-//include "autograde.php"; 
 
 $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
 foreach ($questions as $qNum) {

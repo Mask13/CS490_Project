@@ -7,7 +7,7 @@
 // Database Connection
 // =======================================================
 session_start();
-$EID = $_SESSION['EID'];
+$EID = $_SESSION["EID"];
 $UID = $_SESSION["SID"];
 require "config.php";
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
