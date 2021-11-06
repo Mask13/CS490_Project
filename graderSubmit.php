@@ -13,8 +13,7 @@ include "autograde.php";
 
 $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
 foreach ($questions as $qNum) {
-      if ($_POST["B1$qNum"] == $qPoints) {
-
+    if ($_POST["B1$qNum"] == $qPoints) {
         // updating points
         $s = $db->prepare("UPDATE answers SET QP = '$_POST['B1$qNum']' WHERE questionID = '$qID'");
         $r = $s->execute();
