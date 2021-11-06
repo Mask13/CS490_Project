@@ -22,8 +22,9 @@ foreach ($questions as $qNum) {
         $r = $s->execute();
 
         $qPoints = $_POST["B1$qNum"];
-        header("Refresh:1; url=https://cs490-canvas2.herokuapp.com/autograde.php");
         echo "$qPoints";
+        header("Refresh:1; url=https://cs490-canvas2.herokuapp.com/autograde.php");
+        
     }
 
     //  IF $_POST["B2$qNum"] {
