@@ -18,7 +18,6 @@ try {
 }
 finally{}
 
-include "graderSubmit.php";
 // global variable for total Points for student
 global $studentPoints;
 global $counterCorrect;
