@@ -23,7 +23,7 @@ foreach ($questions as $qNum) {
         $r = $s->execute($params);
 
         $qPoints = $_POST["qPoints$qNum"];
-        header("Refresh:0; url=autograde.php");
+        header("Location = autograde.php");
     }
 
     //  IF $_POST["B2$qNum"] {
