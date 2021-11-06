@@ -189,32 +189,9 @@ foreach ($questions as $value) {
     $finalScore += $studentPoints;
     $totalPoints += $qPoints;
 
-    // updating QP
-    /*$s = $db->prepare("UPDATE answers SET QP = '$qPoints' WHERE questionID = '$qID'");
-    $r = $s->execute();*/
-
     // updating result
     $s = $db->prepare("UPDATE results SET result = '$finalScore' WHERE EID = '$EID'");
     $r = $s->execute();
-
-    // updating FN
-    /*$s = $db->prepare("UPDATE answers SET FNP = '$FNPoints' WHERE questionID = '$qID'");
-    $r = $s->execute();*/
-
-    // updating CP
-    /*$s = $db->prepare("UPDATE answers SET CP = '$cPoints' WHERE questionID = '$qID'");
-    $r = $s->execute();*/
-
-    // correct test cases updated
-    /*$testNum = "TC".$x."P";
-    $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE questionID = '$qID'");
-    $r = $s->execute();
-
-    // wrong test cases updated
-    $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID'");
-    $r = $s->execute();*/
-
-
 
     // =======================================================
     // Making the Table
@@ -234,7 +211,7 @@ foreach ($questions as $value) {
     echo "</style>";
     
     echo "<br>";
-    echo "<form method='POST' action='graderSubmit.php'>";
+    echo "<form method='POST' action=''>";
     
     echo "<table style='width:100%'>"; 
     echo "	<tr height='40px'>";
