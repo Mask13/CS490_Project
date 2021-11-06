@@ -144,6 +144,10 @@ foreach ($questions as $value) {
 
     $qPoints = $r["$value"];
 
+    // updating QP
+    $s = $db->prepare("UPDATE answers SET QP = '$qPoints' WHERE questionID = '$qID'");
+    $r = $s->execute();
+
     $FNPoints = 0;
 
     $testPoints = $qPoints - (2 + 1);
@@ -153,6 +157,10 @@ foreach ($questions as $value) {
 
     if($messedupName == false){
       $FNPoints += 2;
+      // updating FN
+      $s = $db->prepare("UPDATE answers SET FNP = '$FNPoints' WHERE questionID = '$qID'");
+      $r = $s->execute();
+      
       if (($counterCorrect / $testAmount) == 1) {
         $studentPoints += $qPoints;
       }
@@ -172,10 +180,41 @@ foreach ($questions as $value) {
     else{
       $cPoints += 1;
       $testPoints += 1;
+      // updating CP
+      $s = $db->prepare("UPDATE answers SET CP = '$cPoints' WHERE questionID = '$qID'");
+      $r = $s->execute();
     }
 
     $finalScore += $studentPoints;
     $totalPoints += $qPoints;
+
+    // updating QP
+    /*$s = $db->prepare("UPDATE answers SET QP = '$qPoints' WHERE questionID = '$qID'");
+    $r = $s->execute();*/
+
+    // updating result
+    $s = $db->prepare("UPDATE results SET result = '$finalScore' WHERE EID = '$EID'");
+    $r = $s->execute();
+
+    // updating FN
+    /*$s = $db->prepare("UPDATE answers SET FNP = '$FNPoints' WHERE questionID = '$qID'");
+    $r = $s->execute();*/
+
+    // updating CP
+    /*$s = $db->prepare("UPDATE answers SET CP = '$cPoints' WHERE questionID = '$qID'");
+    $r = $s->execute();*/
+
+    // correct test cases updated
+    /*$testNum = "TC".$x."P";
+    $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE questionID = '$qID'");
+    $r = $s->execute();
+
+    // wrong test cases updated
+    $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID'");
+    $r = $s->execute();*/
+
+
+
     // =======================================================
     // Making the Table
     // =======================================================
@@ -220,9 +259,6 @@ foreach ($questions as $value) {
     echo "    </td>";
     echo "	</tr>";
     
-    $s = $db->prepare("UPDATE answers SET QP = '$qPoints' WHERE questionID = '$qID'");
-    $r = $s->execute();
-
     echo "	<tr>";
     echo "		<th>Submission</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$dataString</td>"; // Submission from answers
@@ -232,9 +268,6 @@ foreach ($questions as $value) {
     echo " 			<input type='submit' value='Submit' name='B2' size='5'>";
     echo "    </td>";
     echo "	</tr>";
-
-    $s = $db->prepare("UPDATE results SET result = '$studentPoints' WHERE EID = '$EID'");
-    $r = $s->execute();
 
     echo "	<tr>";
     echo "		<th>Function Name</th>";
@@ -246,9 +279,6 @@ foreach ($questions as $value) {
     echo "    </td>";
     echo "	</tr>";
 
-    $s = $db->prepare("UPDATE answers SET FNP = '$FNPoints' WHERE questionID = '$qID'");
-    $r = $s->execute();
-
     echo "	<tr>";
     echo "		<th>Constraints</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Text Input</td>"; 
@@ -258,9 +288,6 @@ foreach ($questions as $value) {
     echo " 			<input type='submit' value='Submit' name='B4' size='5'>";
     echo "    </td>";
     echo "	</tr>";
-
-    $s = $db->prepare("UPDATE answers SET CP = '$cPoints' WHERE questionID = '$qID'");
-    $r = $s->execute();
 
     echo " 	<tr>";
     echo "		<th></th>";
@@ -299,12 +326,10 @@ foreach ($questions as $value) {
         echo " 			<input type='submit' value='Submit' name='B5' size='5'>";
         echo "    </td>";
         echo "	</tr>";
-
+        echo "	<tr>";
         $testNum = "TC".$x."P";
         $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE questionID = '$qID'");
         $r = $s->execute();
-
-        echo "	<tr>";
       }
       else {
         echo "		<td style='text-align: center; vertical-align: middle;'> 0%</td>";
@@ -313,11 +338,10 @@ foreach ($questions as $value) {
         echo " 			<input type='submit' value='Submit' name='B6' size='5'>";
         echo "    </td>";
         echo "	</tr>";
-
+        echo "	<tr>";
+        $testNum = "TC".$x."P";
         $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID'");
         $r = $s->execute();
-
-        echo "	<tr>";
       }
       
     }
