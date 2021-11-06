@@ -51,6 +51,7 @@ foreach ($questions as $value) {
     $s->execute();
     $r = $s->fetch(PDO::FETCH_ASSOC);
     $reID = $r["resultID"];
+    $reID = $_SESSION["resultID"]; // adding resultID to session array
 
     $s = $db->prepare("SELECT Submission FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
     $s->execute();
