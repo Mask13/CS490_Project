@@ -145,7 +145,7 @@ foreach ($questions as $value) {
     $qPoints = $r["$value"];
 
     // updating QP
-    $s = $db->prepare("UPDATE answers SET QP = '$qPoints' WHERE questionID = '$qID'");
+    $s = $db->prepare("UPDATE answers SET QP = '$qPoints' WHERE questionID = '$qID' and resultID = '$reID'");
     $r = $s->execute();
 
     $FNPoints = 0;
@@ -158,7 +158,7 @@ foreach ($questions as $value) {
     if($messedupName == false){
       $FNPoints += 2;
       // updating FN
-      $s = $db->prepare("UPDATE answers SET FNP = '$FNPoints' WHERE questionID = '$qID'");
+      $s = $db->prepare("UPDATE answers SET FNP = '$FNPoints' WHERE questionID = '$qID' and resultID = '$reID'");
       $r = $s->execute();
       
       if (($counterCorrect / $testAmount) == 1) {
@@ -181,7 +181,7 @@ foreach ($questions as $value) {
       $cPoints += 1;
       $testPoints += 1;
       // updating CP
-      $s = $db->prepare("UPDATE answers SET CP = '$cPoints' WHERE questionID = '$qID'");
+      $s = $db->prepare("UPDATE answers SET CP = '$cPoints' WHERE questionID = '$qID' and resultID = '$reID'");
       $r = $s->execute();
     }
 
@@ -328,7 +328,7 @@ foreach ($questions as $value) {
         echo "	</tr>";
         echo "	<tr>";
         $testNum = "TC".$x."P";
-        $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE questionID = '$qID'");
+        $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE questionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
       else {
@@ -340,7 +340,7 @@ foreach ($questions as $value) {
         echo "	</tr>";
         echo "	<tr>";
         $testNum = "TC".$x."P";
-        $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID'");
+        $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
       
