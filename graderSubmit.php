@@ -10,10 +10,6 @@ $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
 foreach ($questions as $qNum) {
     if (isset($_POST["B1$qNum"])) {
         // updating points
-        $s = $db->prepare("SELECT $qNum FROM QuestionAssignments WHERE EID = '$EID'");
-        $s-> execute();
-        $r = $s->fetch(PDO::FETCH_ASSOC);
-        $qID = $r["$qNum"];
 
         $s = $db->prepare("UPDATE answers SET QP =".$_POST['B1$qNum']." WHERE QuestionID =". $qID);
         $r = $s->execute();
