@@ -23,7 +23,7 @@ foreach ($questions as $qNum) {
         $params = array(":QP" => $_POST["qPoints$qNum"]);
         $r = $s->execute($params);
 
-        $qPoints = $_POST["qPoints$qNum"];
+        //$qPoints = $_POST["qPoints$qNum"];
         header("Location = autograde.php");
     }
 
