@@ -219,6 +219,10 @@ foreach ($questions as $value) {
     echo " 			<input type='submit' value='Submit' name='B1' size='5'>";
     echo "    </td>";
     echo "	</tr>";
+    
+    $s = $db->prepare("UPDATE answers SET QP = '$qPoints' WHERE questionID = '$qID'");
+    $r = $s->execute();
+
     echo "	<tr>";
     echo "		<th>Submission</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$dataString</td>"; // Submission from answers
@@ -228,6 +232,10 @@ foreach ($questions as $value) {
     echo " 			<input type='submit' value='Submit' name='B2' size='5'>";
     echo "    </td>";
     echo "	</tr>";
+
+    $s = $db->prepare("UPDATE results SET result = '$studentPoints' WHERE EID = '$EID'");
+    $r = $s->execute();
+
     echo "	<tr>";
     echo "		<th>Function Name</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$funcName</td>"; // functionName from questions
@@ -237,6 +245,10 @@ foreach ($questions as $value) {
     echo " 			<input type='submit' value='Submit' name='B3' size='5'>";
     echo "    </td>";
     echo "	</tr>";
+
+    $s = $db->prepare("UPDATE answers SET FNP = '$FNPoints' WHERE questionID = '$qID'");
+    $r = $s->execute();
+
     echo "	<tr>";
     echo "		<th>Constraints</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Text Input</td>"; 
@@ -246,6 +258,10 @@ foreach ($questions as $value) {
     echo " 			<input type='submit' value='Submit' name='B4' size='5'>";
     echo "    </td>";
     echo "	</tr>";
+
+    $s = $db->prepare("UPDATE answers SET CP = '$cPoints' WHERE questionID = '$qID'");
+    $r = $s->execute();
+
     echo " 	<tr>";
     echo "		<th></th>";
     echo "		<th>Expected Output</th>";
@@ -276,13 +292,18 @@ foreach ($questions as $value) {
       echo " 		<td style='text-align: center; vertical-align: middle;'>$expAnswer</td>"; // Answer1 from questions
       echo "		<td style='text-align: center; vertical-align: middle;'>$outputArray[$y]</td>"; // Student Output
 
-      if ($outputArray[$y] == $expAnswer) {
+      if ($outputArray[$y] == $expAnswer) { // correct test case
         echo "		<td style='text-align: center; vertical-align: middle;'> 100%</td>";
         echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
         echo "      <input type='text' name='rAns$qNum' size ='5'>";
         echo " 			<input type='submit' value='Submit' name='B5' size='5'>";
         echo "    </td>";
         echo "	</tr>";
+
+        $testNum = "TC".$x."P";
+        $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE questionID = '$qID'");
+        $r = $s->execute();
+
         echo "	<tr>";
       }
       else {
@@ -292,6 +313,10 @@ foreach ($questions as $value) {
         echo " 			<input type='submit' value='Submit' name='B6' size='5'>";
         echo "    </td>";
         echo "	</tr>";
+
+        $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID'");
+        $r = $s->execute();
+
         echo "	<tr>";
       }
       
