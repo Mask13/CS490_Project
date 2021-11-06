@@ -19,7 +19,7 @@ foreach ($questions as $qNum) {
         $qID = $r['$qNum'];
 
         $s = $db->prepare("UPDATE answers SET QP =':QP' WHERE QuestionID = '$qID'");
-        $params = array(":QP" => $_POST["B1$qNum"]);
+        $params = array(":QP" => $_POST["qPoints$qNum"]);
         $r = $s->execute($params);
 
         $qPoints = $_POST["qPoints$qNum"];
