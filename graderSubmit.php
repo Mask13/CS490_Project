@@ -20,7 +20,7 @@ foreach ($questions as $qNum) {
         $r = $s->execute();
 
         $qPoints = $_POST["B1$qNum"];
-        header("Refresh:0");
+        header("Refresh:0; url=autograde.php");
         // change the score in autograder 
         // then refresh
     }
