@@ -341,7 +341,6 @@ foreach ($questions as $value) {
         echo " 			<input type='submit' value='Submit' name='B6' size='5'>";
         echo "    </td>";
         echo "	</tr>";
-        echo "	<tr>";
        
         $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
