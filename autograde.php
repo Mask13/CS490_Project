@@ -320,6 +320,8 @@ foreach ($questions as $value) {
       echo " 		<td style='text-align: center; vertical-align: middle;'>$expAnswer</td>"; // Answer1 from questions
       echo "		<td style='text-align: center; vertical-align: middle;'>$outputArray[$y]</td>"; // Student Output
 
+      $testNum = "TC".$x."P";
+
       if ($outputArray[$y] == $expAnswer) { // correct test case
         echo "		<td style='text-align: center; vertical-align: middle;'> 100%</td>";
         echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
@@ -328,7 +330,7 @@ foreach ($questions as $value) {
         echo "    </td>";
         echo "	</tr>";
         echo "	<tr>";
-        $testNum = "TC".$x."P";
+        
         $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE questionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
@@ -340,7 +342,7 @@ foreach ($questions as $value) {
         echo "    </td>";
         echo "	</tr>";
         echo "	<tr>";
-        $testNum = "TC".$x."P";
+       
         $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
