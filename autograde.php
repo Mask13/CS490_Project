@@ -144,6 +144,10 @@ foreach ($questions as $value) {
 
     $qPoints = $r["$value"];
 
+    // updating QP
+    $s = $db->prepare("UPDATE answers SET QP = '$qPoints' WHERE questionID = '$qID'");
+    $r = $s->execute();
+
     $FNPoints = 0;
 
     $testPoints = $qPoints - (2 + 1);
@@ -153,6 +157,10 @@ foreach ($questions as $value) {
 
     if($messedupName == false){
       $FNPoints += 2;
+      // updating FN
+      $s = $db->prepare("UPDATE answers SET FNP = '$FNPoints' WHERE questionID = '$qID'");
+      $r = $s->execute();
+
       if (($counterCorrect / $testAmount) == 1) {
         $studentPoints += $qPoints;
       }
@@ -172,10 +180,18 @@ foreach ($questions as $value) {
     else{
       $cPoints += 1;
       $testPoints += 1;
+      // updating CP
+      $s = $db->prepare("UPDATE answers SET CP = '$cPoints' WHERE questionID = '$qID'");
+      $r = $s->execute();
     }
 
     $finalScore += $studentPoints;
     $totalPoints += $qPoints;
+
+    // updating result
+    $s = $db->prepare("UPDATE results SET result = '$finalScore' WHERE EID = '$EID'");
+    $r = $s->execute();
+
     // =======================================================
     // Making the Table
     // =======================================================
@@ -284,6 +300,10 @@ foreach ($questions as $value) {
         echo "    </td>";
         echo "	</tr>";
         echo "	<tr>";
+
+        $testNum = "TC".$x."P";
+        $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE questionID = '$qID'");
+        $r = $s->execute();
       }
       else {
         echo "		<td style='text-align: center; vertical-align: middle;'> 0%</td>";
@@ -293,6 +313,10 @@ foreach ($questions as $value) {
         echo "    </td>";
         echo "	</tr>";
         echo "	<tr>";
+
+        $testNum = "TC".$x."P";
+        $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID'");
+        $r = $s->execute();
       }
       
     }
@@ -333,3 +357,12 @@ $r = $sql->execute();
 
 </body>
 </html>
+
+<?php
+// =======================================================
+// Doing the Submit Buttons
+// =======================================================
+
+
+
+?>
