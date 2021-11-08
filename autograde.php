@@ -358,32 +358,9 @@ $finalPercent = 0;
 
 $sql = $db->prepare("UPDATE results SET result= '$studentPoints' Where EID = '$_SESSION[EID]' and UID = '$_SESSION[SID]'");
 $r = $sql->execute();
-?>
 
-</body>
-</html>
-
-<?php
-
-session_start();
-
-$testAmount = $_SESSION["testAmount"];
-$FNPoints = $_SESSION["FNPoints"];
-$cPoints = $_SESSION["cPoints"];
-
-
-$reID = $_SESSION["reID"];
-
-require "config.php";
-$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-$db= new PDO($connection_string, $dbuser, $dbpass);
-
-// =======================================================
-// Doing the Submit Buttons
-// =======================================================
 $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
 foreach ($questions as $value) {
-  $value .="P";
   
   if (isset($_POST["FN$value"])) {
     // updating FN points
@@ -417,8 +394,8 @@ foreach ($questions as $value) {
     else{}
 
   }
-  
-}
-
 
 ?>
+
+</body>
+</html>
