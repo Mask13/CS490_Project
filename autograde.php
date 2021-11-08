@@ -81,15 +81,15 @@ foreach ($questions as $value) {
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $funcName = $r["functionName"];
 
-        if(str_contains($dataString, "def ".$funcName."(")){
-          $messedupName = false;
-        }
-        else{
-          $messedupName = true;
-          $brokenProg = explode("(",$dataString);
-          $brokenProg[0]= "def ".$funcName;
-          $dataString = implode("(", $brokenProg);
-        }
+        //if(str_contains($dataString, "def ".$funcName."(")){
+          //$messedupName = false;
+        //}
+        //else{
+          //$messedupName = true;
+          //$brokenProg = explode("(",$dataString);
+          //$brokenProg[0]= "def ".$funcName;
+          //$dataString = implode("(", $brokenProg);
+        //}
 
         // full String for the command used in python file
         $pycommand = $dataString."\nprint(".$funcName."(".$Qinput."))";
@@ -120,7 +120,7 @@ foreach ($questions as $value) {
         // if ran answer is the same as the expected output($Ansinput) then "Correct"
         //$thisRight = true;
         //$thisWrong = false;
-        
+
         if($output == $Ansinput) {
           $counterCorrect += 1;
           array_push($TestCaseArray, true);
@@ -135,7 +135,7 @@ foreach ($questions as $value) {
     // =======================================================
     // Giving Points
     // =======================================================
-    
+
     $s = $db->prepare("SELECT $value FROM QuestionAssignments WHERE EID = '$EID' ");
     $s->execute();
     $r = $s->fetch(PDO::FETCH_ASSOC);
@@ -161,7 +161,7 @@ foreach ($questions as $value) {
       // updating FN
       $s = $db->prepare("UPDATE answers SET FNP = '$FNPoints' WHERE questionID = '$qID' and resultID = '$reID'");
       $r = $s->execute();
-      
+
       if (($counterCorrect / $testAmount) == 1) {
         $studentPoints += $qPoints;
       }
@@ -196,24 +196,24 @@ foreach ($questions as $value) {
     // =======================================================
     // Making the Table
     // =======================================================
-    
+
 
     // Displaying the autograding table
 
     //$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
     //$db= new PDO($connection_string, $dbuser, $dbpass);
-    
+
     $qNum = substr($value, 0, -1);
 
     echo "<style>";
     echo " table, th, td {";
     echo " border:1px solid black;}";
     echo "</style>";
-    
+
     echo "<br>";
     echo "<form method='POST' action='graderSubmit.php'>";
-    
-    echo "<table style='width:100%'>"; 
+
+    echo "<table style='width:100%'>";
     echo "	<tr height='40px'>";
     echo "		<th>Question Number</th>";
     echo "		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qNum</td>";  // Q# from questionassignments
@@ -236,7 +236,7 @@ foreach ($questions as $value) {
     echo " 			<input type='submit' value='Submit' name='B1' size='5'>";
     echo "    </td>";
     echo "	</tr>";
-    
+
     echo "	<tr>";
     echo "		<th>Submission</th>";
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$dataString</td>"; // Submission from answers
@@ -259,7 +259,7 @@ foreach ($questions as $value) {
 
     echo "	<tr>";
     echo "		<th>Constraints</th>";
-    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Text Input</td>"; 
+    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Text Input</td>";
     echo "		<td style='text-align: center; vertical-align: middle;'>$cPoints / 1</td>";
     echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
     echo "      <input type='text' name='cPoints$qNum' size ='5'>";
@@ -278,7 +278,7 @@ foreach ($questions as $value) {
 
 
     for($x = 1; $x <= $testAmount; $x++) {
-      
+
       $testString = "Test Case ";
       $testCaseName = $testString.$x." Answers";
 
@@ -287,13 +287,13 @@ foreach ($questions as $value) {
       $s->execute();
       $r = $s->fetch(PDO::FETCH_ASSOC);
       $expAnswer = $r["$aInput00"];
-      
+
       $y = $x-1;
 
       $CDP = ($qPoints * $counterCorrect) / $testAmount;
       //$testPoints = $qPoints - (2 + 1);
-      
-      echo "		<th>$testCaseName</th>"; 
+
+      echo "		<th>$testCaseName</th>";
       echo " 		<td style='text-align: center; vertical-align: middle;'>$expAnswer</td>"; // Answer1 from questions
       echo "		<td style='text-align: center; vertical-align: middle;'>$outputArray[$y]</td>"; // Student Output
 
@@ -307,7 +307,7 @@ foreach ($questions as $value) {
         echo "    </td>";
         echo "	</tr>";
         echo "	<tr>";
-        
+
         $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE questionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
@@ -318,21 +318,21 @@ foreach ($questions as $value) {
         echo " 			<input type='submit' value='Submit' name='B6' size='5'>";
         echo "    </td>";
         echo "	</tr>";
-       
+
         $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
-      
+
     }
     echo "</table>";
-    
+
     $messedupName = false;
     $testAmount = 0;
     $counterCorrect = 0;
     $studentPoints = 0;
     $FNPoints = 0;
     $cPoints = 0;
-    
+
   }
 
   $outputArray = array();
@@ -341,7 +341,7 @@ foreach ($questions as $value) {
 $finalPercent = ($finalScore / $totalPoints) * 100;
 // final score
 echo "<br>";
-echo "<table style='width:100%'>"; 
+echo "<table style='width:100%'>";
 echo "  <tr>";
 echo "		<th></th>";
 echo "		<th>Final Score</th>";
