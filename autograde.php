@@ -59,7 +59,7 @@ foreach ($questions as $value) {
 
     $dataString = $r["Submission"];
     $value .="P"; // value changes to valueP
-
+    echo "$dataString";
     // going thru Question Input
     for($x = 1; $x <= 3; $x++) {
       // getting each test case
@@ -101,7 +101,6 @@ foreach ($questions as $value) {
         $output = exec("python gradera.py", $strOutput, $stat);
         array_push($outputArray, $output);
 
-        echo "$dataString";
         // =======================================================
         // Getting Actual Answers
         // =======================================================
