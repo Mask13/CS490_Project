@@ -231,8 +231,6 @@ foreach ($questions as $value) {
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qText</td>"; // questionText from  questions
     echo "		<td style='text-align: center; vertical-align: middle;'>$qPoints pts</td>"; // QPoints from questionassignments
     echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-    echo "      <input type='text' name='name' size ='5'>";
-    echo " 			<input type='submit' value='Submit' name='B1'>";
     echo "    </td>";
     echo "	</tr>";
     echo "	<tr>";
@@ -240,8 +238,6 @@ foreach ($questions as $value) {
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$dataString</td>"; // Submission from answers
     echo "		<td style='text-align: center; vertical-align: middle;'>$studentPoints / $qPoints</td>"; // Total Score
     echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-    echo "      <input type='text' name='name' size ='5'>";
-    echo " 			<input type='submit' value='Submit' name='B1'>";
     echo "    </td>";
     echo "	</tr>";
     echo "	<tr>";
