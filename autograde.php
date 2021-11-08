@@ -81,15 +81,15 @@ foreach ($questions as $value) {
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $funcName = $r["functionName"];
 
-        //if(str_contains($dataString, "def ".$funcName."(")){
-          //$messedupName = false;
-        //}
-        //else{
-          //$messedupName = true;
-          //$brokenProg = explode("(",$dataString);
-          //$brokenProg[0]= "def ".$funcName;
-          //$dataString = implode("(", $brokenProg);
-        //}
+        if(str_contains($dataString, "def ".$funcName."(")){
+          $messedupName = false;
+        }
+        else{
+          $messedupName = true;
+          $brokenProg = explode("(",$dataString);
+          $brokenProg[0]= "def ".$funcName;
+          $dataString = implode("(", $brokenProg);
+        }
 
         // full String for the command used in python file
         $pycommand = $dataString."\nprint(".$funcName."(".$Qinput."))";
@@ -239,7 +239,7 @@ foreach ($questions as $value) {
 
     echo "	<tr>";
     echo "		<th>Submission</th>";
-    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$dataString</td>"; // Submission from answers
+    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>".$dataString."</td>"; // Submission from answers
     echo "		<td style='text-align: center; vertical-align: middle;'>$studentPoints / $qPoints</td>"; // Total Score
     echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
     echo "      <input type='text' name='sPoints$qNum' size ='5'>";
