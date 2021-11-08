@@ -34,7 +34,7 @@ global $messedupConstrain;
 global $finalScore;
 global $totalPoints;
 global $finalPercent;
-global $testAmount
+global $testAmount;
 
 $TestCaseArray = array();
 
