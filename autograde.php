@@ -395,8 +395,6 @@ foreach ($questions as $value) {
 
   }
 
-  else{}
-
   for($x = 1; $x <= $testAmount; $x++) {
     if (isset($_POST["Rgttest$x"])) {
       $testNum = "TC".$x."P";
