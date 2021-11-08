@@ -388,12 +388,13 @@ foreach ($questions as $value) {
     $FNPoints = $_POST["FN$value"];
   }
 
-  if (isset($_POST["C$value"])) {
+  elseif (isset($_POST["C$value"])) {
     // updating cPoints
     $s = $db->prepare("UPDATE answers SET CP = '$cPoints' WHERE questionID = '$qID'");
     $r = $s->execute();
 
   }
+  else {}
 
   for($x = 1; $x <= $testAmount; $x++) {
     if (isset($_POST["Rgttest$x"])) {
@@ -402,12 +403,13 @@ foreach ($questions as $value) {
       $r = $s->execute();
 
     }
-    if (isset($_POST["Wrgtest$x"])) {
+    elseif (isset($_POST["Wrgtest$x"])) {
       $testNum = "TC".$x."P";
       $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID'");
       $r = $s->execute();
 
     }
+    else{}
 
   }
 
