@@ -9,6 +9,14 @@
 session_start();
 $EID = $_SESSION['EID'];
 $UID = $_SESSION["SID"];
+
+$testAmount = $_SESSION["testAmount"];
+$FNPoints = $_SESSION["FNPoints"];
+$cPoints = $_SESSION["cPoints"];
+
+$reID = $_SESSION["reID"];
+
+
 require "config.php";
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 $db = new PDO($connection_string, $dbuser, $dbpass);
@@ -26,6 +34,7 @@ global $messedupConstrain;
 global $finalScore;
 global $totalPoints;
 global $finalPercent;
+global $testAmount
 
 $TestCaseArray = array();
 
@@ -245,7 +254,7 @@ foreach ($questions as $value) {
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$funcName</td>"; // functionName from questions
     echo "		<td style='text-align: center; vertical-align: middle;'>$FNPoints / 2</td>"; // funcName Score
     echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-    echo "      <input type='text' name='name' size ='5'>";
+    echo "      <input type='text' name='FN$value' size ='5'>";
     echo " 			<input type='submit' value='Submit' name='B1'>";
     echo "    </td>";
     echo "	</tr>";
@@ -254,7 +263,7 @@ foreach ($questions as $value) {
     echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Text Input</td>"; 
     echo "		<td style='text-align: center; vertical-align: middle;'>$cPoints / 1</td>";
     echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-    echo "      <input type='text' name='name' size ='5'>";
+    echo "      <input type='text' name='C$value' size ='5'>";
     echo " 			<input type='submit' value='Submit' name='B1'>";
     echo "    </td>";
     echo "	</tr>";
@@ -291,7 +300,7 @@ foreach ($questions as $value) {
       if ($outputArray[$y] == $expAnswer) {
         echo "		<td style='text-align: center; vertical-align: middle;'> 100%</td>";
         echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
-        echo "      <input type='text' name='name' size ='5'>";
+        echo "      <input type='text' name='Rgttest$x' size ='5'>";
         echo " 			<input type='submit' value='Submit' name='B1'>";
         echo "    </td>";
         echo "	</tr>";
@@ -304,7 +313,7 @@ foreach ($questions as $value) {
       else {
         echo "		<td style='text-align: center; vertical-align: middle;'> 0%</td>";
         echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
-        echo "      <input type='text' name='name' size ='5'>";
+        echo "      <input type='text' name='Wrgtest$x' size ='5'>";
         echo " 			<input type='submit' value='Submit' name='B1'>";
         echo "    </td>";
         echo "	</tr>";
@@ -355,10 +364,59 @@ $r = $sql->execute();
 </html>
 
 <?php
+
+session_start();
+
+$testAmount = $_SESSION["testAmount"];
+$FNPoints = $_SESSION["FNPoints"];
+$cPoints = $_SESSION["cPoints"];
+
+
+$reID = $_SESSION["reID"];
+
+require "config.php";
+$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+$db= new PDO($connection_string, $dbuser, $dbpass);
+
 // =======================================================
 // Doing the Submit Buttons
 // =======================================================
+$questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
+foreach ($questions as $value) {
+  $value .="P";
+  
+  if (isset($_POST["FN$value"])) {
+    // updating FN points
+    $s = $db->prepare("UPDATE answers SET FNP = '$FNPoints' WHERE questionID = '$qID'");
+    $r = $s->execute();
+    $FNPoints = $_POST["FN$value"];
+  }
 
+  if (isset($_POST["C$value"])) {
+    // updating cPoints
+    $s = $db->prepare("UPDATE answers SET CP = '$cPoints' WHERE questionID = '$qID'");
+    $r = $s->execute();
+
+  }
+
+  for($x = 1; $x <= $testAmount; $x++) {
+    if (isset($_POST["Rgttest$x"])) {
+      $testNum = "TC".$x."P";
+      $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE questionID = '$qID'");
+      $r = $s->execute();
+
+    }
+    elseif (isset($_POST["Wrgtest$x"])) {
+      $testNum = "TC".$x."P";
+      $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID'");
+      $r = $s->execute();
+
+    }
+    else{}
+
+  }
+  
+}
 
 
 ?>
