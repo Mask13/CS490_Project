@@ -189,6 +189,10 @@ foreach ($questions as $value) {
     $s = $db->prepare("UPDATE answers SET CP = '$cPoints' WHERE questionID = '$qID' and resultID = '$reID'");
     $r = $s->execute();
 
+    // updating studentPoints
+    $s = $db->prepare("UPDATE answers SET STP = '$studentPoints' WHERE questionID = '$qID' and resultID = '$reID'");
+    $r = $s->execute();
+
     $finalScore += $studentPoints;
     $totalPoints += $qPoints;
 
