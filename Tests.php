@@ -120,7 +120,7 @@
          }
          finally{}
      ?>
-      <input class = "button" type= "submit" name = "autograde" id="autograde" value="autograde" onclick="location.href = 'autograde.php'"></input>
+      <input class = "button" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
    </form>
   </body>
 </html>
@@ -146,5 +146,6 @@
     if(isset($_POST["studentID"]) && isset($_POST["EID"])){
       $_SESSION["EID"] = $_POST["EID"];
       $_SESSION["SID"] = $_POST["studentID"];
+      header("Location: autograde.php")
     }
  ?>
