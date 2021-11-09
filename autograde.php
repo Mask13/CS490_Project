@@ -106,7 +106,7 @@ foreach ($questions as $value) {
         // updating answers database with student test answers
         $studentTestAns = "STA".$x;
 
-        $s = $db->prepare("UPDATE answers SET $studentTestAns = '$output' WHERE questionID = '$qID' and resultID = '$reID'");
+        $s = $db->prepare("UPDATE `answers` SET $studentTestAns = '$output' WHERE questionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
 
         // =======================================================
@@ -145,7 +145,7 @@ foreach ($questions as $value) {
     $qPoints = $r["$value"];
 
     // updating QP
-    $s = $db->prepare("UPDATE answers SET QP = '$qPoints' WHERE questionID = '$qID' and resultID = '$reID'");
+    $s = $db->prepare("UPDATE `answers` SET QP = '$qPoints' WHERE questionID = '$qID' and resultID = '$reID'");
     $r = $s->execute();
 
     $FNPoints = 0;
@@ -180,18 +180,18 @@ foreach ($questions as $value) {
     }
 
     // updating FN
-    $s = $db->prepare("UPDATE answers SET FNP = '$FNPoints' WHERE questionID = '$qID' and resultID = '$reID'");
+    $s = $db->prepare("UPDATE `answers` SET FNP = '$FNPoints' WHERE questionID = '$qID' and resultID = '$reID'");
     $r = $s->execute();
 
     // updating CP
-    $s = $db->prepare("UPDATE answers SET CP = '$cPoints' WHERE questionID = '$qID' and resultID = '$reID'");
+    $s = $db->prepare("UPDATE `answers` SET CP = '$cPoints' WHERE questionID = '$qID' and resultID = '$reID'");
     $r = $s->execute();
 
     $finalScore += $studentPoints;
     $totalPoints += $qPoints;
 
     // updating result
-    $s = $db->prepare("UPDATE results SET result = '$finalScore' WHERE EID = '$EID'");
+    $s = $db->prepare("UPDATE `results` SET result = '$finalScore' WHERE EID = '$EID'");
     $r = $s->execute();
 
     // =======================================================
@@ -221,12 +221,12 @@ foreach ($questions as $value) {
 
       if ($outputArray[$y] == $expAnswer) {
         $testNum = "TC".$x."P";
-        $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE questionID = '$qID' and resultID = '$reID'");
+        $s = $db->prepare("UPDATE `answers` SET $testNum = '1' WHERE questionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
       else {
         $testNum = "TC".$x."P";
-        $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID' and resultID = '$reID'");
+        $s = $db->prepare("UPDATE `answers` SET $testNum = '0' WHERE questionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
       
@@ -252,7 +252,7 @@ $finalScore = 0;
 $totalPoints = 0;
 $finalPercent = 0;
 
-$sql = $db->prepare("UPDATE results SET result= '$studentPoints' Where EID = '$EID' and UID = '$UID'");
+$sql = $db->prepare("UPDATE `results` SET result= '$studentPoints' Where EID = '$EID' and UID = '$UID'");
 $r = $sql->execute();
 
 echo "Finished grading";
