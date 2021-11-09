@@ -58,42 +58,46 @@
   <body>
     <!-- Display All Questons -->
     <?php
-        require "config.php";
-        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-        $db= new PDO($connection_string, $dbuser, $dbpass);
-        try{
-          $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, QI1, QI2, QI3  from `questions`";
-          echo "<table>"; // list box select command
+      echo "<style>";
+      echo " table, th, td {";
+      echo " border:1px solid black;}";
+      echo "</style>";
+      require "config.php";
+      $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+      $db= new PDO($connection_string, $dbuser, $dbpass);
+      try{
+        $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, QI1, QI2, QI3  from `questions`";
+        echo "<table>"; // list box select command
+        echo "<tr>";
+        echo "<td>Question ID</td>";
+        echo "<td>Question Text</td>";
+        echo "<td>Catagory</td>";
+        echo "<td>Difficulty</td>";
+        echo "<td>Input</td>";
+        echo "<td>Expected Output:</td>";
+        echo "<td>Input</td>";
+        echo "<td>Expected Output:</td>";
+        echo "<td>Input</td>";
+        echo "<td>Expected Output:</td>";
+        echo "</tr>";
+        foreach ($db->query($sql) as $row){//Array or records stored in $row
           echo "<tr>";
-          echo "<td>Question ID</td>";
-          echo "<td>Question Text</td>";
-          echo "<td>Catagory</td>";
-          echo "<td>Difficulty</td>";
-          echo "<td>Input</td>";
-          echo "<td>Expected Output:</td>";
-          echo "<td>Input</td>";
-          echo "<td>Expected Output:</td>";
-          echo "<td>Input</td>";
-          echo "<td>Expected Output:</td>";
+          echo "<td>$row[questionID]</td>";
+          echo "<td>$row[questionText]</td>";
+          echo "<td>$row[category]</td>";
+          echo "<td>$row[difficultyLevel]</td>";
+          echo "<td>$row[QI1]</td>";
+          echo "<td>$row[Answer1]</td>";
+          echo "<td>$row[QI2]</td>";
+          echo "<td>$row[Answer2]</td>";
+          echo "<td>$row[QI3]</td>";
+          echo "<td>$row[Answer3]</td>";
           echo "</tr>";
-          foreach ($db->query($sql) as $row){//Array or records stored in $row
-            echo "<tr>";
-            echo "<td>$row[questionID]</td>";
-            echo "<td>$row[questionText]</td>";
-            echo "<td>$row[category]</td>";
-            echo "<td>$row[difficultyLevel]</td>";
-            echo "<td>$row[QI1]</td>";
-            echo "<td>$row[Answer1]</td>";
-            echo "<td>$row[QI2]</td>";
-            echo "<td>$row[Answer2]</td>";
-            echo "<td>$row[QI3]</td>";
-            echo "<td>$row[Answer3]</td>";
-            echo "</tr>";
-          }
-
-          echo "</table>";// Closing of list box
         }
-        finally{}
+
+        echo "</table>";// Closing of list box
+      }
+      finally{}
      ?>
    <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
    <form name="NewTest" id="myForm" method="POST">
