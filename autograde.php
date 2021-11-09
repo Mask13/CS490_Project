@@ -247,12 +247,7 @@ foreach ($questions as $value) {
 
 $finalPercent = ($finalScore / $totalPoints) * 100;
 
-
-$finalScore = 0;
-$totalPoints = 0;
-$finalPercent = 0;
-
-$sql = $db->prepare("UPDATE results SET result= '$studentPoints' Where EID = '$EID' and UID = '$UID'");
+$sql = $db->prepare("UPDATE results SET result= '$finalScore' Where EID = '$EID' and UID = '$UID'");
 $r = $sql->execute();
 
 echo "Finished grading";
