@@ -78,21 +78,23 @@ foreach ($questions as $value) {
         $testAmount += 1;
 
         // getting function name
-        $s = $db->prepare("SELECT functionName FROM questions WHERE questionID = '$qID'");
-        $s->execute();
-        $r = $s->fetch(PDO::FETCH_ASSOC);
-        $funcName = $r["functionName"];
+        if($messedupName != true){
+          $s = $db->prepare("SELECT functionName FROM questions WHERE questionID = '$qID'");
+          $s->execute();
+          $r = $s->fetch(PDO::FETCH_ASSOC);
+          $funcName = $r["functionName"];
 
-        if(str_contains($dataString, "def ".$funcName."(")){
-          $messedupName = false;
+          if(str_contains($dataString, "def ".$funcName."(")){
+            $messedupName = false;
+          }
+          else{
+            $messedupName = true;
+            $brokenProg = explode("(",$dataString);
+            $brokenProg[0]= "def ".$funcName;
+            $dataString = implode("(", $brokenProg);
+          }
         }
-        else{
-          $messedupName = true;
-          $brokenProg = explode("(",$dataString);
-          $brokenProg[0]= "def ".$funcName;
-          $dataString = implode("(", $brokenProg);
-        }
-
+        
         // full String for the command used in python file
         $pycommand = $dataString."\nprint(".$funcName."(".$Qinput."))";
 
@@ -122,7 +124,7 @@ foreach ($questions as $value) {
         // =======================================================
         // Comparing Answers
         // =======================================================
-        
+
         if($output == $Ansinput) {
           $counterCorrect += 1;
           array_push($TestCaseArray, true);
@@ -136,7 +138,7 @@ foreach ($questions as $value) {
     // =======================================================
     // Giving Points
     // =======================================================
-    
+
     $s = $db->prepare("SELECT $value FROM QuestionAssignments WHERE EID = '$EID' ");
     $s->execute();
     $r = $s->fetch(PDO::FETCH_ASSOC);
@@ -201,7 +203,7 @@ foreach ($questions as $value) {
     $qText = $r["questionText"];
 
     for($x = 1; $x <= $testAmount; $x++) {
-      
+
       $testString = "Test Case ";
       $testCaseName = $testString.$x." Answers";
 
@@ -210,7 +212,7 @@ foreach ($questions as $value) {
       $s->execute();
       $r = $s->fetch(PDO::FETCH_ASSOC);
       $expAnswer = $r["$aInput00"];
-      
+
       $y = $x-1;
 
       $CDP = ($qPoints * $counterCorrect) / $testAmount;
@@ -225,10 +227,10 @@ foreach ($questions as $value) {
         $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
-      
+
     }
     echo "</table>";
-    
+
     $messedupName = false;
     $testAmount = 0;
     $counterCorrect = 0;
@@ -252,4 +254,3 @@ echo "Finished grading";
 
 </body>
 </html>
-
