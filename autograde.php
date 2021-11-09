@@ -112,7 +112,7 @@ foreach ($questions as $value) {
         // updating answers database with student test answers
         $studentTestAns = "STA".$x;
 
-        $s = $db->prepare("UPDATE answers SET $studentTestAns WHERE questionID = '$qID'");
+        $s = $db->prepare("UPDATE answers SET $studentTestAns = '$output' WHERE questionID = '$qID'");
         $r = $s->execute();
 
         // =======================================================
@@ -258,7 +258,7 @@ $finalScore = 0;
 $totalPoints = 0;
 $finalPercent = 0;
 
-$sql = $db->prepare("UPDATE results SET result= '$studentPoints' Where EID = '$_SESSION[EID]' and UID = '$_SESSION[SID]'");
+$sql = $db->prepare("UPDATE results SET result= '$studentPoints' Where EID = '$EID' and UID = '$UID'");
 $r = $sql->execute();
 
 echo "Finished grading";
