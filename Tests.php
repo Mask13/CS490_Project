@@ -120,7 +120,7 @@
          }
          finally{}
      ?>
-      <input class= "button" onclick="location.href = 'autograde.php'" name="autograde" type="submit">autograde</input>
+      <input class = "button" type= "submit" name = "autograde" id="autograde" value="autograde" onclick="location.href = 'autograde.php'"></input>
    </form>
   </body>
 </html>
