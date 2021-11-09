@@ -128,7 +128,7 @@ else{
           }
           finally{}
          ?>
-         <input type="submit" onclick="window.location.href = 'UserHome.php';" value="Submit">
+         <input type="submit" onclick="window.location.href = 'https://cs490-canvas2.herokuapp.com/UserHome.php';" value="Submit">
        </form>
     </div>
   </body>
