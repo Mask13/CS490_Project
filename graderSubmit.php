@@ -12,14 +12,6 @@ require "config.php";
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 $db= new PDO($connection_string, $dbuser, $dbpass);
 
-echo "<style>";
-echo " table, th, td {";
-echo " border:1px solid black;}";
-echo "</style>";
-
-echo "<br>";
-echo "<form method='POST' action=''>";
-
 $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
 foreach ($questions as $qNum) {
     
@@ -36,6 +28,14 @@ foreach ($questions as $qNum) {
     $value = $qNum."P";
 
     if ($r["$qNum"] != NULL && $r["$qNum"] != 0) {
+
+        echo "<style>";
+        echo " table, th, td {";
+        echo " border:1px solid black;}";
+        echo "</style>";
+
+        echo "<br>";
+        echo "<form method='POST' action=''>";
 
         echo "<table style='width:100%'>"; 
         echo "	<tr height='40px'>";
