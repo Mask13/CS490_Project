@@ -99,7 +99,7 @@ foreach ($questions as $qNum) {
     echo "    </td>";
     echo "	</tr>";
 
-    $s = $db->prepare("SELECT CP FROM answers WHERE QuestionID = '$qID' and ");
+    $s = $db->prepare("SELECT CP FROM answers WHERE QuestionID = '$qID' and resultID = '$reID'");
     $s->execute();
     $r = $s->fetch(PDO::FETCH_ASSOC);
     $cPoints = $r["CP"];
@@ -120,7 +120,6 @@ foreach ($questions as $qNum) {
     echo "		<th></th>";
     echo "		<th></th>";
     echo "	</tr>";
-    echo "	<tr>";
 
     for($x = 1; $x <= $testAmount; $x++) {
     
@@ -144,6 +143,7 @@ foreach ($questions as $qNum) {
         $CDP = ($qPoints * $counterCorrect) / $testAmount;
         //$testPoints = $qPoints - (2 + 1);
         
+        echo "	<tr>";
         echo "		<th>$testCaseName</th>"; 
         echo " 		<td style='text-align: center; vertical-align: middle;'>$expAnswer</td>";
         echo "		<td style='text-align: center; vertical-align: middle;'>$stuAnswer</td>"; 
