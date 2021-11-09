@@ -10,12 +10,6 @@ session_start();
 $EID = $_SESSION['EID'];
 $UID = $_SESSION["SID"];
 
-$testAmount = $_SESSION["testAmount"];
-$FNPoints = $_SESSION["FNPoints"];
-$cPoints = $_SESSION["cPoints"];
-
-$reID = $_SESSION["reID"];
-
 
 require "config.php";
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -112,7 +106,7 @@ foreach ($questions as $value) {
         // updating answers database with student test answers
         $studentTestAns = "STA".$x;
 
-        $s = $db->prepare("UPDATE answers SET $studentTestAns = '$output' WHERE questionID = '$qID'");
+        $s = $db->prepare("UPDATE answers SET $studentTestAns = '$output' WHERE questionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
 
         // =======================================================
@@ -151,7 +145,7 @@ foreach ($questions as $value) {
     $qPoints = $r["$value"];
 
     // updating QP
-    $s = $db->prepare("UPDATE answers SET QP = '$qPoints' WHERE questionID = '$qID'");
+    $s = $db->prepare("UPDATE answers SET QP = '$qPoints' WHERE questionID = '$qID' and resultID = '$reID'");
     $r = $s->execute();
 
     $FNPoints = 0;
@@ -186,11 +180,11 @@ foreach ($questions as $value) {
     }
 
     // updating FN
-    $s = $db->prepare("UPDATE answers SET FNP = '$FNPoints' WHERE questionID = '$qID'");
+    $s = $db->prepare("UPDATE answers SET FNP = '$FNPoints' WHERE questionID = '$qID' and resultID = '$reID'");
     $r = $s->execute();
 
     // updating CP
-    $s = $db->prepare("UPDATE answers SET CP = '$cPoints' WHERE questionID = '$qID'");
+    $s = $db->prepare("UPDATE answers SET CP = '$cPoints' WHERE questionID = '$qID' and resultID = '$reID'");
     $r = $s->execute();
 
     $finalScore += $studentPoints;
@@ -227,12 +221,12 @@ foreach ($questions as $value) {
 
       if ($outputArray[$y] == $expAnswer) {
         $testNum = "TC".$x."P";
-        $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE questionID = '$qID'");
+        $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE questionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
       else {
         $testNum = "TC".$x."P";
-        $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID'");
+        $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
       
