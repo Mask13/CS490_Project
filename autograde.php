@@ -107,7 +107,7 @@ foreach ($questions as $value) {
         $studentTestAns = "STA".$x;
 
         $s = $db->prepare("UPDATE answers SET $studentTestAns = '$output' WHERE questionID = '$qID' and resultID = '$reID'");
-        $s = $db->execute();
+        $r = $s->execute();
 
         // =======================================================
         // Getting Actual Answers
