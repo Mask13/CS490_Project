@@ -23,7 +23,7 @@ echo "<form method='POST' action=''>";
 $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
 foreach ($questions as $qNum) {
     
-    if ($r["$value"] != NULL && $r["$value"] != 0) {
+    if ($r["$qNum"] != NULL && $r["$qNum"] != 0) {
         $s = $db->prepare("SELECT resultID FROM results WHERE EID = '$EID' AND UID = '$UID'");
         $s->execute();
         $r = $s->fetch(PDO::FETCH_ASSOC);
