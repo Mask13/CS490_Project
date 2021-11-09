@@ -208,32 +208,24 @@ foreach ($questions as $value) {
 
     for($x = 1; $x <= $testAmount; $x++) {
 
-      $testString = "Test Case ";
-      $testCaseName = $testString.$x." Answers";
-
       $aInput00 = "Answer".$x;
       $s = $db->prepare("SELECT $aInput00 FROM questions WHERE questionID = '$qID'");
       $s->execute();
       $r = $s->fetch(PDO::FETCH_ASSOC);
       $expAnswer = $r["$aInput00"];
 
-      $y = $x-1;
-
-      $CDP = ($qPoints * $counterCorrect) / $testAmount;
-
       if ($outputArray[$y] == $expAnswer) {
-        $testNum = "TC".$x."P";
+        $testNum = "TCP".$x;
         $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE questionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
       else {
-        $testNum = "TC".$x."P";
+        $testNum = "TCP".$x;
         $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
 
     }
-    echo "</table>";
 
     $messedupName = false;
     $testAmount = 0;
@@ -252,7 +244,7 @@ $sql = $db->prepare("UPDATE results SET result= '$finalScore' Where EID = '$EID'
 $r = $sql->execute();
 
 echo "Finished grading";
-//header("Location: graderSubmit.php");
+header("Location: graderSubmit.php");
 
 ?>
 
