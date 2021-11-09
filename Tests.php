@@ -88,36 +88,40 @@
    <form name="Testform" id="myForm" method="POST">
      <input type= "number" name = "TestID" id="TestID" placeholder="EID"></input>
       <input class = "button" type="submit" name = "Delete" id="Delete" value="Delete"></input>
-      <input class = "button" type="submit" name = "Edit" id="Edit" value="Submit ID"></input>
    </form>
-   <?php
-       require "config.php";
-       $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-       $db= new PDO($connection_string, $dbuser, $dbpass);
-       try{
-         $sql = "SELECT UID, Username from `users` WHERE IsAdmin= 0 ";
-         echo "<table>"; // list box select command
-         echo "<tr>";
-         echo "<td>UID</td>";
-         echo "<td>Username</td>";
-         echo "</tr>";
-         foreach ($db->query($sql) as $row){//Array or records stored in $row
-           echo "<tr>";
-           echo "<td>$row[UID]</td>";
-           echo "<td>$row[Username]</td>";
-           echo "</tr>";
+   <form method="post">
+       <?php
+         require "config.php";
+         $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+         $db= new PDO($connection_string, $dbuser, $dbpass);
+         try{
+           $sql ="SELECT UID, Username from users Where IsAdmin = 0";
+
+           echo "<select id='studentID' name='studentID'>Student Name</option>"; // list box select command
+
+           foreach ($db->query($sql) as $row){//Array or records stored in $row
+             echo "<option value=$row[UID]>$row[Username]</option>";
+           }
+           echo "</select>";// Closing of list box
          }
-         echo "</table>";// Closing of list box
-       }
-       finally{}
-    ?>
-   <form name="SIDForm" id="myForm" method="POST">
-     <input type= "number" name = "SID" id="SID" placeholder="SID"></input>
-      <input class = "button" type="submit" name = "SetSID" id="SetSID" value="SetSID"></input>
+         finally{}
+         require "config.php";
+         $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+         $db= new PDO($connection_string, $dbuser, $dbpass);
+         try{
+           $sql ="SELECT EID, Exam_Name from exams";
+
+           echo "<select id='EID' name='EID'>Test</option>"; // list box select command
+
+           foreach ($db->query($sql) as $row){//Array or records stored in $row
+             echo "<option value=$row[EID]>$row[Exam_Name]</option>";
+           }
+           echo "</select>";// Closing of list box
+         }
+         finally{}
+     ?>
+      <input class= "button" onclick="location.href = 'autograde.php'" name="autograde" type="submit">autograde</input>
    </form>
-   <button type="button" onclick="location.href = 'autograde.php'"
-          class = "button" name="autograde"> autograde
-  </button>
   </body>
 </html>
 
@@ -137,13 +141,10 @@
         }
         finally{}
       }
-      if(isset($_POST["Edit"])){
-        $_SESSION["EID"] = $_POST["TestID"];
-      }
     }
 
-    if(isset($_POST["SID"])){
-      $_SESSION["SID"] = $_POST["SID"];
+    if(isset($_POST["studentID"]) && isset($_POST["EID"])){
+      $_SESSION["EID"] = $_POST["EID"];
+      $_SESSION["SID"] = $_POST["studentID"];
     }
-
  ?>
