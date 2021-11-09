@@ -109,6 +109,12 @@ foreach ($questions as $value) {
         $output = exec("python gradera.py", $strOutput, $stat);
         array_push($outputArray, $output);
 
+        // updating answers database with student test answers
+        $studentTestAns = "STA".$x;
+
+        $s = $db->prepare("UPDATE answers SET $studentTestAns WHERE questionID = '$qID'");
+        $r = $s->execute();
+
         // =======================================================
         // Getting Actual Answers
         // =======================================================
@@ -118,22 +124,15 @@ foreach ($questions as $value) {
         $s->execute();
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $Ansinput = $r["$aInput"];
-        //echo "Expected Output";
-        //echo "$Ansinput";
 
         // =======================================================
         // Comparing Answers
         // =======================================================
-
-        // if ran answer is the same as the expected output($Ansinput) then "Correct"
-        //$thisRight = true;
-        //$thisWrong = false;
         
         if($output == $Ansinput) {
           $counterCorrect += 1;
           array_push($TestCaseArray, true);
         }
-        // else, "incorrect"
         else {
           $counterCorrect += 0;
           array_push($TestCaseArray, false);
@@ -147,9 +146,7 @@ foreach ($questions as $value) {
     $s = $db->prepare("SELECT $value FROM QuestionAssignments WHERE EID = '$EID' ");
     $s->execute();
     $r = $s->fetch(PDO::FETCH_ASSOC);
-    //echo "<pre>" . var_export($r, true) . "</pre>";
-    //echo "$value";
-    //echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
+
 
     $qPoints = $r["$value"];
 
@@ -166,9 +163,6 @@ foreach ($questions as $value) {
 
     if($messedupName == false){
       $FNPoints += 2;
-      // updating FN
-      $s = $db->prepare("UPDATE answers SET FNP = '$FNPoints' WHERE questionID = '$qID'");
-      $r = $s->execute();
 
       if (($counterCorrect / $testAmount) == 1) {
         $studentPoints += $qPoints;
@@ -189,10 +183,15 @@ foreach ($questions as $value) {
     else{
       $cPoints += 1;
       $testPoints += 1;
-      // updating CP
-      $s = $db->prepare("UPDATE answers SET CP = '$cPoints' WHERE questionID = '$qID'");
-      $r = $s->execute();
     }
+
+    // updating FN
+    $s = $db->prepare("UPDATE answers SET FNP = '$FNPoints' WHERE questionID = '$qID'");
+    $r = $s->execute();
+
+    // updating CP
+    $s = $db->prepare("UPDATE answers SET CP = '$cPoints' WHERE questionID = '$qID'");
+    $r = $s->execute();
 
     $finalScore += $studentPoints;
     $totalPoints += $qPoints;
@@ -204,78 +203,12 @@ foreach ($questions as $value) {
     // =======================================================
     // Making the Table
     // =======================================================
-    
-
-    // Displaying the autograding table
-
-    //$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-    //$db= new PDO($connection_string, $dbuser, $dbpass);
-    
-    $qNum = substr($value, 0, -1);
-
-    echo "<style>";
-    echo " table, th, td {";
-    echo " border:1px solid black;}";
-    echo "</style>";
-    
-    echo "<br>";
-    echo "<form method='POST' action=''>";
-    
-    echo "<table style='width:100%'>"; 
-    echo "	<tr height='40px'>";
-    echo "		<th>Question Number</th>";
-    echo "		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qNum</td>";  // Q# from questionassignments
-    echo "		<th>Current Grade</th>";
-    echo "    <th>Change Grade</th>";
-    echo "	</tr>";
-    echo "	<tr>";
 
     $s = $db->prepare("SELECT questionText FROM questions WHERE questionID = '$qID'");
     $s->execute();
     $r = $s->fetch(PDO::FETCH_ASSOC);
 
     $qText = $r["questionText"];
-
-    echo "		<th>Question Text</th>";
-    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qText</td>"; // questionText from  questions
-    echo "		<td style='text-align: center; vertical-align: middle;'>$qPoints pts</td>"; // QPoints from questionassignments
-    echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-    echo "    </td>";
-    echo "	</tr>";
-    echo "	<tr>";
-    echo "		<th>Submission</th>";
-    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$dataString</td>"; // Submission from answers
-    echo "		<td style='text-align: center; vertical-align: middle;'>$studentPoints / $qPoints</td>"; // Total Score
-    echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-    echo "    </td>";
-    echo "	</tr>";
-    echo "	<tr>";
-    echo "		<th>Function Name</th>";
-    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$funcName</td>"; // functionName from questions
-    echo "		<td style='text-align: center; vertical-align: middle;'>$FNPoints / 2</td>"; // funcName Score
-    echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-    echo "      <input type='text' name='FN$value' size ='5'>";
-    echo " 			<input type='submit' value='Submit' name='B1'>";
-    echo "    </td>";
-    echo "	</tr>";
-    echo "	<tr>";
-    echo "		<th>Constraints</th>";
-    echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Text Input</td>"; 
-    echo "		<td style='text-align: center; vertical-align: middle;'>$cPoints / 1</td>";
-    echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-    echo "      <input type='text' name='C$value' size ='5'>";
-    echo " 			<input type='submit' value='Submit' name='B1'>";
-    echo "    </td>";
-    echo "	</tr>";
-    echo " 	<tr>";
-    echo "		<th></th>";
-    echo "		<th>Expected Output</th>";
-    echo "		<th>Student Submission</th>";
-    echo "		<th></th>";
-    echo "		<th></th>";
-    echo "	</tr>";
-    echo "	<tr>";
-
 
     for($x = 1; $x <= $testAmount; $x++) {
       
@@ -291,34 +224,13 @@ foreach ($questions as $value) {
       $y = $x-1;
 
       $CDP = ($qPoints * $counterCorrect) / $testAmount;
-      //$testPoints = $qPoints - (2 + 1);
-      
-      echo "		<th>$testCaseName</th>"; 
-      echo " 		<td style='text-align: center; vertical-align: middle;'>$expAnswer</td>"; // Answer1 from questions
-      echo "		<td style='text-align: center; vertical-align: middle;'>$outputArray[$y]</td>"; // Student Output
 
       if ($outputArray[$y] == $expAnswer) {
-        echo "		<td style='text-align: center; vertical-align: middle;'> 100%</td>";
-        echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
-        echo "      <input type='text' name='Rgttest$x' size ='5'>";
-        echo " 			<input type='submit' value='Submit' name='B1'>";
-        echo "    </td>";
-        echo "	</tr>";
-        echo "	<tr>";
-
         $testNum = "TC".$x."P";
         $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE questionID = '$qID'");
         $r = $s->execute();
       }
       else {
-        echo "		<td style='text-align: center; vertical-align: middle;'> 0%</td>";
-        echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
-        echo "      <input type='text' name='Wrgtest$x' size ='5'>";
-        echo " 			<input type='submit' value='Submit' name='B1'>";
-        echo "    </td>";
-        echo "	</tr>";
-        echo "	<tr>";
-
         $testNum = "TC".$x."P";
         $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID'");
         $r = $s->execute();
@@ -340,16 +252,6 @@ foreach ($questions as $value) {
 }
 
 $finalPercent = ($finalScore / $totalPoints) * 100;
-// final score
-echo "<br>";
-echo "<table style='width:100%'>"; 
-echo "  <tr>";
-echo "		<th></th>";
-echo "		<th>Final Score</th>";
-echo "		<th>$finalScore / $totalPoints = $finalPercent%</th>";
-echo "		<th></th>";
-echo "	</tr>";
-echo "</table>";
 
 
 $finalScore = 0;
@@ -358,6 +260,9 @@ $finalPercent = 0;
 
 $sql = $db->prepare("UPDATE results SET result= '$studentPoints' Where EID = '$_SESSION[EID]' and UID = '$_SESSION[SID]'");
 $r = $sql->execute();
+
+echo "Finished grading";
+//header("Location: graderSubmit.php");
 
 ?>
 
