@@ -106,7 +106,7 @@ foreach ($questions as $value) {
         // updating answers database with student test answers
         $studentTestAns = "STA".$x;
 
-        $s = $db->prepare("UPDATE answers SET $studentTestAns = '$output' WHERE questionID = '$qID' and resultID = '$reID'");
+        $s = $db->prepare("UPDATE answers SET $studentTestAns = '$output' WHERE questionID = $qID and resultID = $reID");
         $r = $s->execute();
 
         // =======================================================
