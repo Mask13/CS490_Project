@@ -23,18 +23,19 @@ echo "<form method='POST' action=''>";
 $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
 foreach ($questions as $qNum) {
     
+    $s = $db->prepare("SELECT resultID FROM results WHERE EID = '$EID' AND UID = '$UID'");
+    $s->execute();
+    $r = $s->fetch(PDO::FETCH_ASSOC);
+    $reID = $r["resultID"]; // getting result ID
+
+    $s = $db->prepare("SELECT $qNum FROM QuestionAssignments WHERE EID = '$EID'");
+    $s-> execute();
+    $r = $s->fetch(PDO::FETCH_ASSOC);
+    $qID = $r["$qNum"]; // getting question ID
+
+    $value = $qNum."P";
+
     if ($r["$qNum"] != NULL && $r["$qNum"] != 0) {
-        $s = $db->prepare("SELECT resultID FROM results WHERE EID = '$EID' AND UID = '$UID'");
-        $s->execute();
-        $r = $s->fetch(PDO::FETCH_ASSOC);
-        $reID = $r["resultID"]; // getting result ID
-
-        $s = $db->prepare("SELECT $qNum FROM QuestionAssignments WHERE EID = '$EID'");
-        $s-> execute();
-        $r = $s->fetch(PDO::FETCH_ASSOC);
-        $qID = $r["$qNum"]; // getting question ID
-
-        $value = $qNum."P";
 
         echo "<table style='width:100%'>"; 
         echo "	<tr height='40px'>";
