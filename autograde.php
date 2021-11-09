@@ -191,8 +191,8 @@ foreach ($questions as $value) {
     $totalPoints += $qPoints;
 
     // updating result
-    $s = $db->prepare("UPDATE results SET result = '$finalScore' WHERE EID = '$EID'");
-    $r = $s->execute();
+    /*$s = $db->prepare("UPDATE results SET result = '$finalScore' WHERE EID = '$EID'");
+    $r = $s->execute();*/
 
     // =======================================================
     // Making the Table
@@ -239,7 +239,6 @@ foreach ($questions as $value) {
     $studentPoints = 0;
     $FNPoints = 0;
     $cPoints = 0;
-    
   }
 
   $outputArray = array();
