@@ -273,7 +273,8 @@ if (!empty($_POST)) {
         }
 
     }
+
+    header("Refresh:1");
 }
 
-header("Refresh:1");
 ?>
