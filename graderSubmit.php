@@ -235,9 +235,6 @@ if (!empty($_POST)) {
     $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
     foreach ($questions as $qNum) {
 
-        echo "FNB$qNum";
-        echo "CB$qNum";
-
         $s = $db->prepare("SELECT $qNum FROM QuestionAssignments WHERE EID = '$EID'");
         $s-> execute();
         $r = $s->fetch(PDO::FETCH_ASSOC);
@@ -267,7 +264,6 @@ if (!empty($_POST)) {
                 $s = $db->prepare("UPDATE answers SET $testNum = '$Rgttest' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
                 header("Refresh:1");
-                echo "Rgttest$x$qNum";
             }
 
             if (isset($_POST["Wrgtest$x$qNum"])) {
@@ -275,7 +271,6 @@ if (!empty($_POST)) {
                 $s = $db->prepare("UPDATE answers SET $testNum = '$Wrgtest' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
                 header("Refresh:1");
-                echo "Wrgtest$x$qNum";
             }
 
         }
