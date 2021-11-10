@@ -235,7 +235,7 @@ if (!empty($_POST)) {
     $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
     foreach ($questions as $qNum) {
 
-        echo "FNB = FNB$qNum";
+        echo "FNB = $_POST['FNB$qNum']";
         echo "CB = CB$qNum";
 
         $s = $db->prepare("SELECT $qNum FROM QuestionAssignments WHERE EID = '$EID'");
