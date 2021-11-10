@@ -223,44 +223,45 @@ require "config.php";
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 $db= new PDO($connection_string, $dbuser, $dbpass);
 
+$s = $db->prepare("SELECT resultID FROM results WHERE EID = '$EID' AND UID = '$UID'");
+$s->execute();
+$r = $s->fetch(PDO::FETCH_ASSOC);
+$reID = $r["resultID"]; // getting result ID
+
 $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
 foreach ($questions as $qNum) {
-    $s = $db->prepare("SELECT resultID FROM results WHERE EID = '$EID' AND UID = '$UID'");
-    $s->execute();
-    $r = $s->fetch(PDO::FETCH_ASSOC);
-    $reID = $r["resultID"]; // getting result ID
 
     $s = $db->prepare("SELECT $qNum FROM QuestionAssignments WHERE EID = '$EID'");
     $s-> execute();
     $r = $s->fetch(PDO::FETCH_ASSOC);
     $qID = $r["$qNum"]; // getting question ID
-
-    if (isset($_POST["FNB"])) {
-        $FNB = $_POST["FNB"];
-        $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
-        $r = $s->execute();
-    }
-    
-    elseif (isset($_POST["CB"])) {
-        $CB = $_POST["CB"];
-        $s = $db->prepare("UPDATE answers SET CP = '$CB' WHERE QuestionID = '$qID' and resultID = '$reID'");
-        $r = $s->execute();
-    }
-    
-    elseif (isset($_POST["Rgttest"])) {
-        $Rgttest = $_POST["Rgttest"];
-        $s = $db->prepare("UPDATE answers SET $testNum = '$Rgttest' WHERE QuestionID = '$qID' and resultID = '$reID'");
-        $r = $s->execute();
-    }
-    
-    elseif (isset($_POST["Wrgtest"])) {
-        $Wrgtest = $_POST["Wrgtest"];
-        $s = $db->prepare("UPDATE answers SET $testNum = '$Wrgtest' WHERE QuestionID = '$qID' and resultID = '$reID'");
-        $r = $s->execute();
-    }
-    
-    else {}
 }
+
+if (isset($_POST["FNB"])) {
+    $FNB = $_POST["FNB"];
+    $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
+    $r = $s->execute();
+}
+
+elseif (isset($_POST["CB"])) {
+    $CB = $_POST["CB"];
+    $s = $db->prepare("UPDATE answers SET CP = '$CB' WHERE QuestionID = '$qID' and resultID = '$reID'");
+    $r = $s->execute();
+}
+
+elseif (isset($_POST["Rgttest"])) {
+    $Rgttest = $_POST["Rgttest"];
+    $s = $db->prepare("UPDATE answers SET $testNum = '$Rgttest' WHERE QuestionID = '$qID' and resultID = '$reID'");
+    $r = $s->execute();
+}
+
+elseif (isset($_POST["Wrgtest"])) {
+    $Wrgtest = $_POST["Wrgtest"];
+    $s = $db->prepare("UPDATE answers SET $testNum = '$Wrgtest' WHERE QuestionID = '$qID' and resultID = '$reID'");
+    $r = $s->execute();
+}
+
+else {}
 
 header("Refresh:1");
 ?>
