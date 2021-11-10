@@ -35,7 +35,7 @@ foreach ($questions as $qNum) {
         echo "</style>";
 
         echo "<br>";
-        echo "<form method='POST' action=''>";
+        echo "<form method='POST'>";
 
         echo "<table style='width:100%'>"; 
         echo "	<tr height='40px'>";
