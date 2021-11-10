@@ -232,7 +232,7 @@ $reID = $r["resultID"]; // getting result ID
 
 $right = True;
 
-while ($right) {
+if (!empty($_POST)) {
     $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
     foreach ($questions as $qNum) {
 
@@ -246,14 +246,12 @@ while ($right) {
             $FNB = $_POST["FNB$qNum"];
             $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
-            $right = false;
         }
 
         if (isset($_POST["CB$qNum"])) {
             $CB = $_POST["CB$qNum"];
             $s = $db->prepare("UPDATE answers SET CP = '$CB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
-            $right = false;
         }
 
         for($x = 1; $x <= $testAmount; $x++) {
@@ -264,14 +262,12 @@ while ($right) {
                 $Rgttest = $_POST["Rgttest$x"];
                 $s = $db->prepare("UPDATE answers SET $testNum = '$Rgttest' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
-                $right = false;
             }
 
             if (isset($_POST["Wrgtest$x"])) {
                 $Wrgtest = $_POST["Wrgtest$x"];
                 $s = $db->prepare("UPDATE answers SET $testNum = '$Wrgtest' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
-                $right = false;
             }
 
         }
