@@ -1,5 +1,6 @@
 <html>
 <body>
+<h2>Results of AutoGrader</h2>
 
 <?php
 
@@ -183,7 +184,6 @@ foreach ($questions as $qNum) {
     }
 }
 
-
 $s = $db->prepare("SELECT result FROM results WHERE EID = '$EID' AND UID = '$UID'");
 $s->execute();
 $r = $s->fetch(PDO::FETCH_ASSOC);
@@ -206,7 +206,6 @@ echo "		<th>$finalScore / $totalPoints = $finalPercent%</th>";
 echo "		<th></th>";
 echo "	</tr>";
 echo "</table>";
-
 
 ?>
 
