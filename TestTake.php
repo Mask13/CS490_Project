@@ -215,4 +215,5 @@ if (isset($_POST['Q5A'])){
   $stmt->execute($params);
   echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 }
+header("Location: UserHome.php");
  ?>
