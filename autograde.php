@@ -158,7 +158,7 @@ foreach ($questions as $value) {
     $s->execute();
     $r = $s->fetch(PDO::FETCH_ASSOC);
     $constraint = $r["QuestonConstrain"];
-    if $constraint = "F"{
+    if ($constraint = "F"){
       if(str_contains($dataString, "for")|| str_contains($dataString, "For")){
         $messedupConstrain = false;
       }
@@ -167,7 +167,7 @@ foreach ($questions as $value) {
       }
     }
     elseif ($constraint = "W") {
-      if(str_contains($dataString, "while")||str_contains($dataString, "While")){
+      if(str_contains($dataString, "while")|| str_contains($dataString, "While")) {
         $messedupConstrain = false;
       }
       else{
@@ -175,7 +175,7 @@ foreach ($questions as $value) {
       }
     }
     elseif ($constraint = "R"){
-      if(sizeof(explode($funcName,$dataString))>=3){
+      if(sizeof(explode($funcName,$dataString))>=3) {
         $messedupConstrain = false;
       }
       else{
