@@ -14,7 +14,7 @@ $db= new PDO($connection_string, $dbuser, $dbpass);
 
 $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
 foreach ($questions as $qNum) {
-    
+
     $s = $db->prepare("SELECT resultID FROM results WHERE EID = '$EID' AND UID = '$UID'");
     $s->execute();
     $r = $s->fetch(PDO::FETCH_ASSOC);
@@ -37,7 +37,7 @@ foreach ($questions as $qNum) {
         echo "<br>";
         echo "<form method='POST'>";
 
-        echo "<table style='width:100%'>"; 
+        echo "<table style='width:100%'>";
         echo "	<tr height='40px'>";
         echo "		<th>Question Number</th>";
         echo "		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qNum</td>";  // Q# from questionassignments
@@ -108,7 +108,7 @@ foreach ($questions as $qNum) {
 
         echo "	<tr>";
         echo "		<th>Constraints</th>";
-        echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Text Input</td>"; 
+        echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Text Input</td>";
         echo "		<td style='text-align: center; vertical-align: middle;'>$cPoints / 1</td>";
         echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
         echo "      <input type='text' name='CB$qNum' size ='5'>";
@@ -122,17 +122,17 @@ foreach ($questions as $qNum) {
         echo "		<th></th>";
         echo "		<th></th>";
         echo "	</tr>";
-        
+
         $s = $db->prepare("SELECT testAmount FROM questions WHERE questionID = '$qID'");
         $s->execute();
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $testAmount = $r["testAmount"];
 
         for($x = 1; $x <= $testAmount; $x++) {
-        
+
             $testString = "Test Case ";
             $testCaseName = $testString.$x." Answers";
-            
+
             $testNum = "Answer".$x; // test case expected answers
             $s = $db->prepare("SELECT $testNum FROM questions WHERE questionID = '$qID'");
             $s->execute();
@@ -144,17 +144,17 @@ foreach ($questions as $qNum) {
             $s->execute();
             $r = $s->fetch(PDO::FETCH_ASSOC);
             $stuAnswer = $r["$stuTestAns"];
-            
+
             $y = $x-1;
-        
+
             $CDP = ($qPoints * $counterCorrect) / $testAmount;
             //$testPoints = $qPoints - (2 + 1);
-            
+
             echo "	<tr>";
-            echo "		<th>$testCaseName</th>"; 
+            echo "		<th>$testCaseName</th>";
             echo " 		<td style='text-align: center; vertical-align: middle;'>$expAnswer</td>";
-            echo "		<td style='text-align: center; vertical-align: middle;'>$stuAnswer</td>"; 
-        
+            echo "		<td style='text-align: center; vertical-align: middle;'>$stuAnswer</td>";
+
             if ($stuAnswer == $expAnswer) {
                 echo "		<td style='text-align: center; vertical-align: middle;'> 100%</td>";
                 echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
@@ -164,7 +164,7 @@ foreach ($questions as $qNum) {
                 echo "	</tr>";
                 echo "	<tr>";
                 echo "<br>";
-            
+
                 $testNum = "TCP".$x;
                 $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
@@ -178,12 +178,12 @@ foreach ($questions as $qNum) {
                 echo "	</tr>";
                 echo "	<tr>";
                 echo "<br>";
-        
+
                 $testNum = "TCP".$x;
                 $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
-            } 
-            
+            }
+
         }
     }
 }
@@ -202,7 +202,7 @@ $finalPercent = ($finalScore / $totalPoints) * 100;
 
 // final score
 echo "<br>";
-echo "<table style='width:100%'>"; 
+echo "<table style='width:100%'>";
 echo "  <tr>";
 echo "		<th></th>";
 echo "		<th>Final Score</th>";
@@ -245,32 +245,32 @@ if (!empty($_POST)) {
             $FNB = $_POST["FNB$qNum"];
             $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
-            header("Refresh:5");
+            header("Refresh:20");
         }
 
         if (isset($_POST["CB$qNum"])) {
             $CB = $_POST["CB$qNum"];
             $s = $db->prepare("UPDATE answers SET CP = '$CB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
-            header("Refresh:5");
+            header("Refresh:20");
         }
 
         for($x = 1; $x <= $testAmount; $x++) {
 
             $testNum = "TCP".$x;
-            
+
             if (isset($_POST["Rgttest$x$qNum"])) {
                 $Rgttest = $_POST["Rgttest$x"];
                 $s = $db->prepare("UPDATE answers SET $testNum = '$Rgttest' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
-                header("Refresh:5");
+                header("Refresh:20");
             }
 
             if (isset($_POST["Wrgtest$x$qNum"])) {
                 $Wrgtest = $_POST["Wrgtest$x"];
                 $s = $db->prepare("UPDATE answers SET $testNum = '$Wrgtest' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
-                header("Refresh:5");
+                header("Refresh:20");
             }
 
         }
