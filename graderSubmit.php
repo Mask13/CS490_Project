@@ -7,7 +7,6 @@
 session_start();
 $EID = $_SESSION['EID'];
 $UID = $_SESSION["SID"];
-// $reID = $_SESSION["resultID"];
 
 require "config.php";
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -123,6 +122,11 @@ foreach ($questions as $qNum) {
         echo "		<th></th>";
         echo "		<th></th>";
         echo "	</tr>";
+        
+        $s = $db->prepare("SELECT testAmount FROM questions WHERE questionID = '$qID'");
+        $s->execute();
+        $r = $s->fetch(PDO::FETCH_ASSOC);
+        $testAmount = $r["testAmount"];
 
         for($x = 1; $x <= $testAmount; $x++) {
         

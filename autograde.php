@@ -215,16 +215,19 @@ foreach ($questions as $value) {
 
       if ($outputArray[$y] == $expAnswer) {
         $testNum = "TCP".$x;
-        $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE questionID = '$qID' and resultID = '$reID'");
+        $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE QuestionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
       else {
         $testNum = "TCP".$x;
-        $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE questionID = '$qID' and resultID = '$reID'");
+        $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE QuestionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
 
     }
+
+    $s = $db->prepare("UPDATE questions SET testAmount = '$testAmount' WHERE questionID = '$qID'");
+    $r = $s->execute();
 
     $messedupName = false;
     $testAmount = 0;
