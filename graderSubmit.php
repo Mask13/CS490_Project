@@ -158,6 +158,7 @@ foreach ($questions as $qNum) {
                 echo "    </td>";
                 echo "	</tr>";
                 echo "	<tr>";
+                echo "<br>";
             
                 $testNum = "TCP".$x;
                 $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE QuestionID = '$qID' and resultID = '$reID'");
@@ -171,6 +172,7 @@ foreach ($questions as $qNum) {
                 echo "    </td>";
                 echo "	</tr>";
                 echo "	<tr>";
+                echo "<br>";
         
                 $testNum = "TCP".$x;
                 $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE QuestionID = '$qID' and resultID = '$reID'");
