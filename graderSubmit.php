@@ -158,7 +158,7 @@ foreach ($questions as $qNum) {
             if ($stuAnswer == $expAnswer) {
                 echo "		<td style='text-align: center; vertical-align: middle;'> 100%</td>";
                 echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
-                echo "      <input type='text' name='Rgttest$x' size ='5'>";
+                echo "      <input type='text' name='Rgttest$x$qNum' size ='5'>";
                 echo " 			<input type='submit' value='Submit' name='B1'>";
                 echo "    </td>";
                 echo "	</tr>";
@@ -172,7 +172,7 @@ foreach ($questions as $qNum) {
             else {
                 echo "		<td style='text-align: center; vertical-align: middle;'> 0%</td>";
                 echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
-                echo "      <input type='text' name='Wrgtest$x' size ='5'>";
+                echo "      <input type='text' name='Wrgtest$x$qNum' size ='5'>";
                 echo " 			<input type='submit' value='Submit' name='B1'>";
                 echo "    </td>";
                 echo "	</tr>";
@@ -235,8 +235,8 @@ if (!empty($_POST)) {
     $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
     foreach ($questions as $qNum) {
 
-        echo "FNB = $_POST['FNB$qNum']";
-        echo "CB = CB$qNum";
+        echo "FNB$qNum";
+        echo "CB$qNum";
 
         $s = $db->prepare("SELECT $qNum FROM QuestionAssignments WHERE EID = '$EID'");
         $s-> execute();
@@ -260,18 +260,18 @@ if (!empty($_POST)) {
 
             $testNum = "TCP".$x;
             
-            if (isset($_POST["Rgttest$x"])) {
+            if (isset($_POST["Rgttest$x$qNum"])) {
                 $Rgttest = $_POST["Rgttest$x"];
                 $s = $db->prepare("UPDATE answers SET $testNum = '$Rgttest' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
-                echo "Rgttest = Rgttest$x";
+                echo "dRgttest$x$qNum";
             }
 
-            if (isset($_POST["Wrgtest$x"])) {
+            if (isset($_POST["Wrgtest$x$qNum"])) {
                 $Wrgtest = $_POST["Wrgtest$x"];
                 $s = $db->prepare("UPDATE answers SET $testNum = '$Wrgtest' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
-                echo "Wrgtest = Wrgtest$x";
+                echo "Wrgtest$x$qNum";
             }
 
         }
