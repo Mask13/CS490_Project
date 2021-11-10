@@ -264,7 +264,7 @@ if (!empty($_POST)) {
                 $Rgttest = $_POST["Rgttest$x"];
                 $s = $db->prepare("UPDATE answers SET $testNum = '$Rgttest' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
-                echo "dRgttest$x$qNum";
+                echo "Rgttest$x$qNum";
             }
 
             if (isset($_POST["Wrgtest$x$qNum"])) {
