@@ -175,49 +175,9 @@ foreach ($questions as $qNum) {
                 $testNum = "TCP".$x;
                 $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
-            }
-            
-            
-        }
-
-        for($x = 1; $x <= $testAmount; $x++) {
-
-            $testNum1 = "TCP".$x;
-            if (isset($_POST["Rgttest$x"])) {
-                $s = $db->prepare("UPDATE answers SET $testNum1 = '$_POST['Rgttest$x']' WHERE QuestionID = '$qID' and resultID = '$reID'");
-                $r = $s->execute();
-        
-                // should replace whatever points for each test case
-            }
-
-            elseif (isset($_POST["Wrgtest$x"])) {
-                $s = $db->prepare("UPDATE answers SET $testNum1 = '$_POST['Wrgtest$x']' WHERE QuestionID = '$qID' and resultID = '$reID'");
-                $r = $s->execute();
-
-                // should replace whatever points for each test case
-            }
-
-            else {}
-        }
-
-        if (isset($_POST["FN$qNum"])) {
-            // updating points
-        
-            $s = $db->prepare("UPDATE answers SET FNP = '$_POST['FN$qNum']' WHERE QuestionID = '$qID' and resultID = '$reID'");
-            $r = $s->execute();
-        
-            $FNPoints = $_POST["FN$qNum"];
+            } 
             
         }
-
-        elseif (isset($_POST["C$qNum"])) {
-            $s = $db->prepare("UPDATE answers SET CP = '$_POST['C$qNum']' WHERE QuestionID = '$qID' and resultID = '$reID'");
-            $r = $s->execute();
-
-            $cPoints = $_POST["C$qNum"];
-        }
-        
-        else {}
     }
 }
 
