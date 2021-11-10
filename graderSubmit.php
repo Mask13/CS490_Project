@@ -236,22 +236,26 @@ foreach ($questions as $qNum) {
     $qID = $r["$qNum"]; // getting question ID
 
     if (isset($_POST["FNB"])) {
-        $s = $db->prepare("UPDATE answers SET FNP = '$_POST['FNB']' WHERE QuestionID = '$qID' and resultID = '$reID'");
+        $FNB = $_POST["FNB"];
+        $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
     }
     
     elseif (isset($_POST["CB"])) {
-        $s = $db->prepare("UPDATE answers SET CP = '$_POST['CB']' WHERE QuestionID = '$qID' and resultID = '$reID'");
+        $CB = $_POST["CB"];
+        $s = $db->prepare("UPDATE answers SET CP = '$CB' WHERE QuestionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
     }
     
-    elseif (isset($_POST["Rgttest$x"])) {
-        $s = $db->prepare("UPDATE answers SET $testNum = '$_POST['Rgttest']' WHERE QuestionID = '$qID' and resultID = '$reID'");
+    elseif (isset($_POST["Rgttest"])) {
+        $Rgttest = $_POST["Rgttest"];
+        $s = $db->prepare("UPDATE answers SET $testNum = '$Rgttest' WHERE QuestionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
     }
     
-    elseif (isset($_POST["Wrgtest$x"])) {
-        $s = $db->prepare("UPDATE answers SET $testNum = '$_POST['Wrgtest']' WHERE QuestionID = '$qID' and resultID = '$reID'");
+    elseif (isset($_POST["Wrgtest"])) {
+        $Wrgtest = $_POST["Wrgtest"];
+        $s = $db->prepare("UPDATE answers SET $testNum = '$Wrgtest' WHERE QuestionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
     }
     
