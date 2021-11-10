@@ -154,7 +154,7 @@ foreach ($questions as $value) {
     $testPoints = $qPoints - (2 + 1);
 
     $messedupConstrain = false;
-    $messedupName = false;
+    // $messedupName = false;
 
     if($messedupName == false){
       $FNPoints += 2;
