@@ -212,3 +212,63 @@ echo "</table>";
 
 </body>
 </html>
+
+<?php 
+
+session_start();
+$EID = $_SESSION['EID'];
+$UID = $_SESSION["SID"];
+
+require "config.php";
+$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+$db= new PDO($connection_string, $dbuser, $dbpass);
+
+$questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
+foreach ($questions as $qNum) {
+    $s = $db->prepare("SELECT resultID FROM results WHERE EID = '$EID' AND UID = '$UID'");
+    $s->execute();
+    $r = $s->fetch(PDO::FETCH_ASSOC);
+    $reID = $r["resultID"]; // getting result ID
+
+    $s = $db->prepare("SELECT $qNum FROM QuestionAssignments WHERE EID = '$EID'");
+    $s-> execute();
+    $r = $s->fetch(PDO::FETCH_ASSOC);
+    $qID = $r["$qNum"]; // getting question ID
+
+    $value = $qNum."P";
+
+    if ($r["$qNum"] != NULL && $r["$qNum"] != 0) {
+
+        if (isset($_POST["FN$qNum"])) {
+            $s = $db->prepare("UPDATE answers SET FNP = '$_POST['FN$qNum']' WHERE QuestionID = '$qID' and resultID = '$reID'");
+            $r = $s->execute();
+        }
+
+        elseif (isset($_POST["C$qNum"])) {
+            $s = $db->prepare("UPDATE answers SET FNP = '$_POST['FN$qNum']' WHERE QuestionID = '$qID' and resultID = '$reID'");
+            $r = $s->execute();
+        }
+
+        else {}
+
+        for($x = 1; $x <= $testAmount; $x++) {
+            
+            $testNum = "TCP".$x;
+
+            if (isset($_POST["Rgttest$x"])) {
+                $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE QuestionID = '$qID' and resultID = '$reID'");
+                $r = $s->execute();
+            }
+
+            elseif (isset($_POST["Wrgtest$x"])) {
+                $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE QuestionID = '$qID' and resultID = '$reID'");
+                $r = $s->execute();
+            }
+
+            else{}
+        }
+    }
+}
+
+header("Refresh:1");
+?>
