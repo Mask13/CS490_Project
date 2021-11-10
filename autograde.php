@@ -153,36 +153,8 @@ foreach ($questions as $value) {
 
     $testPoints = $qPoints - (2 + 1);
 
-    //Check constraints
-    $s = $db->prepare("SELECT QuestonConstrain from questions WHERE questionID = '$qID'");
-    $s->execute();
-    $r = $s->fetch(PDO::FETCH_ASSOC);
-    $constraint = $r["QuestonConstrain"];
-    if ($constraint = "F"){
-      if(str_contains($dataString, "for")|| str_contains($dataString, "For")){
-        $messedupConstrain = false;
-      }
-      else{
-        $messedupConstrain = true;
-      }
-    }
-    elseif ($constraint = "W") {
-      if(str_contains($dataString, "while")|| str_contains($dataString, "While")) {
-        $messedupConstrain = false;
-      }
-      else{
-        $messedupConstrain = true;
-      }
-    }
-    elseif ($constraint = "R"){
-      if(sizeof(explode($funcName,$dataString))>=3) {
-        $messedupConstrain = false;
-      }
-      else{
-        $messedupConstrain = true;
-      }
-    }
-
+    $messedupName = false
+    
     if($messedupName == false){
       $FNPoints += 2;
 
