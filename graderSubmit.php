@@ -96,7 +96,7 @@ foreach ($questions as $qNum) {
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$funcName</td>"; // functionName from questions
         echo "		<td style='text-align: center; vertical-align: middle;'>$FNPoints / 2</td>"; // funcName Score
         echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-        echo "      <input type='text' name='FN$qNum' size ='5'>";
+        echo "      <input type='text' name='FNB' size ='5'>";
         echo " 			<input type='submit' value='Submit' name='B1'>";
         echo "    </td>";
         echo "	</tr>";
@@ -111,7 +111,7 @@ foreach ($questions as $qNum) {
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Text Input</td>"; 
         echo "		<td style='text-align: center; vertical-align: middle;'>$cPoints / 1</td>";
         echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-        echo "      <input type='text' name='C$qNum' size ='5'>";
+        echo "      <input type='text' name='CB' size ='5'>";
         echo " 			<input type='submit' value='Submit' name='B1'>";
         echo "    </td>";
         echo "	</tr>";
@@ -153,7 +153,7 @@ foreach ($questions as $qNum) {
             if ($stuAnswer == $expAnswer) {
                 echo "		<td style='text-align: center; vertical-align: middle;'> 100%</td>";
                 echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
-                echo "      <input type='text' name='Rgttest$x' size ='5'>";
+                echo "      <input type='text' name='Rgttest' size ='5'>";
                 echo " 			<input type='submit' value='Submit' name='B1'>";
                 echo "    </td>";
                 echo "	</tr>";
@@ -167,7 +167,7 @@ foreach ($questions as $qNum) {
             else {
                 echo "		<td style='text-align: center; vertical-align: middle;'> 0%</td>";
                 echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
-                echo "      <input type='text' name='Wrgtest$x' size ='5'>";
+                echo "      <input type='text' name='Wrgtest' size ='5'>";
                 echo " 			<input type='submit' value='Submit' name='B1'>";
                 echo "    </td>";
                 echo "	</tr>";
@@ -235,35 +235,27 @@ foreach ($questions as $qNum) {
     $r = $s->fetch(PDO::FETCH_ASSOC);
     $qID = $r["$qNum"]; // getting question ID
 
-    $value = $qNum."P";
-
-    if ($r["$qNum"] != NULL && $r["$qNum"] != 0) {
-
-        if (isset($_POST["FN$qNum"])) {
-            $s = $db->prepare("UPDATE answers SET FNP = '$_POST['FN$qNum']' WHERE QuestionID = '$qID' and resultID = '$reID'");
-            $r = $s->execute();
-        }
-
-        elseif (isset($_POST["C$qNum"])) {
-            $s = $db->prepare("UPDATE answers SET CP = '$_POST['C$qNum']' WHERE QuestionID = '$qID' and resultID = '$reID'");
-            $r = $s->execute();
-        }
-
-        for($x = 1; $x <= $testAmount; $x++) {
-            
-            $testNum = "TCP".$x;
-
-            if (isset($_POST["Rgttest$x"])) {
-                $s = $db->prepare("UPDATE answers SET $testNum = '$_POST['Rgttest$x']' WHERE QuestionID = '$qID' and resultID = '$reID'");
-                $r = $s->execute();
-            }
-
-            elseif (isset($_POST["Wrgtest$x"])) {
-                $s = $db->prepare("UPDATE answers SET $testNum = '$_POST['Wrgtest$x']' WHERE QuestionID = '$qID' and resultID = '$reID'");
-                $r = $s->execute();
-            }
-        }
+    if (isset($_POST["FNB"])) {
+        $s = $db->prepare("UPDATE answers SET FNP = '$_POST['FNB']' WHERE QuestionID = '$qID' and resultID = '$reID'");
+        $r = $s->execute();
     }
+    
+    elseif (isset($_POST["CB"])) {
+        $s = $db->prepare("UPDATE answers SET CP = '$_POST['CB']' WHERE QuestionID = '$qID' and resultID = '$reID'");
+        $r = $s->execute();
+    }
+    
+    elseif (isset($_POST["Rgttest$x"])) {
+        $s = $db->prepare("UPDATE answers SET $testNum = '$_POST['Rgttest']' WHERE QuestionID = '$qID' and resultID = '$reID'");
+        $r = $s->execute();
+    }
+    
+    elseif (isset($_POST["Wrgtest$x"])) {
+        $s = $db->prepare("UPDATE answers SET $testNum = '$_POST['Wrgtest']' WHERE QuestionID = '$qID' and resultID = '$reID'");
+        $r = $s->execute();
+    }
+    
+    else {}
 }
 
 header("Refresh:1");
