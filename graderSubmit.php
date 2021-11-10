@@ -245,7 +245,7 @@ foreach ($questions as $qNum) {
         }
 
         elseif (isset($_POST["C$qNum"])) {
-            $s = $db->prepare("UPDATE answers SET FNP = '$_POST['FN$qNum']' WHERE QuestionID = '$qID' and resultID = '$reID'");
+            $s = $db->prepare("UPDATE answers SET CP = '$_POST['C$qNum']' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
         }
 
@@ -254,12 +254,12 @@ foreach ($questions as $qNum) {
             $testNum = "TCP".$x;
 
             if (isset($_POST["Rgttest$x"])) {
-                $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE QuestionID = '$qID' and resultID = '$reID'");
+                $s = $db->prepare("UPDATE answers SET $testNum = '$_POST['Rgttest$x']' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
             }
 
             elseif (isset($_POST["Wrgtest$x"])) {
-                $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE QuestionID = '$qID' and resultID = '$reID'");
+                $s = $db->prepare("UPDATE answers SET $testNum = '$_POST['Wrgtest$x']' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
             }
         }
