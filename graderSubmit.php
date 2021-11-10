@@ -249,8 +249,6 @@ foreach ($questions as $qNum) {
             $r = $s->execute();
         }
 
-        else {}
-
         for($x = 1; $x <= $testAmount; $x++) {
             
             $testNum = "TCP".$x;
@@ -264,8 +262,6 @@ foreach ($questions as $qNum) {
                 $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
             }
-
-            else{}
         }
     }
 }
