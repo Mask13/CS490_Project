@@ -230,45 +230,53 @@ $s->execute();
 $r = $s->fetch(PDO::FETCH_ASSOC);
 $reID = $r["resultID"]; // getting result ID
 
-$questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
-foreach ($questions as $qNum) {
+$right = True;
 
-    $s = $db->prepare("SELECT $qNum FROM QuestionAssignments WHERE EID = '$EID'");
-    $s-> execute();
-    $r = $s->fetch(PDO::FETCH_ASSOC);
-    $qID = $r["$qNum"]; // getting question ID
+while ($right) {
+    $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
+    foreach ($questions as $qNum) {
+
+        $s = $db->prepare("SELECT $qNum FROM QuestionAssignments WHERE EID = '$EID'");
+        $s-> execute();
+        $r = $s->fetch(PDO::FETCH_ASSOC);
+        $qID = $r["$qNum"]; // getting question ID
 
 
-    if (isset($_POST["FNB$qNum"])) {
-        $FNB = $_POST["FNB$qNum"];
-        $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
-        $r = $s->execute();
-    }
-
-    if (isset($_POST["CB$qNum"])) {
-        $CB = $_POST["CB$qNum"];
-        $s = $db->prepare("UPDATE answers SET CP = '$CB' WHERE QuestionID = '$qID' and resultID = '$reID'");
-        $r = $s->execute();
-    }
-
-    for($x = 1; $x <= $testAmount; $x++) {
-
-        $testNum = "TCP".$x;
-        
-        if (isset($_POST["Rgttest$x"])) {
-            $Rgttest = $_POST["Rgttest$x"];
-            $s = $db->prepare("UPDATE answers SET $testNum = '$Rgttest' WHERE QuestionID = '$qID' and resultID = '$reID'");
+        if (isset($_POST["FNB$qNum"])) {
+            $FNB = $_POST["FNB$qNum"];
+            $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
+            $right = false;
         }
 
-        if (isset($_POST["Wrgtest$x"])) {
-            $Wrgtest = $_POST["Wrgtest$x"];
-            $s = $db->prepare("UPDATE answers SET $testNum = '$Wrgtest' WHERE QuestionID = '$qID' and resultID = '$reID'");
+        if (isset($_POST["CB$qNum"])) {
+            $CB = $_POST["CB$qNum"];
+            $s = $db->prepare("UPDATE answers SET CP = '$CB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
+            $right = false;
+        }
+
+        for($x = 1; $x <= $testAmount; $x++) {
+
+            $testNum = "TCP".$x;
+            
+            if (isset($_POST["Rgttest$x"])) {
+                $Rgttest = $_POST["Rgttest$x"];
+                $s = $db->prepare("UPDATE answers SET $testNum = '$Rgttest' WHERE QuestionID = '$qID' and resultID = '$reID'");
+                $r = $s->execute();
+                $right = false;
+            }
+
+            if (isset($_POST["Wrgtest$x"])) {
+                $Wrgtest = $_POST["Wrgtest$x"];
+                $s = $db->prepare("UPDATE answers SET $testNum = '$Wrgtest' WHERE QuestionID = '$qID' and resultID = '$reID'");
+                $r = $s->execute();
+                $right = false;
+            }
+
         }
 
     }
-
 }
 
 header("Refresh:1");
