@@ -61,7 +61,7 @@ else{
   </style>
   <body>
     <div id= container>
-      <form name= "test" id="test" method="post">
+      <form target="_blank" action="https://cs490-canvas2.herokuapp.com/UserHome.php" name= "test" id="test" method="post">
         <?php
           require "config.php";
           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -215,5 +215,4 @@ if (isset($_POST['Q5A'])){
   $stmt->execute($params);
   echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 }
-header("Location: UserHome.php");
  ?>
