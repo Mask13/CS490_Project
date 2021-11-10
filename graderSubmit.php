@@ -133,7 +133,7 @@ foreach ($questions as $qNum) {
             $testString = "Test Case ";
             $testCaseName = $testString.$x." Answers";
             
-            $testNum = "QI".$x; // test case expected answers
+            $testNum = "Answer".$x; // test case expected answers
             $s = $db->prepare("SELECT $testNum FROM questions WHERE questionID = '$qID'");
             $s->execute();
             $r = $s->fetch(PDO::FETCH_ASSOC);
