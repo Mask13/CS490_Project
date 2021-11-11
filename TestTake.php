@@ -21,7 +21,7 @@ else{
     <title>Test Taker</title>
   </head>
   <style>
-  #container{
+    #container{
         width: 700px;
         height: 200%;
         background: inherit;
@@ -34,58 +34,55 @@ else{
         margin-top: -250px;
         border-radius: 8px;
         font-size: 20px;
-      }
-    textarea {
-    font-size: .8rem;
-    letter-spacing: 1px;
     }
     textarea {
-      padding: 20px;
-      width: 600px;
-      max-width: 100%;
-      line-height: 1.5;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      box-shadow: 1px 1px 1px #999;
+        font-size: .8rem;
+        letter-spacing: 1px;
+    }
+    textarea {
+        padding: 20px;
+        width: 600px;
+        max-width: 100%;
+        line-height: 1.5;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 1px #999;
     }
     body{
-         background-color: #000033;
-         background-image: url('https://images.unsplash.com/photo-1445905595283-21f8ae8a33d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80');
-         background-repeat: repeat-x;
-         height: 100%;
-         background-position: center;
-         background-repeat: no-repeat;
-         background-size: cover;
-         color: #bcbdbe;
-         }
+        background-color: #000033;
+        background-image: url('https://images.unsplash.com/photo-1445905595283-21f8ae8a33d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80');
+        background-repeat: repeat-x;
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #bcbdbe;
     }
     titles{
-      width: 200px;
-      text-align: center;
-      font-size: 40;
-      font-family: Trebuchet MS;
-      text-decoration-color:#c6a226;
-      border-bottom: 5px solid #c6a226;
-      border-top: 5px solid #c6a226;
-      padding: 2px;
+        width: 200px;
+        text-align: center;
+        font-size: 40;
+        font-family: Trebuchet MS;
+        text-decoration-color:#c6a226;
+        border-bottom: 5px solid #c6a226;
+        border-top: 5px solid #c6a226;
+        padding: 2px;
     }
   </style>
-  <header>
-    <titles>
-    <?php
-      require "config.php";
-      $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-      $db= new PDO($connection_string, $dbuser, $dbpass);
-      $sql = $db->prepare("SELECT Exam_Name from exams Where EID = :TID");
-      $params = array(":TID"=> $_SESSION['testID']);
-      $sql->execute($params);
-      $r = $sql->fetch(PDO::FETCH_ASSOC);
-      $examName = $r["Exam_Name"];
-      echo "$examName";
-     ?>
-   </titles>
-  </header>
   <body>
+    <titles>
+      <?php
+        require "config.php";
+        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+        $db= new PDO($connection_string, $dbuser, $dbpass);
+        $sql = $db->prepare("SELECT Exam_Name from exams Where EID = :TID");
+        $params = array(":TID"=> $_SESSION['testID']);
+        $sql->execute($params);
+        $r = $sql->fetch(PDO::FETCH_ASSOC);
+        $examName = $r["Exam_Name"];
+        echo "$examName";
+       ?>
+    </titles>
     <div id= container>
       <form target="_blank" action="https://cs490-canvas2.herokuapp.com/UserHome.php" name= "test" id="test" method="post">
         <?php
