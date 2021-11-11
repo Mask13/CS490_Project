@@ -68,9 +68,11 @@ else{
           table, th, td {
             border: 1px solid black;
             border-radius: 10px;
+            border-color: #c6a226;
+            color: white;
           }
           th, td {
-            background-color: #96D4D4;
+            background-color: black;
           }
  </style>
   <body>
