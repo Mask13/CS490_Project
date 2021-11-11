@@ -66,7 +66,7 @@ else{
         text-decoration-color:#c6a226;
         border-bottom: 5px solid #c6a226;
         border-top: 5px solid #c6a226;
-        padding: 2px;
+        padding: 5px;
     }
   </style>
   <body>
@@ -83,7 +83,7 @@ else{
         echo "$examName";
        ?>
     </titles>
-    <br>
+
     <div>
       <form target="_blank" action="https://cs490-canvas2.herokuapp.com/UserHome.php" name= "test" id="test" method="post">
         <?php
