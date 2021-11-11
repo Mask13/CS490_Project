@@ -222,6 +222,7 @@ function tabulate($qID){
     $s->execute();
     $r = $s->fetch(PDO::FETCH_ASSOC);
     foreach($r as $value){
+      echo "$value";
       if($value != NULL){
         $STP += $value;
       }
