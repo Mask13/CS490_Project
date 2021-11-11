@@ -61,12 +61,12 @@ else{
     titles{
         width: 200px;
         text-align: center;
-        font-size: 60;
+        font-size: 50;
         font-family: Trebuchet MS;
         text-decoration-color:#c6a226;
         border-bottom: 5px solid #c6a226;
         border-top: 5px solid #c6a226;
-        padding: 5px;
+        padding-bottom: 10px;
     }
   </style>
   <body>
