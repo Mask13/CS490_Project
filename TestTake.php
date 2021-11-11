@@ -59,6 +59,7 @@ else{
         color: #bcbdbe;
     }
     titles{
+        align: center;
         width: 200px;
         text-align: center;
         font-size: 40;
