@@ -139,7 +139,7 @@ foreach ($questions as $value) {
           $r = $s->execute();
         }
 
-        $testNum = "TCP".$x;
+        /*$testNum = "TCP".$x;
         $s = $db->prepare("SELECT $testNum FROM answers WHERE QuestionID = '$qID' and resultID = '$reID'");
         $s->execute();
         $r = $s->fetch(PDO::FETCH_ASSOC);
@@ -153,7 +153,7 @@ foreach ($questions as $value) {
         else {
           $s = $db->prepare("UPDATE answers SET $testNum = 0 WHERE QuestionID = '$qID' and resultID = '$reID'");
           $r = $s->execute();
-        }
+        }*/
       }
     }
     // =======================================================
