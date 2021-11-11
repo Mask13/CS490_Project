@@ -154,6 +154,7 @@ foreach ($questions as $qNum) {
             $s = $db->prepare("SELECT $testNum FROM answers WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
             $testCasePoints = $r["$testNum"];
+            echo "$testCasePoints";
 
             echo "	<tr>";
             echo "		<th>$testCaseName</th>";
