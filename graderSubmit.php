@@ -269,12 +269,9 @@ if (!empty($_POST)) {
                 $s = $db->prepare("UPDATE answers SET $testNum = '$Wrgtest' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
             }
-            echo "<html><script> location.reload(); </script></html>";
-            break;
         }
-
     }
-
+    echo "<html><script> location.reload(); </script></html>";
 }
 
 ?>
