@@ -83,6 +83,7 @@ else{
         echo "$examName";
        ?>
     </titles>
+    <br>
     <div>
       <form target="_blank" action="https://cs490-canvas2.herokuapp.com/UserHome.php" name= "test" id="test" method="post">
         <?php
