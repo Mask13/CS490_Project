@@ -55,6 +55,16 @@
             border-top: 5px solid #c6a226;
             padding: 2px;
           }
+          table, th, td {
+            border: 1px solid black;
+            border-radius: 10px;
+            border-color: #c6a226;
+            color: white;
+            padding: 2px;
+          }
+          th, td {
+            background-color: black;
+          }
  </style>
   <body>
     <!-- Tests section -->
