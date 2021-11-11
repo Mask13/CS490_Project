@@ -65,6 +65,13 @@ else{
             border-top: 5px solid #c6a226;
             padding: 2px;
           }
+          table, th, td {
+            border: 1px solid black;
+            border-radius: 10px;
+          }
+          th, td {
+            background-color: #96D4D4;
+          }
  </style>
   <body>
     <form method="post">
