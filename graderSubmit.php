@@ -1,4 +1,11 @@
 <html>
+
+<header>
+<button style= "float:right;"type="button" onclick="location.href = 'AdminHome.php';"
+    class = "button" name="Login"> Home
+</button>
+</header>
+
 <body>
 <h2>Results of AutoGrader</h2>
 
