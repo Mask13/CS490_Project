@@ -259,6 +259,7 @@ if (!empty($_POST)) {
                 $testCase = $_POST["testCase$x$qNum"];
                 $s = $db->prepare("UPDATE answers SET $testNum = '$testCaseAnswer' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
+                break;
             }
         }
     }
