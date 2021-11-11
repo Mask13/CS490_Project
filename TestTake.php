@@ -66,7 +66,7 @@ else{
         text-decoration-color:#c6a226;
         border-bottom: 5px solid #c6a226;
         border-top: 5px solid #c6a226;
-        padding-bottom: 10px;
+        padding: 2px;
     }
   </style>
   <body>
@@ -84,7 +84,7 @@ else{
        ?>
     </titles>
 
-    <div>
+    <div style="padding-top: 10px">
       <form target="_blank" action="https://cs490-canvas2.herokuapp.com/UserHome.php" name= "test" id="test" method="post">
         <?php
           require "config.php";
