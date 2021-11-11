@@ -247,6 +247,7 @@ if (!empty($_POST)) {
             $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
             echo "<html><script> location.reload(); </script></html>";
+            break;
         }
 
         if (isset($_POST["CB$qNum"])) {
