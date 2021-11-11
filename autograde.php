@@ -241,7 +241,6 @@ foreach ($questions as $value) {
         $r = $s->execute();
       }
       else {}
-
     }
 
     $s = $db->prepare("UPDATE questions SET testAmount = '$testAmount' WHERE questionID = '$qID'");
