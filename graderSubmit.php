@@ -213,6 +213,7 @@ echo "</table>";
 ?>
 
 </body>
+<script>window.stop();</script>
 </html>
 
 <?php
