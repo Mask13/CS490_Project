@@ -210,6 +210,7 @@ echo "		<th>$finalScore / $totalPoints = $finalPercent%</th>";
 echo "		<th></th>";
 echo "	</tr>";
 echo "</table>";
+echo "</form>";
 
 ?>
 
