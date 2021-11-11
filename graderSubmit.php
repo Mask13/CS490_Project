@@ -275,14 +275,15 @@ if (!empty($_POST)) {
         $s = $db->prepare("SELECT TCP1,TCP2,TCP3,FNP,CP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
         $s->execute();
         $r = $s->fetch(PDO::FETCH_ASSOC);
+        echo "$r";
         foreach($r as $value){
           if($value != NULL){
             $STP += $value;
           }
         }
 
-        $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
-        $r = $s->execute();
+        //$s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
+        //$r = $s->execute();
     }
     echo("<meta http-equiv='refresh' content='1'>");
 }
