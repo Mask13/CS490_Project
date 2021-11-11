@@ -83,7 +83,7 @@ else{
         echo "$examName";
        ?>
     </titles>
-    <div id= container>
+    <div>
       <form target="_blank" action="https://cs490-canvas2.herokuapp.com/UserHome.php" name= "test" id="test" method="post">
         <?php
           require "config.php";
