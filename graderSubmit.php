@@ -152,7 +152,9 @@ foreach ($questions as $qNum) {
 
             $testNum = "TCP".$x;
             $s = $db->prepare("SELECT $testNum FROM answers WHERE QuestionID = '$qID' and resultID = '$reID'");
-            $r = $s->execute();
+            $s->execute();
+            $r = $s->fetch(PDO::FETCH_ASSOC);
+
             $testCasePoints = $r["$testNum"];
             echo "$testNum";
 
