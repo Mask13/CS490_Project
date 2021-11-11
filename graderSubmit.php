@@ -150,12 +150,6 @@ foreach ($questions as $qNum) {
             $r = $s->fetch(PDO::FETCH_ASSOC);
             $stuAnswer = $r["$stuTestAns"];
 
-            $y = $x-1;
-
-            $CDP = ($qPoints * $counterCorrect) / $testAmount;
-            //$testPoints = $qPoints - (2 + 1);
-
-
             $testNum = "TCP".$x;
             $s = $db->prepare("SELECT $testNum FROM answers WHERE QuestionID = '$qID' and resultID = '$reID'");
             $s->execute();
@@ -231,11 +225,12 @@ if (!empty($_POST)) {
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $qID = $r["$qNum"]; // getting question ID
 
-
         if (isset($_POST["FNB$qNum"])) {
             $FNB = $_POST["FNB$qNum"];
             $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
+
+
         }
 
         if (isset($_POST["CB$qNum"])) {
