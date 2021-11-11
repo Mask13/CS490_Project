@@ -248,8 +248,8 @@ if (!empty($_POST)) {
         for($x = 1; $x <= $testAmount; $x++) {
             $testNum = "TCP".$x;
 
-            if (isset($_POST["$testNum"])) {
-                $Rgttest = $_POST["testCase$x$qNum"];
+            if (isset($_POST["testCase$x$qNum"])) {
+                $testCase = $_POST["testCase$x$qNum"];
                 $s = $db->prepare("UPDATE answers SET $testNum = '$testCaseAnswer' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
             }
