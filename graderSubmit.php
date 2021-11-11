@@ -149,39 +149,25 @@ foreach ($questions as $qNum) {
             $CDP = ($qPoints * $counterCorrect) / $testAmount;
             //$testPoints = $qPoints - (2 + 1);
 
+
+            $testNum = "TCP".$x;
+            $s = $db->prepare("SELECT $testNum FROM answers WHERE QuestionID = '$qID' and resultID = '$reID'");
+            $r = $s->execute();
+            $testCasePoints = $r["$testNum"];
+
             echo "	<tr>";
             echo "		<th>$testCaseName</th>";
             echo " 		<td style='text-align: center; vertical-align: middle;'>$expAnswer</td>";
             echo "		<td style='text-align: center; vertical-align: middle;'>$stuAnswer</td>";
 
-            if ($stuAnswer == $expAnswer) {
-                echo "		<td style='text-align: center; vertical-align: middle;'> 100%</td>";
-                echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
-                echo "      <form method='POST'> <input type='text' name='Rgttest$x$qNum' size ='5'>";
-                echo " 			<input type='submit' value='Submit' name='B1'> <form>";
-                echo "    </td>";
-                echo "	</tr>";
-                echo "	<tr>";
-                echo "<br>";
-
-                $testNum = "TCP".$x;
-                $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE QuestionID = '$qID' and resultID = '$reID'");
-                $r = $s->execute();
-            }
-            else {
-                echo "		<td style='text-align: center; vertical-align: middle;'> 0%</td>";
-                echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
-                echo "      <form method='POST'> <input type='text' name='Wrgtest$x$qNum' size ='5'>";
-                echo " 			<input type='submit' value='Submit' name='B1'> </form>";
-                echo "    </td>";
-                echo "	</tr>";
-                echo "	<tr>";
-                echo "<br>";
-
-                $testNum = "TCP".$x;
-                $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE QuestionID = '$qID' and resultID = '$reID'");
-                $r = $s->execute();
-            }
+            echo "		<td style='text-align: center; vertical-align: middle;'> $testCasePoints</td>";
+            echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
+            echo "      <form method='POST'> <input type='text' name='testCase$x$qNum' size ='5'>";
+            echo " 			<input type='submit' value='Submit' name='B1'> <form>";
+            echo "    </td>";
+            echo "	</tr>";
+            echo "	<tr>";
+            echo "<br>";
 
         }
     }
@@ -259,15 +245,9 @@ if (!empty($_POST)) {
         for($x = 1; $x <= $testAmount; $x++) {
             $testNum = "TCP".$x;
 
-            if (isset($_POST["Rgttest$x$qNum"])) {
-                $Rgttest = $_POST["Rgttest$x$qNum"];
-                $s = $db->prepare("UPDATE answers SET $testNum = '$Rgttest' WHERE QuestionID = '$qID' and resultID = '$reID'");
-                $r = $s->execute();
-            }
-
-            if (isset($_POST["Wrgtest$x$qNum"])) {
-                $Wrgtest = $_POST["Wrgtest$x$qNum"];
-                $s = $db->prepare("UPDATE answers SET $testNum = '$Wrgtest' WHERE QuestionID = '$qID' and resultID = '$reID'");
+            if (isset($_POST["$testNum"])) {
+                $Rgttest = $_POST["testCase$x$qNum"];
+                $s = $db->prepare("UPDATE answers SET $testNum = '$testCaseAnswer' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
             }
         }
