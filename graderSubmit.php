@@ -229,6 +229,10 @@ $s->execute();
 $r = $s->fetch(PDO::FETCH_ASSOC);
 $reID = $r["resultID"]; // getting result ID
 
+$s = $db->prepare("SELECT testAmount FROM questions WHERE questionID = '$qID'");
+$s->execute();
+$r = $s->fetch(PDO::FETCH_ASSOC);
+$testAmount = $r["testAmount"];
 
 if (!empty($_POST)) {
     $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
