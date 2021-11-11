@@ -138,6 +138,22 @@ foreach ($questions as $value) {
           $s = $db->prepare("UPDATE answers SET $testNum = 0 WHERE QuestionID = '$qID' and resultID = '$reID'");
           $r = $s->execute();
         }
+
+        $testNum = "TCP".$x;
+        $s = $db->prepare("SELECT $testNum FROM answers WHERE QuestionID = '$qID' and resultID = '$reID'");
+        $s->execute();
+        $r = $s->fetch(PDO::FETCH_ASSOC);
+        $testCaseStat = $r["$testNum"];
+
+        // adding actual test case points
+        if ($testCaseStat = 1) {
+          $s = $db->prepare("UPDATE answers SET $testNum = '$tcPoints' WHERE QuestionID = '$qID' and resultID = '$reID'");
+          $r = $s->execute();
+        }
+        else {
+          $s = $db->prepare("UPDATE answers SET $testNum = 0 WHERE QuestionID = '$qID' and resultID = '$reID'");
+          $r = $s->execute();
+        }
       }
     }
     // =======================================================
@@ -229,7 +245,7 @@ foreach ($questions as $value) {
       $r = $s->fetch(PDO::FETCH_ASSOC);
       $expAnswer = $r["$aInput00"];
 
-      $testNum = "TCP".$x;
+      /*$testNum = "TCP".$x;
       $s = $db->prepare("SELECT $testNum FROM answers WHERE QuestionID = '$qID' and resultID = '$reID'");
       $s->execute();
       $r = $s->fetch(PDO::FETCH_ASSOC);
@@ -243,7 +259,7 @@ foreach ($questions as $value) {
       else {
         $s = $db->prepare("UPDATE answers SET $testNum = 0 WHERE QuestionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
-      }
+      }*/
 
     }
 
