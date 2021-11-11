@@ -61,7 +61,7 @@ else{
     }
   </style>
   <body>
-    <center>
+    <div style="text-align:center; font-size: 20px;">
       <?php
         require "config.php";
         $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -73,7 +73,7 @@ else{
         $examName = $r[Exam_Name];
         echo "$examName";
        ?>
-    </center>
+    </div>
     <div id= container>
       <form target="_blank" action="https://cs490-canvas2.herokuapp.com/UserHome.php" name= "test" id="test" method="post">
         <?php
