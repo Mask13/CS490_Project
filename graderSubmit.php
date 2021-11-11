@@ -6,6 +6,20 @@
 </button>
 </header>
 
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-radius: 10px;
+    border-color: #c6a226;
+    color: white;
+    padding: 2px;
+    }
+    th, td {
+    background-color: black;
+    }
+</style>
+
+
 <body>
 <h2>Results of AutoGrader</h2>
 
@@ -35,11 +49,6 @@ foreach ($questions as $qNum) {
     $value = $qNum."P";
 
     if ($r["$qNum"] != NULL && $r["$qNum"] != 0) {
-
-        echo "<style>";
-        echo " table, th, td {";
-        echo " border:1px solid black;}";
-        echo "</style>";
         
         echo "<br>";
         echo "<table style='width:100%'>";
