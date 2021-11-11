@@ -243,7 +243,7 @@ if (!empty($_POST)) {
             $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
 
-            tabulate();
+            //tabulate();
         }
 
         if (isset($_POST["CB$qNum"])) {
@@ -251,7 +251,7 @@ if (!empty($_POST)) {
             $s = $db->prepare("UPDATE answers SET CP = '$CB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
 
-            tabulate();
+            //tabulate();
         }
         
         $s = $db->prepare("SELECT testAmount FROM questions WHERE questionID = '$qID'");
@@ -266,7 +266,7 @@ if (!empty($_POST)) {
                 $s = $db->prepare("UPDATE answers SET STP = '$newStudentP' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
 
-                tabulate();
+                //tabulate();
 
                 break;
             }
