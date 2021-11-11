@@ -28,6 +28,8 @@ global $finalScore;
 global $totalPoints;
 global $finalPercent;
 global $testAmount;
+global $FNPoints;
+global $cPoints;
 
 $TestCaseArray = array();
 
@@ -153,14 +155,10 @@ foreach ($questions as $value) {
     $s = $db->prepare("UPDATE answers SET QP = '$qPoints' WHERE questionID = '$qID' and resultID = '$reID'");
     $r = $s->execute();
 
-    $FNPoints = 0;
-
-    $testPoints = $qPoints - (2 + 1);
-
     $messedupConstrain = false;
     // $messedupName = false;
 
-    if($messedupName == false){
+    if($messedupName == false) {
       $FNPoints += 2;
 
       if (($counterCorrect / $testAmount) == 1) {
@@ -170,7 +168,8 @@ foreach ($questions as $value) {
         $studentPoints += $FNPoints;
       }
     }
-    else{
+
+    else {
       if (($counterCorrect / $testAmount) == 1) {
         $studentPoints += $testPoints;
       }
@@ -178,6 +177,7 @@ foreach ($questions as $value) {
         $studentPoints += 0;
       }
     }
+
     if($messedupConstrain){} // **need to do for Constraints** //
     else{
       $cPoints += 1;
@@ -199,6 +199,9 @@ foreach ($questions as $value) {
     $finalScore += $studentPoints;
     $totalPoints += $qPoints;
 
+    $testPoints = $qPoints - ($FNPoints + $cPoints);
+    $tcPoints = $testPoints / $testAmount;
+
     // =======================================================
     // Making the Table
     // =======================================================
@@ -217,16 +220,18 @@ foreach ($questions as $value) {
       $r = $s->fetch(PDO::FETCH_ASSOC);
       $expAnswer = $r["$aInput00"];
 
-      /*if ($outputArray[$y] == $expAnswer) {
-        $testNum = "TCP".$x;
-        $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE QuestionID = '$qID' and resultID = '$reID'");
+      $testNum = "TCP".$x;
+      $s = $db->prepare("SELECT $testNum FROM answers WHERE QuestionID = '$qID' and resultID = '$reID'");
+      $s->execute();
+      $r = $s->fetch(PDO::FETCH_ASSOC);
+      $testCaseStat = $r["$testNum"];
+
+      // adding actual test case points
+      if ($testCaseStat = 1) {
+        $s = $db->prepare("UPDATE answers SET $testNum = '$tcPoints' WHERE QuestionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
-      else {
-        $testNum = "TCP".$x;
-        $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE QuestionID = '$qID' and resultID = '$reID'");
-        $r = $s->execute();
-      }*/
+      else {}
 
     }
 
@@ -239,6 +244,7 @@ foreach ($questions as $value) {
     $studentPoints = 0;
     $FNPoints = 0;
     $cPoints = 0;
+    $tcPoints = 0;
   }
 
   $outputArray = array();
