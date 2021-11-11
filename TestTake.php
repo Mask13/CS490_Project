@@ -79,6 +79,14 @@ else{
         border-top: 5px solid #c6a226;
         padding: 2px;
     }
+    .test{
+        padding: 20px;
+        font-size: 30;
+        font-family: Trebuchet MS;
+        text-decoration-color:#c6a226;
+        border-bottom: 5px solid #c6a226;
+        border-top: 5px solid #c6a226;
+    }
   </style>
   <body>
     <titles>
@@ -112,9 +120,11 @@ else{
             $params = array(":QID"=> $QIDS['Q1']);
             $sql2->execute($params);
             $QText = $sql2->fetch(PDO::FETCH_ASSOC);
-            echo "<lable for=Q1A> 1) ($QIDS[Q1P] Points) </lable>";
-            echo "<lable for=Q1A> $QText[questionText] </lable><br>";
-            echo "<textarea form = 'test' name = 'Q1A' id='Q1A'></textarea>";
+            echo "<div class='test'>";
+            echo "  <lable for=Q1A> 1) ($QIDS[Q1P] Points) </lable>";
+            echo "  <lable for=Q1A> $QText[questionText] </lable><br>";
+            echo "  <textarea form = 'test' name = 'Q1A' id='Q1A'></textarea>";
+            echo "</div>";
             echo "<br>";
             //Q2
             if($QIDS['Q2'] != NULL && $QIDS['Q2'] != 0){
@@ -122,9 +132,11 @@ else{
               $params = array(":QID"=> $QIDS['Q2']);
               $sql2->execute($params);
               $QText = $sql2->fetch(PDO::FETCH_ASSOC);
+              echo "<div class='test'>";
               echo "<lable for=Q2A> 2) ($QIDS[Q2P] Points) </lable>";
               echo "<lable for=Q2A> $QText[questionText] </lable><br>";
               echo "<textarea form = 'test' name = 'Q2A' id='Q2A'></textarea>";
+              echo "</div>";
               echo "<br>";
             }
             //Q3
@@ -133,9 +145,11 @@ else{
               $params = array(":QID"=> $QIDS['Q3']);
               $sql2->execute($params);
               $QText = $sql2->fetch(PDO::FETCH_ASSOC);
+              echo "<div class='test'>";
               echo "<lable for=Q3A> 3) ($QIDS[Q3P] Points) </lable>";
               echo "<lable for=Q3A> $QText[questionText] </lable><br>";
               echo "<textarea form = 'test' name = 'Q3A' id='Q3A'></textarea>";
+              echo "</div>";
               echo "<br>";
             }
             //Q4
@@ -144,9 +158,11 @@ else{
               $params = array(":QID"=> $QIDS['Q4']);
               $sql2->execute($params);
               $QText = $sql2->fetch(PDO::FETCH_ASSOC);
+              echo "<div class='test'>";
               echo "<lable for=Q4A> 4) ($QIDS[Q4P] Points) </lable>";
               echo "<lable for=Q4A> $QText[questionText] </lable> <br>";
               echo "<textarea form = 'test' name = 'Q4A' id='Q4A'></textarea>";
+              echo "</div>";
               echo "<br>";
             }
             //Q5
@@ -155,9 +171,11 @@ else{
               $params = array(":QID"=> $QIDS['Q5']);
               $sql2->execute($params);
               $QText = $sql2->fetch(PDO::FETCH_ASSOC);
+              echo "<div class='test'>";
               echo "<lable for=Q5A> 5) ($QIDS[Q5P] Points) </lable>";
               echo "<lable for=Q5A> $QText[questionText] </lable> <br>";
               echo "<textarea form = 'test' name = 'Q5A' id='Q5A'></textarea>";
+              echo "</div>";
               echo "<br>";
             }
           }
