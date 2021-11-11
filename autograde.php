@@ -168,8 +168,8 @@ foreach ($questions as $value) {
         $studentPoints += $FNPoints;
       }
     }
-
     else {
+      $testPoints = $qPoints - (2 + 1);
       if (($counterCorrect / $testAmount) == 1) {
         $studentPoints += $testPoints;
       }
