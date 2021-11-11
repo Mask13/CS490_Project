@@ -58,6 +58,17 @@ else{
         background-size: cover;
         color: #bcbdbe;
     }
+    .button {
+        background-color: Transparent;
+        border: inset #c6a226;
+        color: #bcbdbe;
+        padding: 15px 19px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 25px;
+        font-size: 16px;
+   }
     titles{
         width: 200px;
         text-align: center;
@@ -84,7 +95,7 @@ else{
        ?>
     </titles>
 
-    <div style="padding-top: 10px">
+    <div style="padding-top: 20px">
       <form target="_blank" action="https://cs490-canvas2.herokuapp.com/UserHome.php" name= "test" id="test" method="post">
         <?php
           require "config.php";
@@ -152,7 +163,7 @@ else{
           }
           finally{}
          ?>
-         <input type="submit" value="Submit">
+         <input class = "button" type="submit" value="Submit">
        </form>
     </div>
   </body>
