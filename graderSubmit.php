@@ -216,6 +216,17 @@ $s->execute();
 $r = $s->fetch(PDO::FETCH_ASSOC);
 $reID = $r["resultID"]; // getting result ID
 
+// fixing studentPoints
+function tabulate(){
+    $s = $db->prepare("SELECT TCP1,TCP2,TCP3,FNP,CP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
+    $s->execute();
+    $r = $s->fetch(PDO::FETCH_ASSOC)
+    $STP = $r['TCP1'] +  $r['TCP2'] +  $r['TCP3'] + $r['FNP'] +  $r['CP'];
+
+    $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
+    $r = $s->execute();
+}
+
 if (!empty($_POST)) {
     $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
     foreach ($questions as $qNum) {
@@ -225,18 +236,22 @@ if (!empty($_POST)) {
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $qID = $r["$qNum"]; // getting question ID
 
+        $value = $qNum."P";
+
         if (isset($_POST["FNB$qNum"])) {
             $FNB = $_POST["FNB$qNum"];
             $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
 
-
+            tabulate();
         }
 
         if (isset($_POST["CB$qNum"])) {
             $CB = $_POST["CB$qNum"];
             $s = $db->prepare("UPDATE answers SET CP = '$CB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
+
+            tabulate();
         }
         
         $s = $db->prepare("SELECT testAmount FROM questions WHERE questionID = '$qID'");
@@ -248,9 +263,11 @@ if (!empty($_POST)) {
             $testNum = "TCP".$x;
 
             if (isset($_POST["testCase$x$qNum"])) {
-                $testCase = $_POST["testCase$x$qNum"];
-                $s = $db->prepare("UPDATE answers SET $testNum = '$testCaseAnswer' WHERE QuestionID = '$qID' and resultID = '$reID'");
+                $s = $db->prepare("UPDATE answers SET STP = '$newStudentP' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
+
+                tabulate();
+
                 break;
             }
         }

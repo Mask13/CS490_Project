@@ -148,7 +148,6 @@ foreach ($questions as $value) {
     $s->execute();
     $r = $s->fetch(PDO::FETCH_ASSOC);
 
-
     $qPoints = $r["$value"];
 
     // updating QP
