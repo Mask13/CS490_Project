@@ -239,13 +239,18 @@ if (!empty($_POST)) {
         $s-> execute();
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $qID = $r["$qNum"]; // getting question ID
-
+        $updated = false;
 
         if (isset($_POST["FNB$qNum"])) {
             $FNB = $_POST["FNB$qNum"];
             $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
-            header("Location: graderSubmit.php");
+            while($updated == false){
+              if(mysql_affected_rows($connection_string)>0){
+                $updated = true;
+                header("Location: graderSubmit.php");
+              }
+            }
         }
 
         if (isset($_POST["CB$qNum"])) {
