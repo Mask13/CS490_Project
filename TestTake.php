@@ -60,20 +60,20 @@ else{
          }
     }
   </style>
+  <heaader style="text-align:center; font-size: 20px;">
+    <?php
+      require "config.php";
+      $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+      $db= new PDO($connection_string, $dbuser, $dbpass);
+      $sql = $db->prepare("SELECT Exam_Name from exams Where EID = :TID");
+      $params = array(":TID"=> $_SESSION['testID']);
+      $sql->execute($params);
+      $r = $sql->fetch(PDO::FETCH_ASSOC);
+      $examName = $r["Exam_Name"];
+      echo "$examName";
+     ?>
+  </header>
   <body>
-    <div style="text-align:center; font-size: 20px;">
-      <?php
-        require "config.php";
-        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-        $db= new PDO($connection_string, $dbuser, $dbpass);
-        $sql = $db->prepare("SELECT Exam_Name from exams Where EID = :TID");
-        $params = array(":TID"=> $_SESSION['testID']);
-        $sql->execute($params);
-        $r = $sql->fetch(PDO::FETCH_ASSOC);
-        $examName = $r[Exam_Name];
-        echo "$examName";
-       ?>
-    </div>
     <div id= container>
       <form target="_blank" action="https://cs490-canvas2.herokuapp.com/UserHome.php" name= "test" id="test" method="post">
         <?php
