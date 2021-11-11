@@ -248,7 +248,17 @@ if (!empty($_POST)) {
             $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
 
-            tabulate($qID);
+            $s = $db->prepare("SELECT TCP1,TCP2,TCP3,FNP,CP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
+            $s->execute();
+            $r = $s->fetch(PDO::FETCH_ASSOC);
+            foreach($r as $value){
+              if($value != NULL){
+                $STP += $value;
+              }
+            }
+
+            $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
+            $r = $s->execute();
         }
 
         if (isset($_POST["CB$qNum"])) {
@@ -277,7 +287,7 @@ if (!empty($_POST)) {
             }
         }
     }
-    //echo("<meta http-equiv='refresh' content='1'>");
+    echo("<meta http-equiv='refresh' content='1'>");
 }
 
 ?>
