@@ -213,7 +213,6 @@ echo "</table>";
 ?>
 
 </body>
-<script>window.stop();</script>
 </html>
 
 <?php
@@ -274,7 +273,7 @@ if (!empty($_POST)) {
             }
         }
     }
-    echo "<html><script> location.reload(); </script></html>";
+    echo("<meta http-equiv='refresh' content='1'>");
 }
 
 ?>
