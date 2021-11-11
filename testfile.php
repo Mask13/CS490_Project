@@ -245,14 +245,14 @@ if (!empty($_POST)) {
             $FNB = $_POST["FNB$qNum"];
             $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
-            header("Location: testfile.php");
+            header("Location: graderSubmit.php");
         }
 
         if (isset($_POST["CB$qNum"])) {
             $CB = $_POST["CB$qNum"];
             $s = $db->prepare("UPDATE answers SET CP = '$CB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
-            header("Location: testfile.php");
+            header("Location: graderSubmit.php");
         }
 
         for($x = 1; $x <= $testAmount; $x++) {
@@ -263,14 +263,14 @@ if (!empty($_POST)) {
                 $Rgttest = $_POST["Rgttest$x"];
                 $s = $db->prepare("UPDATE answers SET $testNum = '$Rgttest' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
-                header("Location: testfile.php");
+                header("Location: graderSubmit.php");
             }
 
             if (isset($_POST["Wrgtest$x$qNum"])) {
                 $Wrgtest = $_POST["Wrgtest$x"];
                 $s = $db->prepare("UPDATE answers SET $testNum = '$Wrgtest' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
-                header("Location: testfile.php");
+                header("Location: graderSubmit.php");
             }
 
         }
