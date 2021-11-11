@@ -40,7 +40,8 @@ foreach ($questions as $qNum) {
         echo " table, th, td {";
         echo " border:1px solid black;}";
         echo "</style>";
-
+        
+        echo "<br>";
         echo "<table style='width:100%'>";
         echo "	<tr height='40px'>";
         echo "		<th>Question Number</th>";
@@ -174,7 +175,6 @@ foreach ($questions as $qNum) {
             echo "    </td>";
             echo "	</tr>";
             echo "	<tr>";
-            echo "<br>";
 
         }
     }
