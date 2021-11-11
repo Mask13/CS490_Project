@@ -35,7 +35,7 @@ foreach ($questions as $qNum) {
     $value = $qNum."P";
 
     if ($r["$qNum"] != NULL && $r["$qNum"] != 0) {
-        
+
         echo "<style>";
         echo " table, th, td {";
         echo " border:1px solid black;}";
@@ -221,7 +221,11 @@ function tabulate(){
     $s = $db->prepare("SELECT TCP1,TCP2,TCP3,FNP,CP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
     $s->execute();
     $r = $s->fetch(PDO::FETCH_ASSOC);
-    $STP = $r['TCP1'] +  $r['TCP2'] +  $r['TCP3'] + $r['FNP'] +  $r['CP'];
+    foreach($r as $value){
+      if($value != NULL){
+        $STP += $value;
+      }
+    }
 
     $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
     $r = $s->execute();
@@ -243,7 +247,7 @@ if (!empty($_POST)) {
             $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
 
-            //tabulate();
+            tabulate();
         }
 
         if (isset($_POST["CB$qNum"])) {
@@ -253,7 +257,7 @@ if (!empty($_POST)) {
 
             //tabulate();
         }
-        
+
         $s = $db->prepare("SELECT testAmount FROM questions WHERE questionID = '$qID'");
         $s->execute();
         $r = $s->fetch(PDO::FETCH_ASSOC);
