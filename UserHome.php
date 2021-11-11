@@ -70,6 +70,7 @@ else{
             border-radius: 10px;
             border-color: #c6a226;
             color: white;
+            padding: 2px;
           }
           th, td {
             background-color: black;
@@ -104,11 +105,11 @@ else{
           $sql = "SELECT EID, result, comments, newGrade from results Where UID = '$_SESSION[UID]' and released = 1";
           echo "<table>"; // list box select command
           echo "<tr>";
-          echo "<td>|EID|</td>";
-          echo "<td>|Comments|</td>";
-          echo "<td>|Result|</td>";
-          echo "<td>|Total Points Possible|</td>";
-          echo "<td>|Percent Grade|</td>";
+          echo "<td>EID</td>";
+          echo "<td>Comments</td>";
+          echo "<td>Result</td>";
+          echo "<td>Total Points Possible</td>";
+          echo "<td>Percent Grade</td>";
           echo "</tr>";
           foreach ($db->query($sql) as $row){//Array or records stored in $row
             $sql2 = $db->prepare("SELECT Total_Points from exams Where EID = '$row[EID]'");
