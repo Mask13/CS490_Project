@@ -13,10 +13,10 @@ table, th, td {
     border-color: #c6a226;
     color: white;
     padding: 2px;
-    }
-    th, td {
+}
+th, td {
     background-color: black;
-    }
+}
 </style>
 
 
