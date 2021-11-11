@@ -157,6 +157,9 @@ foreach ($questions as $value) {
 
     $messedupConstrain = false;
 
+    $testPoints = $qPoints - (2 + 1);
+    $tcPoints = $testPoints / $testAmount; // Test Case Points
+    
     // checking for function name
     if($messedupName == false) {
       $FNPoints += 2;
@@ -171,8 +174,6 @@ foreach ($questions as $value) {
       $cPoints += 1;
     }
 
-    $testPoints = $qPoints - ($FNPoints + $cPoints);
-    $tcPoints = $testPoints / $testAmount; // Test Case Points
     // actual testPoints
     // $trueTP = $tcPoints * $testAmount;
 
