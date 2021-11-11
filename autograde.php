@@ -240,7 +240,10 @@ foreach ($questions as $value) {
         $s = $db->prepare("UPDATE answers SET $testNum = '$tcPoints' WHERE QuestionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
       }
-      else {}
+      else {
+        $s = $db->prepare("UPDATE answers SET $testNum = 0 WHERE QuestionID = '$qID' and resultID = '$reID'");
+        $r = $s->execute();
+      }
 
     }
 
