@@ -59,9 +59,19 @@ else{
          color: #bcbdbe;
          }
     }
+    titles{
+      width: 200px;
+      text-align: center;
+      font-size: 40;
+      font-family: Trebuchet MS;
+      text-decoration-color:#c6a226;
+      border-bottom: 5px solid #c6a226;
+      border-top: 5px solid #c6a226;
+      padding: 2px;
+    }
   </style>
-  <header style="text-align:center; font-size: 20px;">
-    <text>
+  <header>
+    <titles>
     <?php
       require "config.php";
       $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -73,7 +83,7 @@ else{
       $examName = $r["Exam_Name"];
       echo "$examName";
      ?>
-   </text>
+   </titles>
   </header>
   <body>
     <div id= container>
