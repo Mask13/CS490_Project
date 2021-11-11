@@ -51,6 +51,7 @@ else{
     body{
          background-color: #000033;
          background-image: url('https://images.unsplash.com/photo-1445905595283-21f8ae8a33d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80');
+         background-repeat: repeat-x; 
          height: 100%;
          background-position: center;
          background-repeat: no-repeat;
@@ -60,6 +61,18 @@ else{
     }
   </style>
   <body>
+    <center style="font-size: 20px">
+      <?php
+        require "config.php";
+        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+        $db= new PDO($connection_string, $dbuser, $dbpass);
+        $sql = $db->prepare("SELECT Exam_Name from exams Where EID = :TID");
+        $params = array(":TID"=> $_SESSION['testID']);
+        $sql->execute($params);
+        $r = $sql->fetch(PDO::FETCH_ASSOC);
+        echo "$r['Exam_Name']";
+       ?>
+    </center>
     <div id= container>
       <form target="_blank" action="https://cs490-canvas2.herokuapp.com/UserHome.php" name= "test" id="test" method="post">
         <?php
@@ -128,91 +141,94 @@ else{
           }
           finally{}
          ?>
-         <input type="submit" onclick="window.location.href = 'https://cs490-canvas2.herokuapp.com/UserHome.php';" value="Submit">
+         <input type="submit" value="Submit">
        </form>
     </div>
   </body>
 </html>
 
 <?php
-require "config.php";
-$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-$db= new PDO($connection_string, $dbuser, $dbpass);
-//setup the reslut table entry & and put Q1 into answers
-if (isset($_POST['Q1A'])){
-  //setup results
-  $stmt = $db->prepare("INSERT INTO `results`
-            (UID, EID) VALUES
-            (:UID, :EID)");
-  $params = array(":UID"=> $_SESSION['UID'], ":EID"=> $_SESSION['testID']);
-  $stmt->execute($params);
-  echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
-  //get result ID
-  $sql2 = $db->prepare("SELECT resultID from results Where UID = :UID and EID = :EID");
-  $sql2->execute($params);
-  $resultID = $sql2->fetch(PDO::FETCH_ASSOC);
-  //put Q1 into answers
-  $stmt = $db->prepare("INSERT INTO `answers`
-            (resultID, QuestionID, Submission) VALUES
-            (:resultID, :QuestionID, :Submission)");
-  $params = array(":resultID"=> $resultID['resultID'], ":QuestionID"=> $QIDS['Q1'], ":Submission"=> $_POST['Q1A']);
-  $stmt->execute($params);
-  echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
-}
-//Q2
-if (isset($_POST['Q2A'])){
-  $sql2 = $db->prepare("SELECT resultID from results Where UID = :UID and EID = :EID");
-  $params = array(":UID"=> $_SESSION['UID'], ":EID"=> $_SESSION['testID']);
-  $sql2->execute($params);
-  $resultID = $sql2->fetch(PDO::FETCH_ASSOC);
-  //put Q2 into answers
-  $stmt = $db->prepare("INSERT INTO `answers`
-            (resultID, QuestionID, Submission) VALUES
-            (:resultID, :QuestionID, :Submission)");
-  $params = array(":resultID"=> $resultID['resultID'], ":QuestionID"=> $QIDS['Q2'], ":Submission"=> $_POST['Q2A']);
-  $stmt->execute($params);
-  echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
-}
-//Q3
-if (isset($_POST['Q3A'])){
-  $sql2 = $db->prepare("SELECT resultID from results Where UID = :UID and EID = :EID");
-  $params = array(":UID"=> $_SESSION['UID'], ":EID"=> $_SESSION['testID']);
-  $sql2->execute($params);
-  $resultID = $sql2->fetch(PDO::FETCH_ASSOC);
-  //put Q3 into answers
-  $stmt = $db->prepare("INSERT INTO `answers`
-            (resultID, QuestionID, Submission) VALUES
-            (:resultID, :QuestionID, :Submission)");
-  $params = array(":resultID"=> $resultID['resultID'], ":QuestionID"=> $QIDS['Q3'], ":Submission"=> $_POST['Q3A']);
-  $stmt->execute($params);
-  echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
-}
-//Q4
-if (isset($_POST['Q4A'])){
-  $sql2 = $db->prepare("SELECT resultID from results Where UID = :UID and EID = :EID");
-  $params = array(":UID"=> $_SESSION['UID'], ":EID"=> $_SESSION['testID']);
-  $sql2->execute($params);
-  $resultID = $sql2->fetch(PDO::FETCH_ASSOC);
-  //put Q4 into answers
-  $stmt = $db->prepare("INSERT INTO `answers`
-            (resultID, QuestionID, Submission) VALUES
-            (:resultID, :QuestionID, :Submission)");
-  $params = array(":resultID"=> $resultID['resultID'], ":QuestionID"=> $QIDS['Q4'], ":Submission"=> $_POST['Q4A']);
-  $stmt->execute($params);
-  echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
-}
-//Q5
-if (isset($_POST['Q5A'])){
-  $sql2 = $db->prepare("SELECT resultID from results Where UID = :UID and EID = :EID");
-  $params = array(":UID"=> $_SESSION['UID'], ":EID"=> $_SESSION['testID']);
-  $sql2->execute($params);
-  $resultID = $sql2->fetch(PDO::FETCH_ASSOC);
-  //put Q5 into answers
-  $stmt = $db->prepare("INSERT INTO `answers`
-            (resultID, QuestionID, Submission) VALUES
-            (:resultID, :QuestionID, :Submission)");
-  $params = array(":resultID"=> $resultID['resultID'], ":QuestionID"=> $QIDS['Q5'], ":Submission"=> $_POST['Q5A']);
-  $stmt->execute($params);
-  echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+if (!empty($_POST)) {
+  require "config.php";
+  $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+  $db= new PDO($connection_string, $dbuser, $dbpass);
+  //setup the reslut table entry & and put Q1 into answers
+  if (isset($_POST['Q1A'])){
+    //setup results
+    $stmt = $db->prepare("INSERT INTO `results`
+              (UID, EID) VALUES
+              (:UID, :EID)");
+    $params = array(":UID"=> $_SESSION['UID'], ":EID"=> $_SESSION['testID']);
+    $stmt->execute($params);
+    echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+    //get result ID
+    $sql2 = $db->prepare("SELECT resultID from results Where UID = :UID and EID = :EID");
+    $sql2->execute($params);
+    $resultID = $sql2->fetch(PDO::FETCH_ASSOC);
+    //put Q1 into answers
+    $stmt = $db->prepare("INSERT INTO `answers`
+              (resultID, QuestionID, Submission) VALUES
+              (:resultID, :QuestionID, :Submission)");
+    $params = array(":resultID"=> $resultID['resultID'], ":QuestionID"=> $QIDS['Q1'], ":Submission"=> $_POST['Q1A']);
+    $stmt->execute($params);
+    echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+  }
+  //Q2
+  if (isset($_POST['Q2A'])){
+    $sql2 = $db->prepare("SELECT resultID from results Where UID = :UID and EID = :EID");
+    $params = array(":UID"=> $_SESSION['UID'], ":EID"=> $_SESSION['testID']);
+    $sql2->execute($params);
+    $resultID = $sql2->fetch(PDO::FETCH_ASSOC);
+    //put Q2 into answers
+    $stmt = $db->prepare("INSERT INTO `answers`
+              (resultID, QuestionID, Submission) VALUES
+              (:resultID, :QuestionID, :Submission)");
+    $params = array(":resultID"=> $resultID['resultID'], ":QuestionID"=> $QIDS['Q2'], ":Submission"=> $_POST['Q2A']);
+    $stmt->execute($params);
+    echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+  }
+  //Q3
+  if (isset($_POST['Q3A'])){
+    $sql2 = $db->prepare("SELECT resultID from results Where UID = :UID and EID = :EID");
+    $params = array(":UID"=> $_SESSION['UID'], ":EID"=> $_SESSION['testID']);
+    $sql2->execute($params);
+    $resultID = $sql2->fetch(PDO::FETCH_ASSOC);
+    //put Q3 into answers
+    $stmt = $db->prepare("INSERT INTO `answers`
+              (resultID, QuestionID, Submission) VALUES
+              (:resultID, :QuestionID, :Submission)");
+    $params = array(":resultID"=> $resultID['resultID'], ":QuestionID"=> $QIDS['Q3'], ":Submission"=> $_POST['Q3A']);
+    $stmt->execute($params);
+    echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+  }
+  //Q4
+  if (isset($_POST['Q4A'])){
+    $sql2 = $db->prepare("SELECT resultID from results Where UID = :UID and EID = :EID");
+    $params = array(":UID"=> $_SESSION['UID'], ":EID"=> $_SESSION['testID']);
+    $sql2->execute($params);
+    $resultID = $sql2->fetch(PDO::FETCH_ASSOC);
+    //put Q4 into answers
+    $stmt = $db->prepare("INSERT INTO `answers`
+              (resultID, QuestionID, Submission) VALUES
+              (:resultID, :QuestionID, :Submission)");
+    $params = array(":resultID"=> $resultID['resultID'], ":QuestionID"=> $QIDS['Q4'], ":Submission"=> $_POST['Q4A']);
+    $stmt->execute($params);
+    echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+  }
+  //Q5
+  if (isset($_POST['Q5A'])){
+    $sql2 = $db->prepare("SELECT resultID from results Where UID = :UID and EID = :EID");
+    $params = array(":UID"=> $_SESSION['UID'], ":EID"=> $_SESSION['testID']);
+    $sql2->execute($params);
+    $resultID = $sql2->fetch(PDO::FETCH_ASSOC);
+    //put Q5 into answers
+    $stmt = $db->prepare("INSERT INTO `answers`
+              (resultID, QuestionID, Submission) VALUES
+              (:resultID, :QuestionID, :Submission)");
+    $params = array(":resultID"=> $resultID['resultID'], ":QuestionID"=> $QIDS['Q5'], ":Submission"=> $_POST['Q5A']);
+    $stmt->execute($params);
+    echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+  }
+  header("Location: UserHome.php;");
 }
  ?>
