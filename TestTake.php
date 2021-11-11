@@ -60,7 +60,8 @@ else{
          }
     }
   </style>
-  <heaader style="text-align:center; font-size: 20px;">
+  <header style="text-align:center; font-size: 20px;">
+    <text>
     <?php
       require "config.php";
       $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -72,6 +73,7 @@ else{
       $examName = $r["Exam_Name"];
       echo "$examName";
      ?>
+   </text>
   </header>
   <body>
     <div id= container>
