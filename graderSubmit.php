@@ -257,13 +257,13 @@ if (!empty($_POST)) {
             $testNum = "TCP".$x;
 
             if (isset($_POST["Rgttest$x$qNum"])) {
-                $Rgttest = $_POST["Rgttest$x"];
+                $Rgttest = $_POST["Rgttest$x$qNum"];
                 $s = $db->prepare("UPDATE answers SET $testNum = '$Rgttest' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
             }
 
             if (isset($_POST["Wrgtest$x$qNum"])) {
-                $Wrgtest = $_POST["Wrgtest$x"];
+                $Wrgtest = $_POST["Wrgtest$x$qNum"];
                 $s = $db->prepare("UPDATE answers SET $testNum = '$Wrgtest' WHERE QuestionID = '$qID' and resultID = '$reID'");
                 $r = $s->execute();
             }
