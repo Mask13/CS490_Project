@@ -126,11 +126,15 @@ foreach ($questions as $value) {
 
         if($output == $Ansinput) {
           $counterCorrect += 1;
-          array_push($TestCaseArray, true);
+          $testNum = "TCP".$x;
+          $s = $db->prepare("UPDATE answers SET $testNum = 1 WHERE QuestionID = '$qID' and resultID = '$reID'");
+          $r = $s->execute();
         }
         else {
           $counterCorrect += 0;
-          array_push($TestCaseArray, false);
+          $testNum = "TCP".$x;
+          $s = $db->prepare("UPDATE answers SET $testNum = 0 WHERE QuestionID = '$qID' and resultID = '$reID'");
+          $r = $s->execute();
         }
       }
     }
@@ -213,7 +217,7 @@ foreach ($questions as $value) {
       $r = $s->fetch(PDO::FETCH_ASSOC);
       $expAnswer = $r["$aInput00"];
 
-      if ($outputArray[$y] == $expAnswer) {
+      /*if ($outputArray[$y] == $expAnswer) {
         $testNum = "TCP".$x;
         $s = $db->prepare("UPDATE answers SET $testNum = '1' WHERE QuestionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
@@ -222,7 +226,7 @@ foreach ($questions as $value) {
         $testNum = "TCP".$x;
         $s = $db->prepare("UPDATE answers SET $testNum = '0' WHERE QuestionID = '$qID' and resultID = '$reID'");
         $r = $s->execute();
-      }
+      }*/
 
     }
 
