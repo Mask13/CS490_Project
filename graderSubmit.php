@@ -35,6 +35,7 @@ foreach ($questions as $qNum) {
     $value = $qNum."P";
 
     if ($r["$qNum"] != NULL && $r["$qNum"] != 0) {
+
         echo "<style>";
         echo " table, th, td {";
         echo " border:1px solid black;}";
