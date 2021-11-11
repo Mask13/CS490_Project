@@ -156,11 +156,28 @@ foreach ($questions as $value) {
     $r = $s->execute();
 
     $messedupConstrain = false;
-    // $messedupName = false;
 
+    // checking for function name
     if($messedupName == false) {
       $FNPoints += 2;
+    }
+    else {
+      $FNPoints += 0;
+    }
 
+    // checking for constraints
+    if($messedupConstrain){} // **need to do for Constraints** //
+    else{
+      $cPoints += 1;
+    }
+
+    $testPoints = $qPoints - ($FNPoints + $cPoints);
+    $tcPoints = $testPoints / $testAmount; // Test Case Points
+    // actual testPoints
+    // $trueTP = $tcPoints * $testAmount;
+
+    if($messedupName == false) {
+      // correct name
       if (($counterCorrect / $testAmount) == 1) {
         $studentPoints += $qPoints;
       }
@@ -169,19 +186,13 @@ foreach ($questions as $value) {
       }
     }
     else {
-      $testPoints = $qPoints - (2 + 1);
+      // messed up name
       if (($counterCorrect / $testAmount) == 1) {
         $studentPoints += $testPoints;
       }
       else {
         $studentPoints += 0;
       }
-    }
-
-    if($messedupConstrain){} // **need to do for Constraints** //
-    else{
-      $cPoints += 1;
-      $testPoints += 1;
     }
 
     // updating FN
@@ -198,9 +209,6 @@ foreach ($questions as $value) {
 
     $finalScore += $studentPoints;
     $totalPoints += $qPoints;
-
-    $testPoints = $qPoints - ($FNPoints + $cPoints);
-    $tcPoints = $testPoints / $testAmount;
 
     // =======================================================
     // Making the Table
