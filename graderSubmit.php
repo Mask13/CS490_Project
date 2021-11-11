@@ -6,6 +6,19 @@
 </button>
 </header>
 
+<script>
+table, th, td {
+    border: 1px solid black;
+    border-radius: 10px;
+    border-color: #c6a226;
+    color: white;
+    padding: 2px;
+}
+    th, td {
+    background-color: black;
+}
+</script>
+
 <body>
 <h2>Results of AutoGrader</h2>
 
@@ -35,11 +48,6 @@ foreach ($questions as $qNum) {
     $value = $qNum."P";
 
     if ($r["$qNum"] != NULL && $r["$qNum"] != 0) {
-
-        echo "<style>";
-        echo " table, th, td {";
-        echo " border:1px solid black;}";
-        echo "</style>";
         
         echo "<br>";
         echo "<table style='width:100%'>";
@@ -220,7 +228,7 @@ $reID = $r["resultID"]; // getting result ID
 function tabulate(){
     $s = $db->prepare("SELECT TCP1,TCP2,TCP3,FNP,CP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
     $s->execute();
-    $r = $s->fetch(PDO::FETCH_ASSOC)
+    $r = $s->fetch(PDO::FETCH_ASSOC);
     $STP = $r['TCP1'] +  $r['TCP2'] +  $r['TCP3'] + $r['FNP'] +  $r['CP'];
 
     $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
