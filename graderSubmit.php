@@ -36,18 +36,10 @@ foreach ($questions as $qNum) {
 
     if ($r["$qNum"] != NULL && $r["$qNum"] != 0) {
         
-        echo "<script>";
-        echo "table, th, td {";
-        echo "       border: 1px solid black;";
-        echo "   border-radius: 10px;";
-        echo "   border-color: #c6a226;";
-        echo "   color: white;";
-        echo "   padding: 2px;";
-        echo "}";
-        echo "th, td {";
-        echo "   background-color: black;";
-        echo "}";  
-        echo "</script>";
+        echo "<style>";
+        echo " table, th, td {";
+        echo " border:1px solid black;}";
+        echo "</style>";
 
         echo "<br>";
         echo "<table style='width:100%'>";
