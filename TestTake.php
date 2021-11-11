@@ -59,10 +59,9 @@ else{
         color: #bcbdbe;
     }
     titles{
-        align: center;
         width: 200px;
         text-align: center;
-        font-size: 40;
+        font-size: 60;
         font-family: Trebuchet MS;
         text-decoration-color:#c6a226;
         border-bottom: 5px solid #c6a226;
@@ -71,19 +70,21 @@ else{
     }
   </style>
   <body>
-    <titles>
-      <?php
-        require "config.php";
-        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-        $db= new PDO($connection_string, $dbuser, $dbpass);
-        $sql = $db->prepare("SELECT Exam_Name from exams Where EID = :TID");
-        $params = array(":TID"=> $_SESSION['testID']);
-        $sql->execute($params);
-        $r = $sql->fetch(PDO::FETCH_ASSOC);
-        $examName = $r["Exam_Name"];
-        echo "$examName";
-       ?>
-    </titles>
+    <center>
+      <titles>
+        <?php
+          require "config.php";
+          $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+          $db= new PDO($connection_string, $dbuser, $dbpass);
+          $sql = $db->prepare("SELECT Exam_Name from exams Where EID = :TID");
+          $params = array(":TID"=> $_SESSION['testID']);
+          $sql->execute($params);
+          $r = $sql->fetch(PDO::FETCH_ASSOC);
+          $examName = $r["Exam_Name"];
+          echo "$examName";
+         ?>
+      </titles>
+    </center>
     <div id= container>
       <form target="_blank" action="https://cs490-canvas2.herokuapp.com/UserHome.php" name= "test" id="test" method="post">
         <?php
