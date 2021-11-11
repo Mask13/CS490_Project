@@ -216,20 +216,6 @@ $s->execute();
 $r = $s->fetch(PDO::FETCH_ASSOC);
 $reID = $r["resultID"]; // getting result ID
 
-// fixing studentPoints
-function tabulate(){
-    $s = $db->prepare("SELECT TCP1,TCP2,TCP3,FNP,CP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
-    $s->execute();
-    $r = $s->fetch(PDO::FETCH_ASSOC);
-    foreach($r as $value){
-      if($value != NULL){
-        $STP += $value;
-      }
-    }
-
-    $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
-    $r = $s->execute();
-}
 
 if (!empty($_POST)) {
     $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
@@ -241,6 +227,21 @@ if (!empty($_POST)) {
         $qID = $r["$qNum"]; // getting question ID
 
         $value = $qNum."P";
+
+        // fixing studentPoints
+        function tabulate(){
+            $s = $db->prepare("SELECT TCP1,TCP2,TCP3,FNP,CP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
+            $s->execute();
+            $r = $s->fetch(PDO::FETCH_ASSOC);
+            foreach($r as $value){
+              if($value != NULL){
+                $STP += $value;
+              }
+            }
+
+            $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
+            $r = $s->execute();
+        }
 
         if (isset($_POST["FNB$qNum"])) {
             $FNB = $_POST["FNB$qNum"];
