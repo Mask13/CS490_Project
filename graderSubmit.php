@@ -277,7 +277,7 @@ if (!empty($_POST)) {
             }
         }
     }
-    echo("<meta http-equiv='refresh' content='1'>");
+    //echo("<meta http-equiv='refresh' content='1'>");
 }
 
 ?>
