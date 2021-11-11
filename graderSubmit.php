@@ -221,8 +221,8 @@ function tabulate($qID){
     $s = $db->prepare("SELECT TCP1,TCP2,TCP3,FNP,CP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
     $s->execute();
     $r = $s->fetch(PDO::FETCH_ASSOC);
+    echo "$r";
     foreach($r as $value){
-      echo "$value";
       if($value != NULL){
         $STP += $value;
       }
