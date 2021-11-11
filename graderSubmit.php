@@ -247,7 +247,7 @@ if (!empty($_POST)) {
             $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
             //header('url = https://cs490-canvas2.herokuapp.com/testfile.php');
-            header('Refresh: 3; url = https://cs490-canvas2.herokuapp.com/graderSubmit.php');
+            header('Location = .');
         }
 
         if (isset($_POST["CB$qNum"])) {
