@@ -233,6 +233,11 @@ $reID = $r["resultID"]; // getting result ID
 }
 */
 
+$s = $db->prepare("SELECT STP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
+$s->execute();
+$r = $s->fetch(PDO::FETCH_ASSOC);
+$STP = $r["STP"];
+
 if (!empty($_POST)) {
     $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
     foreach ($questions as $qNum) {
