@@ -267,6 +267,9 @@ if (!empty($_POST)) {
                 $STP += $FNP;
             }
 
+            $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
+            $r = $s->execute();
+
         }
 
         if (isset($_POST["CB$qNum"])) {
@@ -299,10 +302,10 @@ if (!empty($_POST)) {
           if($value != NULL){
             $STP += $value;
           }
-        }*/
+        }
 
         $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
-        $r = $s->execute();
+        $r = $s->execute();*/
     }
     echo("<meta http-equiv='refresh' content='1'>");
 }
