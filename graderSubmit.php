@@ -21,13 +21,24 @@
       border-color: #c6a226;
       color: white;
       padding: 2px;
+      padding-bottom: 6px;
     }
     th, td {
       background-color: black;
     }
+    titles{
+      width: 200px;
+      text-align: center;
+      font-size: 40;
+      font-family: Trebuchet MS;
+      text-decoration-color:#c6a226;
+      border-bottom: 5px solid #c6a226;
+      border-top: 5px solid #c6a226;
+      padding: 2px;
+    }
 </style>
 <body>
-<h2>Results of AutoGrader</h2>
+<titles>Results of AutoGrader</titles>
 
 <?php
 
