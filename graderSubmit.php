@@ -21,6 +21,7 @@
       border-color: #c6a226;
       color: white;
       padding: 2px;
+      padding-bottom: 6px;
     }
     th, td {
       background-color: black;
