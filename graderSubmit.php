@@ -306,6 +306,7 @@ if (!empty($_POST)) {
 
                 // break;
             }
+            break;
         }
     }
     echo("<meta http-equiv='refresh' content='1'>");
