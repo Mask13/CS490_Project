@@ -162,7 +162,7 @@ foreach ($questions as $qNum) {
             echo " 		<td style='text-align: center; vertical-align: middle;'>$expAnswer</td>";
             echo "		<td style='text-align: center; vertical-align: middle;'>$stuAnswer</td>";
 
-            echo "		<td style='text-align: center; vertical-align: middle;'> $testCasePoints and testCase$x$qNum</td>";
+            echo "		<td style='text-align: center; vertical-align: middle;'> $testCasePoints</td>";
             echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing grades
             echo "      <form method='POST'> <input type='text' name='testCase$x$qNum' size ='5'>";
             echo " 			<input type='submit' value='Submit' name='B1'> <form>";
