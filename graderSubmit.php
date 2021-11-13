@@ -146,9 +146,27 @@ foreach ($questions as $qNum) {
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $cPoints = $r["CP"];
 
+        $s = $db->prepare("SELECT QuestionConstrain from questions WHERE questionID = '$qID'");
+        $s->execute();
+        $r = $s->fetch(PDO::FETCH_ASSOC);
+        $constraint = $r["QuestionConstrain"];
+        switch ($constraint) {
+          case "F":
+              $constraint = "For Loop";
+              break;
+          case "W":
+              $constraint = "While Loop";
+              break;
+          case "R":
+              $constraint = "Recursion";
+              break;
+          default:
+              $constraint = "No Constraints";
+        }
+
         echo "	<tr>";
         echo "		<th>Constraints</th>";
-        echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>Text Input</td>";
+        echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$constraint</td>";
         echo "		<td style='text-align: center; vertical-align: middle;'>$cPoints / 1</td>";
         echo "    <td style='text-align: center; vertical-align: middle;'>"; // changing the grade
         echo "      <form method='POST'><input type='text' name='CB$qNum' size ='5'>";
