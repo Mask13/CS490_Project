@@ -279,7 +279,6 @@ if (!empty($_POST)) {
         // Test Cases
         if (isset($_POST["testCase1$qNum"]) && $_POST["testCase1$qNum"] != "") {
             $TCP1 = $_POST["testCase1$qNum"];
-            echo "<html><script>alert('$TCP1');</script></html>";
             $s = $db->prepare("UPDATE answers SET TCP1 = '$TCP1' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
 
