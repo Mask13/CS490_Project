@@ -298,8 +298,6 @@ if (!empty($_POST)) {
 
             $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
             $r = $s->execute();
-
-            break;
         }
 
         elseif (isset($_POST["testCase2$qNum"])) {
