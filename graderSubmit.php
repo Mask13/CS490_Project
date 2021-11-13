@@ -5,7 +5,27 @@
     class = "button" name="Login"> Home
 </button>
 </header>
-
+<style>
+    body{
+         background-color: #000033;
+         background-image: url('https://images.unsplash.com/photo-1445905595283-21f8ae8a33d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80');
+         height: 100%;
+         background-position: center;
+         background-repeat: no-repeat;
+         background-size: cover;
+         color: #bcbdbe;
+    }
+    table, th, td {
+      border: 1px solid black;
+      border-radius: 10px;
+      border-color: #c6a226;
+      color: white;
+      padding: 2px;
+    }
+    th, td {
+      background-color: black;
+    }
+</style>
 <body>
 <h2>Results of AutoGrader</h2>
 
@@ -35,11 +55,6 @@ foreach ($questions as $qNum) {
     $value = $qNum."P";
 
     if ($r["$qNum"] != NULL && $r["$qNum"] != 0) {
-
-        echo "<style>";
-        echo " table, th, td {";
-        echo " border:1px solid black;}";
-        echo "</style>";
 
         echo "<br>";
         echo "<table style='width:100%'>";
@@ -228,125 +243,231 @@ if (!empty($_POST)) {
         $value = $qNum."P";
 
         if (isset($_POST["FNB$qNum"])) {
-            $FNB = $_POST["FNB$qNum"];
-            $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
-            $r = $s->execute();
-
             $s = $db->prepare("SELECT FNP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
             $s->execute();
             $r = $s->fetch(PDO::FETCH_ASSOC);
             $FNP = $r["FNP"];
 
+            $FNB = $_POST["FNB$qNum"];
+            $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
+            $r = $s->execute();
+
             $s = $db->prepare("SELECT STP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
             $s->execute();
             $r = $s->fetch(PDO::FETCH_ASSOC);
             $STP = $r["STP"];
+            $STPOld = $r["STP"];
 
             if ($FNP != NULL) {
-                $STP += $FNP;
+                $STP -= $FNP;
+                $STP += $FNB;
+            }
+            else{
+                $STP += $FNB;
+            }
+
+            $s = $db->prepare("SELECT result FROM results WHERE resultID = '$reID'");
+            $s->execute();
+            $r = $s->fetch(PDO::FETCH_ASSOC);
+            $RESULT = $r["result"];
+
+            if ($RESULT != NULL) {
+                $RESULT -= $STPOld;
+                $RESULT += $STP;
+            }
+            else{
+                $RESULT += $STP;
             }
 
             $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
             $r = $s->execute();
-            break;
 
+            $s = $db->prepare("UPDATE results SET result = '$RESULT' WHERE resultID = '$reID'");
+            $r = $s->execute();
+
+            break;
         }
 
         if (isset($_POST["CB$qNum"])) {
-            $CB = $_POST["CB$qNum"];
-            $s = $db->prepare("UPDATE answers SET CP = '$CB' WHERE QuestionID = '$qID' and resultID = '$reID'");
-            $r = $s->execute();
-
             $s = $db->prepare("SELECT CP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
             $s->execute();
             $r = $s->fetch(PDO::FETCH_ASSOC);
             $CP = $r["CP"];
 
+            $CB = $_POST["CB$qNum"];
+            $s = $db->prepare("UPDATE answers SET CP = '$CB' WHERE QuestionID = '$qID' and resultID = '$reID'");
+            $r = $s->execute();
+
             $s = $db->prepare("SELECT STP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
             $s->execute();
             $r = $s->fetch(PDO::FETCH_ASSOC);
             $STP = $r["STP"];
+            $STPOld = $r["STP"];
 
             if ($CP != NULL) {
-                $STP += $CP;
+                $STP -= $CP;
+                $STP += $CB;
+            }
+            else{
+                $STP += $CB;
+            }
+
+            $s = $db->prepare("SELECT result FROM results WHERE resultID = '$reID'");
+            $s->execute();
+            $r = $s->fetch(PDO::FETCH_ASSOC);
+            $RESULT = $r["result"];
+
+            if ($RESULT != NULL) {
+                $RESULT -= $STPOld;
+                $RESULT += $STP;
+            }
+            else{
+                $RESULT += $STP;
             }
 
             $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
             $r = $s->execute();
+
+            $s = $db->prepare("UPDATE results SET result = '$RESULT' WHERE resultID = '$reID'");
+            $r = $s->execute();
+
             break;
         }
 
         // Test Cases
         if (isset($_POST["testCase1$qNum"]) && $_POST["testCase1$qNum"] != "") {
-            $TCP1 = $_POST["testCase1$qNum"];
-            $s = $db->prepare("UPDATE answers SET TCP1 = '$TCP1' WHERE QuestionID = '$qID' and resultID = '$reID'");
-            $r = $s->execute();
-
             $s = $db->prepare("SELECT TCP1 FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
             $s->execute();
             $r = $s->fetch(PDO::FETCH_ASSOC);
             $testPoints = $r["TCP1"];
 
+            $TCP1 = $_POST["testCase1$qNum"];
+            $s = $db->prepare("UPDATE answers SET TCP1 = '$TCP1' WHERE QuestionID = '$qID' and resultID = '$reID'");
+            $r = $s->execute();
+
             $s = $db->prepare("SELECT STP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
             $s->execute();
             $r = $s->fetch(PDO::FETCH_ASSOC);
             $STP = $r["STP"];
+            $STPOld = $r["STP"];
 
             if ($testPoints != NULL) {
-                $STP += $testPoints;
+                $STP -= $testPoints;
+                $STP += $TCP1;
+            }
+            else{
+                $STP += $TCP1;
+            }
+
+            $s = $db->prepare("SELECT result FROM results WHERE resultID = '$reID'");
+            $s->execute();
+            $r = $s->fetch(PDO::FETCH_ASSOC);
+            $RESULT = $r["result"];
+
+            if ($RESULT != NULL) {
+                $RESULT -= $STPOld;
+                $RESULT += $STP;
+            }
+            else{
+                $RESULT += $STP;
             }
 
             $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
+            $r = $s->execute();
+
+            $s = $db->prepare("UPDATE results SET result = '$RESULT' WHERE resultID = '$reID'");
             $r = $s->execute();
 
             break;
         }
 
         elseif (isset($_POST["testCase2$qNum"]) && $_POST["testCase2$qNum"] != "") {
-            $TCP2 = $_POST["testCase2$qNum"];
-            $s = $db->prepare("UPDATE answers SET TCP2 = '$TCP2' WHERE QuestionID = '$qID' and resultID = '$reID'");
-            $r = $s->execute();
-
             $s = $db->prepare("SELECT TCP2 FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
             $s->execute();
             $r = $s->fetch(PDO::FETCH_ASSOC);
             $testPoints = $r["TCP2"];
 
+            $TCP2 = $_POST["testCase2$qNum"];
+            $s = $db->prepare("UPDATE answers SET TCP2 = '$TCP2' WHERE QuestionID = '$qID' and resultID = '$reID'");
+            $r = $s->execute();
+
             $s = $db->prepare("SELECT STP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
             $s->execute();
             $r = $s->fetch(PDO::FETCH_ASSOC);
             $STP = $r["STP"];
+            $STPOld = $r["STP"];
 
             if ($testPoints != NULL) {
-                $STP += $testPoints;
+                $STP -= $testPoints;
+                $STP += $TCP2;
+            }
+            else{
+                $STP += $TCP2;
+            }
+
+            $s = $db->prepare("SELECT result FROM results WHERE resultID = '$reID'");
+            $s->execute();
+            $r = $s->fetch(PDO::FETCH_ASSOC);
+            $RESULT = $r["result"];
+
+            if ($RESULT != NULL) {
+                $RESULT -= $STPOld;
+                $RESULT += $STP;
+            }
+            else{
+                $RESULT += $STP;
             }
 
             $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
+            $r = $s->execute();
+
+            $s = $db->prepare("UPDATE results SET result = '$RESULT' WHERE resultID = '$reID'");
             $r = $s->execute();
 
             break;
         }
 
         elseif (isset($_POST["testCase3$qNum"]) && $_POST["testCase3$qNum"] != "") {
-            $TCP3 = $_POST["testCase3$qNum"];
-            $s = $db->prepare("UPDATE answers SET TCP3 = '$TCP3' WHERE QuestionID = '$qID' and resultID = '$reID'");
-            $r = $s->execute();
-
             $s = $db->prepare("SELECT TCP3 FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
             $s->execute();
             $r = $s->fetch(PDO::FETCH_ASSOC);
             $testPoints = $r["TCP3"];
 
+            $TCP3 = $_POST["testCase3$qNum"];
+            $s = $db->prepare("UPDATE answers SET TCP3 = '$TCP3' WHERE QuestionID = '$qID' and resultID = '$reID'");
+            $r = $s->execute();
+
             $s = $db->prepare("SELECT STP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
             $s->execute();
             $r = $s->fetch(PDO::FETCH_ASSOC);
             $STP = $r["STP"];
+            $STPOld = $r["STP"];
 
             if ($testPoints != NULL) {
-                $STP += $testPoints;
+                $STP -= $testPoints;
+                $STP += $TCP3;
+            }
+            else{
+                $STP += $TCP3;
+            }
+
+            $s = $db->prepare("SELECT result FROM results WHERE resultID = '$reID'");
+            $s->execute();
+            $r = $s->fetch(PDO::FETCH_ASSOC);
+            $RESULT = $r["result"];
+
+            if ($RESULT != NULL) {
+                $RESULT -= $STPOld;
+                $RESULT += $STP;
+            }
+            else{
+                $RESULT += $STP;
             }
 
             $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
+            $r = $s->execute();
+
+            $s = $db->prepare("UPDATE results SET result = '$RESULT' WHERE resultID = '$reID'");
             $r = $s->execute();
 
             break;
