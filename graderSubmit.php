@@ -299,14 +299,10 @@ if (!empty($_POST)) {
 
                 if ($testPoints != NULL) {
                     $STP += $testPoints;
-
                     $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
                     $r = $s->execute();
-                }
-                else {
                     break;
                 }
-
                 // break;
             }
         }
