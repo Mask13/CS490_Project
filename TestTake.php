@@ -104,7 +104,7 @@ else{
     </titles>
 
     <div style="padding-top: 20px">
-      <form target="_blank" action="https://cs490-canvas2.herokuapp.com/UserHome.php" name= "test" id="test" method="post">
+      <form target="_blank" name= "test" id="test" method="post">
         <?php
           require "config.php";
           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -269,6 +269,6 @@ if (!empty($_POST)) {
     $stmt->execute($params);
     echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
   }
-  header("Location: UserHome.php;");
+  header("Location: UserHome.php");
 }
  ?>
