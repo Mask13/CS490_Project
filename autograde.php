@@ -158,7 +158,7 @@ foreach ($questions as $value) {
 
     $testPoints = $qPoints - (2 + 1);
     $tcPoints = $testPoints / $testAmount; // Test Case Points
-    
+
     // checking for function name
     if($messedupName == false) {
       $FNPoints += 2;
@@ -167,19 +167,50 @@ foreach ($questions as $value) {
       $FNPoints += 0;
     }
 
-    // checking for constraints
-    if($messedupConstrain){} // **need to do for Constraints** //
-    else{
-      $cPoints += 1;
-    }
+    //Check constraints
+   $s = $db->prepare("SELECT QuestionConstrain from questions WHERE questionID = '$qID'");
+   $s->execute();
+   $r = $s->fetch(PDO::FETCH_ASSOC);
+   $constraint = $r["QuestionConstrain"];
+   if($constraint == NULL){
+     $messedupConstrain = false;
+   }
+   elseif ($constraint == "F"){
 
+     if(str_contains($dataString, "for")|| str_contains($dataString, "For")){
+       $messedupConstrain = false;
+     }
+     else{
+       $messedupConstrain = true;
+     }
+   }
+   elseif ($constraint == "W"){
+     if(str_contains($dataString, "while")|| str_contains($dataString, "While")) {
+       $messedupConstrain = false;
+     }
+     else{
+       $messedupConstrain = true;
+     }
+   }
+   elseif ($constraint == "R"){
+     if(sizeof(explode($funcName,$dataString))>=3) {
+       $messedupConstrain = false;
+     }
+     else{
+       $messedupConstrain = true;
+     }
+   }
+   if(!$messedupConstrain){
+     $cPoints = 1;
+     $studentPoints += $cPoints;
+   }
     // actual testPoints
     // $trueTP = $tcPoints * $testAmount;
 
     if($messedupName == false) {
       // correct name
       if (($counterCorrect / $testAmount) == 1) {
-        $studentPoints += $qPoints;
+        $studentPoints += $testPoints;
       }
       elseif ((($counterCorrect / $testAmount) == 2/3)) {
         $studentPoints += $tcPoints * 2;
@@ -187,14 +218,18 @@ foreach ($questions as $value) {
       elseif ((($counterCorrect / $testAmount) == 1/3)) {
         $studentPoints += $tcPoints;
       }
-      else {
-        $studentPoints += $FNPoints;
-      }
+      $studentPoints += $FNPoints;
     }
     else {
       // messed up name
       if (($counterCorrect / $testAmount) == 1) {
         $studentPoints += $testPoints;
+      }
+      elseif ((($counterCorrect / $testAmount) == 2/3)) {
+        $studentPoints += $tcPoints * 2;
+      }
+      elseif ((($counterCorrect / $testAmount) == 1/3)) {
+        $studentPoints += $tcPoints;
       }
       else {
         $studentPoints += 0;
