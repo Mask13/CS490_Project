@@ -26,6 +26,17 @@
     th, td {
       background-color: black;
     }
+    .button {
+        background-color: Transparent;
+        border: inset #c6a226;
+        color: #bcbdbe;
+        padding: 15px 19px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 25px;
+        font-size: 16px;
+    }
     titles{
       width: 200px;
       text-align: center;
