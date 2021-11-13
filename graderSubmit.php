@@ -90,8 +90,7 @@ foreach ($questions as $qNum) {
         echo "		<th>Question Text</th>";
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qText</td>"; // questionText from  questions
         echo "		<td style='text-align: center; vertical-align: middle;'>$qPoints pts</td>"; // QPoints from questionassignments
-        echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-        echo "    </td>";
+        echo "    <td></td>";
         echo "	</tr>";
 
         $s = $db->prepare("SELECT Submission FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
@@ -108,8 +107,7 @@ foreach ($questions as $qNum) {
         echo "		<th>Submission</th>";
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$dataString</td>"; // Submission from answers
         echo "		<td style='text-align: center; vertical-align: middle;'>$studentPoints / $qPoints</td>"; // Total Score
-        echo "    <td style='text-align: center; vertical-align: middle;'>New Grade"; // changing the grade
-        echo "    </td>";
+        echo "    <td></td>";
         echo "	</tr>";
 
         $s = $db->prepare("SELECT functionName FROM questions WHERE questionID = '$qID'");
