@@ -228,8 +228,7 @@ if (!empty($_POST)) {
         $value = $qNum."P";
 
         if (isset($_POST["FNB$qNum"])) {
-            $FNB = $_POST["FNB$qNum"];
-            $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
+            $s = $db->prepare("UPDATE answers SET FNP = '$_POST['FNB$qNum']' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
 
             $s = $db->prepare("SELECT FNP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
@@ -253,8 +252,7 @@ if (!empty($_POST)) {
         }
 
         if (isset($_POST["CB$qNum"])) {
-            $CB = $_POST["CB$qNum"];
-            $s = $db->prepare("UPDATE answers SET CP = '$CB' WHERE QuestionID = '$qID' and resultID = '$reID'");
+            $s = $db->prepare("UPDATE answers SET CP = '$_POST['CB$qNum']' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
 
             $s = $db->prepare("SELECT CP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
@@ -278,8 +276,7 @@ if (!empty($_POST)) {
 
         // Test Cases 
         if (isset($_POST["testCase1$qNum"])) {
-            $testCase = $_POST["testCase1$qNum"];
-            $s = $db->prepare("UPDATE answers SET TCP1 = '$testCase' WHERE QuestionID = '$qID' and resultID = '$reID'");
+            $s = $db->prepare("UPDATE answers SET TCP1 = '$_POST['testCase1$qNum']' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
 
             $s = $db->prepare("SELECT TCP1 FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
@@ -298,11 +295,12 @@ if (!empty($_POST)) {
 
             $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
             $r = $s->execute();
+
+            break;
         }
 
         elseif (isset($_POST["testCase2$qNum"])) {
-            $testCase = $_POST["testCase2$qNum"];
-            $s = $db->prepare("UPDATE answers SET TCP2 = '$testCase' WHERE QuestionID = '$qID' and resultID = '$reID'");
+            $s = $db->prepare("UPDATE answers SET TCP2 = '$_POST['testCase2$qNum']' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
 
             $s = $db->prepare("SELECT TCP2 FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
@@ -322,11 +320,11 @@ if (!empty($_POST)) {
             $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
             $r = $s->execute();
 
+            break;
         }
 
         elseif (isset($_POST["testCase3$qNum"])) {
-            $testCase = $_POST["testCase3$qNum"];
-            $s = $db->prepare("UPDATE answers SET $testNum = 'TCP3' WHERE QuestionID = '$qID' and resultID = '$reID'");
+            $s = $db->prepare("UPDATE answers SET TCP3 = '$_POST['testCase3$qNum']' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
 
             $s = $db->prepare("SELECT TCP3 FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
@@ -345,6 +343,8 @@ if (!empty($_POST)) {
 
             $s = $db->prepare("UPDATE answers SET STP = '$STP' WHERE resultID = '$reID' and QuestionID = '$qID'");
             $r = $s->execute();
+
+            break;
         }
     }
     echo("<meta http-equiv='refresh' content='1'>");
