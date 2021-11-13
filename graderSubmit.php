@@ -249,19 +249,24 @@ if (!empty($_POST)) {
 
         $value = $qNum."P";
 
-        $s = $db->prepare("SELECT TCP1,TCP2,TCP3,FNP,CP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
+        /*$s = $db->prepare("SELECT TCP1,TCP2,TCP3,FNP,CP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
         $s->execute();
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $TCP1 = $r["TCP1"];
         $TCP2 = $r["TCP2"];
         $TCP3 = $r["TCP3"];
         $FNP = $r["FNP"];
-        $CP = $r["CP"];
+        $CP = $r["CP"];*/
 
         if (isset($_POST["FNB$qNum"])) {
             $FNB = $_POST["FNB$qNum"];
             $s = $db->prepare("UPDATE answers SET FNP = '$FNB' WHERE QuestionID = '$qID' and resultID = '$reID'");
             $r = $s->execute();
+
+            $s = $db->prepare("SELECT FNP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
+            $s->execute();
+            $r = $s->fetch(PDO::FETCH_ASSOC);
+            $FNP = $r["FNP"];
 
             if ($FNP != NULL) {
                 $STP += $FNP;
