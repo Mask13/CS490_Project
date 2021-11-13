@@ -181,6 +181,12 @@ foreach ($questions as $value) {
       if (($counterCorrect / $testAmount) == 1) {
         $studentPoints += $qPoints;
       }
+      elseif ((($counterCorrect / $testAmount) == 2/3)) {
+        $studentPoints += $tcPoints * 2;
+      }
+      elseif ((($counterCorrect / $testAmount) == 1/3)) {
+        $studentPoints += $tcPoints;
+      }
       else {
         $studentPoints += $FNPoints;
       }
