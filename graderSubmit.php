@@ -252,14 +252,6 @@ echo "</table>";
 
 ?>
 
-<html>
-<form method="post">
-  <input type="text" name="comments" placeholder="Comment">
-  <input type="submit" value="release grade">
-</form>
-</body>
-</html>
-
 <?php
 session_start();
 $EID = $_SESSION['EID'];
@@ -268,6 +260,11 @@ $UID = $_SESSION["SID"];
 require "config.php";
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 $db= new PDO($connection_string, $dbuser, $dbpass);
+
+echo "<form method='post'>";
+echo   "<input type='text' name='comments' placeholder='Comment'>";
+echo   "<input type='submit' value='release grade'>";
+echo "</form>";
 
 $s = $db->prepare("SELECT resultID FROM results WHERE EID = '$EID' AND UID = '$UID'");
 $s->execute();
