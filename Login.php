@@ -44,7 +44,7 @@
            background-size: cover;
            color: #bcbdbe;
            }
-					 .button {
+					 /*.button {
               background-color: #000033;
               border: 3px outset #c6a226;
               color: white;
@@ -55,39 +55,66 @@
               font-size: 16px;
               font-family: Postea Var;
               position: relative; top:0px;
+            }*/
+            .button{
+                font:15px Calibri, Arial, sans-serif;
+
+                /* A semi-transparent text shadow */
+                text-shadow:1px 1px 0 rgba(255,255,255,0.4);
+
+                /* Overriding the default underline styling of the links */
+                text-decoration:none !important;
+                white-space:nowrap;
+
+                display:inline-block;
+                vertical-align:baseline;
+                position:relative;
+                cursor:pointer;
+                padding:10px 20px;
+
+                background-repeat:no-repeat;
+
+                /* The following two rules are fallbacks, in case
+                  the browser does not support multiple backgrounds. */
+
+                background-position:bottom left;
+                background-image:url('button_bg.png');
+
+                /* CSS3 background positioning property with multiple values. The background
+                  images themselves are defined in the individual color classes */
+
+                background-position:bottom left, top right, 0 0, 0 0;
+                background-clip:border-box;
+
+                /* Applying a default border radius of 8px */
+
+                -moz-border-radius:8px;
+                -webkit-border-radius:8px;
+                border-radius:8px;
+
+                /* A 1px highlight inside of the button */
+
+                -moz-box-shadow:0 0 1px #fff inset;
+                -webkit-box-shadow:0 0 1px #fff inset;
+                box-shadow:0 0 1px #fff inset;
+
+                /* Animating the background positions with CSS3 */
+                /* Currently works only in Safari/Chrome */
+
+                -webkit-transition:background-position 1s;
+                -moz-transition:background-position 1s;
+                -o-transition:background-position 1s;
+                transition:background-position 1s;
             }
-            .blue.button{
-              color:#0f4b6d !important;
 
-              border:1px solid #84acc3 !important;
+          .button:hover{
 
-                /* A fallback background color */
-                background-color: #48b5f2;
+              /* The first rule is a fallback, in case the browser
+                does not support multiple backgrounds
+              */
 
-                /* Specifying a version with gradients according to */
-
-                background-image:    url('button_bg.png'), url('button_bg.png'),
-                                    -moz-radial-gradient(    center bottom, circle,
-                                                            rgba(89,208,244,1) 0,rgba(89,208,244,0) 100px),
-                                    -moz-linear-gradient(#4fbbf7, #3faeeb);
-
-                background-image:    url('button_bg.png'), url('button_bg.png'),
-                                    -webkit-gradient(    radial, 50% 100%, 0, 50% 100%, 100,
-                                                        from(rgba(89,208,244,1)), to(rgba(89,208,244,0))),
-                                    -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4fbbf7), to(#3faeeb));
-            }
-          .blue.button:hover{
-              background-color:#63c7fe;
-
-              background-image:    url('button_bg.png'), url('button_bg.png'),
-                                  -moz-radial-gradient(    center bottom, circle,
-                                                    rgba(109,217,250,1) 0,rgba(109,217,250,0) 100px),
-                                  -moz-linear-gradient(#63c7fe, #58bef7);
-
-              background-image:    url('button_bg.png'), url('button_bg.png'),
-                                  -webkit-gradient(    radial, 50% 100%, 0, 50% 100%, 100,
-                                                      from(rgba(109,217,250,1)), to(rgba(109,217,250,0))),
-                                  -webkit-gradient(linear, 0% 0%, 0% 100%, from(#63c7fe), to(#58bef7));
+              background-position:top left;
+              background-position:top left, bottom right, 0 0, 0 0;
           }
           .formInput1{
             width: 100%;
