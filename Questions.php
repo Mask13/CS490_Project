@@ -81,16 +81,16 @@
          $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, QI1, QI2, QI3  from `questions`";
          echo "<table>"; // list box select command
          echo "<tr>";
-         echo "<td>Question ID</td>";
-         echo "<td>Question Text</td>";
-         echo "<td>Catagory</td>";
-         echo "<td>Difficulty</td>";
-         echo "<td>Input</td>";
-         echo "<td>Expected Output:</td>";
-         echo "<td>Input</td>";
-         echo "<td>Expected Output:</td>";
-         echo "<td>Input</td>";
-         echo "<td>Expected Output:</td>";
+         echo "<th>Question ID</th>";
+         echo "<th>Question Text</th>";
+         echo "<th>Catagory</th>";
+         echo "<th>Difficulty</th>";
+         echo "<th>Input</th>";
+         echo "<th>Expected Output:</th>";
+         echo "<th>Input</th>";
+         echo "<th>Expected Output:</th>";
+         echo "<th>Input</th>";
+         echo "<th>Expected Output:</th>";
          echo "</tr>";
          foreach ($db->query($sql) as $row){//Array or records stored in $row
            echo "<tr>";
@@ -128,8 +128,6 @@
           $db= new PDO($connection_string, $dbuser, $dbpass);
           $sql = $db->prepare("DELETE FROM `questions` WHERE questionID = :id");
           $r = $sql->execute(array(":id"=>$_POST["questionID"]));
-          echo "<pre>" . var_export($r, true) . "</pre>";
-          echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
           header("Refresh:0");
         }
         finally{}

@@ -170,16 +170,16 @@
           }
           echo "<table>"; // list box select command
           echo "<tr>";
-          echo "<td>Question ID</td>";
-          echo "<td>Question Text</td>";
-          echo "<td>Catagory</td>";
-          echo "<td>Difficulty</td>";
-          echo "<td>Input</td>";
-          echo "<td>Expected Output:</td>";
-          echo "<td>Input</td>";
-          echo "<td>Expected Output:</td>";
-          echo "<td>Input</td>";
-          echo "<td>Expected Output:</td>";
+          echo "<th>Question ID</th>";
+          echo "<th>Question Text</th>";
+          echo "<th>Catagory</th>";
+          echo "<th>Difficulty</th>";
+          echo "<th>Input</th>";
+          echo "<th>Expected Output:</th>";
+          echo "<th>Input</th>";
+          echo "<th>Expected Output:</th>";
+          echo "<th>Input</th>";
+          echo "<th>Expected Output:</th>";
           echo "</tr>";
           foreach ($db->query($sql) as $row){//Array or records stored in $row
             echo "<tr>";
