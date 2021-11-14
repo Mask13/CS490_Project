@@ -45,6 +45,14 @@
         background-size: cover;
         color: #bcbdbe;
       }
+      .formInput1{
+        width: 95%;
+        padding: 10px;
+        border: 2px solid #c6a226;
+        border-radius: 25px;
+        box-sizing: border-box;
+        resize: vertical;
+      }
       .button {
         background-color: Transparent;
         border: inset #c6a226;
@@ -116,9 +124,8 @@
        finally{}
     ?>
    <form id="myForm" method="POST">
-     <input type= "number" id="questionID"></input>
+     <input class = "formInput1" type= "number" id="questionID"></input>
       <input class = "button" type="submit" name="Delete" value="Delete"></input>
-     <input class = "button" type="submit" name="Edit" value="Edit"></input>
    </form>
   </body>
 </html>
