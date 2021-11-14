@@ -44,62 +44,31 @@
            background-size: cover;
            color: #bcbdbe;
            }
-					 /*.button {
-              background-color: #000033;
-              border: 3px outset #c6a226;
-              color: white;
-              padding: 15px 19px;
-              text-align: center;
-              text-decoration: none;
-              display: inline-block;
-              font-size: 16px;
-              font-family: Postea Var;
-              position: relative; top:0px;
-            }*/
-            .button{
-                font:15px Calibri, Arial, sans-serif;
+          .button {
+            background-color: #000033;
+            border: 3px outset #c6a226;
+            color: white;
+            padding: 15px 19px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-family: Postea Var;
+            position: relative; top:0px;
 
-                /* A semi-transparent text shadow */
-                text-shadow:1px 1px 0 rgba(255,255,255,0.4);
+            background-repeat:no-repeat;
+            background-position:bottom left;
+            background-position:bottom left, top right, 0 0, 0 0;
+            background-clip:border-box;
 
-                /* Overriding the default underline styling of the links */
-                text-decoration:none !important;
-                white-space:nowrap;
+            -moz-border-radius:8px;
+            -webkit-border-radius:8px;
+            border-radius:8px;
 
-                display:inline-block;
-                vertical-align:baseline;
-                position:relative;
-                cursor:pointer;
-                padding:10px;
-                margin: auto;
-
-                background-repeat:no-repeat;
-
-                /* The following two rules are fallbacks, in case
-                  the browser does not support multiple backgrounds. */
-
-                background-position:bottom left;
-
-                /* CSS3 background positioning property with multiple values. The background
-                  images themselves are defined in the individual color classes */
-
-                background-position:bottom left, top right, 0 0, 0 0;
-                background-clip:border-box;
-
-                /* Applying a default border radius of 8px */
-                background-color: #000033;
-                border: 3px outset #c6a226;
-                
-                -moz-border-radius:8px;
-                -webkit-border-radius:8px;
-                border-radius:8px;
-
-                /* A 1px highlight inside of the button */
-
-                -moz-box-shadow:0 0 1px #fff inset;
-                -webkit-box-shadow:0 0 1px #fff inset;
-                box-shadow:0 0 1px #fff inset;
-            }
+            -moz-box-shadow:0 0 1px #fff inset;
+            -webkit-box-shadow:0 0 1px #fff inset;
+            box-shadow:0 0 1px #fff inset;
+          }
 
           .formInput1{
             width: 100%;
