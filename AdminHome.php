@@ -26,6 +26,17 @@ else{
    </div>
   </head><br>
   <style>
+      table, th, td {
+        border: 1px solid black;
+        border-radius: 10px;
+        border-color: #c6a226;
+        color: white;
+        padding: 6px;
+        padding-bottom: 6px;
+      }
+      th, td {
+        background-color: black;
+      }
       text{
           font-size: 20px;
       }
@@ -97,23 +108,12 @@ else{
      ?>
      <input class= "button" type="submit" value="See tests"/>
   </form>
-  <form method="post">
-    <input type="number" name="RID" placeholder="RID">
-    <input type="text" name="comments" placeholder="Comment">
-    <input type="number" step="0.01" name="newGrade" placeholder="New Grade">
-    <input type="submit" value="release grade">
-  </form>
   </body>
 </html>
 
 <?php
   if(isset($_POST["Request_Test"]) || isset($_POST["studentID"])){
     GetTests();
-  }
-
-  if(isset($_POST["RID"]) && isset($_POST["comments"]) && isset($_POST["newGrade"])){
-    $sql = $db->prepare("UPDATE results SET released = 1, comments='$_POST[comments]', newGrade = '$_POST[newGrade]' Where resultID= '$_POST[RID]'");
-    $sql->execute();
   }
 
   function GetTests(){
@@ -124,11 +124,10 @@ else{
       $sql = "SELECT EID, result, comments, newGrade, resultID from results Where UID = '$_POST[studentID]'";
       echo "<table>"; // list box select command
       echo "<tr>";
-      echo "<td>Exam Name</td>";
-      echo "<td>Result</td>";
-      echo "<td>Comment</td>";
-      echo "<td>newGrade</td>";
-      echo "<td>ResultID</td>";
+      echo "<th>Exam Name</th>";
+      echo "<th>Result</th>";
+      echo "<th>Comment</th>";
+      echo "<th>ResultID</th>";
       echo "</tr>";
       foreach ($db->query($sql) as $row){//Array or records stored in $row
         $sql2 = $db->prepare("SELECT Exam_Name from exams Where EID = '$row[EID]'");
@@ -138,7 +137,6 @@ else{
         echo "<td>$row2[Exam_Name]</td>";
         echo "<td>$row[result]</td>";
         echo "<td>$row[comments]</td>";
-        echo "<td>$row[newGrade]</td>";
         echo "<td>$row[resultID]</td>";
         echo "</tr>";
       }
