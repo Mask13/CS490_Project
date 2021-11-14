@@ -150,7 +150,7 @@
           <center style="font-size: 15px; position: relative; bottom: 70px; color:gray" > Log in as a instructor or student</center>
   			  <input class = "formInput1" type="username" id="username" name="username" placeholder="Enter Username"/><br>
   			  <input class = "formInput2" type="password" id="pass" name="password" placeholder="Enter Password"/><br>
-        <input class= "blue.button" type="submit" value="Login"/>
+        <input class= "button" type="submit" value="Login"/>
   		</form></center>
     </div>
 	</body>
