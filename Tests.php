@@ -40,6 +40,8 @@
               display: inline-block;
               border-radius: 25px;
               font-size: 16px;
+              margin-left: auto;
+              margin-right: auto;
           }
           .label {
             padding: 12px 12px 12px 0;
@@ -61,6 +63,8 @@
             border-color: #c6a226;
             color: white;
             padding: 2px;
+            margin-left: auto;
+            margin-right: auto;
           }
           th, td {
             background-color: black;
@@ -145,8 +149,6 @@
           $db= new PDO($connection_string, $dbuser, $dbpass);
           $sql = $db->prepare("DELETE FROM `exams` WHERE EID = :id");
           $r = $sql->execute(array(":id"=>$_POST["TestID"]));
-          echo "<pre>" . var_export($r, true) . "</pre>";
-          echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
           header("Refresh:0");
         }
         finally{}
