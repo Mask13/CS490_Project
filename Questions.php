@@ -26,11 +26,12 @@
         border-radius: 10px;
         border-color: #c6a226;
         color: white;
-        padding: 2px;
+        padding: 3px;
         padding-bottom: 6px;
       }
       th, td {
         background-color: black;
+        font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
       }
       body{
         background-color: #000033;
