@@ -33,7 +33,8 @@
       }
       th, td {
         background-color: black;
-        font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+        font-family: Blippo; /* ,fantasy */
+        padding: 2px;
       }
       body{
         background-color: #000033;
