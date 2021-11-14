@@ -46,14 +46,14 @@
            }
 					 .button {
               background-color: #000033;
-              border: inset #c6a226;
+              border: 3px outset #c6a226;
               color: white;
               padding: 15px 19px;
               text-align: center;
               text-decoration: none;
               display: inline-block;
               font-size: 16px;
-              font-family: Postea Var;
+              font-family: Trebuchet MS;
               position: relative; top:0px;
             }
           .formInput1{
