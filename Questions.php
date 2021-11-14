@@ -52,7 +52,7 @@
         border-radius: 25px;
         box-sizing: border-box;
         resize: vertical;
-        margin-bottom: 5px;
+        margin: 20px;
       }
       .button {
         background-color: Transparent;
