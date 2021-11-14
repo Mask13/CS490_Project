@@ -96,11 +96,10 @@
 
  </style>
 	<body>
-		<!-- This is how you comment -->
     <div id= container>
       <font size="9">
       <center><form name="loginform" id="myForm" method="POST">
-          <center style="position: relative; bottom: 80px; font-family:avant-garde-medium color:white" > Login:</center>
+          <center style="position: relative; bottom: 80px; font-family:avant-garde-medium; color:white" > Login:</center>
           <center style="font-size: 15px; position: relative; bottom: 70px; color:gray" > Log in as a instructor or student</center>
   			  <input class = "formInput1" type="username" id="username" name="username" placeholder="Enter Username"/><br>
   			  <input class = "formInput2" type="password" id="pass" name="password" placeholder="Enter Password"/><br>
