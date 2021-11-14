@@ -130,8 +130,6 @@
                   (:TestName, :points)");
       $params = array(":TestName"=> $_POST['TestName'], ":points"=>$_POST['Total_Points']);
       $r = $sql->execute($params);
-      echo "<pre>" . var_export($r, true) . "</pre>";
-      echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
     }
     finally{}
     //put the question into QuestionAssignments with the EID
@@ -146,8 +144,6 @@
                   (:EID, :Q1, :Q1P)");
       $params = array(":EID"=> $EID['EID'], ":Q1"=>$_POST['Q1ID'], ":Q1P"=>$_POST['Q1P']);
       $r = $sql2->execute($params);
-      echo "<pre>" . var_export($r, true) . "</pre>";
-      echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
     }
     finally{}
   }
@@ -163,8 +159,6 @@
       $sql2 = $db->prepare("UPDATE `QuestionAssignments`
                   SET Q2= '$_POST[Q2ID]', Q2P='$_POST[Q2P]' WHERE EID = '$EID[EID]' ");
       $r = $sql2->execute();
-      echo "<pre>" . var_export($r, true) . "</pre>";
-      echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
     }
     finally{}
   }
@@ -179,8 +173,6 @@
       $sql2 = $db->prepare("UPDATE `QuestionAssignments`
                   SET Q3= '$_POST[Q3ID]', Q3P='$_POST[Q3P]' WHERE EID = '$EID[EID]' ");
       $r = $sql2->execute();
-      echo "<pre>" . var_export($r, true) . "</pre>";
-      echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
     }
     finally{}
   }
@@ -195,8 +187,6 @@
       $sql2 = $db->prepare("UPDATE `QuestionAssignments`
                   SET Q4= '$_POST[Q4ID]', Q4P='$_POST[Q4P]' WHERE EID = '$EID[EID]' ");
       $r = $sql2->execute();
-      echo "<pre>" . var_export($r, true) . "</pre>";
-      echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
     }
     finally{}
   }
@@ -211,8 +201,6 @@
       $sql2 = $db->prepare("UPDATE `QuestionAssignments`
                   SET Q5= '$_POST[Q5ID]', Q5P='$_POST[Q5P]' WHERE EID = '$EID[EID]' ");
       $r = $sql2->execute();
-      echo "<pre>" . var_export($r, true) . "</pre>";
-      echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
     }
     finally{}
   }
