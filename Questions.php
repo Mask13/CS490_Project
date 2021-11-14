@@ -125,7 +125,7 @@
        finally{}
     ?>
    <form id="myForm" method="POST">
-     <input class = "formInput1" type= "number" id="questionID"></input>
+     <input class = "formInput1" type= "number" id="questionID" placeholder="Insert Question ID"></input>
       <input class = "button" type="submit" name="Delete" value="Delete"></input>
    </form>
   </body>
