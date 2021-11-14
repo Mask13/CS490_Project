@@ -56,6 +56,39 @@
               font-family: Postea Var;
               position: relative; top:0px;
             }
+            .blue.button{
+              color:#0f4b6d !important;
+
+              border:1px solid #84acc3 !important;
+
+                /* A fallback background color */
+                background-color: #48b5f2;
+
+                /* Specifying a version with gradients according to */
+
+                background-image:    url('button_bg.png'), url('button_bg.png'),
+                                    -moz-radial-gradient(    center bottom, circle,
+                                                            rgba(89,208,244,1) 0,rgba(89,208,244,0) 100px),
+                                    -moz-linear-gradient(#4fbbf7, #3faeeb);
+
+                background-image:    url('button_bg.png'), url('button_bg.png'),
+                                    -webkit-gradient(    radial, 50% 100%, 0, 50% 100%, 100,
+                                                        from(rgba(89,208,244,1)), to(rgba(89,208,244,0))),
+                                    -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4fbbf7), to(#3faeeb));
+            }
+          .blue.button:hover{
+              background-color:#63c7fe;
+
+              background-image:    url('button_bg.png'), url('button_bg.png'),
+                                  -moz-radial-gradient(    center bottom, circle,
+                                                    rgba(109,217,250,1) 0,rgba(109,217,250,0) 100px),
+                                  -moz-linear-gradient(#63c7fe, #58bef7);
+
+              background-image:    url('button_bg.png'), url('button_bg.png'),
+                                  -webkit-gradient(    radial, 50% 100%, 0, 50% 100%, 100,
+                                                      from(rgba(109,217,250,1)), to(rgba(109,217,250,0))),
+                                  -webkit-gradient(linear, 0% 0%, 0% 100%, from(#63c7fe), to(#58bef7));
+          }
           .formInput1{
             width: 100%;
             padding: 10px;
@@ -90,7 +123,7 @@
           <center style="font-size: 15px; position: relative; bottom: 70px; color:gray" > Log in as a instructor or student</center>
   			  <input class = "formInput1" type="username" id="username" name="username" placeholder="Enter Username"/><br>
   			  <input class = "formInput2" type="password" id="pass" name="password" placeholder="Enter Password"/><br>
-        <input class= "button" type="submit" value="Login"/>
+        <input class= "blue.button" type="submit" value="Login"/>
   		</form></center>
     </div>
 	</body>
