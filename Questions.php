@@ -33,8 +33,8 @@
       }
       th, td {
         background-color: black;
-        font-family: Blippo, fantasy; /* ,fantasy */
-        padding: 6px;
+        font-family: Bahnschrift;
+        padding: 10px;
       }
       body{
         background-color: #000033;
@@ -44,6 +44,14 @@
         background-repeat: no-repeat;
         background-size: cover;
         color: #bcbdbe;
+      }
+      .formInput1{
+        width: 20%;
+        padding: 10px;
+        border: 2px solid #c6a226;
+        border-radius: 25px;
+        box-sizing: border-box;
+        resize: vertical;
       }
       .button {
         background-color: Transparent;
@@ -116,9 +124,8 @@
        finally{}
     ?>
    <form id="myForm" method="POST">
-     <input type= "number" id="questionID"></input>
+     <input class = "formInput1" type= "number" id="questionID"></input>
       <input class = "button" type="submit" name="Delete" value="Delete"></input>
-     <input class = "button" type="submit" name="Edit" value="Edit"></input>
    </form>
   </body>
 </html>
