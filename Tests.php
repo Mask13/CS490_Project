@@ -30,18 +30,17 @@
            background-size: cover;
            color: #bcbdbe;
            }
-					 .button {
-              background-color: Transparent;
-              border: inset #c6a226;
-              color: #bcbdbe;
-              padding: 15px 19px;
-              text-align: center;
-              text-decoration: none;
-              display: inline-block;
-              border-radius: 25px;
-              font-size: 16px;
-              margin-left: auto;
-              margin-right: auto;
+          .button {
+            background-color: Transparent;
+            border: inset #c6a226;
+            color: #bcbdbe;
+            padding: 15px 19px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 25px;
+            font-size: 16px;
+            margin: 0 auto;
           }
           .label {
             padding: 12px 12px 12px 0;
