@@ -53,7 +53,7 @@
               text-decoration: none;
               display: inline-block;
               font-size: 16px;
-              font-family: Trebuchet MS;
+              font-family: Postea Var;
               position: relative; top:0px;
             }
           .formInput1{
