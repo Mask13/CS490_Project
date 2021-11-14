@@ -46,7 +46,7 @@
         color: #bcbdbe;
       }
       .formInput1{
-        width: 95%;
+        width: 20%;
         padding: 10px;
         border: 2px solid #c6a226;
         border-radius: 25px;
