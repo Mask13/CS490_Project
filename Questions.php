@@ -33,8 +33,8 @@
       }
       th, td {
         background-color: black;
-        font-family: Blippo; /* ,fantasy */
-        padding: 2px;
+        font-family: Blippo, fantasy; /* ,fantasy */
+        padding: 6px;
       }
       body{
         background-color: #000033;
