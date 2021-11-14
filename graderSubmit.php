@@ -251,7 +251,10 @@ echo "	</tr>";
 echo "</table>";
 
 ?>
-
+<form method="post">
+  <input type="text" name="comments" placeholder="Comment">
+  <input type="submit" value="release grade">
+</form>
 </body>
 </html>
 
@@ -270,6 +273,11 @@ $r = $s->fetch(PDO::FETCH_ASSOC);
 $reID = $r["resultID"]; // getting result ID
 
 if (!empty($_POST)) {
+    if(isset($_POST["comments"])){
+      $sql = $db->prepare("UPDATE results SET released = 1, comments='$_POST[comments]'Where resultID= '$reID'");
+      $sql->execute();
+      break;
+    }
     $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
     foreach ($questions as $qNum) {
 
