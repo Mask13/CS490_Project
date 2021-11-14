@@ -71,6 +71,7 @@
                 position:relative;
                 cursor:pointer;
                 padding:10px;
+                margin: auto;
 
                 background-repeat:no-repeat;
 
@@ -98,25 +99,8 @@
                 -moz-box-shadow:0 0 1px #fff inset;
                 -webkit-box-shadow:0 0 1px #fff inset;
                 box-shadow:0 0 1px #fff inset;
-
-                /* Animating the background positions with CSS3 */
-                /* Currently works only in Safari/Chrome */
-
-                -webkit-transition:background-position 1s;
-                -moz-transition:background-position 1s;
-                -o-transition:background-position 1s;
-                transition:background-position 1s;
             }
 
-          .button:hover{
-
-              /* The first rule is a fallback, in case the browser
-                does not support multiple backgrounds
-              */
-
-              background-position:top left;
-              background-position:top left, bottom right, 0 0, 0 0;
-          }
           .formInput1{
             width: 100%;
             padding: 10px;
