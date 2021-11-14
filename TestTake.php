@@ -50,7 +50,7 @@ else{
     }
     body{
         background-color: #000033;
-        background-image: url('https://media.giphy.com/media/BHNfhgU63qrks/giphy.gif');
+        background-image: url('https://media.giphy.com/media/q3k9yg1qoFzoy1D8du/giphy-downsized-large.gif');
         background-repeat: repeat;
         height: auto;
         background-position: center;
