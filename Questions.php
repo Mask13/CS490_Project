@@ -38,7 +38,7 @@
       }
       body{
         background-color: #000033;
-        background-image: url('https://j.gifs.com/qxjq32.gif');
+        background-image: url('https://media.giphy.com/media/q3k9yg1qoFzoy1D8du/giphy-downsized-large.gif');
         height: 100%;
         background-position: center;
         background-repeat: no-repeat;
