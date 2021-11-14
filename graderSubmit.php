@@ -251,6 +251,8 @@ echo "	</tr>";
 echo "</table>";
 
 ?>
+
+<html>
 <form method="post">
   <input type="text" name="comments" placeholder="Comment">
   <input type="submit" value="release grade">
