@@ -33,8 +33,8 @@
       }
       th, td {
         background-color: black;
-        font-family: Blippo, fantasy; /* ,fantasy */
-        padding: 6px;
+        font-family: Bahnschrift;
+        padding: 10px;
       }
       body{
         background-color: #000033;
