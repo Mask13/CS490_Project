@@ -70,7 +70,7 @@
                 vertical-align:baseline;
                 position:relative;
                 cursor:pointer;
-                padding:10px 20px;
+                padding:10px;
 
                 background-repeat:no-repeat;
 
@@ -78,7 +78,6 @@
                   the browser does not support multiple backgrounds. */
 
                 background-position:bottom left;
-                background-image:url('button_bg.png');
 
                 /* CSS3 background positioning property with multiple values. The background
                   images themselves are defined in the individual color classes */
@@ -87,7 +86,9 @@
                 background-clip:border-box;
 
                 /* Applying a default border radius of 8px */
-
+                background-color: #000033;
+                border: 3px outset #c6a226;
+                
                 -moz-border-radius:8px;
                 -webkit-border-radius:8px;
                 border-radius:8px;
