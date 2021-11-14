@@ -28,6 +28,8 @@
         color: white;
         padding: 3px;
         padding-bottom: 6px;
+        margin-left: auto;
+        margin-right: auto;
       }
       th, td {
         background-color: black;
