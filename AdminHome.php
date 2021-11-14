@@ -45,7 +45,7 @@ else{
           }
       body{
            background-color: #000033;
-           background-image: url('https://jantonioferreira.blogspot.com/2021/07/moving-space-background-gif.html');
+           background-image: url('https://i0.wp.com/gifimage.net/wp-content/uploads/2017/08/space-animated-gif-9.gif');
            height: 100%;
            background-position: center;
            background-repeat: no-repeat;
