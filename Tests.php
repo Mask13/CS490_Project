@@ -61,12 +61,15 @@
             border-radius: 10px;
             border-color: #c6a226;
             color: white;
-            padding: 2px;
+            padding: 3px;
+            padding-bottom: 6px;
             margin-left: auto;
             margin-right: auto;
           }
           th, td {
             background-color: black;
+            font-family: Bahnschrift;
+            padding: 10px;
           }
  </style>
   <body>
