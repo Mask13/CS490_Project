@@ -135,8 +135,8 @@
           $db= new PDO($connection_string, $dbuser, $dbpass);
           $sql = $db->prepare("DELETE FROM `exams` WHERE EID = :id");
           $r = $sql->execute(array(":id"=>$_POST["TestID"]));
-          echo "<pre>" . var_export($r, true) . "</pre>";
-          echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
+          //echo "<pre>" . var_export($r, true) . "</pre>";
+          //echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
           header("Refresh:0");
         }
         finally{}

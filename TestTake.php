@@ -146,7 +146,8 @@ if (isset($_POST['Q1A'])){
             (:UID, :EID)");
   $params = array(":UID"=> $_SESSION['UID'], ":EID"=> $_SESSION['testID']);
   $stmt->execute($params);
-  echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+  // echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+
   //get result ID
   $sql2 = $db->prepare("SELECT resultID from results Where UID = :UID and EID = :EID");
   $sql2->execute($params);
@@ -157,7 +158,7 @@ if (isset($_POST['Q1A'])){
             (:resultID, :QuestionID, :Submission)");
   $params = array(":resultID"=> $resultID['resultID'], ":QuestionID"=> $QIDS['Q1'], ":Submission"=> $_POST['Q1A']);
   $stmt->execute($params);
-  echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+  // echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 }
 //Q2
 if (isset($_POST['Q2A'])){
@@ -171,7 +172,7 @@ if (isset($_POST['Q2A'])){
             (:resultID, :QuestionID, :Submission)");
   $params = array(":resultID"=> $resultID['resultID'], ":QuestionID"=> $QIDS['Q2'], ":Submission"=> $_POST['Q2A']);
   $stmt->execute($params);
-  echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+  // echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 }
 //Q3
 if (isset($_POST['Q3A'])){
@@ -185,7 +186,7 @@ if (isset($_POST['Q3A'])){
             (:resultID, :QuestionID, :Submission)");
   $params = array(":resultID"=> $resultID['resultID'], ":QuestionID"=> $QIDS['Q3'], ":Submission"=> $_POST['Q3A']);
   $stmt->execute($params);
-  echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+  // echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 }
 //Q4
 if (isset($_POST['Q4A'])){
@@ -199,7 +200,7 @@ if (isset($_POST['Q4A'])){
             (:resultID, :QuestionID, :Submission)");
   $params = array(":resultID"=> $resultID['resultID'], ":QuestionID"=> $QIDS['Q4'], ":Submission"=> $_POST['Q4A']);
   $stmt->execute($params);
-  echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+  // echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 }
 //Q5
 if (isset($_POST['Q5A'])){
@@ -213,6 +214,6 @@ if (isset($_POST['Q5A'])){
             (:resultID, :QuestionID, :Submission)");
   $params = array(":resultID"=> $resultID['resultID'], ":QuestionID"=> $QIDS['Q5'], ":Submission"=> $_POST['Q5A']);
   $stmt->execute($params);
-  echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
+  // echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
 }
  ?>
