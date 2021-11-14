@@ -53,7 +53,7 @@
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            font-family: Postea Var;
+            font-family: Sans-serif;
             position: relative; top:0px;
 
             background-repeat:no-repeat;
