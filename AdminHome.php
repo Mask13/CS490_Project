@@ -188,6 +188,26 @@ else{
     $db= new PDO($connection_string, $dbuser, $dbpass);
     try{
       $sql = "SELECT EID, result, comments, newGrade, resultID from results Where UID = '$_POST[studentID]'";
+      echo "<style>";
+      echo "  body {";
+      echo ".center {";
+      echo "    margin: 20px;";
+      echo "    position: absolute;";
+      echo "    top: 50%;";
+      echo "    left: 50%;";
+      echo "    -ms-transform: translate(-50%, -50%);";
+      echo "    transform: translate(-50%, -50%);";
+      echo "    }";
+      echo ".container {";
+      echo "    margin: 20px;";
+      echo "    padding: 5px;";
+      echo "    height: 50px;";
+      echo "    position: relative;";
+      echo "  }";
+      echo "</style>";
+
+      echo "<div class='container'";
+      echo "<div class='center'";
       echo "<table>"; // list box select command
       echo "<tr>";
       echo "<th>Exam Name</th>";
@@ -207,6 +227,8 @@ else{
         echo "</tr>";
       }
       echo "</table>";// Closing of list box
+      echo "</div>";
+      echo "</div>";
       $sql = $db->prepare("SELECT EID, result, comments, newGrade, resultID from results Where UID = '$_POST[studentID]'");
       $sql->execute();
       $glob = $sql->fetch(PDO::FETCH_ASSOC);
