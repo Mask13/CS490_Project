@@ -142,7 +142,7 @@ else{
       <!-- display current students here-->
       <div class="container2">
         <div class="center">
-          <titles style="position:relative; top:60">Students</titles><br><br>
+          <titles style="position:relative; top:60">Students</titles>
           <form method="post">
               <?php
                 require "config.php";
@@ -169,7 +169,7 @@ else{
           <!-- Tests section --><br><br><br>
           <button type="button" onclick="location.href = 'Tests.php';"
                 class = "button" name="MNTest"> View Tests
-          </button><br><br>
+          </button><br>
           <!-- Questons -->
           <button type="button" onclick="location.href = 'Questions.php';"
                   class = "button" name="MNTest"> View Questions
