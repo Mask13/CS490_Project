@@ -192,7 +192,7 @@
           echo "</table>";// Closing of list box
         }
         finally{}
-       ?>
+       ?><br>
        <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
        <?php
            require "config.php";
