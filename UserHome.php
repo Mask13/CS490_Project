@@ -105,6 +105,7 @@ else{
             position: absolute;
             padding: 10px;
             top: 50%;
+            left: 50%
           }
           .container2 {
             margin: 40px;
