@@ -72,7 +72,7 @@ else{
             display: inline-block;
           }
           .center {
-            margin: 0;
+            margin: 20px;
             position: absolute;
             top: 50%;
             left: 50%;
