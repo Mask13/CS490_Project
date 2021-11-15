@@ -98,7 +98,6 @@ else{
             position: relative;
             padding: 10px;
             top: 50%;
-            left: 10%;
           }
           .container2 {
             margin: 40px;
