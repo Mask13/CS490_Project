@@ -135,13 +135,13 @@ else{
           }
  </style>
   <body>
-    <div id= container><br><br><br>
+    <div id= container><br>
       <div class="container2">
         <div class="center">
           <!-- Tests section -->
           <button type="button" onclick="location.href = 'Tests.php';"
                 class = "button" name="MNTest"> View Tests
-          </button>
+          </button><br><br>
           <!-- Questons -->
           <button type="button" onclick="location.href = 'Questions.php';"
                   class = "button" name="MNTest"> View Questions
