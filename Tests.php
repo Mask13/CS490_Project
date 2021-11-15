@@ -48,7 +48,6 @@
           }
           .button3 {
             padding: 15px 25px;
-            font-size: 24px;
             text-align: center;
             cursor: pointer;
             outline: none;
