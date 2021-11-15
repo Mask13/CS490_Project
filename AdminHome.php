@@ -38,8 +38,8 @@ else{
             left: 50%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-            /*margin-left: -175px;
-            margin-top: -250px;*/
+            margin-left: -175px;
+            margin-top: -250px;
             border-radius: 8px;
       }
       #container:before{
