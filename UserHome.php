@@ -33,7 +33,7 @@ else{
           }
       body{
            background-color: #000033;
-           background-image: url('https://images.unsplash.com/photo-1445905595283-21f8ae8a33d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80');
+           background-image: url('https://i.pinimg.com/originals/19/c9/5a/19c95a8ad1c90d89bc9d5c7bc2054151.gif');
            height: 100%;
            background-position: center;
            background-repeat: no-repeat;
@@ -74,6 +74,9 @@ else{
           }
           th, td {
             background-color: black;
+            font-family: Bahnschrift;
+            padding: 10px;
+      }
           }
  </style>
   <body>
