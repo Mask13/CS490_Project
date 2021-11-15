@@ -49,7 +49,7 @@
           .button:hover {background-color: rgb(69, 74, 28)}
           .button2 {
             padding: 15px 25px;
-            font-size: 24px;
+            font-size: 16px;
             text-align: center;
             cursor: pointer;
             outline: none;
