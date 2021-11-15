@@ -81,7 +81,6 @@ else{
   <body>
     <form method="post">
       <?php
-          ob_start();
           include "config.php";
           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
           $db= new PDO($connection_string, $dbuser, $dbpass);
@@ -135,7 +134,6 @@ else{
     if(isset($_POST["testID"])){
       $_SESSION['testID'] = $_POST['testID'];
       //redirect to test taking page
-      ob_end();
       header("Location: TestTake.php");
       exit();
     }
