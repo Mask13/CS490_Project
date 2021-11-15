@@ -186,6 +186,7 @@ else{
       <div class="container2">
         <div class="center">
           <!-- Tests section --><br><br><br>
+          <button onClick="window.location.href=window.location.href">Remove Table</button>
           <button type="button" onclick="location.href = 'Tests.php';"
                 class = "button2" name="MNTest"> View Tests
           </button><br>
