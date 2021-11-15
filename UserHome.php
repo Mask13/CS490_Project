@@ -95,10 +95,12 @@ else{
             padding: 2px;
           }
           .center {
-            margin: 30px;
             position: relative;
+            padding: 10px;
             top: 50%;
             left: 30%;
+            margin-right: auto;
+            margin-left: auto;
           }
           .container2 {
             margin: 40px;
