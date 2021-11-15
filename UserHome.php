@@ -128,7 +128,6 @@ else{
             top: 50%;
           }
           .container2 {
-            margin: 30px;
             height: 100px;
             position: relative;
           }
