@@ -58,7 +58,7 @@
         background-color: Transparent;
         border: inset #c6a226;
         color: #bcbdbe;
-        padding: 15px 19px;
+        padding: 15px 29px;
         text-align: center;
         text-decoration: none;
         display: inline-block;

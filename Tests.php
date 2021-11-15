@@ -36,15 +36,15 @@
            color: #bcbdbe;
            }
 					 .button {
-              background-color: Transparent;
-              border: inset #c6a226;
-              color: #bcbdbe;
-              padding: 15px 19px;
-              text-align: center;
-              text-decoration: none;
-              display: inline-block;
-              border-radius: 25px;
-              font-size: 16px;
+            background-color: Transparent;
+            border: inset #c6a226;
+            color: #bcbdbe;
+            padding: 15px 29px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 25px;
+            font-size: 16px;
           }
           .formInput1{
             width: 10%;

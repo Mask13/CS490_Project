@@ -15,14 +15,29 @@
            color: white;
            }
            .button {
-              background-color: Transparent;
-              border: inset #c6a226;
-              color: #bcbdbe;
-              padding: 15px 19px;
-              text-align: center;
-              text-decoration: none;
-              display: inline-block;
-              font-size: 16px;
+            background-color: #000033;
+            border: 3px outset #c6a226;
+            color: white;
+            padding: 15px 19px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-family: Sans-serif;
+            position: relative; top:0px;
+
+            background-repeat:no-repeat;
+            background-position:bottom left;
+            background-position:bottom left, top right, 0 0, 0 0;
+            background-clip:border-box;
+
+            -moz-border-radius:8px;
+            -webkit-border-radius:8px;
+            border-radius:8px;
+
+            -moz-box-shadow:0 0 1px #fff inset;
+            -webkit-box-shadow:0 0 1px #fff inset;
+            box-shadow:0 0 1px #fff inset;
             }
  </style>
   <body>
