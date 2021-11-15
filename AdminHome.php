@@ -18,23 +18,21 @@ else{
     <title>Admin</title>
     <div class="container2">
       <div class="center">
-      <titles_big style= "position:relative; top: 6">
-        Hello Admin
-      </titles_big><br>
-    <button style= "float:right;" type="button" onclick="location.href = 'Logout.php';"
+      <titles_big style="position: relative; left:10px;"> Hello Admin </titles_big>
+    <button style= "position: relative; left:100px;" type="button" onclick="location.href = 'Logout.php';"
            class = "button" name="Login"> Logout
    </button>
    </div>
   </div>
-  </head><br>
+</head>
   <style>
     #container{
-            width: 650px; 
+            width: 650px;
             height: 750px;
             background: inherit;
-            position: absolute;
+            position: relative;
             overflow: hidden;
-            top: 50%;
+            top: 40%;
             left: 50%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
@@ -43,8 +41,8 @@ else{
             border-radius: 8px;
       }
       #container:before{
-            width: 700px; 
-            height: 850px; 
+            width: 700px;
+            height: 850px;
             content: "";
             position: absolute;
             top: 50%;
@@ -196,7 +194,7 @@ else{
                   class = "button2" name="MNTest"> View Questions
           </button><br>
         </div>
-      </div> 
+      </div>
     </div>
   </body>
 </html>
