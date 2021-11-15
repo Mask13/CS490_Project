@@ -132,12 +132,6 @@ else{
             height: 100px;
             position: relative;
           }
-          container3 {
-            margin: 30px;
-            padding: 10px;
-            height: 100px;
-            position: relative;
-          }
           titles_big{
             width: 300px;
             text-align: center;
@@ -164,7 +158,7 @@ else{
       <!-- display current students here-->
       <div class="container2">
         <div class="center">
-          <center><titles style="position:relative; margin-right:10; top:60">Students</titles><center><br><br>
+          <center><titles style="position:relative; top:60">Students</titles><center><br><br>
           <form method="post">
               <?php
                 require "config.php";
