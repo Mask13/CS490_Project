@@ -136,7 +136,6 @@ else{
  </style>
   <body>
   <div id=container>
-    <div class="container2">
         <form method="post">
             <?php
                 include "config.php";
@@ -189,7 +188,6 @@ else{
             }
             finally{}
         ?><br>
-      </div>
   </div>
   </body>
 </html>
