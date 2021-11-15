@@ -55,7 +55,6 @@
       border: 2px solid #c6a226;
       border-radius: 10px;
       box-sizing: border-box;
-      resize: vertical;
       display: inline-table;
     }
 </style>
