@@ -23,7 +23,7 @@
           }
       body{
            background-color: #000033;
-           background-image: url('https://media.giphy.com/media/ZnKdSM5piRLDW/giphy.gif');
+           background-image: url('https://media.giphy.com/media/FZGyMkbrq7jQXwneqw/giphy-downsized-large.gif');
            height: 100%;
            background-position: center;
            background-repeat: no-repeat;
