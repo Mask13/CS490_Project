@@ -75,7 +75,7 @@ else{
       }
       br {
           line-height: 250%;
-          }
+        }
       body{
            background-color: #000033;
            background-image: url('https://i0.wp.com/gifimage.net/wp-content/uploads/2017/08/space-animated-gif-9.gif');
@@ -123,6 +123,9 @@ else{
             height: 70px;
             position: relative;
           }
+          br2 {
+            line-height: 100%;
+          }
           titles{
             width: 200px;
             text-align: center;
@@ -166,7 +169,7 @@ else{
           <!-- Tests section --><br><br><br>
           <button type="button" onclick="location.href = 'Tests.php';"
                 class = "button" name="MNTest"> View Tests
-          </button><br>
+          </button><br><br2>
           <!-- Questons -->
           <button type="button" onclick="location.href = 'Questions.php';"
                   class = "button" name="MNTest"> View Questions
