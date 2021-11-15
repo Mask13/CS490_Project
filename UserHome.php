@@ -99,8 +99,6 @@ else{
             position: relative;
             top: 50%;
             left: 30%;
-            margin-right: auto;
-            margin-left: auto;
           }
           .container2 {
             margin: 40px;
@@ -131,6 +129,7 @@ else{
           }
  </style>
   <body>
+  <div id=container>
     <div class="container2">
       <div class="center">
         <form method="post">
