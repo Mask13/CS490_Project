@@ -50,10 +50,10 @@
       padding: 2px;
     }
     .formInput1{
-      width: 50%;
-      padding: 10px;
+      width: 80%;
+      padding: 15px;
       border: 2px solid #c6a226;
-      border-radius: 25px;
+      border-radius: 10px;
       box-sizing: border-box;
       resize: vertical;
       display: inline-table;
