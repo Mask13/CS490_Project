@@ -20,7 +20,7 @@ else{
       <div class="center">
       <titles_big style= "position:relative; top: 6">
         Hello Admin
-      </titles_big>
+      </titles_big><br>
     <button style= "float:right;" type="button" onclick="location.href = 'Logout.php';"
            class = "button" name="Login"> Logout
    </button>
