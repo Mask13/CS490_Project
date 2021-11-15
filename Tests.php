@@ -57,11 +57,11 @@
             background-color: rgb(230, 231, 208);
             border: inset #c6a226;
             border-radius: 15px;
-            box-shadow: 0 9px #999;
+            /*box-shadow: 0 9px #999;*/
           }
           .button2:active {
             background-color: rgb(69, 74, 28);
-            box-shadow: 0 5px #666;
+            /*box-shadow: 0 5px #666;*/
             transform: translateY(4px);
           }
           .button2:hover {background-color: rgb(69, 74, 28);}
