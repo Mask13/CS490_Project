@@ -130,7 +130,7 @@
         <form name="Testform" id="myForm" method="POST">
           <input type= "number" name = "TestID" id="TestID" placeholder="EID"></input>
             <input class = "button" type="submit" name = "Delete" id="Delete" value="Delete"></input>
-        </form>
+        </form><br><br>
       </div>
     </div>
     <div class="container">
@@ -169,7 +169,7 @@
         <input class = "button" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
       </div>
     </div>        
-    </form>
+    </form><br><br>
   </body>
 </html>
 
