@@ -113,7 +113,7 @@ else{
             margin: 30px;
             position: absolute;
             top: 50%;
-            left: 48%;
+            left: 52%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
           }
