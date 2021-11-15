@@ -117,10 +117,14 @@
        }
        finally{}
     ?>
-   <form name="Testform" id="myForm" method="POST">
-     <input type= "number" name = "TestID" id="TestID" placeholder="EID"></input>
-      <input class = "button" type="submit" name = "Delete" id="Delete" value="Delete"></input>
-   </form>
+    <div class="container">
+      <div class="center">
+        <form name="Testform" id="myForm" method="POST">
+          <input type= "number" name = "TestID" id="TestID" placeholder="EID"></input>
+            <input class = "button" type="submit" name = "Delete" id="Delete" value="Delete"></input>
+        </form>
+      </div>
+    </div>
    <form method="post">
        <?php
          require "config.php";
@@ -152,7 +156,11 @@
          }
          finally{}
      ?>
-      <input class = "button" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
+    <div class="container">
+      <div class="center">
+        <input class = "button" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
+      </div>
+    </div>    
    </form>
   </body>
 </html>
