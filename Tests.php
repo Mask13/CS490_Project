@@ -31,9 +31,8 @@
            color: #bcbdbe;
            }
           .container { 
-            height: 200px;
+            height: 50px;
             position: relative;
-            border: 3px solid green; 
           }
           .center {
             margin: 0;
