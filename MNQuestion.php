@@ -40,6 +40,8 @@
       }
       th, td {
         background-color: black;
+        font-family: Bahnschrift;
+        padding: 10px;
       }
       text{
         font-size: 20px;
