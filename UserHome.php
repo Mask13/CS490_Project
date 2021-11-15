@@ -76,7 +76,6 @@ else{
             background-color: black;
             font-family: Bahnschrift;
             padding: 10px;
-      }
           }
           .formInput1{
             width: 50%;
