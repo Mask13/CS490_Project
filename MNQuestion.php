@@ -118,10 +118,10 @@
         resize: vertical;
       }
       .button {
-        background-color: Transparent;
+        background-color: rgb(230, 231, 208);
         border: inset #c6a226;
-        color: #bcbdbe;
-        padding: 15px 29px;
+        color: #c6a226;
+        padding: 15px 19px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
