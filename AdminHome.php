@@ -56,6 +56,15 @@ else{
            background-size: cover;
            color: #bcbdbe;
            }
+           .formInput2{
+            width: 30%;
+            padding: 10px;
+            border: 2px solid #c6a226;
+            border-radius: 25px;
+            box-sizing: border-box;
+            resize: vertical;
+            margin: 5px;
+           }
 					 .button {
               background-color: Transparent;
               border: inset #c6a226;
@@ -121,7 +130,7 @@ else{
               try{
                 $sql ="SELECT UID, Username from users Where IsAdmin = 0";
 
-                echo "<select id='studentID' name='studentID' value=''>Student Name</option>"; // list box select command
+                echo "<select class= 'formInput2' id='studentID' name='studentID' value=''>Student Name</option>"; // list box select command
 
                 foreach ($db->query($sql) as $row){//Array or records stored in $row
                   echo "<option value=$row[UID]>$row[Username]</option>";
