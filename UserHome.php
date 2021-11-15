@@ -162,7 +162,7 @@ else{
               echo "</table>";// Closing of list box
             }
             finally{}
-        ?>
+        ?><br>
         <form method="post">
           <?php
               include "config.php";
