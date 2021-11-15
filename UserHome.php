@@ -135,6 +135,5 @@ else{
       $_SESSION['testID'] = $_POST['testID'];
       //redirect to test taking page
       header("Location: TestTake.php");
-      exit();
     }
  ?>
