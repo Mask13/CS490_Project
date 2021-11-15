@@ -132,8 +132,12 @@ else{
             height: 100px;
             position: relative;
           }
-          br2 {
-            line-height: 100%;
+          container3 {
+            margin: 30px;
+            margin-right:10px;
+            padding: 10px;
+            height: 100px;
+            position: relative;
           }
           titles_big{
             width: 300px;
@@ -159,7 +163,7 @@ else{
   <body>
     <div id= container>
       <!-- display current students here-->
-      <div class="container2">
+      <div class="container3">
         <div class="center">
           <center><titles style="position:relative; margin-right:10; top:60">Students</titles><center><br><br>
           <form method="post">
