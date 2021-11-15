@@ -38,6 +38,7 @@
         border-radius: 25px;
         font-size: 16px;
     }
+    .button:hover {background-color: rgb(69, 74, 28);}
     titles{
       width: 200px;
       text-align: center;
