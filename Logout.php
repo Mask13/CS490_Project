@@ -66,9 +66,6 @@
             }
  </style>
   <body>
-      <text> <font size="6"> <center> You have Logged Out. <center> <font> </text>
-  </body>
-  <body>
     <div id= container>
       <font size="9">
       <center><form name="loginform" id="myForm" method="POST">
