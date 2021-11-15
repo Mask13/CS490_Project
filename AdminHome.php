@@ -20,7 +20,7 @@ else{
       <div class="center">
       <titles_big style="position: relative; left:10px;"> Hello Admin </titles_big>
       <button style= "position: relative; left:100px;" type="button" onclick="location.href = 'Logout.php';"
-           class = "button" name="Login"> Logout
+           class = "button2_5" name="Login"> Logout
    </button>
    </div>
   </div>
@@ -194,13 +194,13 @@ else{
       <div class="container2">
         <div class="center">
           <!-- Tests section --><br><br><br>
-          <button type ="button" onclick="window.location.href=window.location.href" class = "button2" name="MNTest">Remove Table</button>
+          <button type ="button" onclick="window.location.href=window.location.href" class = "button" name="MNTest">Remove Table</button>
           <button type="button" onclick="location.href = 'Tests.php';"
-                class = "button2" name="MNTest"> View Tests
+                class = "button" name="MNTest"> View Tests
           </button><br>
           <!-- Questons -->
           <button type="button" onclick="location.href = 'Questions.php';"
-                  class = "button2" name="MNTest"> View Questions
+                  class = "button" name="MNTest"> View Questions
           </button>
         </div>
       </div>
