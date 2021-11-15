@@ -104,7 +104,7 @@ else{
     </titles>
 
     <div style="padding-top: 20px">
-      <form target="_blank" name= "test" id="test" method="post">
+      <form name= "test" id="test" method="post">
         <?php
           require "config.php";
           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -269,6 +269,6 @@ if (!empty($_POST)) {
     $stmt->execute($params);
     echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
   }
-  echo "<html><script> window.location.href = 'UserHome.php'; <script><html>";
+  header("Location: UserHome.php");
 }
  ?>
