@@ -124,7 +124,7 @@
          echo "</table>";// Closing of list box
        }
        finally{}
-    ?>
+    ?><br><br>
     <div class="container">
       <div class="center">
         <form name="Testform" id="myForm" method="POST">
