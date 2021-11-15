@@ -7,10 +7,10 @@
         Tests
       </titles>
       <button style= "float:right;"type="button" onclick="location.href = 'Logout.php';"
-           class = "button" name="Login"> Logout
+           class = "button3" name="Login"> Logout
       </button>
       <button style= "float:right;"type="button" onclick="location.href = 'AdminHome.php';"
-           class = "button" name="Login"> Home
+           class = "button3" name="Login"> Home
       </button>
    </div>
   </head><br>
@@ -35,8 +35,8 @@
            background-size: cover;
            color: #bcbdbe;
            }
-					 /*.button {
-              background-color: rgb(230, 231, 208);
+					 .button {
+              background-color: Transparent;
               border: inset #c6a226;
               color: #bcbdbe;
               padding: 15px 19px;
@@ -45,8 +45,12 @@
               display: inline-block;
               border-radius: 25px;
               font-size: 16px;
-          }*/
-          .button {
+          }
+          .button:hover {background-color: rgb(69, 74, 28);}
+          .button:active {
+            background-color: rgb(69, 74, 28);
+          }
+          .button3 {
             display: inline-block;
             padding: 15px 25px;
             font-size: 24px;
@@ -60,9 +64,9 @@
             box-shadow: 0 9px #999;
             font-size: 16px;
           }
-          .button:hover {background-color: rgb(69, 74, 28);}
+          .button3:hover {background-color: rgb(69, 74, 28);}
 
-          .button:active {
+          .button3:active {
             background-color: rgb(69, 74, 28);
             box-shadow: 0 5px #666;
             transform: translateY(4px);
@@ -108,7 +112,7 @@
     <container>
     <!-- Tests section -->
     <button style = "position: relative; left: 55px;" type="button" onclick="location.href = 'MNTest.php';"
-           class = "button" name="MNTest"> Make New Test
+           class = "button3" name="MNTest"> Make New Test
    </button><br><br>
    <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
    <?php
