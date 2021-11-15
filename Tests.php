@@ -46,6 +46,7 @@
               border-radius: 25px;
               font-size: 16px;
           }
+          .button:hover {background-color: rgb(69, 74, 28)}
           .button2 {
             display: inline-block;
             padding: 15px 25px;
@@ -136,7 +137,7 @@
     ?>
    <form style="position: relative; left: 35px;"name="Testform" id="myForm" method="POST">
      <input class = "formInput1" type= "number" name = "TestID" id="TestID" placeholder="EID"></input>
-      <input class = "button2" type="submit" name = "Delete" id="Delete" value="Delete"></input>
+      <input class = "button" type="submit" name = "Delete" id="Delete" value="Delete"></input>
    </form>
    <form style="margin-left: -20px;" method="post">
        <?php
@@ -169,7 +170,7 @@
          }
          finally{}
      ?>
-      <input class = "button2" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
+      <input class = "button" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
    </form>
  </container>
   </body>
