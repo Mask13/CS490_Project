@@ -106,7 +106,6 @@ else{
        ?>
        <input class= "button" type="submit" value="Take test"/>
     </form>
-    <!--
     <?php
         require "config.php";
         $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -138,7 +137,7 @@ else{
           echo "</table>";// Closing of list box
         }
         finally{}
-     ?> -->
+     ?>
   </body>
 </html>
 <?php
