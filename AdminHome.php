@@ -132,12 +132,6 @@ else{
             height: 100px;
             position: relative;
           }
-          .tableContainer{
-            margin-bottom: 50px;
-            padding: 10px;
-            height: 100px;
-            position: relative;
-          }
           br2 {
             line-height: 100%;
           }
@@ -226,8 +220,8 @@ else{
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
     }
-    .container2 {
-      margin: 30px;
+    .tableContainer{
+      margin-bottom: 50px;
       padding: 10px;
       height: 100px;
       position: relative;
