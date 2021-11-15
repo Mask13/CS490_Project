@@ -110,7 +110,7 @@ else{
             display: inline-block;
           }
           .center {
-            margin: 20px;
+            margin: 30px;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -118,9 +118,9 @@ else{
             transform: translate(-50%, -50%);
           }
           .container2 {
-            margin: 20px;
+            margin: 30px;
             padding: 5px;
-            height: 50px;
+            height: 70px;
             position: relative;
           }
           titles{
@@ -166,7 +166,7 @@ else{
           <!-- Tests section --><br><br><br>
           <button type="button" onclick="location.href = 'Tests.php';"
                 class = "button" name="MNTest"> View Tests
-          </button><br><br>
+          </button><br>
           <!-- Questons -->
           <button type="button" onclick="location.href = 'Questions.php';"
                   class = "button" name="MNTest"> View Questions
