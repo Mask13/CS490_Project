@@ -167,7 +167,7 @@
          }
          finally{}
      ?>
-      <input class = "button3" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
+      <input class = "button" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
    </form>
  </container>
   </body>
