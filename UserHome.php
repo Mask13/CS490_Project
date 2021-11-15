@@ -11,7 +11,7 @@ else{
   header("Location: Login.php");
 }
 ?>
-<html lang="en" dir="ltr">
+<html>
   <head>
     <meta charset="utf-8">
     <title>Student View</title>
