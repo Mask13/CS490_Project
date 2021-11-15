@@ -16,7 +16,8 @@ else{
   <head>
     <meta charset="utf-8">
     <title>Admin</title>
-    <div>
+    <div class="container">
+      <div class="center">
       <titles style= "position:relative; top: 6">
         Hello Admin
       </titles>
@@ -24,6 +25,7 @@ else{
            class = "button" name="Login"> Logout
    </button>
    </div>
+  </div>
   </head><br>
   <style>
       table, th, td {
@@ -36,6 +38,8 @@ else{
       }
       th, td {
         background-color: black;
+        font-family: Bahnschrift;
+        padding: 10px;
       }
       text{
           font-size: 20px;
@@ -67,6 +71,18 @@ else{
             padding: 12px 12px 12px 0;
             display: inline-block;
           }
+          .center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+          }
+          .container {
+            height: 50px;
+            position: relative;
+          }
           titles{
             width: 200px;
             text-align: center;
@@ -79,35 +95,39 @@ else{
           }
  </style>
   <body>
-    <!-- Tests section -->
-    <button type="button" onclick="location.href = 'Tests.php';"
-           class = "button" name="MNTest"> View Tests
-   </button>
-   <!-- Questons -->
-   <button type="button" onclick="location.href = 'Questions.php';"
-          class = "button" name="MNTest"> View Questions
-  </button>
-  <!-- display current students here-->
-  <center><titles style="position:relative; top:60">Students</titles></center>
-  <form method="post">
-      <?php
-        require "config.php";
-        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-        $db= new PDO($connection_string, $dbuser, $dbpass);
-        try{
-          $sql ="SELECT UID, Username from users Where IsAdmin = 0";
+    <div class="container">
+      <div class="center">
+        <!-- Tests section -->
+        <button type="button" onclick="location.href = 'Tests.php';"
+              class = "button" name="MNTest"> View Tests
+      </button>
+      <!-- Questons -->
+      <button type="button" onclick="location.href = 'Questions.php';"
+              class = "button" name="MNTest"> View Questions
+      </button>
+      <!-- display current students here-->
+      <center><titles style="position:relative; top:60">Students</titles></center>
+      <form method="post">
+          <?php
+            require "config.php";
+            $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+            $db= new PDO($connection_string, $dbuser, $dbpass);
+            try{
+              $sql ="SELECT UID, Username from users Where IsAdmin = 0";
 
-          echo "<select id='studentID' name='studentID' value=''>Student Name</option>"; // list box select command
+              echo "<select id='studentID' name='studentID' value=''>Student Name</option>"; // list box select command
 
-          foreach ($db->query($sql) as $row){//Array or records stored in $row
-            echo "<option value=$row[UID]>$row[Username]</option>";
-          }
-          echo "</select>";// Closing of list box
-        }
-        finally{}
-     ?>
-     <input class= "button" type="submit" value="See tests"/>
-  </form>
+              foreach ($db->query($sql) as $row){//Array or records stored in $row
+                echo "<option value=$row[UID]>$row[Username]</option>";
+              }
+              echo "</select>";// Closing of list box
+            }
+            finally{}
+        ?>
+        <input class= "button" type="submit" value="See tests"/>
+      </form>
+    </div>
+   </div> 
   </body>
 </html>
 
