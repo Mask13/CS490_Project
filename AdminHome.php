@@ -228,7 +228,7 @@ else{
     }
 </style>
 <div class="container2">
-  <div class="center">
+  <div class="center"><br><br><br>
   <?php
     if(isset($_POST["Request_Test"]) || isset($_POST["studentID"])){
       GetTests();
