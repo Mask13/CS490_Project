@@ -158,12 +158,12 @@ else{
                 finally{}
               ?>
               <input class= "button" type="submit" value="See tests"/>
-          </form><br><br>
+          </form><br><br><br>
         </div>
       </div>
       <div class="container2">
         <div class="center">
-          <!-- Tests section --><br><br>
+          <!-- Tests section --><br><br><br>
           <button type="button" onclick="location.href = 'Tests.php';"
                 class = "button" name="MNTest"> View Tests
           </button><br>
