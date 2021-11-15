@@ -203,6 +203,6 @@
     if(isset($_POST["studentID"]) && isset($_POST["EID"])){
       $_SESSION["EID"] = $_POST["EID"];
       $_SESSION["SID"] = $_POST["studentID"];
-      echo "<html><script> window.location.href = 'autograde.php'; </script></html>";
+      header("Location: autograde.php");
     }
  ?>
