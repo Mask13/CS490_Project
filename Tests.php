@@ -7,10 +7,10 @@
         Tests
       </titles>
       <button style= "float:right;"type="button" onclick="location.href = 'Logout.php';"
-           class = "button3" name="Login"> Logout
+           class = "button" name="Login"> Logout
       </button>
       <button style= "float:right;"type="button" onclick="location.href = 'AdminHome.php';"
-           class = "button3" name="Login"> Home
+           class = "button" name="Login"> Home
       </button>
    </div>
   </head><br>
@@ -108,7 +108,7 @@
     <container>
     <!-- Tests section -->
     <button style = "position: relative; left: 55px;" type="button" onclick="location.href = 'MNTest.php';"
-           class = "button3" name="MNTest"> Make New Test
+           class = "button" name="MNTest"> Make New Test
    </button><br><br>
    <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
    <?php
