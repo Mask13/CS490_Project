@@ -167,9 +167,9 @@
             finally{}
         ?>
         <input class = "button" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
+        </form>
       </div>
-    </div>
-    </form><br><br>
+    </div><br><br>
   </body>
 </html>
 
