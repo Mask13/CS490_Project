@@ -162,7 +162,7 @@ else{
   <body>
     <div id= container>
       <!-- display current students here-->
-      <div class="container3">
+      <div class="container2">
         <div class="center">
           <center><titles style="position:relative; margin-right:10; top:60">Students</titles><center><br><br>
           <form method="post">
@@ -183,7 +183,7 @@ else{
                 finally{}
               ?>
               <input class= "button" type="submit" value="See tests"/>
-          </form><br><br><br><br>
+          </form><br><br>
         </div>
       </div>
       <div class="container2">
