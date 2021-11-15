@@ -45,6 +45,7 @@
         padding: 10px 19px;
         text-align: center;
         margin: auto;
+        position: fixed;
         text-decoration: none;
         display: inline-block;
         border-radius: 10px;
@@ -248,7 +249,7 @@ foreach ($questions as $qNum) {
         }
         echo "<td colspan = '5'><form name = 'comment$qNum' method='post'>";
         echo "  <textarea form = 'comment$qNum' class = 'formInput1' name='comment$qNum'></textarea>";
-        echo "  <input class = 'button2' type='submit' value='release grade'>";
+        echo "  <input class = 'button1' type='submit' value='release grade'>";
         echo "</form> </td>";
     }
 }
