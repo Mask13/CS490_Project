@@ -47,6 +47,14 @@
       border-top: 5px solid #c6a226;
       padding: 2px;
     }
+    .formInput1{
+      width: 95%;
+      padding: 10px;
+      border: 2px solid #c6a226;
+      border-radius: 25px;
+      box-sizing: border-box;
+      resize: vertical;
+    }
 </style>
 <body>
 <titles>Results of AutoGrader</titles>
@@ -252,8 +260,8 @@ echo "</table>";
 
 ?>
 <form method="post">
-  <input type="text" name="comments" placeholder="Comment">
-  <input type="submit" value="release grade">
+  <input class = "formInput1" type="text" name="comments" placeholder="Comment">
+  <input class = "formInput1" type="submit" value="release grade">
 </form>
 </body>
 </html>
