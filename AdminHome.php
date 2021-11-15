@@ -113,7 +113,7 @@ else{
             margin: 30px;
             position: absolute;
             top: 50%;
-            left: 46%;
+            left: 50%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
           }
@@ -169,11 +169,11 @@ else{
           <!-- Tests section --><br><br><br>
           <button type="button" onclick="location.href = 'Tests.php';"
                 class = "button" name="MNTest"> View Tests
-          </button><br><br2>
+          </button><br><br>
           <!-- Questons -->
           <button type="button" onclick="location.href = 'Questions.php';"
                   class = "button" name="MNTest"> View Questions
-          </button>
+          </button><br>
         </div>
       </div> 
     </div>
