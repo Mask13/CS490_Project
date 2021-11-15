@@ -138,7 +138,7 @@ else{
     <div id= container><br>
       <!-- display current students here-->
       <div class="container2">
-        <div class="center"><br><br>
+        <div class="center">
           <center><titles style="position:relative; top:60">Students</titles><center><br><br>
           <form method="post">
               <?php
@@ -158,7 +158,7 @@ else{
                 finally{}
               ?>
               <input class= "button" type="submit" value="See tests"/>
-          </form>
+          </form><br><br>
         </div>
       </div>
       <div class="container2">
