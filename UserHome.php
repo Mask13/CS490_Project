@@ -105,7 +105,6 @@ else{
             position: absolute;
             padding: 10px;
             top: 50%;
-            left: 50%
           }
           .container2 {
             margin: 40px;
@@ -138,7 +137,6 @@ else{
   <body>
   <div id=container>
     <div class="container2">
-      <div class="center">
         <form method="post">
             <?php
                 include "config.php";
@@ -192,7 +190,6 @@ else{
             finally{}
         ?><br>
       </div>
-    </div>
   </div>
   </body>
 </html>
