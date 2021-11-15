@@ -36,8 +36,10 @@ else{
             overflow: hidden;
             top: 50%;
             left: 50%;
-            margin-left: -175px;
-            margin-top: -250px;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            /*margin-left: -175px;
+            margin-top: -250px;*/
             border-radius: 8px;
       }
       #container:before{
@@ -45,8 +47,10 @@ else{
             height: 850px; 
             content: "";
             position: absolute;
-            top: -25px;
-            left: -25px;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
             bottom: 0;
             right: 0;
             background: inherit;
