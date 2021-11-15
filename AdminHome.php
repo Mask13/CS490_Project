@@ -130,8 +130,8 @@ else{
           }
           .container2 {
             margin: 30px;
-            padding: 5px;
-            height: 70px;
+            padding: 10px;
+            height: 100px;
             position: relative;
           }
           br2 {
