@@ -235,10 +235,10 @@ foreach ($questions as $qNum) {
             echo "	<tr>";
 
         }
-        echo "<form method='post'>";
-        echo "  <input class = 'formInput1' type='text' name='comment$qNum' placeholder='Comment'>";
+        echo "<td><form name = 'comment$qNum' method='post'>";
+        echo "  <textarea form = 'comment$qNum' class = 'formInput1' type='text' name='comment$qNum' placeholder='Comment'>";
         echo "  <input class = 'button' type='submit' value='release grade'>";
-        echo "</form>";
+        echo "</form> </td>";
     }
 }
 
