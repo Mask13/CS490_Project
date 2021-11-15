@@ -32,7 +32,7 @@
            background-size: cover;
            color: #bcbdbe;
            }
-          .container { 
+          .container {
             height: 50px;
             position: relative;
           }
@@ -168,7 +168,7 @@
         ?>
         <input class = "button" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
       </div>
-    </div>        
+    </div>
     </form><br><br>
   </body>
 </html>
@@ -192,6 +192,6 @@
     if(isset($_POST["studentID"]) && isset($_POST["EID"])){
       $_SESSION["EID"] = $_POST["EID"];
       $_SESSION["SID"] = $_POST["studentID"];
-      header("Location: autograde.php");
+      echo "<html><script> window.location.href = 'autograde.php'; <script><html>";
     }
  ?>
