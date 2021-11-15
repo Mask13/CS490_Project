@@ -127,7 +127,7 @@
     </div>
     <div class="container">
       <div class="center">
-        <form method="post">
+        <form style= "margin: 5px;" method="post">
             <?php
               require "config.php";
               $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
