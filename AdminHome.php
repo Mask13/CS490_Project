@@ -134,7 +134,7 @@ else{
           }
           container3 {
             margin: 30px;
-            margin-right:10px;
+            margin-right:20px;
             padding: 10px;
             height: 100px;
             position: relative;
