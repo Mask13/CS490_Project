@@ -134,7 +134,7 @@ else{
     if(isset($_POST["testID"])){
       $_SESSION['testID'] = $_POST['testID'];
       //redirect to test taking page
-      header("Location: TestTake.php");
+      echo'<html><script type="text/javascript">window.open("TakeTest.php","_self");</script></html>';
       exit();
     }
  ?>
