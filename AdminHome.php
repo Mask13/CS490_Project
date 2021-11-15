@@ -233,7 +233,7 @@ else{
       position: relative;
     }
 </style>
-<div class="container2">
+<div class="tableContainer">
   <div class="center"><br><br><br>
   <?php
     if(isset($_POST["Request_Test"]) || isset($_POST["studentID"])){
