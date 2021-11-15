@@ -110,7 +110,11 @@ else{
       </div>
     </div> 
     <!-- display current students here-->
-    <center><titles style="position:relative; top:60">Students</titles></center>
+    <div class="container">
+      <div class="center">
+        <center><titles style="position:relative; top:60">Students</titles></center>
+      </div>
+    </div>
     <div class="container">
       <div class="center">
         <form method="post">
