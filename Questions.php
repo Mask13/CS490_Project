@@ -133,16 +133,14 @@
 
 <?php
     if(isset($_POST["TestID"])){
-      if(isset($_POST["Delete"])){
-        try{
-          require ("config.php");
-          $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-          $db= new PDO($connection_string, $dbuser, $dbpass);
-          $sql = $db->prepare("DELETE FROM `questions` WHERE questionID = :id");
-          $r = $sql->execute(array(":id"=>$_POST["questionID"]));
-          header("Refresh:0");
-        }
-        finally{}
+      try{
+        require ("config.php");
+        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+        $db= new PDO($connection_string, $dbuser, $dbpass);
+        $sql = $db->prepare("DELETE FROM `questions` WHERE questionID = :id");
+        $r = $sql->execute(array(":id"=>$_POST["questionID"]));
+        header("Refresh:0");
       }
+      finally{}
     }
  ?>
