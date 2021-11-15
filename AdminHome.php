@@ -171,10 +171,6 @@ else{
                 }
                 finally{}
               ?>
-          </div>
-        </div>
-      <div class="container2">
-        <div class="center">
               <input class= "button" type="submit" value="See tests"/>
           </form><br><br>
         </div>
