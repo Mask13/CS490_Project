@@ -96,10 +96,11 @@ else{
           }
           .center {
             margin: 30px;
-            position: absolute;
+            position: relative;
             top: 50%;
             left: 50%;
-            margin-right: 50%;
+            margin-right: auto;
+            margin-left: auto;
           }
           .container2 {
             margin: 40px;
