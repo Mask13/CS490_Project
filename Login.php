@@ -122,7 +122,6 @@ ini_set('display_errors', 1);
 
 // CONNECTING TO DATABASE //
 if(isset($_POST['username'])&& isset($_POST['password'])){
-    require("config.php");
     // getting the username and password
     $userName = $_POST["username"];
     $passWord = $_POST["password"];
@@ -132,7 +131,6 @@ if(isset($_POST['username'])&& isset($_POST['password'])){
     //$passWord = password_hash($passWord, password_bcrypt);
     //filter thing here
 
-		require "config.php";
 		$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 		$db= new PDO($connection_string, $dbuser, $dbpass);
     try
@@ -152,10 +150,10 @@ if(isset($_POST['username'])&& isset($_POST['password'])){
 						$_SESSION['UID'] = $result['UID'];
             //echo $_SESSION['IsAdmiin'];
             if($_SESSION['IsAdmin']==0){
-                echo'<script type="text/javascript">window.open("UserHome.php","_self");</script>';
+                echo'<html><script type="text/javascript">window.open("UserHome.php","_self");</script></html>';
             }
             else{
-                echo'<script type="text/javascript">window.open("AdminHome.php","_self");</script>';
+                echo'<html><script type="text/javascript">window.open("AdminHome.php","_self");</script></html>';
             }
         }
     }
