@@ -1,0 +1,102 @@
+<html lang="en" dir="ltr">
+  <head>
+  <link rel = "stylesheet" href="MNQuestionStyle.css">
+    <meta charset="utf-8">
+    <div>
+      <titles style= "position:relative; top: 6">
+        New Question
+      </titles>
+      <button style= "float:right;"type="button" onclick="location.href = 'Logout.php';"
+           class = "button" name="Login"> Logout
+      </button>
+      <button style= "float:right;"type="button" onclick="location.href = 'AdminHome.php';"
+           class = "button" name="Login"> Home
+      </button>
+   </div>
+  </head><br>
+  
+  <body>
+    <!-- Display All Questons -->
+   <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
+   <br>
+   <br>
+   <div class = "bodycontainer">
+   <div class = "column">
+      <div class=qform>
+   <form name="NewQuestion" id="myForm" method="POST">
+     <textarea class= "formInput1" name = "QT" id="QT" placeholder="Question Text" cols="50 rows="10"></textarea><br>
+     <input class= "formInput1" type= "Text" name = "QI1" id="QI1" placeholder="Question Test 1"></input><br>
+     <input class= "formInput1" type= "Text" name = "QA1" id="QA1" placeholder="Answer 1"></input><br>
+     <input class= "formInput1" type= "Text" name = "QI2" id="QI2" placeholder="Question Test 2"></input><br>
+     <input class= "formInput1" type= "Text" name = "QA2" id="QA2" placeholder="Answer 2"></input><br>
+     <input class= "formInput1" type= "Text" name = "QI3" id="QI3" placeholder="Question Test 3"></input><br>
+     <input class= "formInput1" type= "Text" name = "QA3" id="QA3" placeholder="Answer 3"></input>
+	<div class="form-control">
+            <label for="category" id="label-category">
+                Category
+            </label>
+            <select name="category" id="category">
+                <option value="For Loop">For Loop</option>
+                <option value="While Loop">While Loop</option>
+                <option value="Recursion">
+                    recursion
+                </option>
+				</select>
+				</div>
+	<div class="form-control">
+            <label for="difficulty" id="label-difficulty">
+                Difficulty
+            </label>
+            <select name="difficulty" id="difficulty">
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">
+                  Hard
+                </option>
+            </select>
+        </div><br>
+		<br>
+     <input class= "formInput1" type= "Text" name = "QFN" id ="QFN" placeholder="Function Name"></input>
+   </form>
+   </div>
+   </div>
+
+   <div class = "column">
+   <div id = "container">
+   <div id = "subt">
+   	similar questions
+   </div>
+	<div class="form-control">
+            <label for="category" id="label-category">
+                Category
+            </label>
+            <select name="category" id="category">
+                <option value="For Loop">For Loop</option>
+                <option value="While Loop">While Loop</option>
+                <option value="Recursion">
+                    recursion
+                </option>
+				</select>
+				</div>
+	<div class="form-control">
+            <label for="difficulty" id="label-difficulty">
+                Difficulty
+            </label>
+            <select name="difficulty" id="difficulty">
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">
+                  Hard
+                </option>
+            </select>
+        </div><br>
+	</div>
+	<br>
+	<br>
+   </div>
+   <input class= "button" class= "button" type="submit" value="Make Question"/>
+   </div>
+   </div>
+  </body>
+</html>
+
