@@ -269,6 +269,6 @@ if (!empty($_POST)) {
     $stmt->execute($params);
     echo "<pre>" . var_export($stmt->errorInfo(), true) . "</pre>";
   }
-  header("Location: UserHome.php");
+  echo "<html><script> window.location.href = 'UserHome.php'; <script><html>";
 }
  ?>

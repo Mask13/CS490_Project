@@ -251,6 +251,12 @@ echo "	</tr>";
 echo "</table>";
 
 ?>
+<form method="post">
+  <input type="text" name="comments" placeholder="Comment">
+  <input type="submit" value="release grade">
+</form>
+</body>
+</html>
 
 <?php
 session_start();
@@ -261,22 +267,12 @@ require "config.php";
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 $db= new PDO($connection_string, $dbuser, $dbpass);
 
-/*echo "<form method='post'>";
-echo   "<input type='text' name='comments' placeholder='Comment'>";
-echo   "<input type='submit' value='release grade'>";
-echo "</form>";*/
-
 $s = $db->prepare("SELECT resultID FROM results WHERE EID = '$EID' AND UID = '$UID'");
 $s->execute();
 $r = $s->fetch(PDO::FETCH_ASSOC);
 $reID = $r["resultID"]; // getting result ID
 
-if (!empty($_POST)) {
-    if(isset($_POST["comments"])){
-      $sql = $db->prepare("UPDATE results SET released = 1, comments='$_POST[comments]'Where resultID= '$reID'");
-      $sql->execute();
-      break;
-    }
+if (!empty($_POST) && !isset($_POST['comments'])) {
     $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
     foreach ($questions as $qNum) {
 
@@ -519,6 +515,11 @@ if (!empty($_POST)) {
         }
     }
     echo("<meta http-equiv='refresh' content='1'>");
+}
+if(isset($_POST["comments"])){
+  $comoment = $_POST["comments"];
+  $sql = $db->prepare("UPDATE results SET released = 1, comments='$comment' WHERE resultID= '$reID'");
+  $sql->execute();
 }
 
 ?>
