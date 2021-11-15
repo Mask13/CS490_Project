@@ -146,6 +146,13 @@ else{
             box-shadow: 0 9px #999;
             font-size: 16px;
           }
+          .button3:hover {background-color: rgb(69, 74, 28);}
+
+          .button3:active {
+            background-color: rgb(69, 74, 28);
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+          }
           .button2_5:hover {background-color: rgb(69, 74, 28);}
 
           .button2_5:active {
