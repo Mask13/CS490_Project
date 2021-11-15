@@ -94,13 +94,11 @@
  </style>
   <body>
     <!-- Tests section -->
-    <div class ="container2">
-      <div class="container">
-        <div class="center">
-          <button type="button" onclick="location.href = 'MNTest.php';"
-            class = "button" name="MNTest"> Make New Test
-          </button><br><br>
-        </div>
+    <div class="container">
+      <div class="center">
+        <button type="button" onclick="location.href = 'MNTest.php';"
+          class = "button" name="MNTest"> Make New Test
+        </button><br><br>
       </div>
     </div>
    <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
@@ -127,52 +125,48 @@
        }
        finally{}
     ?>
-    <div class ="container2">
-      <div class="container">
-        <div class="center">
-          <form name="Testform" id="myForm" method="POST">
-            <input type= "number" name = "TestID" id="TestID" placeholder="EID"></input>
-              <input class = "button" type="submit" name = "Delete" id="Delete" value="Delete"></input>
-          </form>
-        </div>
+    <div class="container">
+      <div class="center">
+        <form name="Testform" id="myForm" method="POST">
+          <input type= "number" name = "TestID" id="TestID" placeholder="EID"></input>
+            <input class = "button" type="submit" name = "Delete" id="Delete" value="Delete"></input>
+        </form>
       </div>
     </div>
-    <div class="container2">
-      <div class="container">
-        <div class="center">
-          <form method="post">
-            <?php
-              require "config.php";
-              $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-              $db= new PDO($connection_string, $dbuser, $dbpass);
-              try{
-                $sql ="SELECT UID, Username from users Where IsAdmin = 0";
+    <div class="container">
+      <div class="center">
+        <form method="post">
+          <?php
+            require "config.php";
+            $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+            $db= new PDO($connection_string, $dbuser, $dbpass);
+            try{
+              $sql ="SELECT UID, Username from users Where IsAdmin = 0";
 
-                echo "<select id='studentID' name='studentID'>Student Name</option>"; // list box select command
+              echo "<select id='studentID' name='studentID'>Student Name</option>"; // list box select command
 
-                foreach ($db->query($sql) as $row){//Array or records stored in $row
-                  echo "<option value=$row[UID]>$row[Username]</option>";
-                }
-                echo "</select>";// Closing of list box
+              foreach ($db->query($sql) as $row){//Array or records stored in $row
+                echo "<option value=$row[UID]>$row[Username]</option>";
               }
-              finally{}
-              require "config.php";
-              $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-              $db= new PDO($connection_string, $dbuser, $dbpass);
-              try{
-                $sql ="SELECT EID, Exam_Name from exams";
+              echo "</select>";// Closing of list box
+            }
+            finally{}
+            require "config.php";
+            $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+            $db= new PDO($connection_string, $dbuser, $dbpass);
+            try{
+              $sql ="SELECT EID, Exam_Name from exams";
 
-                echo "<select id='EID' name='EID'>Test</option>"; // list box select command
+              echo "<select id='EID' name='EID'>Test</option>"; // list box select command
 
-                foreach ($db->query($sql) as $row){//Array or records stored in $row
-                  echo "<option value=$row[EID]>$row[Exam_Name]</option>";
-                }
-                echo "</select>";// Closing of list box
+              foreach ($db->query($sql) as $row){//Array or records stored in $row
+                echo "<option value=$row[EID]>$row[Exam_Name]</option>";
               }
-              finally{}
-          ?>
-          <input class = "button" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
-        </div>
+              echo "</select>";// Closing of list box
+            }
+            finally{}
+        ?>
+        <input class = "button" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
       </div>
     </div>        
     </form>
