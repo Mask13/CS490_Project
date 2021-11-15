@@ -158,7 +158,7 @@ else{
                 finally{}
               ?>
               <input class= "button" type="submit" value="See tests"/>
-          </form><br><br><br>
+          </form><br><br>
         </div>
       </div>
       <div class="container2">
@@ -170,7 +170,7 @@ else{
           <!-- Questons -->
           <button type="button" onclick="location.href = 'Questions.php';"
                   class = "button" name="MNTest"> View Questions
-          </button><br><br>
+          </button>
         </div>
       </div> 
     </div>
