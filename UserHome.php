@@ -131,6 +131,7 @@ else{
           }
  </style>
   <body>
+  <div id=container>
     <div class="container2">
       <div class="center">
         <form method="post">
@@ -187,6 +188,7 @@ else{
         ?>
       </div>
     </div>
+  </div>
   </body>
 </html>
 <?php
