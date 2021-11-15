@@ -25,6 +25,8 @@
     }
     th, td {
       background-color: black;
+      font-family: Bahnschrift;
+      padding: 10px;
     }
     .button {
         background-color: Transparent;
