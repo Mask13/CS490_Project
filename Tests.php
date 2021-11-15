@@ -47,6 +47,7 @@
               font-size: 16px;
           }
           .button:hover {background-color: rgb(69, 74, 28);}
+          .button:active {background-color: rgb(68, 75, 30);}
           .formInput1{
             width: 10%;
             padding: 10px;
