@@ -192,7 +192,7 @@ else{
           <!-- Questons -->
           <button type="button" onclick="location.href = 'Questions.php';"
                   class = "button2" name="MNTest"> View Questions
-          </button><br>
+          </button>
         </div>
       </div>
     </div>
@@ -228,7 +228,7 @@ else{
     }
 </style>
 <div class="tableContainer">
-  <div class="center"><br><br><br>
+  <div class="center"><br><br><br><br>
   <?php
     if(isset($_POST["Request_Test"]) || isset($_POST["studentID"])){
       GetTests();
