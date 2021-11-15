@@ -129,7 +129,6 @@ else{
           }
           .container2 {
             margin: 30px;
-            padding: 10px;
             height: 100px;
             position: relative;
           }
