@@ -136,7 +136,7 @@
     ?>
    <form style="position: relative; left: 35px;"name="Testform" id="myForm" method="POST">
      <input class = "formInput1" type= "number" name = "TestID" id="TestID" placeholder="EID"></input>
-      <input class = "button" type="submit" name = "Delete" id="Delete" value="Delete"></input>
+      <input class = "button2" type="submit" name = "Delete" id="Delete" value="Delete"></input>
    </form>
    <form style="margin-left: -20px;" method="post">
        <?php
