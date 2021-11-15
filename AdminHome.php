@@ -136,18 +136,6 @@ else{
  </style>
   <body>
     <div id= container><br>
-      <div class="container2">
-        <div class="center">
-          <!-- Tests section -->
-          <button type="button" onclick="location.href = 'Tests.php';"
-                class = "button" name="MNTest"> View Tests
-          </button><br>
-          <!-- Questons -->
-          <button type="button" onclick="location.href = 'Questions.php';"
-                  class = "button" name="MNTest"> View Questions
-          </button><br><br>
-        </div>
-      </div> 
       <!-- display current students here-->
       <div class="container2">
         <div class="center"><br><br>
@@ -173,6 +161,18 @@ else{
           </form>
         </div>
       </div>
+      <div class="container2">
+        <div class="center">
+          <!-- Tests section --><br><br>
+          <button type="button" onclick="location.href = 'Tests.php';"
+                class = "button" name="MNTest"> View Tests
+          </button><br>
+          <!-- Questons -->
+          <button type="button" onclick="location.href = 'Questions.php';"
+                  class = "button" name="MNTest"> View Questions
+          </button><br><br>
+        </div>
+      </div> 
     </div>
   </body>
 </html>
