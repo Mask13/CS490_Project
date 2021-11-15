@@ -223,7 +223,7 @@ else{
     .tableContainer{
       margin-bottom: 50px;
       padding: 10px;
-      height: 50px;
+      height: 200px;
       position: relative;
     }
 </style>
