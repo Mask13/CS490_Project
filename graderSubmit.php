@@ -527,7 +527,7 @@ if (!empty($_POST) && !isset($_POST['comments'])) {
     echo("<meta http-equiv='refresh' content='1'>");
 }
 if(isset($_POST["comments"])){
-  $comoment = $_POST["comments"];
+  $comment = $_POST["comments"];
   $sql = $db->prepare("UPDATE results SET released = 1, comments='$comment' WHERE resultID= '$reID'");
   $sql->execute();
 }
