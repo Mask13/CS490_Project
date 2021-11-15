@@ -73,7 +73,7 @@ else{
           }
           .center {
             margin: 0;
-            position: absolute;
+            position: relative;
             top: 50%;
             left: 50%;
             -ms-transform: translate(-50%, -50%);
