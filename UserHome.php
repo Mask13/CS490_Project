@@ -102,7 +102,7 @@ else{
         $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
         $db= new PDO($connection_string, $dbuser, $dbpass);
         try{
-          $sql = "SELECT EID, result, comments, newGrade from results Where UID = '$_SESSION[UID]' and released = 1";
+          $sql = "SELECT EID, result, comments from results Where UID = '$_SESSION[UID]' and released = 1";
           echo "<table>"; // list box select command
           echo "<tr>";
           echo "<td>EID</td>";
@@ -115,12 +115,12 @@ else{
             $sql2 = $db->prepare("SELECT Total_Points from exams Where EID = '$row[EID]'");
             $sql2->execute();
             $r = $sql2->fetch(PDO::FETCH_ASSOC);
-            $percent = 100 * $row['newGrade']/$r['Total_Points'];
+            $percent = 100 * $row['result']/$r['Total_Points'];
             $percent .= '%';
             echo "<tr>";
             echo "<td>$row[EID]</td>";
             echo "<td>$row[comments]</td>";
-            echo "<td>$row[newGrade]</td>";
+            echo "<td>$row[result]</td>";
             echo "<td>$r[Total_Points]</td>";
             echo "<td>$percent</td>";
             echo "</tr>";
