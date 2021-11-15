@@ -46,7 +46,7 @@
               border-radius: 25px;
               font-size: 16px;
           }
-          button:hover {
+          .button:hover {
             background-color: rgb(69, 74, 28);
           }
           /*.button2 {
