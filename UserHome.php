@@ -75,6 +75,15 @@ else{
           th, td {
             background-color: black;
           }
+          .formInput1{
+            width: 50%;
+            padding: 10px;
+            border: 2px solid #c6a226;
+            border-radius: 25px;
+            box-sizing: border-box;
+            resize: vertical;
+            display: inline-table;
+          }
  </style>
   <body>
     <form method="post">
@@ -85,7 +94,7 @@ else{
           try{
             $sql = "SELECT EID, Exam_Name from exams";
 
-            echo "<select id='testID' name='testID' value=''>Tests</option>"; // list box select command
+            echo "<select class='formInput1' id='testID' name='testID' value=''>Tests</option>"; // list box select command
 
             foreach ($db->query($sql) as $row){//Array or records stored in $row
               echo "<option value=$row[EID]>$row[Exam_Name]</option>";
