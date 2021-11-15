@@ -7,10 +7,10 @@
         Tests
       </titles>
       <button style= "float:right;"type="button" onclick="location.href = 'Logout.php';"
-           class = "button" name="Login"> Logout
+           class = "button3" name="Login"> Logout
       </button>
       <button style= "float:right;"type="button" onclick="location.href = 'AdminHome.php';"
-           class = "button" name="Login"> Home
+           class = "button3" name="Login"> Home
       </button>
    </div>
   </head><br>
@@ -45,6 +45,27 @@
             display: inline-block;
             border-radius: 25px;
             font-size: 16px;
+          }
+          .button3 {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #bcbdbe;
+            background-color: rgb(230, 231, 208);
+            border: inset #c6a226;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            font-size: 16px;
+          }
+          .button3:hover {background-color: rgb(69, 74, 28);}
+
+          .button3:active {
+            background-color: rgb(69, 74, 28);
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
           }
           .formInput1{
             width: 10%;
@@ -87,7 +108,7 @@
     <container>
     <!-- Tests section -->
     <button style = "position: relative; left: 55px;" type="button" onclick="location.href = 'MNTest.php';"
-           class = "button" name="MNTest"> Make New Test
+           class = "button3" name="MNTest"> Make New Test
    </button><br><br>
    <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
    <?php
@@ -115,7 +136,7 @@
     ?>
    <form style="position: relative; left: 35px;"name="Testform" id="myForm" method="POST">
      <input class = "formInput1" type= "number" name = "TestID" id="TestID" placeholder="EID"></input>
-      <input class = "button" type="submit" name = "Delete" id="Delete" value="Delete"></input>
+      <input class = "button3" type="submit" name = "Delete" id="Delete" value="Delete"></input>
    </form>
    <form style="margin-left: -20px;" method="post">
        <?php
@@ -148,7 +169,7 @@
          }
          finally{}
      ?>
-      <input class = "button" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
+      <input class = "button3" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
    </form>
  </container>
   </body>
