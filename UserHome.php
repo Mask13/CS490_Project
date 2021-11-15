@@ -134,6 +134,6 @@ else{
     if(isset($_POST["testID"])){
       $_SESSION['testID'] = $_POST['testID'];
       //redirect to test taking page
-      echo "<html><style>window.location.replace('TestTake.php')</script></html>";
+      echo "<html><style>window.location.replace('TestTake.php');</script></html>";
     }
  ?>
