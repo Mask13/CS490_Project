@@ -238,7 +238,7 @@ else{
       $db= new PDO($connection_string, $dbuser, $dbpass);
       try{
         $sql = "SELECT EID, result, comments, newGrade, resultID from results Where UID = '$_POST[studentID]'";
-        echo "<table>"; // list box select command
+        echo "<table style='margin-top:10px;'>"; // list box select command
         echo "<tr>";
         echo "<th>Exam Name</th>";
         echo "<th>Result</th>";
