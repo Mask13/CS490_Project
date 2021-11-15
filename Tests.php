@@ -46,6 +46,7 @@
             border-radius: 25px;
             font-size: 16px;
           }
+          /*
           .button3 {
             padding: 15px 25px;
             text-align: center;
@@ -64,7 +65,7 @@
             background-color: rgb(69, 74, 28);
             box-shadow: 0 5px #666;
             transform: translateY(4px);
-          }
+          }*/
           .formInput1{
             width: 10%;
             padding: 10px;
@@ -134,7 +135,7 @@
     ?>
    <form style="position: relative; left: 35px;"name="Testform" id="myForm" method="POST">
      <input class = "formInput1" type= "number" name = "TestID" id="TestID" placeholder="EID"></input>
-      <input class = "button3" type="submit" name = "Delete" id="Delete" value="Delete"></input>
+      <input class = "button" type="submit" name = "Delete" id="Delete" value="Delete"></input>
    </form>
    <form method="post">
        <?php
@@ -167,7 +168,7 @@
          }
          finally{}
       ?>
-      <input class = "button3" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
+      <input class = "button" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
    </form>
  </container>
   </body>
