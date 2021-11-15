@@ -141,7 +141,7 @@ else{
           <!-- Tests section -->
           <button type="button" onclick="location.href = 'Tests.php';"
                 class = "button" name="MNTest"> View Tests
-          </button><br><br>
+          </button><br>
           <!-- Questons -->
           <button type="button" onclick="location.href = 'Questions.php';"
                   class = "button" name="MNTest"> View Questions
