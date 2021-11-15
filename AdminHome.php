@@ -48,7 +48,7 @@ else{
             content: "";
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 45%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
             bottom: 0;
