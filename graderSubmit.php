@@ -44,8 +44,7 @@
         color: #bcbdbe;
         padding: 10px 19px;
         text-align: center;
-        margin: auto;
-        position: fixed;
+        position: fixed; right: 10px;
         text-decoration: none;
         display: inline-block;
         border-radius: 10px;
