@@ -78,7 +78,7 @@ else{
             padding: 10px;
           }
           .formInput1{
-            width: 50%;
+            width: 30%;
             padding: 10px;
             border: 2px solid #c6a226;
             border-radius: 25px;
