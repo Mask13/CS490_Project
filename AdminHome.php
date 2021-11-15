@@ -32,7 +32,7 @@ else{
             background: inherit;
             position: relative;
             overflow: hidden;
-            top: 70%;
+            top: 60%;
             left: 50%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
