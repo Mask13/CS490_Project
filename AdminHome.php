@@ -19,7 +19,8 @@ else{
     <div class="container2">
       <div class="center">
       <titles_big style="position: relative; left:10px;"> Hello Admin </titles_big>
-           class = "button2_5" name="Login"> Logout
+      <button style= "position: relative; left:100px;" type="button" onclick="location.href = 'Logout.php';"
+           class = "button" name="Login"> Logout
    </button>
    </div>
   </div>
@@ -112,7 +113,6 @@ else{
             display: inline-block;
             border-radius: 32px;
             font-size: 16px;
-          }
           }
           .button2 {
               background-color: Transparent;
