@@ -65,6 +65,20 @@ else{
             border-top: 5px solid #c6a226;
             padding: 2px;
           }
+          .center {
+            margin: 30px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+          }
+          .container2 {
+            margin: 40px;
+            padding: 10px;
+            height: 100px;
+            position: relative;
+          }
           table, th, td {
             border: 1px solid black;
             border-radius: 10px;
@@ -88,58 +102,62 @@ else{
           }
  </style>
   <body>
-    <form method="post">
+  <div class="container2">
+    <div class="center">
+      <form method="post">
+        <?php
+            include "config.php";
+            $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+            $db= new PDO($connection_string, $dbuser, $dbpass);
+            try{
+              $sql = "SELECT EID, Exam_Name from exams";
+
+              echo "<select class='formInput1' id='testID' name='testID' value=''>Tests</option>"; // list box select command
+
+              foreach ($db->query($sql) as $row){//Array or records stored in $row
+                echo "<option value=$row[EID]>$row[Exam_Name]</option>";
+              }
+
+              echo "</select>";// Closing of list box
+            }
+            finally{}
+        ?>
+        <input class= "button" type="submit" value="Take test"/>
+      </form>
       <?php
-          include "config.php";
+          require "config.php";
           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
           $db= new PDO($connection_string, $dbuser, $dbpass);
           try{
-            $sql = "SELECT EID, Exam_Name from exams";
-
-            echo "<select class='formInput1' id='testID' name='testID' value=''>Tests</option>"; // list box select command
-
+            $sql = "SELECT EID, result, comments from results Where UID = '$_SESSION[UID]' and released = 1";
+            echo "<table>"; // list box select command
+            echo "<tr>";
+            echo "<td>EID</td>";
+            echo "<td>Comments</td>";
+            echo "<td>Result</td>";
+            echo "<td>Total Points Possible</td>";
+            echo "<td>Percent Grade</td>";
+            echo "</tr>";
             foreach ($db->query($sql) as $row){//Array or records stored in $row
-              echo "<option value=$row[EID]>$row[Exam_Name]</option>";
+              $sql2 = $db->prepare("SELECT Total_Points from exams Where EID = '$row[EID]'");
+              $sql2->execute();
+              $r = $sql2->fetch(PDO::FETCH_ASSOC);
+              $percent = 100 * $row['result']/$r['Total_Points'];
+              $percent .= '%';
+              echo "<tr>";
+              echo "<td>$row[EID]</td>";
+              echo "<td>$row[comments]</td>";
+              echo "<td>$row[result]</td>";
+              echo "<td>$r[Total_Points]</td>";
+              echo "<td>$percent</td>";
+              echo "</tr>";
             }
-
-            echo "</select>";// Closing of list box
+            echo "</table>";// Closing of list box
           }
           finally{}
-       ?>
-       <input class= "button" type="submit" value="Take test"/>
-    </form>
-    <?php
-        require "config.php";
-        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-        $db= new PDO($connection_string, $dbuser, $dbpass);
-        try{
-          $sql = "SELECT EID, result, comments from results Where UID = '$_SESSION[UID]' and released = 1";
-          echo "<table>"; // list box select command
-          echo "<tr>";
-          echo "<td>EID</td>";
-          echo "<td>Comments</td>";
-          echo "<td>Result</td>";
-          echo "<td>Total Points Possible</td>";
-          echo "<td>Percent Grade</td>";
-          echo "</tr>";
-          foreach ($db->query($sql) as $row){//Array or records stored in $row
-            $sql2 = $db->prepare("SELECT Total_Points from exams Where EID = '$row[EID]'");
-            $sql2->execute();
-            $r = $sql2->fetch(PDO::FETCH_ASSOC);
-            $percent = 100 * $row['result']/$r['Total_Points'];
-            $percent .= '%';
-            echo "<tr>";
-            echo "<td>$row[EID]</td>";
-            echo "<td>$row[comments]</td>";
-            echo "<td>$row[result]</td>";
-            echo "<td>$r[Total_Points]</td>";
-            echo "<td>$percent</td>";
-            echo "</tr>";
-          }
-          echo "</table>";// Closing of list box
-        }
-        finally{}
-     ?>
+      ?>
+    </div>
+  </div>
   </body>
 </html>
 <?php
