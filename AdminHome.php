@@ -223,12 +223,11 @@ else{
     .tableContainer{
       margin-bottom: 100px;
       padding: 10px;
-      height: 150px;
       position: relative;
     }
 </style>
 <div class="tableContainer">
-  <div class="center"><br><br><br><br>
+  <div class="center"><br><br><br>
   <?php
     if(isset($_POST["Request_Test"]) || isset($_POST["studentID"])){
       GetTests();
