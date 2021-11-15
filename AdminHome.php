@@ -18,21 +18,23 @@ else{
     <title>Admin</title>
     <div class="container2">
       <div class="center">
-      <titles_big style="position: relative; left:10px;"> Hello Admin </titles_big>
-    <button style= "position: relative; left:100px;" type="button" onclick="location.href = 'Logout.php';"
+      <titles style= "position:relative; top: 6">
+        Hello Admin
+      </titles>
+    <button style= "float:right;"type="button" onclick="location.href = 'Logout.php';"
            class = "button" name="Login"> Logout
    </button>
    </div>
   </div>
-</head>
+  </head><br>
   <style>
     #container{
             width: 650px;
             height: 750px;
             background: inherit;
-            position: relative;
+            position: absolute;
             overflow: hidden;
-            top: 40%;
+            top: 50%;
             left: 50%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
@@ -73,7 +75,7 @@ else{
       }
       br {
           line-height: 250%;
-        }
+          }
       body{
            background-color: #000033;
            background-image: url('https://i0.wp.com/gifimage.net/wp-content/uploads/2017/08/space-animated-gif-9.gif');
@@ -103,17 +105,6 @@ else{
               border-radius: 25px;
               font-size: 16px;
           }
-          .button2 {
-              background-color: Transparent;
-              border: inset #c6a226;
-              color: #bcbdbe;
-              padding: 15px 29px;
-              text-align: center;
-              text-decoration: none;
-              display: inline-block;
-              border-radius: 27px;
-              font-size: 16px;
-          }
           .label {
             padding: 12px 12px 12px 0;
             display: inline-block;
@@ -122,28 +113,15 @@ else{
             margin: 30px;
             position: absolute;
             top: 50%;
-            left: 50%;
+            left: 46%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
           }
           .container2 {
             margin: 30px;
-            padding: 10px;
-            height: 100px;
+            padding: 5px;
+            height: 70px;
             position: relative;
-          }
-          br2 {
-            line-height: 100%;
-          }
-          titles_big{
-            width: 300px;
-            text-align: center;
-            font-size: 50;
-            font-family: Trebuchet MS;
-            text-decoration-color:#c6a226;
-            border-bottom: 7px solid #c6a226;
-            border-top: 7px solid #c6a226;
-            padding: 2px;
           }
           titles{
             width: 200px;
@@ -157,7 +135,7 @@ else{
           }
  </style>
   <body>
-    <div id= container>
+    <div id= container><br>
       <!-- display current students here-->
       <div class="container2">
         <div class="center">
@@ -187,12 +165,12 @@ else{
         <div class="center">
           <!-- Tests section --><br><br><br>
           <button type="button" onclick="location.href = 'Tests.php';"
-                class = "button2" name="MNTest"> View Tests
+                class = "button" name="MNTest"> View Tests
           </button><br>
           <!-- Questons -->
           <button type="button" onclick="location.href = 'Questions.php';"
-                  class = "button2" name="MNTest"> View Questions
-          </button><br>
+                  class = "button" name="MNTest"> View Questions
+          </button>
         </div>
       </div>
     </div>
