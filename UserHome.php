@@ -99,7 +99,7 @@ else{
             position: absolute;
             top: 50%;
             left: 50%;
-            margin-right: 30%;
+            margin-right: 50%;
           }
           .container2 {
             margin: 40px;
