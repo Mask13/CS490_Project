@@ -137,6 +137,16 @@ else{
           br2 {
             line-height: 100%;
           }
+          titles_big{
+            width: 300px;
+            text-align: center;
+            font-size: 50;
+            font-family: Trebuchet MS;
+            text-decoration-color:#c6a226;
+            border-bottom: 7px solid #c6a226;
+            border-top: 7px solid #c6a226;
+            padding: 2px;
+          }
           titles{
             width: 200px;
             text-align: center;
@@ -153,7 +163,7 @@ else{
       <!-- display current students here-->
       <div class="container2">
         <div class="center">
-          <center><titles style="position:relative; top:60">Students</titles><center><br><br>
+          <center><titles_big style="position:relative; top:60">Students</titles_big><center><br><br>
           <form method="post">
               <?php
                 require "config.php";
