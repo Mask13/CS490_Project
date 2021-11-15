@@ -46,6 +46,7 @@
               border-radius: 25px;
               font-size: 16px;
           }
+          .button:hover {background-color: rgb(69, 74, 28);}
           .formInput1{
             width: 10%;
             padding: 10px;
