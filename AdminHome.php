@@ -80,6 +80,8 @@ else{
             transform: translate(-50%, -50%);
           }
           .container {
+            margin: 20px;
+            padding: 5px;
             height: 50px;
             position: relative;
           }
@@ -131,6 +133,8 @@ else{
   </body>
 </html>
 
+<html>
+
 <?php
   if(isset($_POST["Request_Test"]) || isset($_POST["studentID"])){
     GetTests();
@@ -168,3 +172,5 @@ else{
     finally{}
   }
  ?>
+
+ /
