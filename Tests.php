@@ -51,7 +51,6 @@
           .button:active {
             background-color: rgb(69, 74, 28);
             box-shadow: 0 5px #666;
-            transform: translateY(4px);
           }
           .formInput1{
             width: 10%;
