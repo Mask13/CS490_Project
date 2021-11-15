@@ -141,7 +141,7 @@ else{
           <!-- Tests section -->
           <button type="button" onclick="location.href = 'Tests.php';"
                 class = "button" name="MNTest"> View Tests
-          </button><br><br>
+          </button><br>
           <!-- Questons -->
           <button type="button" onclick="location.href = 'Questions.php';"
                   class = "button" name="MNTest"> View Questions
@@ -150,7 +150,7 @@ else{
       </div> 
       <!-- display current students here-->
       <div class="container2">
-        <div class="center"><br>
+        <div class="center"><br><br><br>
           <center><titles style="position:relative; top:60">Students</titles><center><br><br>
           <form method="post">
               <?php
