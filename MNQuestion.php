@@ -15,6 +15,56 @@
   </head><br>
   <style>
       /*All sections */
+      /* custom radio from W3Schools */
+      label{
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        cursor: pointer;
+        font-size: 20px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      label input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+      .radio {
+        position: absolute;
+        top: 8;
+        left: 8;
+        height: 15px;
+        width: 15px;
+        background-color: #eee;
+        border-radius: 50%;
+      }
+      label:hover input ~ .radio {
+        background-color: #ccc;
+      }
+      label input:checked ~ .radio {
+        background-color: #c6a226;
+      }
+      .radio:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+      label input:checked ~ .radio:after {
+        display: block;
+      }
+      label .radio:after {
+        top: 4px;
+        left: 4px;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #000033;
+      }
       titles{
         width: 200px;
         text-align: center;
@@ -231,16 +281,19 @@
        <option value="hard">Hard</option>
      </select><br>
      <input class= "formInput1" type= "Text" name = "QFN" id ="QFN" placeholder="Function Name"></input><br>
-     <label class="radios" for="F">For Loop
-       <input type= "radio" name = "QCN" id="F" value="F"></input>
+     <label style="padding-top: 13px;"for="F">For Loop
+       <input class = "radio" type= "radio" name = "QCN" id="F" value="F"></input>
+       <span style="margin-top:10px;"class="radio"></span>
      </label><br>
-     <label class="radios" for="W">While Loop
-       <input type= "radio" name = "QCN"  id="W" value="W"></input>
+     <label for="W">While Loop
+       <input class = "radio" type= "radio" name = "QCN"  id="W" value="W"></input>
+       <span class="radio"></span>
      </label><br>
-     <label class="radios" for="R">Recursion
-       <input type= "radio" name = "QCN" id="R" value="R"></input>
+     <label for="R">Recursion
+       <input class = "radio" type= "radio" name = "QCN" id="R" value="R"></input>
+       <span class="radio"></span>
      </label><br>
-     <input class= "button" class= "button" type="submit" value="Make Question"/>
+     <input  style="margin-top: -15px;"class= "button" class= "button" type="submit" value="Make Question"/>
    </form>
   </body>
 </html>
