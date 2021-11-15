@@ -29,8 +29,8 @@ else{
   </head><br>
   <style>
     #container{
-            width: 50%;
-            height: 50%;
+            width: 850px; 
+            height: 950px;
             background: inherit;
             position: absolute;
             overflow: hidden;
@@ -41,8 +41,8 @@ else{
             border-radius: 8px;
       }
       #container:before{
-            width: 60%;
-            height: 60%;
+            width: 900px; 
+            height: 1050px; 
             content: "";
             position: absolute;
             top: -25px;
