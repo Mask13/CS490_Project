@@ -264,7 +264,7 @@
    <br>
    <br>
    <form class = "formNQ" name="NewQuestion" id="myForm" method="POST">
-     <input class= "formInput1" type= "Text" name = "QT" id="QT" placeholder="Question Text"></input><br>
+     <textarea form = 'formNQ' type= "Text" name = "QT" id="QT" placeholder="Question Text"></textarea><br>
      <!-- Info for test case 1 -->
      <input class= "formInput1" type= "Text" name = "QI1" id="QI1" placeholder="Question Test 1"></input><br>
      <input class= "formInput1" type= "Text" name = "QA1" id="QA1" placeholder="Answer 1"></input><br>
