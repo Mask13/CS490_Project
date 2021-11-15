@@ -101,11 +101,10 @@ else{
         $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
         $db= new PDO($connection_string, $dbuser, $dbpass);
         try{
-          $sql = "SELECT EID, result, comments from results Where UID = '$_SESSION[UID]' and released = 1";
+          $sql = "SELECT EID, result from results Where UID = '$_SESSION[UID]' and released = 1";
           echo "<table>"; // list box select command
           echo "<tr>";
           echo "<td>EID</td>";
-          echo "<td>Comments</td>";
           echo "<td>Result</td>";
           echo "<td>Total Points Possible</td>";
           echo "<td>Percent Grade</td>";
@@ -118,7 +117,6 @@ else{
             $percent .= '%';
             echo "<tr>";
             echo "<td>$row[EID]</td>";
-            echo "<td>$row[comments]</td>";
             echo "<td>$row[result]</td>";
             echo "<td>$r[Total_Points]</td>";
             echo "<td>$percent</td>";
