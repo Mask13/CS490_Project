@@ -150,7 +150,7 @@ else{
       </div> 
       <!-- display current students here-->
       <div class="container2">
-        <div class="center"><br><br><br>
+        <div class="center"><br><br>
           <center><titles style="position:relative; top:60">Students</titles><center><br><br>
           <form method="post">
               <?php
