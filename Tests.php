@@ -30,6 +30,19 @@
            background-size: cover;
            color: #bcbdbe;
            }
+          .container { 
+            height: 200px;
+            position: relative;
+            border: 3px solid green; 
+          }
+          .center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+          }
           .button {
             background-color: Transparent;
             border: inset #c6a226;
@@ -74,9 +87,13 @@
  </style>
   <body>
     <!-- Tests section -->
-    <button type="button" onclick="location.href = 'MNTest.php';"
+    <div class="container">
+      <div class="center">
+        <button type="button" onclick="location.href = 'MNTest.php';"
            class = "button" name="MNTest"> Make New Test
-   </button><br><br>
+        </button><br><br>
+      </div>
+    </div>
    <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
    <?php
        require "config.php";
