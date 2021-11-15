@@ -139,6 +139,7 @@ else{
       <div class="container2">
         <div class="center">
           <!-- Tests section -->
+          <br><br><br>
           <button type="button" onclick="location.href = 'Tests.php';"
                 class = "button" name="MNTest"> View Tests
           </button>
