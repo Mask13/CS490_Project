@@ -187,7 +187,7 @@ else{
               echo "</table>";// Closing of list box
             }
             finally{}
-        ?><br>
+        ?>
   </div>
   </body>
 </html>
