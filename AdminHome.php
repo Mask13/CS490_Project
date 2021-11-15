@@ -222,10 +222,7 @@ else{
     }
     .tableContainer{
       margin-bottom: 40%;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 10px;
-      position: absolute;
+      position: relative;
     }
 </style>
 <div class="tableContainer">
