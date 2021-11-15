@@ -204,6 +204,6 @@
       $_SESSION["EID"] = $_POST["EID"];
       $_SESSION["SID"] = $_POST["studentID"];
       sleep(3);
-      echo "<html><script> alert($_SESSION["SID"]) </script></html>";
+      echo "<html><script> alert($_SESSION["SID"]); </script></html>";
     }
  ?>
