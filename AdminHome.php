@@ -132,6 +132,12 @@ else{
             height: 100px;
             position: relative;
           }
+          .tableContainer{
+            margin-bottom: 50px;
+            padding: 10px;
+            height: 100px;
+            position: relative;
+          }
           br2 {
             line-height: 100%;
           }
