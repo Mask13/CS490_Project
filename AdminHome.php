@@ -109,12 +109,12 @@ else{
               background-color: Transparent;
               border: inset #c6a226;
               color: #bcbdbe;
-              padding: 25px 29px;
+              padding: 15px 29px;
               text-align: center;
               text-decoration: none;
               display: inline-block;
-              border-radius: 35px;
-              font-size: 26px;
+              border-radius: 27px;
+              font-size: 16px;
           }
           .label {
             padding: 12px 12px 12px 0;
