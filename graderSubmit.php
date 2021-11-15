@@ -235,6 +235,10 @@ foreach ($questions as $qNum) {
             echo "	<tr>";
 
         }
+        echo "<form method='post'>";
+        echo "  <input class = 'formInput1' type='text' name='comment$qNum' placeholder='Comment'>";
+        echo "  <input class = 'button' type='submit' value='release grade'>";
+        echo "</form>";
     }
 }
 
@@ -262,10 +266,6 @@ echo "	</tr>";
 echo "</table>";
 
 ?>
-<form method="post">
-  <input class = "formInput1" type="text" name="comments" placeholder="Comment">
-  <input class = "button" type="submit" value="release grade">
-</form>
 </body>
 </html>
 
@@ -283,7 +283,7 @@ $s->execute();
 $r = $s->fetch(PDO::FETCH_ASSOC);
 $reID = $r["resultID"]; // getting result ID
 
-if (!empty($_POST) && !isset($_POST['comments'])) {
+if (!empty($_POST)) {
     $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
     foreach ($questions as $qNum) {
 
@@ -293,6 +293,13 @@ if (!empty($_POST) && !isset($_POST['comments'])) {
         $qID = $r["$qNum"]; // getting question ID
 
         $value = $qNum."P";
+
+        if(isset($_POST["comment$qNum"])){
+          $comment = $_POST["comments"];
+          $sql = $db->prepare("UPDATE results SET released = 1, comment$qNum ='$comment' WHERE resultID= '$reID'");
+          $sql->execute();
+          break;
+        }
 
         if (isset($_POST["FNB$qNum"])) {
             $s = $db->prepare("SELECT FNP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
@@ -526,11 +533,6 @@ if (!empty($_POST) && !isset($_POST['comments'])) {
         }
     }
     echo("<meta http-equiv='refresh' content='1'>");
-}
-if(isset($_POST["comments"])){
-  $comment = $_POST["comments"];
-  $sql = $db->prepare("UPDATE results SET released = 1, comments='$comment' WHERE resultID= '$reID'");
-  $sql->execute();
 }
 
 ?>
