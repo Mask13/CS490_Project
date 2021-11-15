@@ -95,7 +95,7 @@ else{
 					 .button {
               background-color: rgb(230, 231, 208);
               border: inset #c6a226;
-              color: #bcbdbe;
+              color: #c6a226;
               padding: 15px 19px;
               text-align: center;
               text-decoration: none;
