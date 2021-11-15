@@ -110,7 +110,7 @@ else{
             display: inline-block;
           }
           .center {
-            margin: 20px;
+            margin: 30px;
             position: absolute;
             top: 50%;
             left: 50%;
@@ -118,9 +118,9 @@ else{
             transform: translate(-50%, -50%);
           }
           .container2 {
-            margin: 20px;
+            margin: 30px;
             padding: 5px;
-            height: 50px;
+            height: 70px;
             position: relative;
           }
           titles{
@@ -136,21 +136,9 @@ else{
  </style>
   <body>
     <div id= container><br>
-      <div class="container2">
-        <div class="center">
-          <!-- Tests section -->
-          <button type="button" onclick="location.href = 'Tests.php';"
-                class = "button" name="MNTest"> View Tests
-          </button><br>
-          <!-- Questons -->
-          <button type="button" onclick="location.href = 'Questions.php';"
-                  class = "button" name="MNTest"> View Questions
-          </button><br><br>
-        </div>
-      </div> 
       <!-- display current students here-->
       <div class="container2">
-        <div class="center"><br><br><br>
+        <div class="center">
           <center><titles style="position:relative; top:60">Students</titles><center><br><br>
           <form method="post">
               <?php
@@ -170,9 +158,21 @@ else{
                 finally{}
               ?>
               <input class= "button" type="submit" value="See tests"/>
-          </form>
+          </form><br><br><br>
         </div>
       </div>
+      <div class="container2">
+        <div class="center">
+          <!-- Tests section --><br><br><br>
+          <button type="button" onclick="location.href = 'Tests.php';"
+                class = "button" name="MNTest"> View Tests
+          </button><br>
+          <!-- Questons -->
+          <button type="button" onclick="location.href = 'Questions.php';"
+                  class = "button" name="MNTest"> View Questions
+          </button><br><br>
+        </div>
+      </div> 
     </div>
   </body>
 </html>
