@@ -34,6 +34,29 @@
             height: 50px;
             position: relative;
           }
+          .autogradeForm{
+            position: relative; left:39%;
+            display: inline-block;
+            width: 25%;
+          }
+          .formInput1{
+            width: 50%;
+            padding: 10px;
+            border: 2px solid #c6a226;
+            border-radius: 25px;
+            box-sizing: border-box;
+            resize: vertical;
+            margin: 20px;
+          }
+          .formInput2{
+            width: 30%;
+            padding: 10px;
+            border: 2px solid #c6a226;
+            border-radius: 25px;
+            box-sizing: border-box;
+            resize: vertical;
+            margin: 5px;
+          }
           .center {
             margin: 0;
             position: absolute;
@@ -120,12 +143,16 @@
     <div class="container">
       <div class="center">
         <form name="Testform" id="myForm" method="POST">
-          <input type= "number" name = "TestID" id="TestID" placeholder="EID"></input>
+          <input class = "formInput1" type= "number" name = "TestID" id="TestID" placeholder="EID"></input>
             <input class = "button" type="submit" name = "Delete" id="Delete" value="Delete"></input>
         </form><br><br>
       </div>
     </div>
+<<<<<<< Updated upstream
     <form method="post">
+=======
+    <form class = "autogradeForm" method="post">
+>>>>>>> Stashed changes
         <?php
           require "config.php";
           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -133,7 +160,11 @@
           try{
             $sql ="SELECT UID, Username from users Where IsAdmin = 0";
 
+<<<<<<< Updated upstream
             echo "<select id='studentID' name='studentID'>Student Name</option>"; // list box select command
+=======
+            echo "<select class = 'formInput2' id='studentID' name='studentID'>Student Name</option>"; // list box select command
+>>>>>>> Stashed changes
 
             foreach ($db->query($sql) as $row){//Array or records stored in $row
               echo "<option value=$row[UID]>$row[Username]</option>";
@@ -147,7 +178,11 @@
           try{
             $sql ="SELECT EID, Exam_Name from exams";
 
+<<<<<<< Updated upstream
             echo "<select id='EID' name='EID'>Test</option>"; // list box select command
+=======
+            echo "<select class = 'formInput2' id='EID' name='EID'>Test</option>"; // list box select command
+>>>>>>> Stashed changes
 
             foreach ($db->query($sql) as $row){//Array or records stored in $row
               echo "<option value=$row[EID]>$row[Exam_Name]</option>";
