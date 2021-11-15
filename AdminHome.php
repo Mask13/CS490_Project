@@ -127,7 +127,7 @@ else{
             transform: translate(-50%, -50%);
           }
           .container2 {
-            margin: 20px;
+            margin: 40px;
             padding: 10px;
             height: 100px;
             position: relative;
