@@ -46,10 +46,6 @@
               border-radius: 25px;
               font-size: 16px;
           }
-          .button:hover {background-color: rgb(69, 74, 28);}
-          .button:active {
-            background-color: rgb(69, 74, 28);
-          }
           .button3 {
             display: inline-block;
             padding: 15px 25px;
