@@ -18,7 +18,7 @@ else{
     <title>Admin</title>
     <div class="container2">
       <div class="center">
-      <titles style= "float: left; position:relative; top: 6">
+      <titles style= "position:relative; top: 6">
         Hello Admin
       </titles>
     <button style= "float:right;" type="button" onclick="location.href = 'Logout.php';"
