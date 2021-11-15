@@ -136,6 +136,7 @@
      <input class = "formInput1" type= "number" name = "TestID" id="TestID" placeholder="EID"></input>
       <input class = "button3" type="submit" name = "Delete" id="Delete" value="Delete"></input>
    </form>
+   <input class = "button3" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
    <form method="post">
        <?php
          require "config.php";
@@ -166,8 +167,7 @@
            echo "</select>";// Closing of list box
          }
          finally{}
-     ?>
-      <input class = "button" type= "submit" name = "autograde" id="autograde" value="autograde"></input>
+      ?>
    </form>
  </container>
   </body>
