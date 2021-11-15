@@ -138,7 +138,7 @@
      <input class = "formInput1" type= "number" name = "TestID" id="TestID" placeholder="EID"></input>
       <input class = "button3" type="submit" name = "Delete" id="Delete" value="Delete"></input>
    </form>
-   <form style="margin-left: -20px;" method="post">
+   <form method="post">
        <?php
          require "config.php";
          $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
