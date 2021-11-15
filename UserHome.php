@@ -14,7 +14,7 @@ else{
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Admin</title>
+    <title>Student View</title>
     <div>
       <titles style= "position:relative; top: 6">
         Hello Student
@@ -83,27 +83,6 @@ else{
           .button:hover {background-color: rgb(69, 74, 28);}
 
           .button:active {
-            background-color: rgb(69, 74, 28);
-            box-shadow: 0 5px #666;
-            transform: translateY(4px);
-          }
-          .button3 {
-            display: inline-block;
-            padding: 15px 25px;
-            font-size: 24px;
-            text-align: center;
-            cursor: pointer;
-            outline: none;
-            color: #bcbdbe;
-            background-color: rgb(230, 231, 208);
-            border: inset #c6a226;
-            border-radius: 15px;
-            box-shadow: 0 9px #999;
-            font-size: 16px;
-          }
-          .button3:hover {background-color: rgb(69, 74, 28);}
-
-          .button3:active {
             background-color: rgb(69, 74, 28);
             box-shadow: 0 5px #666;
             transform: translateY(4px);
