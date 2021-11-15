@@ -5,7 +5,32 @@
     type="button" name="Login"> Login</button>
 	</head>
   <style>
-      body{
+        #container{
+            width: 350px;
+            height: 450px;
+            background: inherit;
+            position: absolute;
+            overflow: hidden;
+            top: 50%;
+            left: 50%;
+            margin-left: -175px;
+            margin-top: -250px;
+            border-radius: 8px;
+        }
+        #container:before{
+            width: 400px;
+            height: 550px;
+            content: "";
+            position: absolute;
+            top: -25px;
+            left: -25px;
+            bottom: 0;
+            right: 0;
+            background: inherit;
+            box-shadow: inset 0 0 0 200px rgba(255,255,255,0.2);
+            filter: blur(10px);
+        }
+        body{
            background-color: black;
            background-image: url('https://i1.wp.com/thumbs.gfycat.com/FeminineVillainousFlea-size_restricted.gif');
            height: 100%;
@@ -41,8 +66,18 @@
             }
  </style>
   <body>
-      <text> <font size="6"> <center> You are logged out! <center> <font> </text>
+      <text> <font size="6"> <center> You have Logged Out. <center> <font> </text>
   </body>
+  <body>
+    <div id= container>
+      <font size="9">
+      <center><form name="loginform" id="myForm" method="POST">
+          <text> <font size="6"> <center> You have Logged Out. <center> <font> </text>
+          <button class = "button" onclick="location.href = 'Login.php';"
+            type="button" name="Login"> Login</button>
+  		</form></center>
+    </div>
+	</body>
 </html>
 <?php
 session_start();
