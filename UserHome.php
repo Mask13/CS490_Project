@@ -98,7 +98,7 @@ else{
             margin: 30px;
             position: relative;
             top: 50%;
-            left: 50%;
+            left: 30%;
             margin-right: auto;
             margin-left: auto;
           }
