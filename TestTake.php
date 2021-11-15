@@ -19,6 +19,9 @@ else{
   <head>
     <meta charset="utf-8">
     <title>Test Taker</title>
+    <button style= "float:right;"type="button" onclick="location.href = 'UserHome.php';"
+           class = "button" name="Login"> Back
+   </button>
   </head>
   <style>
     #container{
