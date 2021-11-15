@@ -30,7 +30,7 @@ else{
             width: 650px;
             height: 750px;
             background: inherit;
-            position: relative;
+            position: absolute;
             overflow: hidden;
             top: 60%;
             left: 50%;
