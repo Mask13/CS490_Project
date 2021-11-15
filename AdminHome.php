@@ -221,7 +221,7 @@ else{
       transform: translate(-50%, -50%);
     }
     .tableContainer{
-      margin-bottom: 150px;
+      margin-top: 50px;
       position: relative;
     }
 </style>
