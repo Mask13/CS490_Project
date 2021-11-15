@@ -16,7 +16,7 @@ else{
   <head>
     <meta charset="utf-8">
     <title>Admin</title>
-    <div class="container">
+    <div class="container2">
       <div class="center">
       <titles style= "position:relative; top: 6">
         Hello Admin
@@ -28,6 +28,31 @@ else{
   </div>
   </head><br>
   <style>
+    #container{
+            width: 350px;
+            height: 450px;
+            background: inherit;
+            position: absolute;
+            overflow: hidden;
+            top: 50%;
+            left: 50%;
+            margin-left: -175px;
+            margin-top: -250px;
+            border-radius: 8px;
+      }
+      #container:before{
+            width: 400px;
+            height: 550px;
+            content: "";
+            position: absolute;
+            top: -25px;
+            left: -25px;
+            bottom: 0;
+            right: 0;
+            background: inherit;
+            box-shadow: inset 0 0 0 200px rgba(255,255,255,0.2);
+            filter: blur(10px);
+      }
       table, th, td {
         border: 1px solid black;
         border-radius: 10px;
@@ -88,7 +113,7 @@ else{
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
           }
-          .container {
+          .container2 {
             margin: 20px;
             padding: 5px;
             height: 50px;
@@ -106,41 +131,43 @@ else{
           }
  </style>
   <body>
-    <div class="container">
-      <div class="center">
-        <!-- Tests section -->
-        <button type="button" onclick="location.href = 'Tests.php';"
-              class = "button" name="MNTest"> View Tests
-        </button>
-    <!-- Questons -->
-        <button type="button" onclick="location.href = 'Questions.php';"
-                class = "button" name="MNTest"> View Questions
-        </button><br><br>
-      </div>
-    </div> 
-    <!-- display current students here-->
-    <div class="container">
-      <div class="center">
-        <center><titles style="position:relative; top:60">Students</titles><center><br><br>
-        <form method="post">
-            <?php
-              require "config.php";
-              $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-              $db= new PDO($connection_string, $dbuser, $dbpass);
-              try{
-                $sql ="SELECT UID, Username from users Where IsAdmin = 0";
+    <div id= container>
+      <div class="container2">
+        <div class="center">
+          <!-- Tests section -->
+          <button type="button" onclick="location.href = 'Tests.php';"
+                class = "button" name="MNTest"> View Tests
+          </button>
+          <!-- Questons -->
+          <button type="button" onclick="location.href = 'Questions.php';"
+                  class = "button" name="MNTest"> View Questions
+          </button><br><br>
+        </div>
+      </div> 
+      <!-- display current students here-->
+      <div class="container2">
+        <div class="center">
+          <center><titles style="position:relative; top:60">Students</titles><center><br><br>
+          <form method="post">
+              <?php
+                require "config.php";
+                $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+                $db= new PDO($connection_string, $dbuser, $dbpass);
+                try{
+                  $sql ="SELECT UID, Username from users Where IsAdmin = 0";
 
-                echo "<select class= 'formInput2' id='studentID' name='studentID' value=''>Student Name</option>"; // list box select command
+                  echo "<select class= 'formInput2' id='studentID' name='studentID' value=''>Student Name</option>"; // list box select command
 
-                foreach ($db->query($sql) as $row){//Array or records stored in $row
-                  echo "<option value=$row[UID]>$row[Username]</option>";
+                  foreach ($db->query($sql) as $row){//Array or records stored in $row
+                    echo "<option value=$row[UID]>$row[Username]</option>";
+                  }
+                  echo "</select>";// Closing of list box
                 }
-                echo "</select>";// Closing of list box
-              }
-              finally{}
-            ?>
-            <input class= "button" type="submit" value="See tests"/>
-        </form>
+                finally{}
+              ?>
+              <input class= "button" type="submit" value="See tests"/>
+          </form>
+        </div>
       </div>
     </div>
   </body>
