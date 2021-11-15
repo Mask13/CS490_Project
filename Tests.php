@@ -7,10 +7,10 @@
         Tests
       </titles>
       <button style= "float:right;"type="button" onclick="location.href = 'Logout.php';"
-           class = "button2" name="Login"> Logout
+           class = "button" name="Login"> Logout
       </button>
       <button style= "float:right;"type="button" onclick="location.href = 'AdminHome.php';"
-           class = "button2" name="Login"> Home
+           class = "button" name="Login"> Home
       </button>
    </div>
   </head><br>
@@ -46,8 +46,10 @@
               border-radius: 25px;
               font-size: 16px;
           }
-          .button:hover {background-color: rgb(69, 74, 28)}
-          .button2 {
+          button:hover:focus:active {
+            background-color: rgb(69, 74, 28);
+          }
+          /*.button2 {
             padding: 15px 25px;
             font-size: 16px;
             text-align: center;
@@ -57,14 +59,14 @@
             background-color: rgb(230, 231, 208);
             border: inset #c6a226;
             border-radius: 15px;
-            /*box-shadow: 0 9px #999;*/
+            box-shadow: 0 9px #999;
           }
           .button2:active {
             background-color: rgb(69, 74, 28);
-            /*box-shadow: 0 5px #666;*/
+            box-shadow: 0 5px #666;
             transform: translateY(4px);
           }
-          .button2:hover {background-color: rgb(69, 74, 28);}
+          .button2:hover {background-color: rgb(69, 74, 28);}*/
           .formInput1{
             width: 10%;
             padding: 10px;
@@ -106,7 +108,7 @@
     <container>
     <!-- Tests section -->
     <button style = "position: relative; left: 55px;" type="button" onclick="location.href = 'MNTest.php';"
-           class = "button2" name="MNTest"> Make New Test
+           class = "button" name="MNTest"> Make New Test
    </button><br><br>
    <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
    <?php
