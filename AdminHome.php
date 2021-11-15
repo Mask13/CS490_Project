@@ -100,7 +100,7 @@ else{
               text-align: center;
               text-decoration: none;
               display: inline-block;
-              border-radius: 25px;
+              border-radius: 32px;
               font-size: 16px;
           }
           .button2 {
