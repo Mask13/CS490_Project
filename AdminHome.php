@@ -106,7 +106,7 @@ else{
     <!-- Questons -->
         <button type="button" onclick="location.href = 'Questions.php';"
                 class = "button" name="MNTest"> View Questions
-        </button>
+        </button><br><br>
       </div>
     </div> 
     <!-- display current students here-->
