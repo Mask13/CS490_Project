@@ -142,7 +142,7 @@ else{
       <!-- display current students here-->
       <div class="container2">
         <div class="center">
-          <titles style="position:relative; top:60">Students</titles>
+          <center><titles style="position:relative; top:60">Students</titles><center>
           <form method="post">
               <?php
                 require "config.php";
