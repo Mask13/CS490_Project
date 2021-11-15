@@ -105,6 +105,17 @@ else{
               border-radius: 25px;
               font-size: 16px;
           }
+          .button2 {
+              background-color: Transparent;
+              border: inset #c6a226;
+              color: #bcbdbe;
+              padding: 25px 29px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              border-radius: 35px;
+              font-size: 26px;
+          }
           .label {
             padding: 12px 12px 12px 0;
             display: inline-block;
@@ -168,11 +179,11 @@ else{
         <div class="center">
           <!-- Tests section --><br><br><br>
           <button type="button" onclick="location.href = 'Tests.php';"
-                class = "button" name="MNTest"> View Tests
+                class = "button2" name="MNTest"> View Tests
           </button><br>
           <!-- Questons -->
           <button type="button" onclick="location.href = 'Questions.php';"
-                  class = "button" name="MNTest"> View Questions
+                  class = "button2" name="MNTest"> View Questions
           </button><br>
         </div>
       </div> 
