@@ -23,7 +23,7 @@ else{
            class = "button" name="Login"> Logout
    </button>
    </div>
-  </head><br>
+  </head>
   <style>
       text{
           font-size: 20px;
