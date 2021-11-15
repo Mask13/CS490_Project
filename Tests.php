@@ -203,7 +203,7 @@
     if(isset($_POST["studentID"]) && isset($_POST["EID"])){
       $_SESSION["EID"] = $_POST["EID"];
       $_SESSION["SID"] = $_POST["studentID"];
-      sleep(3);
-      echo "<html><script> alert('$_SESSION[SID]'); </script></html>";
+      sleep(3)
+      echo "<html><script> window.location.replace = 'autograde.php'; </script></html>";
     }
  ?>
