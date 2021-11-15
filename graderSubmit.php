@@ -1,5 +1,4 @@
 <html>
-
 <header>
 <button style= "float:right;"type="button" onclick="location.href = 'AdminHome.php';"
     class = "button" name="Login"> Home
@@ -9,7 +8,7 @@
     body{
          background-color: #000033;
          background-image: url('https://images.unsplash.com/photo-1445905595283-21f8ae8a33d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80');
-         height: 100%;
+         height:auto;
          background-position: center;
          background-repeat: no-repeat;
          background-size: cover;
@@ -32,7 +31,7 @@
         background-color: Transparent;
         border: inset #c6a226;
         color: #bcbdbe;
-        padding: 15px 19px;
+        padding: 10px 19px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
@@ -50,12 +49,13 @@
       padding: 2px;
     }
     .formInput1{
-      width: 95%;
+      width: 50%;
       padding: 10px;
       border: 2px solid #c6a226;
       border-radius: 25px;
       box-sizing: border-box;
       resize: vertical;
+      display: inline-table;
     }
 </style>
 <body>
@@ -263,7 +263,7 @@ echo "</table>";
 ?>
 <form method="post">
   <input class = "formInput1" type="text" name="comments" placeholder="Comment">
-  <input class = "formInput1" type="submit" value="release grade">
+  <input class = "button" type="submit" value="release grade">
 </form>
 </body>
 </html>
