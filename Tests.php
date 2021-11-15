@@ -2,7 +2,6 @@
   <head>
     <meta charset="utf-8">
     <title>Admin</title>
-    <div class="container2">
       <div>
         <titles style= "position:relative; top: 6">
           Tests
@@ -14,7 +13,6 @@
             class = "button" name="Login"> Home
         </button>
       </div>
-    </div>
   </head><br>
   <style>
       text{
@@ -35,12 +33,6 @@
           .container {
             height: 50px;
             position: relative;
-          }
-          .container2 {
-            margin: 25px;
-            width: 50%;
-            padding: 10px;
-            height: 200px;
           }
           .center {
             margin: 0;
