@@ -159,6 +159,26 @@ else{
   <div id=container>
     <div class="container2">
       <div class="center">
+        <form method="post">
+            <?php
+                include "config.php";
+                $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+                $db= new PDO($connection_string, $dbuser, $dbpass);
+                try{
+                  $sql = "SELECT EID, Exam_Name from exams";
+
+                  echo "<select class='formInput1' id='testID' name='testID' value=''>Tests</option>"; // list box select command
+
+                  foreach ($db->query($sql) as $row){//Array or records stored in $row
+                    echo "<option value=$row[EID]>$row[Exam_Name]</option>";
+                  }
+
+                  echo "</select>";// Closing of list box
+                }
+                finally{}
+            ?>
+            <input class= "button" type="submit" value="Take test"/>
+          </form>
         <?php
             require "config.php";
             $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -191,26 +211,6 @@ else{
             }
             finally{}
         ?><br>
-        <form method="post">
-          <?php
-              include "config.php";
-              $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-              $db= new PDO($connection_string, $dbuser, $dbpass);
-              try{
-                $sql = "SELECT EID, Exam_Name from exams";
-
-                echo "<select class='formInput1' id='testID' name='testID' value=''>Tests</option>"; // list box select command
-
-                foreach ($db->query($sql) as $row){//Array or records stored in $row
-                  echo "<option value=$row[EID]>$row[Exam_Name]</option>";
-                }
-
-                echo "</select>";// Closing of list box
-              }
-              finally{}
-          ?>
-          <input class= "button" type="submit" value="Take test"/>
-        </form>
       </div>
     </div>
   </div>
