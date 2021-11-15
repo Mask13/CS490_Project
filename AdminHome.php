@@ -125,9 +125,23 @@ else{
               border-radius: 27px;
               font-size: 16px;
           }
-          .button2:hover {background-color: #3e8e41}
+          .button3 {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            text-align: center;
+            cursor: pointer;
+            outline: none;
+            color: #bcbdbe;
+            background-color: rgb(230, 231, 208);
+            border: inset #c6a226;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            font-size: 16px;
+          }
+          .button3:hover {background-color: #3e8e41}
 
-          .button2:active {
+          .button3:active {
             background-color: #3e8e41;
             box-shadow: 0 5px #666;
             transform: translateY(4px);
@@ -203,11 +217,11 @@ else{
           <!-- Tests section --><br><br><br>
           <button type ="button" onclick="window.location.href=window.location.href" class = "button" name="MNTest">Remove Table</button>
           <button type="button" onclick="location.href = 'Tests.php';"
-                class = "button" name="MNTest"> View Tests
+                class = "button3" name="MNTest"> View Tests
           </button><br>
           <!-- Questons -->
           <button type="button" onclick="location.href = 'Questions.php';"
-                  class = "button" name="MNTest"> View Questions
+                  class = "button3" name="MNTest"> View Questions
           </button>
         </div>
       </div>
