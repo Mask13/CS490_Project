@@ -139,10 +139,10 @@ else{
             box-shadow: 0 9px #999;
             font-size: 16px;
           }
-          .button3:hover {background-color: #3e8e41}
+          .button3:hover {background-color: rgb(69, 74, 28);}
 
           .button3:active {
-            background-color: #3e8e41;
+            background-color: rgb(69, 74, 28);
             box-shadow: 0 5px #666;
             transform: translateY(4px);
           }
@@ -215,7 +215,7 @@ else{
       <div class="container2">
         <div class="center">
           <!-- Tests section --><br><br><br>
-          <button type ="button" onclick="window.location.href=window.location.href" class = "button" name="MNTest">Remove Table</button>
+          <button type ="button" onclick="window.location.href=window.location.href" class = "button3" name="MNTest">Remove Table</button>
           <button type="button" onclick="location.href = 'Tests.php';"
                 class = "button3" name="MNTest"> View Tests
           </button><br>
