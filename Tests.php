@@ -38,7 +38,8 @@
           }
           .container2 {
             margin: 25px;
-            width: 350px;
+            width: 50%;
+            padding: 10px;
             height: 200px;
           }
           .center {
