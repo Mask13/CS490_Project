@@ -223,7 +223,7 @@ else{
     .tableContainer{
       margin-bottom: 40%;
       padding: 10px;
-      position: relative;
+      position: absolute;
     }
 </style>
 <div class="tableContainer">
