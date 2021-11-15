@@ -26,7 +26,7 @@
         padding: 2px;
       }
       splitscreen{
-        width:80%;
+        width:60%;
         float: right;
         padding-top: 30px;
       }
@@ -78,7 +78,7 @@
         transform: translateY(4px);
       }
       .formNT{
-        width:20%;
+        width:40%;
         position: relative; top:90px;
       }
       .formNt input{
