@@ -149,7 +149,7 @@ else{
           }
  </style>
   <body>
-    <div id= container>
+    <div id= "container">
       <!-- display current students here-->
       <div class="container2">
         <div class="center">
