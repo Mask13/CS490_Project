@@ -1,8 +1,6 @@
 <html>
 	<head>
-		<title>My Project - Logout</title>
-		<button class = "button" onclick="location.href = 'Login.php';"
-    type="button" name="Login"> Login</button>
+		<title>Logout</title>
 	</head>
   <style>
         #container{
@@ -69,7 +67,8 @@
     <div id= container>
       <font size="9">
       <center><form name="loginform" id="myForm" method="POST">
-          <text> <font size="6"> <center> You have Logged Out. <center> <font> </text>
+          <center style="position: relative; bottom: 80px; color:white" > You have Logged Out.:</center>
+          <center style="font-size: 15px; position: relative; bottom: 70px; color:gray" > Click on Login to Log back in.</center>
           <button class = "button" onclick="location.href = 'Login.php';"
             type="button" name="Login"> Login</button>
   		</form></center>
