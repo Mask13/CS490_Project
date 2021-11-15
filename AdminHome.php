@@ -103,11 +103,7 @@ else{
         <button type="button" onclick="location.href = 'Tests.php';"
               class = "button" name="MNTest"> View Tests
         </button>
-      </div>
-    </div>
     <!-- Questons -->
-    <div class="container">
-      <div class="center">
         <button type="button" onclick="location.href = 'Questions.php';"
                 class = "button" name="MNTest"> View Questions
         </button>
@@ -181,3 +177,6 @@ else{
     ?>
   </div>
 </div>
+
+</body>
+</html>
