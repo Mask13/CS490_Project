@@ -18,9 +18,9 @@ else{
     <title>Admin</title>
     <div class="container2">
       <div class="center">
-      <titles style= "position:relative; top: 6">
+      <titles_big style= "position:relative; top: 6">
         Hello Admin
-      </titles>
+      </titles_big>
     <button style= "float:right;" type="button" onclick="location.href = 'Logout.php';"
            class = "button" name="Login"> Logout
    </button>
@@ -163,7 +163,7 @@ else{
       <!-- display current students here-->
       <div class="container2">
         <div class="center">
-          <center><titles_big style="position:relative; top:60">Students</titles_big><center><br><br>
+          <center><titles style="position:relative; top:60">Students</titles><center><br><br>
           <form method="post">
               <?php
                 require "config.php";
