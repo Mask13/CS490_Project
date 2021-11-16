@@ -228,7 +228,7 @@ foreach ($questions as $qNum) {
             echo "		<td style='text-align: center; vertical-align: middle;'> $testCasePoints</td>";
             echo "    <td style='text-align: center; vertical-align: middle;'>"; // changing grades
             echo "      <form method='POST'> <input type='text' name='testCase$x$qNum' size ='5'>";
-            echo " 			<input type='submit' value='Submit' name='B1'> <form>";
+            echo " 			<input type='submit' value='Submit' name='B1'> </form>";
             echo "    </td>";
             echo "	</tr>";
             echo "	<tr>";
