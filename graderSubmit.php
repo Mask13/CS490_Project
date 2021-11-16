@@ -5,6 +5,11 @@
 </button>
 </header>
 <style>
+    splitscreen{
+      width:30%;
+      float: right;
+      padding-top: 30px;
+    }
     body{
          background-color: #000033;
          background-image: url('https://images.unsplash.com/photo-1445905595283-21f8ae8a33d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80');
@@ -234,12 +239,6 @@ foreach ($questions as $qNum) {
             echo "	<tr>";
 
         }
-        echo "<td>";
-        echo "  <form method='POST'>";
-        echo "    <input type= 'text' class = 'formInput1' name='comment$qNum'>";
-        echo "    <input type='submit' class = 'button' value='release grade'>";
-        echo "  </form>";
-        echo "</td>";
     }
 }
 
@@ -267,6 +266,35 @@ echo "	</tr>";
 echo "</table>";
 
 ?>
+<splitscreen>
+  <?php
+    $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+    $db= new PDO($connection_string, $dbuser, $dbpass);
+
+    $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
+    foreach ($questions as $qNum) {
+
+        $s = $db->prepare("SELECT resultID FROM results WHERE EID = '$EID' AND UID = '$UID'");
+        $s->execute();
+        $r = $s->fetch(PDO::FETCH_ASSOC);
+        $reID = $r["resultID"]; // getting result ID
+
+        $s = $db->prepare("SELECT $qNum FROM QuestionAssignments WHERE EID = '$EID'");
+        $s-> execute();
+        $r = $s->fetch(PDO::FETCH_ASSOC);
+        $qID = $r["$qNum"]; // getting question ID
+
+        $value = $qNum."P";
+
+        if ($r["$qNum"] != NULL && $r["$qNum"] != 0) {
+          echo "<form name = 'comment$qNum' method='post'>";
+          echo "  <textarea form = 'comment$qNum' class = 'formInput1' style = 'resize:none; rows: 3;' name='comment$qNum'></textarea>";
+          echo "  <input class = 'button' type='submit' value='release grade'>";
+          echo "</form>";
+        }
+    }
+  ?>
+<splitscreen>
 </body>
 </html>
 
