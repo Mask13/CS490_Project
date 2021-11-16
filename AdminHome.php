@@ -77,7 +77,7 @@ else{
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <button class="btn btn-outline-success my-2 my-sm-0" style="background-color: rgb(230, 231, 208);" type="submit">Logout</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" style="background-color: rgb(230, 231, 208);" type="submit" href="Logout.php">Logout</button>
     </form>
   </div>
 </nav>
