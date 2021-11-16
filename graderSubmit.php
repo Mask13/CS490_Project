@@ -5,14 +5,6 @@
 </button>
 </header>
 <style>
-    splitscreen{
-      width:30%;
-      float: right;
-      padding-top: 30px;
-    }
-    grader{
-      width:60%;
-    }
     body{
          background-color: #000033;
          background-image: url('https://images.unsplash.com/photo-1445905595283-21f8ae8a33d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80');
@@ -61,12 +53,14 @@
       width: 80%;
       padding: 20px;
       border: 2px solid #c6a226;
-      border-radius: 5px;
+      border-radius: 10px;
+      resize:both;
+      display: inline-table;
     }
 </style>
 <body>
 <titles>Results of AutoGrader</titles>
-<grader>
+
 <?php
 
 session_start();
@@ -240,6 +234,14 @@ foreach ($questions as $qNum) {
             echo "	<tr>";
 
         }
+        //sacrifical form ooof lol
+        echo "  <form></form>";
+        echo " 	<tr>";
+        echo "    <form name = 'commentF$qNum' id = 'commentF$qNum' method='post'>";
+        echo "      <textarea form = 'commentF$qNum' class = 'formInput1' name='comment$qNum' id='comment$qNum'></textarea>";
+        echo "      <input form= 'commentF$qNum' class = 'button' type='submit' value='release grade'>";
+        echo "    </form>";
+        echo "	</tr>";
     }
 }
 
@@ -267,36 +269,6 @@ echo "	</tr>";
 echo "</table>";
 
 ?>
-</grader>
-<splitscreen>
-  <?php
-    $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-    $db= new PDO($connection_string, $dbuser, $dbpass);
-
-    $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
-    foreach ($questions as $qNum) {
-
-        $s = $db->prepare("SELECT resultID FROM results WHERE EID = '$EID' AND UID = '$UID'");
-        $s->execute();
-        $r = $s->fetch(PDO::FETCH_ASSOC);
-        $reID = $r["resultID"]; // getting result ID
-
-        $s = $db->prepare("SELECT $qNum FROM QuestionAssignments WHERE EID = '$EID'");
-        $s-> execute();
-        $r = $s->fetch(PDO::FETCH_ASSOC);
-        $qID = $r["$qNum"]; // getting question ID
-
-        $value = $qNum."P";
-
-        if ($r["$qNum"] != NULL && $r["$qNum"] != 0) {
-          echo "<form name = 'commentF$qNum' method='post'>";
-          echo "  <textarea form = 'commentF$qNum' class = 'formInput1' name='comment$qNum'></textarea>";
-          echo "  <input class = 'button' type='submit' value='release grade'>";
-          echo "</form>";
-        }
-    }
-  ?>
-<splitscreen>
 </body>
 </html>
 
@@ -325,13 +297,38 @@ if (!empty($_POST)) {
 
         $value = $qNum."P";
 
-        if(isset($_POST["comment$qNum"])){
-          $comment = $_POST["comment$qNum"];
-          $temp = "comment$qNum";
-          $sql = $db->prepare("UPDATE results SET released = 1, :comment='$comment' WHERE resultID= '$reID'");
-          $param = array(":comment"=>$temp);
-          $sql->execute($param);
-          echo "<html><script>alert('$comment');</script></html>";
+        if(isset($_POST["commentQ1"])){
+          $comment = $_POST["commentQ1"];
+          $sql = $db->prepare("UPDATE results SET released = 1, commentQ1='$comment' WHERE resultID= '$reID'");
+          $sql->execute();
+          break;
+        }
+        
+        if(isset($_POST["commentQ2"])){
+          $comment = $_POST["commentQ2"];
+          $sql = $db->prepare("UPDATE results SET released = 1, commentQ2='$comment' WHERE resultID= '$reID'");
+          $sql->execute();
+          break;
+        }
+
+        if(isset($_POST["commentQ3"])){
+          $comment = $_POST["commentQ3"];
+          $sql = $db->prepare("UPDATE results SET released = 1, commentQ3='$comment' WHERE resultID= '$reID'");
+          $sql->execute();
+          break;
+        }
+
+        if(isset($_POST["commentQ4"])){
+          $comment = $_POST["commentQ4"];
+          $sql = $db->prepare("UPDATE results SET released = 1, commentQ4='$comment' WHERE resultID= '$reID'");
+          $sql->execute();
+          break;
+        }
+
+        if(isset($_POST["commentQ5"])){
+          $comment = $_POST["commentQ5"];
+          $sql = $db->prepare("UPDATE results SET released = 1, commentQ5='$comment' WHERE resultID= '$reID'");
+          $sql->execute();
           break;
         }
 
