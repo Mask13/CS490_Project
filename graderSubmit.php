@@ -54,7 +54,7 @@
       padding: 20px;
       border: 2px solid #c6a226;
       border-radius: 10px;
-      resize:none;
+      resize:both;
       display: inline-table;
     }
 </style>
@@ -228,16 +228,18 @@ foreach ($questions as $qNum) {
             echo "		<td style='text-align: center; vertical-align: middle;'> $testCasePoints</td>";
             echo "    <td style='text-align: center; vertical-align: middle;'>"; // changing grades
             echo "      <form method='POST'> <input type='text' name='testCase$x$qNum' size ='5'>";
-            echo " 			<input type='submit' value='Submit' name='B1'> </form>";
+            echo " 			<input type='submit' value='Submit' name='B1'> <form>";
             echo "    </td>";
             echo "	</tr>";
             echo "	<tr>";
 
         }
-        echo "<form name='commentF$qNum' method='POST'>";
-        echo "  <textarea class = 'formInput1' form = 'commentF$qNum' name='comment$qNum'></textarea>";
-        echo "  <input type='submit' value='release grade'>";
-        echo "</form>";
+        echo "<td>";
+        echo "  <form method='POST'>";
+        echo "    <input type= 'text' class = 'formInput1' name='comment$qNum'>";
+        echo "    <input type='submit' class = 'button' value='release grade'>";
+        echo "  </form>";
+        echo "</td>";
     }
 }
 
