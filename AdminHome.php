@@ -281,12 +281,16 @@ else{
       $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
       $db= new PDO($connection_string, $dbuser, $dbpass);
       try{
-        $sql = "SELECT EID, result, comments, newGrade, resultID from results Where UID = '$_POST[studentID]'";
+        $sql = $db->prepare("SELECT EID, result, commentQ1, commentQ2, commentQ3, commentQ4, commentQ5, newGrade, resultID from results Where UID = '$_POST[studentID]'");
         echo "<table style='margin-top:10px;'>"; // list box select command
         echo "<tr>";
         echo "<th>Exam Name</th>";
         echo "<th>Result</th>";
-        echo "<th>Comment</th>";
+        echo "<th>Comment1</th>";
+        echo "<th>Comment2</th>";
+        echo "<th>Comment3</th>";
+        echo "<th>Comment4</th>";
+        echo "<th>Comment5</th>";
         echo "<th>ResultID</th>";
         echo "</tr>";
         foreach ($db->query($sql) as $row){//Array or records stored in $row
@@ -296,12 +300,16 @@ else{
           echo "<tr>";
           echo "<td>$row2[Exam_Name]</td>";
           echo "<td>$row[result]</td>";
-          echo "<td>$row[comments]</td>";
+          echo "<td>$row[commentQ1]</td>";
+          echo "<td>$row[commentQ2]</td>";
+          echo "<td>$row[commentQ3]</td>";
+          echo "<td>$row[commentQ4]</td>";
+          echo "<td>$row[commentQ5]</td>";
           echo "<td>$row[resultID]</td>";
           echo "</tr>";
         }
         echo "</table>";// Closing of list box
-        $sql = $db->prepare("SELECT EID, result, comments, newGrade, resultID from results Where UID = '$_POST[studentID]'");
+        $sql = $db->prepare("SELECT EID, result, comment, newGrade, resultID from results Where UID = '$_POST[studentID]'");
         $sql->execute();
         $glob = $sql->fetch(PDO::FETCH_ASSOC);
       }
