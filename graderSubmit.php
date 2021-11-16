@@ -299,9 +299,7 @@ if (!empty($_POST)) {
           $sql = $db->prepare("UPDATE results SET released = 1, :comment='$comment' WHERE resultID= '$reID'");
           $param = array(":comment"=>$temp);
           $sql->execute($param);
-          $r = $sql->fetch(PDO::FETCH_ASSOC);
-          echo "<pre>" . var_export($r, true) . "</pre>";
-          echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
+          echo "<html><script>alert('$comment');</script></html>";
           break;
         }
 
