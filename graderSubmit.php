@@ -294,9 +294,10 @@ if (!empty($_POST)) {
         $value = $qNum."P";
 
         if(isset($_POST["comment$qNum"])){
-          $comment = $_POST["comments"];
-          $sql = $db->prepare("UPDATE results SET released = 1, :comment ='$comment' WHERE resultID= '$reID'");
-          $param = array(":comment"=>"comment$qNum");
+          $comment = $_POST["comment$qNum"];
+          $temp = "comment$qNum";
+          $sql = $db->prepare("UPDATE results SET released = 1, :comment='$comment' WHERE resultID= '$reID'");
+          $param = array(":comment"=>$temp);
           $sql->execute($param);
           break;
         }
