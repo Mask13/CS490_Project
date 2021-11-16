@@ -107,7 +107,7 @@ else{
         ?>
       </form>
       <p>In this current section, you will be able to see information about each student.</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button" type="submit" value="See tests">See Tests &raquo;</a></p>
+      <p><a class="btn btn-primary btn-lg" role="button" type="submit" value="See tests">See Tests &raquo;</a></p>
     </div>
   </div>
 
