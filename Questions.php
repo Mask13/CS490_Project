@@ -7,10 +7,10 @@
         Questions
       </titles>
       <button style= "float:right;"type="button" onclick="location.href = 'Logout.php';"
-           class = "button" name="Login"> Logout
+           class = "button3" name="Login"> Logout
       </button>
       <button style= "float:right;"type="button" onclick="location.href = 'AdminHome.php';"
-           class = "button" name="Login"> Home
+           class = "button3" name="Login"> Home
       </button>
    </div>
   </head><br>
@@ -55,9 +55,9 @@
         margin: 20px;
       }
       .button {
-        background-color: Transparent;
+        background-color: rgb(230, 231, 208);
         border: inset #c6a226;
-        color: #bcbdbe;
+        color: #c6a226;
         padding: 15px 19px;
         text-align: center;
         text-decoration: none;
@@ -65,10 +65,23 @@
         border-radius: 25px;
         font-size: 16px;
       }
-      .button:hover {
-        background-color: rgb(69, 74, 28);
+      .button3 {
+        display: inline-block;
+        padding: 15px 25px;
+        font-size: 24px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #bcbdbe;
+        background-color: rgb(230, 231, 208);
+        border: inset #c6a226;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+        font-size: 16px;
       }
-      .button:active {
+      .button3:hover {background-color: rgb(69, 74, 28);}
+
+      .button3:active {
         background-color: rgb(69, 74, 28);
         box-shadow: 0 5px #666;
         transform: translateY(4px);
@@ -91,7 +104,7 @@
   <body>
     <!-- Tests section -->
     <button type="button" onclick="location.href = 'MNQuestion.php';"
-           class = "button" name="MNTest"> Make New Question
+           class = "button3" name="MNTest"> Make New Question
    </button><br><br>
    <!-- Display all Questions with a SQL Query. -->
    <?php
@@ -133,14 +146,14 @@
        finally{}
     ?>
    <form id="myForm" method="POST">
-     <input class = "formInput1" type= "number" id="questionID" placeholder="Insert Question ID"></input>
-      <input class = "button" type="submit" name="Delete" value="Delete"></input>
+     <input class = "formInput1" type= "number" name ="questionID" placeholder="Insert Question ID"></input>
+      <input class = "button3" type="submit" name="Delete" value="Delete"></input>
    </form>
   </body>
 </html>
 
 <?php
-    if(isset($_POST["TestID"])){
+    if(isset($_POST["questionID"])){
       try{
         require ("config.php");
         $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
