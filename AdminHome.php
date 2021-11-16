@@ -89,7 +89,7 @@ else{
   <div class="jumbotron" style="background-image: url('https://media.giphy.com/media/oLzgl79VN6bbrQUSLe/giphy.gif'); color: rgb(232,234,154);">
     <div class="container">
       <h1 class="display-3">Hello, Admin!</h1>
-      <h3 class="display-5" style="text-decoration:underline;">About the Student</h3>
+      <h3 class="display-5" style="color: rgb(253, 255, 122)">About the Student</h3>
       <form method="post">
         <?php
           require "config.php";
