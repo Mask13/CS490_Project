@@ -236,12 +236,12 @@ foreach ($questions as $qNum) {
         }
         //sacrifical form ooof lol
         echo "  <form></form>";
-        echo " 	<tr>";
+        echo " 	<td span = '5'>";
         echo "    <form name = 'commentF$qNum' id = 'commentF$qNum' method='post'>";
         echo "      <textarea form = 'commentF$qNum' class = 'formInput1' name='comment$qNum' id='comment$qNum'></textarea>";
         echo "      <input form= 'commentF$qNum' class = 'button' type='submit' value='release grade'>";
         echo "    </form>";
-        echo "	</tr>";
+        echo "	</td>";
     }
 }
 
@@ -303,7 +303,7 @@ if (!empty($_POST)) {
           $sql->execute();
           break;
         }
-        
+
         if(isset($_POST["commentQ2"])){
           $comment = $_POST["commentQ2"];
           $sql = $db->prepare("UPDATE results SET released = 1, commentQ2='$comment' WHERE resultID= '$reID'");
