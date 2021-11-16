@@ -89,7 +89,7 @@ else{
   <div class="jumbotron">
     <div class="container">
       <h1 class="display-3">Hello, Admin!</h1>
-      <h3 class="display-3">About the Student</h3>
+      <h3 class="display-2">About the Student</h3>
       <form method="post">
         <?php
           require "config.php";
