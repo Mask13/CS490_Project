@@ -15,56 +15,6 @@
   </head><br>
   <style>
       /*All sections */
-      /* custom radio from W3Schools */
-      label{
-        display: block;
-        position: relative;
-        padding-left: 35px;
-        cursor: pointer;
-        font-size: 20px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-      label input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-      }
-      .radio {
-        position: absolute;
-        top: 8;
-        left: 8;
-        height: 15px;
-        width: 15px;
-        background-color: #eee;
-        border-radius: 50%;
-      }
-      label:hover input ~ .radio {
-        background-color: #ccc;
-      }
-      label input:checked ~ .radio {
-        background-color: #c6a226;
-      }
-      .radio:after {
-        content: "";
-        position: absolute;
-        display: none;
-      }
-      label input:checked ~ .radio:after {
-        display: block;
-      }
-      label .radio:after {
-        top: 4px;
-        left: 4px;
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: #000033;
-      }
       titles{
         width: 200px;
         text-align: center;
@@ -76,7 +26,7 @@
         padding: 2px;
       }
       splitscreen{
-        width:60%;
+        width:80%;
         float: right;
         padding-top: 30px;
       }
@@ -101,7 +51,7 @@
       }
       body{
         background-color: #000033;
-        background-image: url('https://media.giphy.com/media/q3k9yg1qoFzoy1D8du/giphy-downsized-large.gif');
+        background-image: url('https://images.unsplash.com/photo-1445905595283-21f8ae8a33d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80');
         height: 100%;
         background-position: center;
         background-repeat: no-repeat;
@@ -118,9 +68,9 @@
         resize: vertical;
       }
       .button {
-        background-color: rgb(230, 231, 208);
+        background-color: Transparent;
         border: inset #c6a226;
-        color: #c6a226;
+        color: #bcbdbe;
         padding: 15px 19px;
         text-align: center;
         text-decoration: none;
@@ -128,15 +78,8 @@
         border-radius: 25px;
         font-size: 16px;
       }
-      .button:hover {background-color: rgb(69, 74, 28);}
-
-      .button:active {
-        background-color: rgb(69, 74, 28);
-        box-shadow: 0 5px #666;
-        transform: translateY(4px);
-      }
       .formNQ{
-        width:40%;
+        width:20%;
         position: relative; top:10px;
       }
       .formNQ select{
@@ -264,7 +207,7 @@
    <br>
    <br>
    <form class = "formNQ" name="NewQuestion" id="myForm" method="POST">
-     <textarea form = 'formNQ' class= "formInput1" type= "Text" name = "QT" id="QT" placeholder="Question Text"></textarea><br>
+     <input class= "formInput1" type= "Text" name = "QT" id="QT" placeholder="Question Text"></input><br>
      <!-- Info for test case 1 -->
      <input class= "formInput1" type= "Text" name = "QI1" id="QI1" placeholder="Question Test 1"></input><br>
      <input class= "formInput1" type= "Text" name = "QA1" id="QA1" placeholder="Answer 1"></input><br>
@@ -288,19 +231,16 @@
        <option value="hard">Hard</option>
      </select><br>
      <input class= "formInput1" type= "Text" name = "QFN" id ="QFN" placeholder="Function Name"></input><br>
-     <label style="padding-top: 13px;"for="F">For Loop
-       <input class = "radio" type= "radio" name = "QCN" id="F" value="F"></input>
-       <span style="margin-top:10px;"class="radio"></span>
+     <label class="radios" for="F">For Loop
+       <input type= "radio" name = "QCN" id="F" value="F"></input>
      </label><br>
-     <label for="W">While Loop
-       <input class = "radio" type= "radio" name = "QCN"  id="W" value="W"></input>
-       <span class="radio"></span>
+     <label class="radios" for="W">While Loop
+       <input type= "radio" name = "QCN"  id="W" value="W"></input>
      </label><br>
-     <label for="R">Recursion
-       <input class = "radio" type= "radio" name = "QCN" id="R" value="R"></input>
-       <span class="radio"></span>
+     <label class="radios" for="R">Recursion
+       <input type= "radio" name = "QCN" id="R" value="R"></input>
      </label><br>
-     <input  style="margin-top: -15px;"class= "button" class= "button" type="submit" value="Make Question"/>
+     <input class= "button" class= "button" type="submit" value="Make Question"/>
    </form>
   </body>
 </html>
