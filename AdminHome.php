@@ -105,9 +105,10 @@ else{
           }
           finally{}
         ?>
+      <p><a class="btn btn-primary btn-lg" type="submit" value="See tests">See Tests &raquo;</a></p>
       </form>
       <p style="color: rgb(228, 228, 221);">In this current section, you will be able to see information about each student.</p>
-      <p><a class="btn btn-primary btn-lg" href="#" type="submit" value="See tests">See Tests &raquo;</a></p>
+      
     </div>
   </div>
 
