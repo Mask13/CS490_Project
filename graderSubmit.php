@@ -38,18 +38,6 @@
         border-radius: 25px;
         font-size: 16px;
     }
-    .button1 {
-        background-color: Transparent;
-        border: inset #c6a226;
-        color: #bcbdbe;
-        padding: 10px 19px;
-        text-align: center;
-        position: relative; left: 20px;
-        text-decoration: none;
-        display: inline-block;
-        border-radius: 10px;
-        font-size: 16px;
-    }
     .button:hover {background-color: rgb(69, 74, 28);}
     titles{
       width: 200px;
@@ -248,7 +236,7 @@ foreach ($questions as $qNum) {
         }
         echo "<td colspan = '5'><form name = 'comment$qNum' method='post'>";
         echo "  <textarea form = 'comment$qNum' class = 'formInput1' name='comment$qNum'></textarea>";
-        echo "  <input class = 'button1' type='submit' value='release grade'>";
+        echo "  <input type='submit' value='release grade'>";
         echo "</form> </td>";
     }
 }
