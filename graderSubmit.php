@@ -289,8 +289,8 @@ echo "</table>";
         $value = $qNum."P";
 
         if ($r["$qNum"] != NULL && $r["$qNum"] != 0) {
-          echo "<form name = 'comment$qNum' method='post'>";
-          echo "  <textarea form = 'comment$qNum' class = 'formInput1' name='comment$qNum'></textarea>";
+          echo "<form name = 'commentF$qNum' method='post'>";
+          echo "  <textarea form = 'commentF$qNum' class = 'formInput1' name='comment$qNum'></textarea>";
           echo "  <input class = 'button' type='submit' value='release grade'>";
           echo "</form>";
         }
