@@ -282,6 +282,8 @@ else{
       $db= new PDO($connection_string, $dbuser, $dbpass);
       try{
         $sql = $db->prepare("SELECT EID, result, commentQ1, commentQ2, commentQ3, commentQ4, commentQ5, newGrade, resultID from results Where UID = '$_POST[studentID]'");
+        $sql->execute();
+        $row = $sql->fetch(PDO::FETCH_ASSOC);
         echo "<table style='margin-top:10px;'>"; // list box select command
         echo "<tr>";
         echo "<th>Exam Name</th>";
