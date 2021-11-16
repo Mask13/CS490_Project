@@ -86,7 +86,7 @@ else{
 <main role="main">
 
   <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron" style="background-image: url('https://media.giphy.com/media/oLzgl79VN6bbrQUSLe/giphy.gif');">
+  <div class="jumbotron" style="background-image: url('https://media.giphy.com/media/oLzgl79VN6bbrQUSLe/giphy.gif'); color: rgb(232,234,154);">
     <div class="container">
       <h1 class="display-3">Hello, Admin!</h1>
       <h3 class="display-5">About the Student</h3>
