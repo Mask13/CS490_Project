@@ -88,9 +88,26 @@ else{
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron">
     <div class="container">
-      <h1 class="display-3">Hello, world!</h1>
-      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      <h1 class="display-3">Hello, Admin!</h1>
+      <h3 class="display-3">About the Student</h3>
+      <form method="post">
+        <?php
+          require "config.php";
+          $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+          $db= new PDO($connection_string, $dbuser, $dbpass);
+          try{
+            $sql ="SELECT UID, Username from users Where IsAdmin = 0";
+            echo "<select class= 'formInput2' id='studentID' name='studentID' value=''>Student Name</option>"; // list box select command
+            foreach ($db->query($sql) as $row){//Array or records stored in $row
+              echo "<option value=$row[UID]>$row[Username]</option>";
+            }
+            echo "</select>";// Closing of list box
+          }
+          finally{}
+        ?>
+      </form>
+      <p>In this current section, you will be able to see information about each student.</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button" type="submit" value="See tests">See Tests &raquo;</a></p>
     </div>
   </div>
 
