@@ -86,7 +86,7 @@ else{
 <main role="main">
 
   <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron">
+  <div class="jumbotron" style="background-image: url('https://i0.wp.com/gifimage.net/wp-content/uploads/2017/08/space-animated-gif-9.gif');">
     <div class="container">
       <h1 class="display-3">Hello, Admin!</h1>
       <h3 class="display-5">About the Student</h3>
