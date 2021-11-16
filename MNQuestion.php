@@ -27,6 +27,7 @@
         -ms-user-select: none;
         user-select: none;
       }
+      /* temp comment
       label input {
         position: absolute;
         opacity: 0;
@@ -64,7 +65,7 @@
         height: 7px;
         border-radius: 50%;
         background: #000033;
-      }
+      }*/
       titles{
         width: 200px;
         text-align: center;
