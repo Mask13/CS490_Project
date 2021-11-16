@@ -52,12 +52,9 @@ else{
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <a class="navbar-brand" href="#">CSClasses</a>
-
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <form action="Logout.php" class="form-inline my-2 my-lg-0">
-      <button class="btn btn-outline-success my-2 my-sm-0" style="background-color: rgb(230, 231, 208);" type="submit" href="Logout.php">Logout</button>
-    </form>
-  </div>
+  <form action="Logout.php" class="form-inline my-2 my-lg-0">
+    <button class="btn btn-outline-success my-2 my-sm-0" style="background-color: rgb(230, 231, 208); " type="submit" href="Logout.php">Logout</button>
+  </form>
 </nav>
 
 <main role="main">
