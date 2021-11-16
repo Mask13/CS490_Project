@@ -26,7 +26,7 @@ else{
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
     <!-- Bootstrap core CSS -->
-    
+
 <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -97,7 +97,7 @@ else{
           $db= new PDO($connection_string, $dbuser, $dbpass);
           try{
             $sql ="SELECT UID, Username from users Where IsAdmin = 0";
-            echo "<select class= 'formInput2' id='studentID' name='studentID' value=''>Student Name</option>"; // list box select command
+            echo "<select class= 'select' id='studentID' name='studentID' value=''>Student Name</option>"; // list box select command
             foreach ($db->query($sql) as $row){//Array or records stored in $row
               echo "<option value=$row[UID]>$row[Username]</option>";
             }
@@ -108,7 +108,7 @@ else{
       <p><a class="btn btn-primary btn-lg" type="submit" value="See tests">See Tests &raquo;</a></p>
       </form>
       <p style="color: rgb(228, 228, 221);">In this current section, you will be able to see information about each student.</p>
-      
+
     </div>
   </div>
 
@@ -193,6 +193,6 @@ else{
       finally{}
     }
   ?>
-  
+
 </body>
 </html>
