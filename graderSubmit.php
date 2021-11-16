@@ -53,9 +53,8 @@
       width: 80%;
       padding: 20px;
       border: 2px solid #c6a226;
-      border-radius: 10px;
-      resize:both;
-      display: inline-table;
+      border-radius: 5px;
+      display: inline;
     }
 </style>
 <body>
