@@ -90,7 +90,7 @@ else{
     <div class="container">
       <h1 class="display-3">Hello, Admin!</h1>
       <h3 class="display-5" style="color: rgb(253, 255, 122)">About the Student</h3>
-      <form method="post">
+      <form name = "getTest" id = "getTest" method="post">
         <?php
           require "config.php";
           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -105,7 +105,7 @@ else{
           }
           finally{}
         ?>
-      <p><a class="btn btn-primary btn-lg" type="submit" value="See tests">See Tests &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" form = "getTest" type="submit" value="See tests">See Tests &raquo;</a></p>
       </form>
       <p style="color: rgb(228, 228, 221);">In this current section, you will be able to see information about each student.</p>
 
