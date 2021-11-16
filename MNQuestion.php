@@ -16,6 +16,7 @@
   <style>
       /*All sections */
       /* custom radio from W3Schools */
+      /* temp comment
       label{
         display: block;
         position: relative;
@@ -27,7 +28,6 @@
         -ms-user-select: none;
         user-select: none;
       }
-      /* temp comment
       label input {
         position: absolute;
         opacity: 0;
