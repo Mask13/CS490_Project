@@ -307,8 +307,9 @@ if (!empty($_POST)) {
 
         if(isset($_POST["comment$qNum"])){
           $comment = $_POST["comments"];
-          $sql = $db->prepare("UPDATE results SET released = 1, comment$qNum ='$comment' WHERE resultID= '$reID'");
-          $sql->execute();
+          $sql = $db->prepare("UPDATE results SET released = 1, :comment ='$comment' WHERE resultID= '$reID'");
+          $param = array(":comment"=>"comment$qNum");
+          $sql->execute($param);
           break;
         }
 
