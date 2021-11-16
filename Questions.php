@@ -160,7 +160,7 @@
         $db= new PDO($connection_string, $dbuser, $dbpass);
         $sql = $db->prepare("DELETE FROM `questions` WHERE questionID = :id");
         $r = $sql->execute(array(":id"=>$_POST["questionID"]));
-        header("Refresh:0");
+        echo("<meta http-equiv='refresh' content='1'>");
       }
       finally{}
     }
