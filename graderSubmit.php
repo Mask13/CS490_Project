@@ -234,9 +234,10 @@ foreach ($questions as $qNum) {
             echo "	<tr>";
 
         }
-        echo "<tr>";
-        echo "  <form name='commentF$qNum' method='POST'> <textarea class = 'formInput1' form = 'commentF$qNum' name='comment$qNum'></textarea> <input type='submit' value='release grade'> </form>";
-        echo "</tr>";
+        echo "<form name='commentF$qNum' method='POST'>";
+        echo "  <textarea class = 'formInput1' form = 'commentF$qNum' name='comment$qNum'></textarea>";
+        echo "  <input type='submit' value='release grade'>";
+        echo "</form>";
     }
 }
 
