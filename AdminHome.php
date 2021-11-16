@@ -104,7 +104,7 @@ else{
           }
           finally{}
         ?>
-        <input class="button" form = "getTest" type="submit" value="See tests">See Tests &raquo;</input>
+        <input class="btn btn-secondary" form = "getTest" type="submit" value="See tests &raquo;"></input>
       </form>
       <p style="color: rgb(228, 228, 221);">In this current section, you will be able to see information about each student.</p>
 
