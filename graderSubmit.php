@@ -10,6 +10,9 @@
       float: right;
       padding-top: 30px;
     }
+    grader{
+      width:60%;
+    }
     body{
          background-color: #000033;
          background-image: url('https://images.unsplash.com/photo-1445905595283-21f8ae8a33d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80');
@@ -58,14 +61,12 @@
       width: 80%;
       padding: 20px;
       border: 2px solid #c6a226;
-      border-radius: 10px;
-      resize:both;
-      display: inline-table;
+      border-radius: 5px;
     }
 </style>
 <body>
 <titles>Results of AutoGrader</titles>
-
+<grader>
 <?php
 
 session_start();
@@ -266,6 +267,7 @@ echo "	</tr>";
 echo "</table>";
 
 ?>
+</grader>
 <splitscreen>
   <?php
     $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -288,7 +290,7 @@ echo "</table>";
 
         if ($r["$qNum"] != NULL && $r["$qNum"] != 0) {
           echo "<form name = 'comment$qNum' method='post'>";
-          echo "  <textarea form = 'comment$qNum' class = 'formInput1' style = 'resize:none; rows: 3;' name='comment$qNum'></textarea>";
+          echo "  <textarea form = 'comment$qNum' class = 'formInput1' name='comment$qNum'></textarea>";
           echo "  <input class = 'button' type='submit' value='release grade'>";
           echo "</form>";
         }
