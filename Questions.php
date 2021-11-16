@@ -7,10 +7,10 @@
         Questions
       </titles>
       <button style= "float:right;"type="button" onclick="location.href = 'Logout.php';"
-           class = "button3" name="Login"> Logout
+           class = "button" name="Login"> Logout
       </button>
       <button style= "float:right;"type="button" onclick="location.href = 'AdminHome.php';"
-           class = "button3" name="Login"> Home
+           class = "button" name="Login"> Home
       </button>
    </div>
   </head><br>
@@ -55,9 +55,9 @@
         margin: 20px;
       }
       .button {
-        background-color: rgb(230, 231, 208);
+        background-color: Transparent;
         border: inset #c6a226;
-        color: #c6a226;
+        color: #bcbdbe;
         padding: 15px 19px;
         text-align: center;
         text-decoration: none;
@@ -65,21 +65,14 @@
         border-radius: 25px;
         font-size: 16px;
       }
-      .button3 {
-        display: inline-block;
-        padding: 15px 25px;
-        font-size: 24px;
-        text-align: center;
-        cursor: pointer;
-        outline: none;
-        color: #bcbdbe;
-        background-color: rgb(230, 231, 208);
-        border: inset #c6a226;
-        border-radius: 15px;
-        box-shadow: 0 9px #999;
-        font-size: 16px;
+      .button:hover {
+        background-color: rgb(69, 74, 28);
       }
-      .button3:hover {background-color: rgb(69, 74, 28);}
+      .button:active {
+        background-color: rgb(69, 74, 28);
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+      }
       .label {
         padding: 12px 12px 12px 0;
         display: inline-block;
@@ -98,7 +91,7 @@
   <body>
     <!-- Tests section -->
     <button type="button" onclick="location.href = 'MNQuestion.php';"
-           class = "button3" name="MNTest"> Make New Question
+           class = "button" name="MNTest"> Make New Question
    </button><br><br>
    <!-- Display all Questions with a SQL Query. -->
    <?php
@@ -141,7 +134,7 @@
     ?>
    <form id="myForm" method="POST">
      <input class = "formInput1" type= "number" id="questionID" placeholder="Insert Question ID"></input>
-      <input class = "button3" type="submit" name="Delete" value="Delete"></input>
+      <input class = "button" type="submit" name="Delete" value="Delete"></input>
    </form>
   </body>
 </html>
