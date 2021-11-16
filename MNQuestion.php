@@ -293,15 +293,15 @@
      </select><br>
      <input class= "formInput1" type= "Text" name = "QFN" id ="QFN" placeholder="Function Name"></input><br>
      <label style="padding-top: 13px;"for="F">For Loop
-       <input class = "radio" type= "radio" name = "QCN" id="F" value="F"></input>
+       <input type= "radio" name = "QCN" id="F" value="F"></input>
        <!--<span style="margin-top:10px;"class="radio"></span>-->
      </label><br>
      <label for="W">While Loop
-       <input class = "radio" type= "radio" name = "QCN"  id="W" value="W"></input>
+       <input type= "radio" name = "QCN"  id="W" value="W"></input>
        <!--<span class="radio"></span>-->
      </label><br>
      <label for="R">Recursion
-       <input class = "radio" type= "radio" name = "QCN" id="R" value="R"></input>
+       <input type= "radio" name = "QCN" id="R" value="R"></input>
        <!--<span class="radio"></span>-->
      </label><br>
      <input  style="margin-top: -15px;"class= "button" class= "button" type="submit" value="Make Question"/>
