@@ -107,7 +107,7 @@ else{
         ?>
       </form>
       <p>In this current section, you will be able to see information about each student.</p>
-      <p><a style= "color: rgb(95, 96, 42)" class="btn btn-primary btn-lg" href="#" type="submit" value="See tests">See Tests</a></p>
+      <p><a style= "background-color: rgb(95, 96, 42)" class="btn btn-primary btn-lg" href="#" type="submit" value="See tests">See Tests</a></p>
     </div>
   </div>
 
