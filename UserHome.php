@@ -130,7 +130,11 @@ else{
           }
           finally{}
       ?>
-    </div>  
+    </div>
+    <div class="col-md-4">
+      <h2>View Your Past Exams</h2>
+      <p>Click on this button to see your actual Exams.</p>
+      <p><a class="btn btn-secondary" href="UserHome.php" role="button">Visit &raquo;</a></p>  
   </div>
   </body>
 </html>
