@@ -44,6 +44,19 @@ else{
           font-size: 3.5rem;
         }
       }
+      table, th, td {
+        border: 1px solid black;
+        border-radius: 10px;
+        border-color: #c6a226;
+        color: white;
+        padding: 6px;
+        padding-bottom: 6px;
+      }
+      th, td {
+        background-color: black;
+        font-family: Bahnschrift;
+        padding: 10px;
+      }
     </style>
     <!-- Custom styles for this template -->
     <link href="jumbotron.css" rel="stylesheet">
@@ -89,7 +102,7 @@ else{
           $db= new PDO($connection_string, $dbuser, $dbpass);
           try{
             $sql = "SELECT EID, result from results Where UID = '$_SESSION[UID]' and released = 1";
-            echo "<table>"; // list box select command
+            echo "<table style='margin: auto;'>"; // list box select command
             echo "<tr>";
             echo "<td>EID</td>";
             echo "<td>Result</td>";
