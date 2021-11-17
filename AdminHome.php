@@ -122,6 +122,21 @@ else{
 
 <html>
 <body>
+<style>
+  table, th, td {
+    border: 1px solid black;
+    border-radius: 10px;
+    border-color: #c6a226;
+    color: white;
+    padding: 6px;
+    padding-bottom: 6px;
+  }
+  th, td {
+    background-color: black;
+    font-family: Bahnschrift;
+    padding: 10px;
+  }
+</style>
   <?php
     if(isset($_POST["Request_Test"]) || isset($_POST["studentID"])){
       GetTests();
