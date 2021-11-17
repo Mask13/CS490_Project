@@ -1,3 +1,27 @@
+<?php
+    if(isset($_POST["TestID"])){
+      if(isset($_POST["Delete"])){
+        try{
+          require ("config.php");
+          $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+          $db= new PDO($connection_string, $dbuser, $dbpass);
+          $sql = $db->prepare("DELETE FROM `exams` WHERE EID = :id");
+          $r = $sql->execute(array(":id"=>$_POST["TestID"]));
+          echo "<pre>" . var_export($r, true) . "</pre>";
+          echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
+          echo("<meta http-equiv='refresh' content='1'>");
+        }
+        finally{}
+      }
+    }
+
+    if(isset($_POST["studentID"]) && isset($_POST["EID"])){
+      $_SESSION["EID"] = $_POST["EID"];
+      $_SESSION["SID"] = $_POST["studentID"];
+      header("Location: autograde.php");
+    }
+ ?>
+ 
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -156,27 +180,3 @@
  </container>
   </body>
 </html>
-
-<?php
-    if(isset($_POST["TestID"])){
-      if(isset($_POST["Delete"])){
-        try{
-          require ("config.php");
-          $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-          $db= new PDO($connection_string, $dbuser, $dbpass);
-          $sql = $db->prepare("DELETE FROM `exams` WHERE EID = :id");
-          $r = $sql->execute(array(":id"=>$_POST["TestID"]));
-          echo "<pre>" . var_export($r, true) . "</pre>";
-          echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
-          echo("<meta http-equiv='refresh' content='1'>");
-        }
-        finally{}
-      }
-    }
-
-    if(isset($_POST["studentID"]) && isset($_POST["EID"])){
-      $_SESSION["EID"] = $_POST["EID"];
-      $_SESSION["SID"] = $_POST["studentID"];
-      header("Location: autograde.php");
-    }
- ?>
