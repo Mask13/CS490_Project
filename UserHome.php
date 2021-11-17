@@ -85,12 +85,15 @@ else{
             }
             finally{}
           ?>
-          <input class="btn btn-secondary" type="submit" value="See tests &raquo;"></input>
+          <input class="btn btn-secondary" type="submit" value="Take Test &raquo;"></input>
       </form>
     </div>
   </div>
 
-    <div class="container">
+  <div class="container">
+    <div class="col-md-4">
+      <h2>Your Exam Table</h2>
+      <p>This Table will display all information on your past exams</p>
       <?php
           require "config.php";
           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -127,7 +130,8 @@ else{
           }
           finally{}
       ?>
-    </div>
+    </div>  
+  </div>
   </body>
 </html>
 <?php
