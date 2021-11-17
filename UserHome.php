@@ -10,7 +10,7 @@ if(isset($_SESSION['UID'])){
 else{
   header("Location: Login.php");
 }
-$getname = $db->prepare("SELECT Username from users Where UID = '$_POST[studentID]'");
+$getname = $db->prepare("SELECT Username from users Where UID = '$_SESSION[UID]'");
 $getname->execute();
 $stuName = $getname->fetch(PDO::FETCH_ASSOC);
 $_SESSION["stuName"] = $stuName["Username"];
