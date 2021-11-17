@@ -13,7 +13,7 @@ else{
 $getname = $db->prepare("SELECT Username from users Where UID = '$_POST[studentID]'");
 $getname->execute();
 $stuName = $getname->fetch(PDO::FETCH_ASSOC);
-$stuName = $_SESSION["stuName"];
+$_SESSION["stuName"] = $stuName["Username"];
 ?>
 <!doctype html>
 <html lang="en">
