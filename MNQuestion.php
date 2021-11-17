@@ -226,8 +226,8 @@
      <input class= "formInput1" type= "Text" name = "QI3" id="QI3" placeholder="Question Test 3"></input><br>
      <input class= "formInput1" type= "Text" name = "QA3" id="QA3" placeholder="Answer 3"></input><br>
      <!-- Info for test case 4 -->
-     <input class= "formInput1" type= "Text" name = "QI4" placeholder="Question Test 4"></input><br>
-     <input class= "formInput1" type= "Text" name = "QA4" placeholder="Answer 4"></input><br>
+     <input class= "formInput1" type= "Text" name = "QI4" id="QI4" placeholder="Question Test 4"></input><br>
+     <input class= "formInput1" type= "Text" name = "QA4" id="QA4" placeholder="Answer 4"></input><br>
 
      <!-- More Info for Question -->
      <select name = "QC" id="QC" value="">
