@@ -1,7 +1,11 @@
 <?php
 session_start();
 require ("config.php");
-if(isset($_SESSION['UID'])){}
+if(isset($_SESSION['UID'])){
+  if($_SESSION['IsAdmin']==0){
+    $_SESSION['VUID'] = $_SESSION['UID'];
+  }
+}
 else{
   header("Location: Login.php");
 }
@@ -113,7 +117,7 @@ else{
     <div style="padding-top: 20px">
       <?php
         //get result
-        $s = $db->prepare("SELECT resultID FROM results WHERE EID = '$_SESSION[VtestID]' AND UID = '$_SESSION[UID]'");
+        $s = $db->prepare("SELECT resultID FROM results WHERE EID = '$_SESSION[VtestID]' AND UID = '$_SESSION[VUID]'");
         $s->execute();
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $reID = $r["resultID"]; // getting result ID

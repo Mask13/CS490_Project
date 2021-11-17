@@ -104,9 +104,16 @@ else{
               $db= new PDO($connection_string, $dbuser, $dbpass);
               try{
                 $sql = "SELECT EID, Exam_Name from exams";
-                echo "<select class='formInput1' id='testID' name='testID' value=''>Tests</option>"; // list box select command
+                echo "<select class='formInput1' id='VtestID' name='VtestID' value=''>Tests</option>"; // list box select command
                 foreach ($db->query($sql) as $row){//Array or records stored in $row
                   echo "<option value=$row[EID]>$row[Exam_Name]</option>";
+                }
+                echo "</select>";// Closing of list box
+
+                $sql ="SELECT UID, Username from users Where IsAdmin = 0";
+                echo "<select class= 'select' id='VstudentID' name='VstudentID' value=''>Student Name</option>"; // list box select command
+                foreach ($db->query($sql) as $row){//Array or records stored in $row
+                  echo "<option value=$row[UID]>$row[Username]</option>";
                 }
                 echo "</select>";// Closing of list box
               }
@@ -209,3 +216,13 @@ else{
 
 </body>
 </html>
+
+<?php
+  if(isset($_POST['VstudentID']) && isset($_POST['VtestID'])){
+    $_SESSION['VtestID'] = $_POST['VtestID'];
+    $_SESSION['VUID'] = $_POST['VstudentID'];
+    //redirect to test taking page
+    echo'<html><script type="text/javascript">window.open("ViewTest.php","_self");</script></html>';
+    exit();
+  }
+ ?>
