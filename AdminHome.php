@@ -148,6 +148,10 @@ else{
       $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
       $db= new PDO($connection_string, $dbuser, $dbpass);
       try{
+        $getname = $db->prepare("SELECT Username from users Where UID = '$_POST[studentID]'");
+        $getname->execute();
+        $name = $getname->fetch(PDO::FETCH_ASSOC);
+        echo "<h3> $name[Username]: </h3>";
         $sql = "SELECT EID, result, commentQ1, commentQ2, commentQ3, commentQ4, commentQ5, resultID from results Where UID = '$_POST[studentID]'";
         echo "<table>"; // list box select command
         echo "<tr>";
