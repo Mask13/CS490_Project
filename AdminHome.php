@@ -95,6 +95,11 @@ else{
         <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
       </div>-->
       <div class="col-md-4">
+        <h2>View Tests</h2>
+        <p>This is where you would see past exams taken by the respective student.</p>
+        <p><a class="btn btn-secondary" href="ViewTest.php" role="button">Visit &raquo;</a></p>
+      </div>
+      <div class="col-md-4">
         <h2>Tests</h2>
         <p>This is where you would Edit, Delete, or Create new Exams.</p>
         <p><a class="btn btn-secondary" href="Tests.php" role="button">Visit &raquo;</a></p>
