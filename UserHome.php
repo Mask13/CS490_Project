@@ -140,7 +140,7 @@ $_SESSION["stuName"] = $stuName["Username"];
     <div class="col-md-4">
       <br><h2>View Your Past Exams</h2>
       <p>Click on this button to see your actual Exams.</p>
-      <form method="post">
+      <form name = "VTest" id = "VTest" method="post">
         <?php
             include "config.php";
             $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -155,7 +155,7 @@ $_SESSION["stuName"] = $stuName["Username"];
             }
             finally{}
         ?>
-        <p><a class="btn btn-secondary" type="submit" role="button">Visit &raquo;</a></p>
+        <p><a class="btn btn-secondary" form ="VTest" type="submit" role="button">Visit &raquo;</a></p>
       </form>
   </div>
   </body>
