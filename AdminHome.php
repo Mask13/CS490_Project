@@ -119,7 +119,7 @@ else{
               }
               finally{}
             ?>
-            <input class="btn btn-secondary" type="submit" value="Take Test &raquo;"></input>
+            <input class="btn btn-secondary" type="submit" value="Visit &raquo;"></input>
         </form>
       </div>
       <div class="col-md-4">
