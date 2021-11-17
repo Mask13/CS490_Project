@@ -97,7 +97,23 @@ else{
       <div class="col-md-4">
         <h2>View Tests</h2>
         <p>This is where you would see past exams taken by the respective student.</p>
-        <p><a class="btn btn-secondary" href="ViewTest.php" role="button">Visit &raquo;</a></p>
+        <form method="post">
+          <?php
+              include "config.php";
+              $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+              $db= new PDO($connection_string, $dbuser, $dbpass);
+              try{
+                $sql = "SELECT EID, Exam_Name from exams";
+                echo "<select class='formInput1' id='testID' name='testID' value=''>Tests</option>"; // list box select command
+                foreach ($db->query($sql) as $row){//Array or records stored in $row
+                  echo "<option value=$row[EID]>$row[Exam_Name]</option>";
+                }
+                echo "</select>";// Closing of list box
+              }
+              finally{}
+            ?>
+            <input class="btn btn-secondary" type="submit" value="Take Test &raquo;"></input>
+        </form>
       </div>
       <div class="col-md-4">
         <h2>Tests</h2>
