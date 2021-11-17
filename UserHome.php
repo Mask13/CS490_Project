@@ -106,10 +106,11 @@ else{
             $sql = "SELECT EID, result from results Where UID = '$_SESSION[UID]'";
             echo "<table>"; // list box select command
             echo "<tr>";
-            echo "<td>EID</td>";
-            echo "<td>Result</td>";
-            echo "<td>Total Points Possible</td>";
-            echo "<td>Percent Grade</td>";
+            echo "<th>EID</th>";
+            echo "<th>Exam Name</th>"
+            echo "<th>Result</th>";
+            echo "<th>Total Points Possible</th>";
+            echo "<th>Percent Grade</th>";
             echo "</tr>";
             foreach ($db->query($sql) as $row){//Array or records stored in $row
               $sql2 = $db->prepare("SELECT Total_Points AND Exam_Name from exams Where EID = '$row[EID]'");
