@@ -3,6 +3,9 @@ session_start();
 require ("config.php");
 if(isset($_SESSION['UID'])){
   if($_SESSION['IsAdmin']== 0){}
+  elseif($_SESSION['IsAdmin']== 1){
+    header("Location: AdminHome.php");
+  }
   else{
     header("Location: Login.php");
   }
