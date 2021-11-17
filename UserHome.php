@@ -77,7 +77,7 @@ else{
     <div class="container">
       <h1 class="display-3">Hello, Student!</h1>
       <h3 class="display-5" style="color: rgb(253, 255, 122)">About the Student</h3>
-      <form method="post">
+      <form name="takeTest" id="takeTest" method="post">
         <?php
             include "config.php";
             $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -92,7 +92,7 @@ else{
             }
             finally{}
           ?>
-          <input class= "button" type="submit" value="Take test"/>
+          <input class="btn btn-secondary" form = "takeTest" type="submit" value="Take test &raquo;"></input>
       </form>
     </div>
   </div>
