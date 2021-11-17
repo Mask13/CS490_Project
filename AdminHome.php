@@ -50,11 +50,37 @@ else{
   </head>
   <body>
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="display: inline-flex;">
-  <a class="navbar-brand" href="#">CSClasses</a>
-  <form action="Logout.php" class="form-inline my-2 my-lg-0" style="display: inline-flex; margin-inline-start: auto;">
-    <button class="btn btn-outline-success my-2 my-sm-0" style="background-color: rgb(230, 231, 208); " type="submit" href="Logout.php">Logout</button>
-  </form>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
 </nav>
 
 <main role="main">
@@ -79,10 +105,10 @@ else{
           }
           finally{}
         ?>
-        <input class="btn btn-secondary" form = "getTest" type="submit" value="See tests &raquo;"></input>
+        <input class="button" form = "getTest" type="submit" value="See tests">See Tests &raquo;</input>
       </form>
       <p style="color: rgb(228, 228, 221);">In this current section, you will be able to see information about each student.</p>
-      <?php echo "$table"; ?>
+
     </div>
   </div>
 
@@ -113,7 +139,7 @@ else{
 </main>
 
 <footer class="container">
-  <p>&copy; じゃ Tech 2018-2022</p>
+  <p>&copy; Company 2017-2020</p>
 </footer>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
       <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
@@ -122,21 +148,6 @@ else{
 
 <html>
 <body>
-<style>
-  table, th, td {
-    border: 1px solid black;
-    border-radius: 10px;
-    border-color: #c6a226;
-    color: white;
-    padding: 6px;
-    padding-bottom: 6px;
-  }
-  th, td {
-    background-color: black;
-    font-family: Bahnschrift;
-    padding: 10px;
-  }
-</style>
   <?php
     if(isset($_POST["Request_Test"]) || isset($_POST["studentID"])){
       GetTests();
@@ -148,23 +159,33 @@ else{
       $db= new PDO($connection_string, $dbuser, $dbpass);
       try{
         $sql = "SELECT EID, result, commentQ1, commentQ2, commentQ3, commentQ4, commentQ5, newGrade, resultID from results Where UID = '$_POST[studentID]'";
-        $table = "<table style='margin-top:10px;'><tr><th>Exam Name</th><th>Result</th><th>Comment1</th><th>Comment2</th><th>Comment3</th><th>Comment4</th><th>Comment5</th><th>ResultID</th></tr>"; // list box select command
+        echo "<table style='margin-top:10px;'>"; // list box select command
+        echo "<tr>";
+        echo "<th>Exam Name</th>";
+        echo "<th>Result</th>";
+        echo "<th>Comment1</th>";
+        echo "<th>Comment2</th>";
+        echo "<th>Comment3</th>";
+        echo "<th>Comment4</th>";
+        echo "<th>Comment5</th>";
+        echo "<th>ResultID</th>";
+        echo "</tr>";
         foreach ($db->query($sql) as $row){//Array or records stored in $row
           $sql2 = $db->prepare("SELECT Exam_Name from exams Where EID = '$row[EID]'");
           $sql2->execute();
           $row2 = $sql2->fetch(PDO::FETCH_ASSOC);
-          $table .= "<tr>";
-          $table .= "<td>$row2[Exam_Name]</td>";
-          $table .= "<td>$row[result]</td>";
-          $table .= "<td>$row[commentQ1]</td>";
-          $table .= "<td>$row[commentQ2]</td>";
-          $table .= "<td>$row[commentQ3]</td>";
-          $table .= "<td>$row[commentQ4]</td>";
-          $table .= "<td>$row[commentQ5]</td>";
-          $table .= "<td>$row[resultID]</td>";
-          $table .= "</tr>";
+          echo "<tr>";
+          echo "<td>$row2[Exam_Name]</td>";
+          echo "<td>$row[result]</td>";
+          echo "<td>$row[commentQ1]</td>";
+          echo "<td>$row[commentQ2]</td>";
+          echo "<td>$row[commentQ3]</td>";
+          echo "<td>$row[commentQ4]</td>";
+          echo "<td>$row[commentQ5]</td>";
+          echo "<td>$row[resultID]</td>";
+          echo "</tr>";
         }
-        $table .= "</table>";// Closing of list box
+        echo "</table>";// Closing of list box
       }
       finally{}
     }
