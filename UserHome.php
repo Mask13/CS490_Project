@@ -140,7 +140,23 @@ $_SESSION["stuName"] = $stuName["Username"];
     <div class="col-md-4">
       <br><h2>View Your Past Exams</h2>
       <p>Click on this button to see your actual Exams.</p>
-      <p><a class="btn btn-secondary" href="UserHome.php" role="button">Visit &raquo;</a></p>
+      <form method="post">
+        <?php
+            include "config.php";
+            $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+            $db= new PDO($connection_string, $dbuser, $dbpass);
+            try{
+              $sql = "SELECT EID, Exam_Name from exams";
+              echo "<select class='formInput1' id='testID' name='testID' value=''>Tests</option>"; // list box select command
+              foreach ($db->query($sql) as $row){//Array or records stored in $row
+                echo "<option value=$row[EID]>$row[Exam_Name]</option>";
+              }
+              echo "</select>";// Closing of list box
+            }
+            finally{}
+        ?>
+        <p><a class="btn btn-secondary" href="UserHome.php" role="button">Visit &raquo;</a></p>
+      </form>
   </div>
   </body>
 </html>
