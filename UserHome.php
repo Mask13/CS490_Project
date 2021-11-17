@@ -20,15 +20,11 @@ else{
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
     <title>Student Home</title>
-
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/jumbotron/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-
     <!-- Bootstrap core CSS -->
-
 <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -38,7 +34,6 @@ else{
         -ms-user-select: none;
         user-select: none;
       }
-
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
@@ -69,9 +64,7 @@ else{
     <button class="btn btn-outline-success my-2 my-sm-0" style="background-color: rgb(230, 231, 208); " type="submit" href="Logout.php">Logout</button>
   </form>
 </nav>
-
 <main role="main">
-
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron" style="background-image: url('https://i.pinimg.com/originals/19/c9/5a/19c95a8ad1c90d89bc9d5c7bc2054151.gif'); color: rgb(232,234,154);">
     <div class="container">
@@ -92,7 +85,7 @@ else{
             }
             finally{}
           ?>
-        <input class= "button" type="submit" value="Take test"/>
+          <input class= "button" type="submit" value="Take test"/>
       </form>
     </div>
   </div>
@@ -103,24 +96,23 @@ else{
           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
           $db= new PDO($connection_string, $dbuser, $dbpass);
           try{
+            $sql = "SELECT EID, result from results Where UID = '$_SESSION[UID]' and released = 1";
             $sql = "SELECT EID, result from results Where UID = '$_SESSION[UID]'";
             echo "<table>"; // list box select command
             echo "<tr>";
-            echo "<th>EID</th>";
-            echo "<th>Exam Name</th>"
-            echo "<th>Result</th>";
-            echo "<th>Total Points Possible</th>";
-            echo "<th>Percent Grade</th>";
+            echo "<td>EID</td>";
+            echo "<td>Result</td>";
+            echo "<td>Total Points Possible</td>";
+            echo "<td>Percent Grade</td>";
             echo "</tr>";
             foreach ($db->query($sql) as $row){//Array or records stored in $row
-              $sql2 = $db->prepare("SELECT Total_Points AND Exam_Name from exams Where EID = '$row[EID]'");
+              $sql2 = $db->prepare("SELECT Total_Points from exams Where EID = '$row[EID]'");
               $sql2->execute();
               $r = $sql2->fetch(PDO::FETCH_ASSOC);
               $percent = 100 * $row['result']/$r['Total_Points'];
               $percent .= '%';
               echo "<tr>";
               echo "<td>$row[EID]</td>";
-              echo "<td>$r[Exam_Name]</td>";
               echo "<td>$row[result]</td>";
               echo "<td>$r[Total_Points]</td>";
               echo "<td>$percent</td>";
