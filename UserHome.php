@@ -96,13 +96,15 @@ else{
       </form>
     </div>
   </div>
+  
+    <div class="container">
       <?php
           require "config.php";
           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
           $db= new PDO($connection_string, $dbuser, $dbpass);
           try{
             $sql = "SELECT EID, result from results Where UID = '$_SESSION[UID]' and released = 1";
-            echo "<table style='margin: auto;'>"; // list box select command
+            echo "<table>"; // list box select command
             echo "<tr>";
             echo "<td>EID</td>";
             echo "<td>Result</td>";
@@ -126,6 +128,7 @@ else{
           }
           finally{}
       ?>
+    </div>  
   </body>
 </html>
 <?php
