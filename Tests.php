@@ -1,4 +1,5 @@
 <?php
+    session_start();
     if(isset($_POST["TestID"])){
       if(isset($_POST["Delete"])){
         try{
@@ -21,7 +22,7 @@
       header("Location: autograde.php");
     }
  ?>
- 
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
