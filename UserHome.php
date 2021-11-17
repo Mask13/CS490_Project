@@ -96,7 +96,7 @@ else{
           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
           $db= new PDO($connection_string, $dbuser, $dbpass);
           try{
-            $sql = "SELECT EID, result, commentQ1, commentQ2, commentQ3, commentQ4, commentQ5, resultID from results Where UID = '$_POST[studentID]' AND released='1'";
+            $sql = "SELECT EID, result, commentQ1, commentQ2, commentQ3, commentQ4, commentQ5, resultID from results Where UID = '$_SESSION[UID]' AND released='1'";
               echo "<table>"; // list box select command
               echo "<tr>";
               echo "<th>Exam Name</th>";
