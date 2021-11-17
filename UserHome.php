@@ -147,7 +147,7 @@ $_SESSION["stuName"] = $stuName["Username"];
             $db= new PDO($connection_string, $dbuser, $dbpass);
             try{
               $sql = "SELECT EID, Exam_Name from exams";
-              echo "<select class='formInput1' id='testID' name='testID' value=''>Tests</option>"; // list box select command
+              echo "<select id='VtestID' name='VtestID' value=''>Tests</option>"; // list box select command
               foreach ($db->query($sql) as $row){//Array or records stored in $row
                 echo "<option value=$row[EID]>$row[Exam_Name]</option>";
               }
@@ -155,7 +155,7 @@ $_SESSION["stuName"] = $stuName["Username"];
             }
             finally{}
         ?>
-        <p><a class="btn btn-secondary" href="ViewTest.php" role="button">Visit &raquo;</a></p>
+        <p><a class="btn btn-secondary" type="submit" role="button">Visit &raquo;</a></p>
       </form>
   </div>
   </body>
@@ -165,5 +165,11 @@ $_SESSION["stuName"] = $stuName["Username"];
       $_SESSION['testID'] = $_POST['testID'];
       //redirect to test taking page
       echo'<html><script type="text/javascript">window.open("TestTake.php","_self");</script></html>';
+      exit();
+    }
+    if(isset($_POST["VtestID"])) {
+      $_SESSION['VtestID'] = $_POST['VtestID'];
+      //redirect to test taking page
+      echo'<html><script type="text/javascript">window.open("ViewTest.php","_self");</script></html>';
       exit();
     }
