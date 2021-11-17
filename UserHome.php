@@ -96,28 +96,34 @@ else{
           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
           $db= new PDO($connection_string, $dbuser, $dbpass);
           try{
-            $sql = "SELECT EID, result from results Where UID = '$_SESSION[UID]'";
-            echo "<table>"; // list box select command
-            echo "<tr>";
-            echo "<td>EID</td>";
-            echo "<td>Result</td>";
-            echo "<td>Total Points Possible</td>";
-            echo "<td>Percent Grade</td>";
-            echo "</tr>";
-            foreach ($db->query($sql) as $row){//Array or records stored in $row
-              $sql2 = $db->prepare("SELECT Total_Points from exams Where EID = '$row[EID]'");
-              $sql2->execute();
-              $r = $sql2->fetch(PDO::FETCH_ASSOC);
-              $percent = 100 * $row['result']/$r['Total_Points'];
-              $percent .= '%';
+            $sql = "SELECT EID, result, commentQ1, commentQ2, commentQ3, commentQ4, commentQ5, resultID from results Where UID = '$_POST[studentID]' AND released=1";
+              echo "<table>"; // list box select command
               echo "<tr>";
-              echo "<td>$row[EID]</td>";
-              echo "<td>$row[result]</td>";
-              echo "<td>$r[Total_Points]</td>";
-              echo "<td>$percent</td>";
+              echo "<th>Exam Name</th>";
+              echo "<th>Result</th>";
+              echo "<th>Comment1</th>";
+              echo "<th>Comment2</th>";
+              echo "<th>Comment3</th>";
+              echo "<th>Comment4</th>";
+              echo "<th>Comment5</th>";
+              echo "<th>ResultID</th>";
               echo "</tr>";
-            }
-            echo "</table>";// Closing of list box
+              foreach ($db->query($sql) as $row){//Array or records stored in $row
+                $sql2 = $db->prepare("SELECT Exam_Name from exams Where EID = '$row[EID]'");
+                $sql2->execute();
+                $row2 = $sql2->fetch(PDO::FETCH_ASSOC);
+                echo "<tr>";
+                echo "<td>$row2[Exam_Name]</td>";
+                echo "<td>$row[result]</td>";
+                echo "<td>$row[commentQ1]</td>";
+                echo "<td>$row[commentQ2]</td>";
+                echo "<td>$row[commentQ3]</td>";
+                echo "<td>$row[commentQ4]</td>";
+                echo "<td>$row[commentQ5]</td>";
+                echo "<td>$row[resultID]</td>";
+                echo "</tr>";
+              }
+              echo "</table>";// Closing of list box
           }
           finally{}
       ?>
