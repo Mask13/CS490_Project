@@ -92,8 +92,7 @@ else{
             }
             finally{}
           ?>
-      <input class="btn btn-secondary" type="submit" value="Take test &raquo;"></input>
-
+          <input class= "button" type="submit" value="Take test"/>
       </form>
     </div>
   </div>
