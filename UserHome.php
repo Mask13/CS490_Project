@@ -69,7 +69,7 @@ else{
   <div class="jumbotron" style="background-image: url('https://i.pinimg.com/originals/19/c9/5a/19c95a8ad1c90d89bc9d5c7bc2054151.gif'); color: rgb(232,234,154);">
     <div class="container">
       <h1 class="display-3">Hello, Student!</h1>
-      <h3 class="display-5" style="color: rgb(253, 255, 122)">About the Student</h3>
+      <h3 class="display-5">Take an Exam</h3>
       <form method="post">
         <?php
             include "config.php";
