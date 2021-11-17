@@ -141,6 +141,7 @@ $_SESSION["stuName"] = $stuName["Username"];
       <br><h2>View Your Past Exams</h2>
       <p>Click on this button to see your actual Exams.</p>
       <form method="post">
+        <p><a class="btn btn-secondary" href="ViewTest.php" role="button">Visit &raquo;</a></p>
         <?php
             include "config.php";
             $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
@@ -155,7 +156,6 @@ $_SESSION["stuName"] = $stuName["Username"];
             }
             finally{}
         ?>
-        <p><a class="btn btn-secondary" href="UserHome.php" role="button">Visit &raquo;</a></p>
       </form>
   </div>
   </body>
