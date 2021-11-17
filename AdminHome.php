@@ -82,7 +82,7 @@ else{
         <input class="btn btn-secondary" form = "getTest" type="submit" value="See tests &raquo;"></input>
       </form>
       <p style="color: rgb(228, 228, 221);">In this current section, you will be able to see information about each student.</p>
-
+      <?php echo "$table"; ?>
     </div>
   </div>
 
@@ -148,36 +148,23 @@ else{
       $db= new PDO($connection_string, $dbuser, $dbpass);
       try{
         $sql = "SELECT EID, result, commentQ1, commentQ2, commentQ3, commentQ4, commentQ5, newGrade, resultID from results Where UID = '$_POST[studentID]'";
-        echo "<table style='margin-top:10px;'>"; // list box select command
-        echo "<tr>";
-        echo "<th>Exam Name</th>";
-        echo "<th>Result</th>";
-        echo "<th>Comment1</th>";
-        echo "<th>Comment2</th>";
-        echo "<th>Comment3</th>";
-        echo "<th>Comment4</th>";
-        echo "<th>Comment5</th>";
-        echo "<th>ResultID</th>";
-        echo "</tr>";
+        $table = "<table style='margin-top:10px;'><tr><th>Exam Name</th><th>Result</th><th>Comment1</th><th>Comment2</th><th>Comment3</th><th>Comment4</th><th>Comment5</th><th>ResultID</th></tr>"; // list box select command
         foreach ($db->query($sql) as $row){//Array or records stored in $row
           $sql2 = $db->prepare("SELECT Exam_Name from exams Where EID = '$row[EID]'");
           $sql2->execute();
           $row2 = $sql2->fetch(PDO::FETCH_ASSOC);
-          echo "<tr>";
-          echo "<td>$row2[Exam_Name]</td>";
-          echo "<td>$row[result]</td>";
-          echo "<td>$row[commentQ1]</td>";
-          echo "<td>$row[commentQ2]</td>";
-          echo "<td>$row[commentQ3]</td>";
-          echo "<td>$row[commentQ4]</td>";
-          echo "<td>$row[commentQ5]</td>";
-          echo "<td>$row[resultID]</td>";
-          echo "</tr>";
+          $table .= "<tr>";
+          $table .= "<td>$row2[Exam_Name]</td>";
+          $table .= "<td>$row[result]</td>";
+          $table .= "<td>$row[commentQ1]</td>";
+          $table .= "<td>$row[commentQ2]</td>";
+          $table .= "<td>$row[commentQ3]</td>";
+          $table .= "<td>$row[commentQ4]</td>";
+          $table .= "<td>$row[commentQ5]</td>";
+          $table .= "<td>$row[resultID]</td>";
+          $table .= "</tr>";
         }
-        echo "</table>";// Closing of list box
-        $sql = $db->prepare("SELECT EID, result, comment, newGrade, resultID from results Where UID = '$_POST[studentID]'");
-        $sql->execute();
-        $glob = $sql->fetch(PDO::FETCH_ASSOC);
+        $table .= "</table>";// Closing of list box
       }
       finally{}
     }
