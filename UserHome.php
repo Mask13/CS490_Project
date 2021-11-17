@@ -155,7 +155,7 @@ $_SESSION["stuName"] = $stuName["Username"];
             }
             finally{}
         ?>
-        <p><a class="btn btn-secondary" form ="VTest" type="submit" role="button">Visit &raquo;</a></p>
+        <input class="btn btn-secondary" type="submit" role="button" value = "Visit &raquo;"></input>
       </form>
   </div>
   </body>
