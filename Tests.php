@@ -158,7 +158,6 @@
 </html>
 
 <?php
-    session_start();
     if(isset($_POST["TestID"])){
       if(isset($_POST["Delete"])){
         try{
@@ -169,7 +168,7 @@
           $r = $sql->execute(array(":id"=>$_POST["TestID"]));
           echo "<pre>" . var_export($r, true) . "</pre>";
           echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
-          header("Refresh:0");
+          echo("<meta http-equiv='refresh' content='1'>");
         }
         finally{}
       }
