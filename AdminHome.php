@@ -137,6 +137,7 @@ else{
     padding: 10px;
   }
 </style>
+  <div class="container">
   <?php
     if(isset($_POST["Request_Test"]) || isset($_POST["studentID"])){
       GetTests();
@@ -148,7 +149,7 @@ else{
       $db= new PDO($connection_string, $dbuser, $dbpass);
       try{
         $sql = "SELECT EID, result, commentQ1, commentQ2, commentQ3, commentQ4, commentQ5, newGrade, resultID from results Where UID = '$_POST[studentID]'";
-        echo "<table style='margin: auto;'>"; // list box select command
+        echo "<table>"; // list box select command
         echo "<tr>";
         echo "<th>Exam Name</th>";
         echo "<th>Result</th>";
@@ -179,6 +180,7 @@ else{
       finally{}
     }
   ?>
+  </div>
 
 </body>
 </html>
