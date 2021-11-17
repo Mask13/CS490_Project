@@ -60,9 +60,9 @@ else{
 <main role="main">
 
   <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron" style="background-image: url('https://media.giphy.com/media/oLzgl79VN6bbrQUSLe/giphy.gif'); color: rgb(232,234,154);">
+  <div class="jumbotron" style="background-image: url('https://i.pinimg.com/originals/19/c9/5a/19c95a8ad1c90d89bc9d5c7bc2054151.gif'); color: rgb(232,234,154);">
     <div class="container">
-      <h1 class="display-3">Hello, Admin!</h1>
+      <h1 class="display-3">Hello, Student!</h1>
       <h3 class="display-5" style="color: rgb(253, 255, 122)">About the Student</h3>
       <form method="post">
         <?php
@@ -81,6 +81,8 @@ else{
           ?>
           <input class= "button" type="submit" value="Take test"/>
       </form>
+    </div>
+  </div>
       <?php
           require "config.php";
           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
