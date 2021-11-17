@@ -173,3 +173,4 @@ $_SESSION["stuName"] = $stuName["Username"];
       echo'<html><script type="text/javascript">window.open("ViewTest.php","_self");</script></html>';
       exit();
     }
+?>
