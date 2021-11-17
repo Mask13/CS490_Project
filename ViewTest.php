@@ -5,7 +5,7 @@ if(isset($_SESSION['UID'])){}
 else{
   header("Location: Login.php");
 }
-if(isset($_SESSION['testID'])){}
+if(isset($_SESSION['VtestID'])){}
 else{
   echo "<html><script>alert('You don't have a test selected, you are being logged out, sorry for the inconvenience');</html></script>";
   header("Location: Logout.php");
