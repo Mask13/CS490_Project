@@ -189,8 +189,8 @@ $_SESSION["stuName"] = $stuName["Username"];
       echo'<html><script type="text/javascript">window.open("TestTake.php","_self");</script></html>';
       exit();
     }
-    if(isset($_POST['VtestID'])){
-      $_SESSION['VtestID'] = $_POST['VtestID'];
+    if(isset($_POST['VTestID'])){
+      $_SESSION['VTestID'] = $_POST['VTestID'];
       //redirect to test taking page
       echo'<html><script type="text/javascript">window.open("ViewTest.php","_self");</script></html>';
       exit();
