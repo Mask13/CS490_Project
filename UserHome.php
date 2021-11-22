@@ -139,9 +139,9 @@ $_SESSION["stuName"] = $stuName["Username"];
           }
           finally{}
       ?>
-    </div>
+    </div><br>
     <div class="col-md-5">
-      <br><h2>See Your Graded Exam</h2>
+      <h2>See Your Graded Exam</h2>
       <p>Click on this button to see your graded results.</p>
       <form name = "GTest" id = "GTest" method="post">
         <?php
