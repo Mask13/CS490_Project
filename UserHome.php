@@ -140,7 +140,7 @@ $_SESSION["stuName"] = $stuName["Username"];
           finally{}
       ?>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
       <br><h2>See Your Graded Exam</h2>
       <p>Click on this button to see your graded results.</p>
       <form name = "GTest" id = "GTest" method="post">
