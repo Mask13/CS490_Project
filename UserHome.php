@@ -182,7 +182,7 @@ $_SESSION["stuName"] = $stuName["Username"];
       $_SESSION['VtestID'] = $_POST['VtestID'];
       $_SESSION['VUID'] = $_POST['VstudentID'];
       //redirect to test taking page
-      echo'<html><script type="text/javascript">window.open("ViewTest.php","_self");</script></html>';
+      echo'<html><script type="text/javascript">window.open("graderDisplay.php","_self");</script></html>';
       exit();
     }
 ?>
