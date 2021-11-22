@@ -64,16 +64,7 @@
 
 session_start();
 $EID = $_SESSION['EID'];
-$UID = $_SESSION["SID"];
-
-if(isset($_SESSION['UID'])){
-    if($_SESSION['IsAdmin']==0){
-      $_SESSION['VUID'] = $_SESSION['UID'];
-    }
-  }
-else{
-    header("Location: Login.php");
-}
+$UID = $_SESSION["UID"];
 
 require "config.php";
 $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
