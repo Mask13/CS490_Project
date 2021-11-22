@@ -93,7 +93,6 @@ foreach ($questions as $qNum) {
         echo "		<th>Question Number</th>";
         echo "		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qNum</td>";  // Q# from questionassignments
         echo "		<th>Current Grade</th>";
-        echo "    <th>Change Grade</th>";
         echo "	</tr>";
         echo "	<tr>";
 
@@ -144,7 +143,6 @@ foreach ($questions as $qNum) {
         echo "		<th>Function Name</th>";
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$funcName</td>"; // functionName from questions
         echo "		<td style='text-align: center; vertical-align: middle;'>$FNPoints / 2</td>"; // funcName Score
-        echo "    <td style='text-align: center; vertical-align: middle;'>"; // No submit button
         echo "    </td>";
         echo "	</tr>";
 
@@ -175,7 +173,6 @@ foreach ($questions as $qNum) {
         echo "		<th>Constraints</th>";
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$constraint</td>";
         echo "		<td style='text-align: center; vertical-align: middle;'>$cPoints / 1</td>";
-        echo "    <td style='text-align: center; vertical-align: middle;'>"; // No submit button
         echo "    </td>";
         echo "	</tr>";
         echo " 	<tr>";
@@ -221,7 +218,6 @@ foreach ($questions as $qNum) {
             echo "		<td style='text-align: center; vertical-align: middle;'>$stuAnswer</td>";
 
             echo "		<td style='text-align: center; vertical-align: middle;'> $testCasePoints</td>";
-            echo "    <td style='text-align: center; vertical-align: middle;'>"; // No submit button
             echo "    </td>";
             echo "	</tr>";
             echo "	<tr>";
