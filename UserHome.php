@@ -160,8 +160,6 @@ $_SESSION["stuName"] = $stuName["Username"];
         ?>
         <input class="btn btn-secondary" type="submit" role="button" value = "Visit &raquo;"></input>
       </form>
-  </div>
-  <div class="col-md-4">
     <br><h2>View Your Past Exams</h2>
     <p>Click on this button to see your actual Exams.</p>
     <form name = "VTest" id = "VTest" method="post">
