@@ -184,7 +184,6 @@ $_SESSION["stuName"] = $stuName["Username"];
               }
               echo "</select>";// Closing of list box
             }
-            }
             finally{}
         ?>
         <input class="btn btn-secondary" type="submit" role="button" value = "Visit &raquo;"></input>
