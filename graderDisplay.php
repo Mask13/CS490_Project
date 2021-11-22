@@ -188,6 +188,8 @@ foreach ($questions as $qNum) {
         $r = $s->fetch(PDO::FETCH_ASSOC);
         $testAmount = $r["testAmount"];
 
+        $PointsPerTestCase = ($qPoints-3)/$testAmount;
+
         for($x = 1; $x <= $testAmount; $x++) {
 
             $testString = "Test Case ";
@@ -217,7 +219,7 @@ foreach ($questions as $qNum) {
             echo " 		<td style='text-align: center; vertical-align: middle;'>$expAnswer</td>";
             echo "		<td style='text-align: center; vertical-align: middle;'>$stuAnswer</td>";
 
-            echo "		<td style='text-align: center; vertical-align: middle;'> $testCasePoints</td>";
+            echo "		<td style='text-align: center; vertical-align: middle;'> $testCasePoints / $PointsPerTestCase</td>";
             echo "    </td>";
             echo "	</tr>";
             echo "	<tr>";
