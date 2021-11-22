@@ -139,9 +139,9 @@ $_SESSION["stuName"] = $stuName["Username"];
           }
           finally{}
       ?>
-    </div>
-    <div class="col-md-3">
-      <br><h2>See Your Graded Exam</h2>
+    </div><br>
+    <div class="col-md-5">
+      <h2>See Your Graded Exam</h2>
       <p>Click on this button to see your graded results.</p>
       <form name = "GTest" id = "GTest" method="post">
         <?php
@@ -160,8 +160,6 @@ $_SESSION["stuName"] = $stuName["Username"];
         ?>
         <input class="btn btn-secondary" type="submit" role="button" value = "Visit &raquo;"></input>
       </form>
-  </div>
-  <div class="col-md-4">
     <br><h2>View Your Past Exams</h2>
     <p>Click on this button to see your actual Exams.</p>
     <form name = "VTest" id = "VTest" method="post">
@@ -191,8 +189,8 @@ $_SESSION["stuName"] = $stuName["Username"];
       echo'<html><script type="text/javascript">window.open("TestTake.php","_self");</script></html>';
       exit();
     }
-    if(isset($_POST['VtestID'])){
-      $_SESSION['VtestID'] = $_POST['VtestID'];
+    if(isset($_POST['VTestID'])){
+      $_SESSION['VTestID'] = $_POST['VTestID'];
       //redirect to test taking page
       echo'<html><script type="text/javascript">window.open("ViewTest.php","_self");</script></html>';
       exit();
