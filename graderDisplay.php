@@ -1,6 +1,6 @@
 <html>
 <header>
-<button style= "float:right;"type="button" onclick="location.href = 'AdminHome.php';"
+<button style= "float:right;"type="button" onclick="location.href = 'UserHome.php';"
     class = "button" name="Login"> Home
 </button>
 </header>
@@ -228,7 +228,8 @@ foreach ($questions as $qNum) {
 
         }
         //sacrifical form ooof lol
-        $sql = $db->prepare("SELECT comment$qNum FROM results WHERE resultID = '$reID'");
+        $commentVal = "comment$qNum";
+        $sql = $db->prepare("SELECT $commentVal FROM results WHERE resultID = '$reID'");
         $sql->execute();
         $result = $sql->fetch(PDO::FETCH_ASSOC);
         $comment = $result["comment$qNum"];
