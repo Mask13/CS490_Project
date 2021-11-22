@@ -162,32 +162,32 @@ $_SESSION["stuName"] = $stuName["Username"];
       </form>
   </div>
   <div class="col-md-4">
-      <br><h2>View Your Past Exams</h2>
-      <p>Click on this button to see your actual Exams.</p>
-      <form name = "VTest" id = "VTest" method="post">
-        <?php
-            include "config.php";
-            $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-            $db= new PDO($connection_string, $dbuser, $dbpass);
-            try{
-              $sql = "SELECT EID, Exam_Name from exams";
-              echo "<select id='VTestID' name='VTestID' value=''>Tests</option>"; // list box select command
-              foreach ($db->query($sql) as $row){//Array or records stored in $row
-                echo "<option value=$row[EID]>$row[Exam_Name]</option>";
-              }
-              echo "</select>";// Closing of list box
-
-              $sql ="SELECT UID, Username from users Where IsAdmin = 0";
-              echo "<select class= 'select' id='VstudentID' name='VstudentID' value=''>Student Name</option>"; // list box select command
-              foreach ($db->query($sql) as $row){//Array or records stored in $row
-                echo "<option value=$row[UID]>$row[Username]</option>";
-              }
-              echo "</select>";// Closing of list box
+    <br><h2>View Your Past Exams</h2>
+    <p>Click on this button to see your actual Exams.</p>
+    <form name = "VTest" id = "VTest" method="post">
+      <?php
+          include "config.php";
+          $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+          $db= new PDO($connection_string, $dbuser, $dbpass);
+          try{
+            $sql = "SELECT EID, Exam_Name from exams";
+            echo "<select id='VTestID' name='VTestID' value=''>Tests</option>"; // list box select command
+            foreach ($db->query($sql) as $row){//Array or records stored in $row
+              echo "<option value=$row[EID]>$row[Exam_Name]</option>";
             }
-            finally{}
-        ?>
-        <input class="btn btn-secondary" type="submit" role="button" value = "Visit &raquo;"></input>
-      </form><br><br>
+            echo "</select>";// Closing of list box
+
+            $sql ="SELECT UID, Username from users Where IsAdmin = 0";
+            echo "<select class= 'select' id='VstudentID' name='VstudentID' value=''>Student Name</option>"; // list box select command
+            foreach ($db->query($sql) as $row){//Array or records stored in $row
+              echo "<option value=$row[UID]>$row[Username]</option>";
+            }
+            echo "</select>";// Closing of list box
+          }
+          finally{}
+      ?>
+      <input class="btn btn-secondary" type="submit" role="button" value = "Visit &raquo;"></input>
+    </form><br><br>
   </div>
   </body>
 </html>
