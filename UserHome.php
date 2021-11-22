@@ -198,7 +198,7 @@ $_SESSION["stuName"] = $stuName["Username"];
       exit();
     }
     if(isset($_POST['GradedTestID'])){
-      $_SESSION['EID'] = $_POST['VtestID'];
+      $_SESSION['EID'] = $_POST['GradedTestID'];
       //redirect to test taking page
       echo'<html><script type="text/javascript">window.open("graderDisplay.php","_self");</script></html>';
       exit();
