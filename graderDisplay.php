@@ -144,9 +144,7 @@ foreach ($questions as $qNum) {
         echo "		<th>Function Name</th>";
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$funcName</td>"; // functionName from questions
         echo "		<td style='text-align: center; vertical-align: middle;'>$FNPoints / 2</td>"; // funcName Score
-        echo "    <td style='text-align: center; vertical-align: middle;'>"; // changing the grade
-        echo "      <form method='POST'> <input type='text' name='FNB$qNum' size ='5'>";
-        echo " 			<input type='submit' value='Submit' name='B1'> </form>";
+        echo "    <td style='text-align: center; vertical-align: middle;'>"; // No submit button
         echo "    </td>";
         echo "	</tr>";
 
@@ -177,9 +175,7 @@ foreach ($questions as $qNum) {
         echo "		<th>Constraints</th>";
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$constraint</td>";
         echo "		<td style='text-align: center; vertical-align: middle;'>$cPoints / 1</td>";
-        echo "    <td style='text-align: center; vertical-align: middle;'>"; // changing the grade
-        echo "      <form method='POST'><input type='text' name='CB$qNum' size ='5'>";
-        echo " 			<input type='submit' value='Submit' name='B1'> </form>";
+        echo "    <td style='text-align: center; vertical-align: middle;'>"; // No submit button
         echo "    </td>";
         echo "	</tr>";
         echo " 	<tr>";
@@ -225,9 +221,7 @@ foreach ($questions as $qNum) {
             echo "		<td style='text-align: center; vertical-align: middle;'>$stuAnswer</td>";
 
             echo "		<td style='text-align: center; vertical-align: middle;'> $testCasePoints</td>";
-            echo "    <td style='text-align: center; vertical-align: middle;'>"; // changing grades
-            echo "      <form method='POST'> <input type='text' name='testCase$x$qNum' size ='5'>";
-            echo " 			<input type='submit' value='Submit' name='B1'> <form>";
+            echo "    <td style='text-align: center; vertical-align: middle;'>"; // No submit button
             echo "    </td>";
             echo "	</tr>";
             echo "	<tr>";
