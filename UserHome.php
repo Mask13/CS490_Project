@@ -155,13 +155,6 @@ $_SESSION["stuName"] = $stuName["Username"];
                 echo "<option value=$row[EID]>$row[Exam_Name]</option>";
               }
               echo "</select>";// Closing of list box
-
-              $sql ="SELECT UID, Username from users Where IsAdmin = 0";
-                echo "<select class= 'select' id='VstudentID' name='VstudentID' value=''>Student Name</option>"; // list box select command
-                foreach ($db->query($sql) as $row){//Array or records stored in $row
-                  echo "<option value=$row[UID]>$row[Username]</option>";
-                }
-                echo "</select>";// Closing of list box
             }
             finally{}
         ?>
@@ -179,8 +172,7 @@ $_SESSION["stuName"] = $stuName["Username"];
     }
     
     if(isset($_POST['VstudentID']) && isset($_POST['VtestID'])){
-      $_SESSION['VtestID'] = $_POST['VtestID'];
-      $_SESSION['VUID'] = $_POST['VstudentID'];
+      $_SESSION['EID'] = $_POST['VtestID'];
       //redirect to test taking page
       echo'<html><script type="text/javascript">window.open("graderDisplay.php","_self");</script></html>';
       exit();
