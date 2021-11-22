@@ -59,6 +59,7 @@
 </style>
 <body>
 <titles>Results of AutoGrader</titles>
+
 <form method="post">
     <?php
         include "config.php";
@@ -310,6 +311,13 @@ $r = $s->fetch(PDO::FETCH_ASSOC);
 $reID = $r["resultID"]; // getting result ID
 
 if (!empty($_POST)) {
+    if(isset($_POST['VstudentID']) && isset($_POST['VtestID'])){
+        $_SESSION['VtestID'] = $_POST['VtestID'];
+        $_SESSION['VUID'] = $_POST['VstudentID'];
+        //redirect to test taking page
+        echo'<html><script type="text/javascript">window.open("graderDisplay.php","_self");</script></html>';
+        exit();
+    }
     $questions = array("Q1", "Q2", "Q3", "Q4", "Q5");
     foreach ($questions as $qNum) {
 
