@@ -64,7 +64,7 @@ foreach ($questions as $value) {
     $value .="P"; // value changes to valueP
 
     // going thru Question Input
-    for($x = 1; $x <= 3; $x++) {
+    for($x = 1; $x <= 4; $x++) {
       // getting each test case
       $qInput = "QI".$x;
       $s = $db->prepare("SELECT $qInput FROM questions WHERE questionID = '$qID'");
