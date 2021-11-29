@@ -112,13 +112,15 @@
        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
        $db= new PDO($connection_string, $dbuser, $dbpass);
        try{
-         $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, QI1, QI2, QI3, QI4  from `questions`";
+         $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, Answer5, QI1, QI2, QI3, QI4, QI5  from `questions`";
          echo "<table>"; // list box select command
          echo "<tr>";
          echo "<th>Question ID</th>";
          echo "<th>Question Text</th>";
          echo "<th>Catagory</th>";
          echo "<th>Difficulty</th>";
+         echo "<th>Input</th>";
+         echo "<th>Expected Output:</th>";
          echo "<th>Input</th>";
          echo "<th>Expected Output:</th>";
          echo "<th>Input</th>";
@@ -142,6 +144,8 @@
            echo "<td>$row[Answer3]</td>";
            echo "<td>$row[QI4]</td>";
            echo "<td>$row[Answer4]</td>";
+           echo "<td>$row[QI5]</td>";
+           echo "<td>$row[Answer5]</td>";
            echo "</tr>";
          }
 
