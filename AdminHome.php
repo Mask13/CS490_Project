@@ -179,7 +179,9 @@ else{
         $getname = $db->prepare("SELECT Username from users Where UID = '$_POST[studentID]'");
         $getname->execute();
         $name = $getname->fetch(PDO::FETCH_ASSOC);
-        echo "<h3> $name[Username]: </h3>";
+        $studentN = $name['Username'];
+        $sName = ucwords($studentN, " \t\r\n\f\v'");
+        echo "<h3> $sName: </h3>";
         $sql = "SELECT EID, result, commentQ1, commentQ2, commentQ3, commentQ4, commentQ5, resultID from results Where UID = '$_POST[studentID]'";
         echo "<table>"; // list box select command
         echo "<tr>";
