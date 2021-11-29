@@ -163,20 +163,20 @@
         try{
           if(isset($_POST['difficulty'])&&isset($_POST['catagory'])){
             if($_POST['difficulty'] == "all" && $_POST['catagory'] == "all"){
-              $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, QI1, QI2, QI3, QI4 from `questions`";
+              $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, Answer5, QI1, QI2, QI3, QI4, QI5 from `questions`";
             }
             elseif($_POST['difficulty'] == "all"){
-              $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, QI1, QI2, QI3, QI4 from `questions` WHERE category = '$_POST[catagory]'";
+              $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, Answer5, QI1, QI2, QI3, QI4, QI5 from `questions` WHERE category = '$_POST[catagory]'";
             }
             elseif ($_POST['catagory'] == "all") {
-              $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, QI1, QI2, QI3, QI4 from `questions` WHERE difficultyLevel = '$_POST[difficulty]'";
+              $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, Answer5, QI1, QI2, QI3, QI4, QI5 from `questions` WHERE difficultyLevel = '$_POST[difficulty]'";
             }
             else{
-              $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, QI1, QI2, QI3, QI4 from `questions` WHERE difficultyLevel = '$_POST[difficulty]' and category = '$_POST[catagory]'";
+              $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, Answer5, QI1, QI2, QI3, QI4, QI5 from `questions` WHERE difficultyLevel = '$_POST[difficulty]' and category = '$_POST[catagory]'";
             }
           }
           else{
-            $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, QI1, QI2, QI3, QI4 from `questions`";
+            $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, Answer5, QI1, QI2, QI3, QI4, QI5 from `questions`";
           }
           echo "<table>"; // list box select command
           echo "<tr>";
@@ -184,6 +184,8 @@
           echo "<th>Question Text</th>";
           echo "<th>Catagory</th>";
           echo "<th>Difficulty</th>";
+          echo "<th>Input</th>";
+          echo "<th>Expected Output:</th>";
           echo "<th>Input</th>";
           echo "<th>Expected Output:</th>";
           echo "<th>Input</th>";
@@ -207,6 +209,8 @@
             echo "<td>$row[Answer3]</td>";
             echo "<td>$row[QI4]</td>";
             echo "<td>$row[Answer4]</td>";
+            echo "<td>$row[QI5]</td>";
+            echo "<td>$row[Answer5]</td>";
             echo "</tr>";
           }
 
@@ -232,6 +236,9 @@
      <!-- Info for test case 4 -->
      <input class= "formInput1" type= "Text" name = "QI4" id="QI4" placeholder="Question Test 4"></input><br>
      <input class= "formInput1" type= "Text" name = "QA4" id="QA4" placeholder="Answer 4"></input><br>
+     <!-- Info for test case 5 -->
+     <input class= "formInput1" type= "Text" name = "QI5" id="QI5" placeholder="Question Test 5"></input><br>
+     <input class= "formInput1" type= "Text" name = "QA5" id="QA5" placeholder="Answer 5"></input><br>
 
      <!-- More Info for Question -->
      <select name = "QC" id="QC" value="">
@@ -262,6 +269,18 @@
   $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
   $db= new PDO($connection_string, $dbuser, $dbpass);
   if(isset($_POST['QuestionConstrain']) && ($_POST['QuestionConstrain'] != "NULL")){
+    //if there are 5 test cases and 1 constrain
+    if(isset($_POST['QFN']) && isset($_POST['QT']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1']) && isset($_POST['QA2']) && isset($_POST['QA3']) && isset($_POST['QA4']) && isset($_POST['QA5']) && isset($_POST['QI1']) && isset($_POST['QI2']) && isset($_POST['QI3']) && isset($_POST['QI4']) && isset($_POST['QI5']) && isset($_POST['QuestionConstrain'])){
+     try{
+       $sql = $db->prepare("INSERT INTO `questions`
+                   (functionName, questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3, QI4, Answer4, QuestionConstrain) VALUES
+                   (:QFN, :QT, :QC, :QD, :QI1, :QA1, :QI2, :QA2, :QI3, :QA3, :QI4, :QA4, :QI5, :QA5, :QuestionConstrain)");
+       $params = array(":QFN"=> $_POST['QFN'], ":QT"=> $_POST['QT'], ":QC"=>$_POST['QC'], ":QD"=>$_POST['QD'], ":QA1"=>$_POST['QA1'],
+         ":QA2"=>$_POST['QA2'], ":QA3"=>$_POST['QA3'], ":QA4"=>$_POST['QA4'], ":QA5"=>$_POST['QA5'], ":QI1"=>$_POST['QI1'], ":QI2"=>$_POST['QI2'], ":QI3"=>$_POST['QI3'], ":QI4"=>$_POST['QI4'], ":QI5"=>$_POST['QI5'], ":QuestionConstrain"=>$_POST['QuestionConstrain']);
+       $r = $sql->execute($params);
+     }
+     finally{}
+    }
     //if there are 4 test cases and 1 constrain
     if(isset($_POST['QFN']) && isset($_POST['QT']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1']) && isset($_POST['QA2']) && isset($_POST['QA3']) && isset($_POST['QA4']) && isset($_POST['QI1']) && isset($_POST['QI2']) && isset($_POST['QI3']) && isset($_POST['QI4']) && isset($_POST['QuestionConstrain'])){
      try{
@@ -311,6 +330,18 @@
     }
   }
   if(isset($_POST['QuestionConstrain']) && ($_POST['QuestionConstrain'] == "NULL")){
+    //if there are 5 test cases and no constrains
+    if(isset($_POST['QFN']) && isset($_POST['QT']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1']) && isset($_POST['QA2']) && isset($_POST['QA3']) && isset($_POST['QA4']) && isset($_POST['QA5']) && isset($_POST['QI1']) && isset($_POST['QI2']) && isset($_POST['QI3']) && isset($_POST['QI4']) && isset($_POST['QI5'])){
+      try{
+        $sql = $db->prepare("INSERT INTO `questions`
+                    (functionName, questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3, QI4, Answer4) VALUES
+                    (:QFN, :QT, :QC, :QD, :QI1, :QA1, :QI2, :QA2, :QI3, :QA3, :QI4, :QA4, :QI5, :QA5)");
+        $params = array(":QFN"=> $_POST['QFN'], ":QT"=> $_POST['QT'], ":QC"=>$_POST['QC'], ":QD"=>$_POST['QD'], ":QA1"=>$_POST['QA1'],
+          ":QA2"=>$_POST['QA2'], ":QA3"=>$_POST['QA3'], ":QA4"=>$_POST['QA4'], ":QA5"=>$_POST['QA5'], ":QI1"=>$_POST['QI1'], ":QI2"=>$_POST['QI2'], ":QI3"=>$_POST['QI3'], ":QI4"=>$_POST['QI4'], ":QI5"=>$_POST['QI5']);
+        $r = $sql->execute($params);
+      }
+      finally{}
+    }
     //if there are 4 test cases and no constrains
     if(isset($_POST['QFN']) && isset($_POST['QT']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1']) && isset($_POST['QA2']) && isset($_POST['QA3']) && isset($_POST['QA4']) && isset($_POST['QI1']) && isset($_POST['QI2']) && isset($_POST['QI3']) && isset($_POST['QI4'])){
       try{
