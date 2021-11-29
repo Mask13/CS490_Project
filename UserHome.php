@@ -77,7 +77,7 @@ $_SESSION["stuName"] = $stuName["Username"];
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron" style="background-image: url('https://i.pinimg.com/originals/19/c9/5a/19c95a8ad1c90d89bc9d5c7bc2054151.gif'); color: rgb(232,234,154);">
     <div class="container">
-      <h1 class="display-3">Hello, <?php echo "$_SESSION[stuName]";?></h1>
+      <h1 class="display-3">Hello, <?php $studentName = $_SESSION['stuName']; $stuName = ucwords($studentName, " \t\r\n\f\v'"); echo "$stuName";?></h1>
       <h3 class="display-5">Take an Exam</h3>
       <form method="post">
         <?php
