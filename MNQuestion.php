@@ -273,7 +273,7 @@
     if(isset($_POST['QFN']) && isset($_POST['QT']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1']) && isset($_POST['QA2']) && isset($_POST['QA3']) && isset($_POST['QA4']) && isset($_POST['QA5']) && isset($_POST['QI1']) && isset($_POST['QI2']) && isset($_POST['QI3']) && isset($_POST['QI4']) && isset($_POST['QI5']) && isset($_POST['QuestionConstrain'])){
      try{
        $sql = $db->prepare("INSERT INTO `questions`
-                   (functionName, questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3, QI4, Answer4, QuestionConstrain) VALUES
+                   (functionName, questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3, QI4, Answer4, QI5, Answer5, QuestionConstrain) VALUES
                    (:QFN, :QT, :QC, :QD, :QI1, :QA1, :QI2, :QA2, :QI3, :QA3, :QI4, :QA4, :QI5, :QA5, :QuestionConstrain)");
        $params = array(":QFN"=> $_POST['QFN'], ":QT"=> $_POST['QT'], ":QC"=>$_POST['QC'], ":QD"=>$_POST['QD'], ":QA1"=>$_POST['QA1'],
          ":QA2"=>$_POST['QA2'], ":QA3"=>$_POST['QA3'], ":QA4"=>$_POST['QA4'], ":QA5"=>$_POST['QA5'], ":QI1"=>$_POST['QI1'], ":QI2"=>$_POST['QI2'], ":QI3"=>$_POST['QI3'], ":QI4"=>$_POST['QI4'], ":QI5"=>$_POST['QI5'], ":QuestionConstrain"=>$_POST['QuestionConstrain']);
@@ -334,7 +334,7 @@
     if(isset($_POST['QFN']) && isset($_POST['QT']) && isset($_POST['QC']) && isset($_POST['QD']) && isset($_POST['QA1']) && isset($_POST['QA2']) && isset($_POST['QA3']) && isset($_POST['QA4']) && isset($_POST['QA5']) && isset($_POST['QI1']) && isset($_POST['QI2']) && isset($_POST['QI3']) && isset($_POST['QI4']) && isset($_POST['QI5'])){
       try{
         $sql = $db->prepare("INSERT INTO `questions`
-                    (functionName, questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3, QI4, Answer4) VALUES
+                    (functionName, questionText, category, difficultyLevel, QI1, Answer1, QI2, Answer2, QI3, Answer3, QI4, Answer4, QI5, Answer5) VALUES
                     (:QFN, :QT, :QC, :QD, :QI1, :QA1, :QI2, :QA2, :QI3, :QA3, :QI4, :QA4, :QI5, :QA5)");
         $params = array(":QFN"=> $_POST['QFN'], ":QT"=> $_POST['QT'], ":QC"=>$_POST['QC'], ":QD"=>$_POST['QD'], ":QA1"=>$_POST['QA1'],
           ":QA2"=>$_POST['QA2'], ":QA3"=>$_POST['QA3'], ":QA4"=>$_POST['QA4'], ":QA5"=>$_POST['QA5'], ":QI1"=>$_POST['QI1'], ":QI2"=>$_POST['QI2'], ":QI3"=>$_POST['QI3'], ":QI4"=>$_POST['QI4'], ":QI5"=>$_POST['QI5']);
