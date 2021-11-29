@@ -89,6 +89,7 @@ foreach ($questions as $qNum) {
 
         echo "<br>";
         echo "<table style='width:100%'>";
+        echo "  <form name = 'commentF$qNum' id = 'commentF$qNum' method='post'>";
         echo "	<tr height='40px'>";
         echo "		<th>Question Number</th>";
         echo "		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qNum</td>";  // Q# from questionassignments
@@ -145,8 +146,7 @@ foreach ($questions as $qNum) {
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$funcName</td>"; // functionName from questions
         echo "		<td style='text-align: center; vertical-align: middle;'>$FNPoints / 2</td>"; // funcName Score
         echo "    <td style='text-align: center; vertical-align: middle;'>"; // changing the grade
-        echo "      <form method='POST'> <input type='text' name='FNB$qNum' size ='5'>";
-        echo " 			<input type='submit' value='Submit' name='B1'> </form>";
+        echo "      <input type='text' name='FNB$qNum' size ='5'>";
         echo "    </td>";
         echo "	</tr>";
 
@@ -178,8 +178,7 @@ foreach ($questions as $qNum) {
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$constraint</td>";
         echo "		<td style='text-align: center; vertical-align: middle;'>$cPoints / 1</td>";
         echo "    <td style='text-align: center; vertical-align: middle;'>"; // changing the grade
-        echo "      <form method='POST'><input type='text' name='CB$qNum' size ='5'>";
-        echo " 			<input type='submit' value='Submit' name='B1'> </form>";
+        echo "      <input type='text' name='CB$qNum' size ='5'>";
         echo "    </td>";
         echo "	</tr>";
         echo " 	<tr>";
@@ -228,17 +227,15 @@ foreach ($questions as $qNum) {
 
             echo "		<td style='text-align: center; vertical-align: middle;'> $testCasePoints / $PointsPerTestCase</td>";
             echo "    <td style='text-align: center; vertical-align: middle;'>"; // changing grades
-            echo "      <form method='POST'> <input type='text' name='testCase$x$qNum' size ='5'>";
-            echo " 			<input type='submit' value='Submit' name='B1'> <form>";
+            echo "      <input type='text' name='testCase$x$qNum' size ='5'>";
             echo "    </td>";
             echo "	</tr>";
             echo "	<tr>";
 
         }
         //sacrifical form ooof lol
-        echo "  <form></form>";
+        /*echo "  <form></form>";*/
         echo " 	<td colspan = '5'>";
-        echo "    <form name = 'commentF$qNum' id = 'commentF$qNum' method='post'>";
         echo "      <textarea form = 'commentF$qNum' class = 'formInput1' name='comment$qNum' id='comment$qNum'></textarea>";
         echo "      <input form= 'commentF$qNum' class = 'button' type='submit' value='release grade'>";
         echo "    </form>";
@@ -302,35 +299,30 @@ if (!empty($_POST)) {
           $comment = $_POST["commentQ1"];
           $sql = $db->prepare("UPDATE results SET released = 1, commentQ1='$comment' WHERE resultID= '$reID'");
           $sql->execute();
-          break;
         }
 
         if(isset($_POST["commentQ2"])){
           $comment = $_POST["commentQ2"];
           $sql = $db->prepare("UPDATE results SET released = 1, commentQ2='$comment' WHERE resultID= '$reID'");
           $sql->execute();
-          break;
         }
 
         if(isset($_POST["commentQ3"])){
           $comment = $_POST["commentQ3"];
           $sql = $db->prepare("UPDATE results SET released = 1, commentQ3='$comment' WHERE resultID= '$reID'");
           $sql->execute();
-          break;
         }
 
         if(isset($_POST["commentQ4"])){
           $comment = $_POST["commentQ4"];
           $sql = $db->prepare("UPDATE results SET released = 1, commentQ4='$comment' WHERE resultID= '$reID'");
           $sql->execute();
-          break;
         }
 
         if(isset($_POST["commentQ5"])){
           $comment = $_POST["commentQ5"];
           $sql = $db->prepare("UPDATE results SET released = 1, commentQ5='$comment' WHERE resultID= '$reID'");
           $sql->execute();
-          break;
         }
 
         if (isset($_POST["FNB$qNum"])) {
@@ -376,7 +368,6 @@ if (!empty($_POST)) {
             $s = $db->prepare("UPDATE results SET result = '$RESULT' WHERE resultID = '$reID'");
             $r = $s->execute();
 
-            break;
         }
 
         if (isset($_POST["CB$qNum"])) {
@@ -422,7 +413,6 @@ if (!empty($_POST)) {
             $s = $db->prepare("UPDATE results SET result = '$RESULT' WHERE resultID = '$reID'");
             $r = $s->execute();
 
-            break;
         }
 
         // Test Cases
@@ -469,7 +459,6 @@ if (!empty($_POST)) {
             $s = $db->prepare("UPDATE results SET result = '$RESULT' WHERE resultID = '$reID'");
             $r = $s->execute();
 
-            break;
         }
 
         elseif (isset($_POST["testCase2$qNum"]) && $_POST["testCase2$qNum"] != "") {
@@ -515,7 +504,6 @@ if (!empty($_POST)) {
             $s = $db->prepare("UPDATE results SET result = '$RESULT' WHERE resultID = '$reID'");
             $r = $s->execute();
 
-            break;
         }
 
         elseif (isset($_POST["testCase3$qNum"]) && $_POST["testCase3$qNum"] != "") {
@@ -561,7 +549,6 @@ if (!empty($_POST)) {
             $s = $db->prepare("UPDATE results SET result = '$RESULT' WHERE resultID = '$reID'");
             $r = $s->execute();
 
-            break;
         }
     }
     echo("<meta http-equiv='refresh' content='1'>");
