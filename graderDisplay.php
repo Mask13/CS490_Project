@@ -108,7 +108,7 @@ foreach ($questions as $qNum) {
 
         echo "		<th>Question Text</th>";
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qText</td>"; // questionText from  questions
-        echo "		<td style='text-align: center; vertical-align: middle;'>$qPoints pts</td>"; // QPoints from questionassignments
+        echo "		<td style='text-align: center; vertical-align: middle;'>Possible Points: $qPoints</td>"; // QPoints from questionassignments
         echo "	</tr>";
 
         $s = $db->prepare("SELECT Submission FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
@@ -124,7 +124,7 @@ foreach ($questions as $qNum) {
         echo "	<tr>";
         echo "		<th>Submission</th>";
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$dataString</td>"; // Submission from answers
-        echo "		<td style='text-align: center; vertical-align: middle;'>$studentPoints / $qPoints</td>"; // Total Score
+        echo "		<td style='text-align: center; vertical-align: middle;'>Score: $studentPoints / $qPoints</td>"; // Total Score
         echo "	</tr>";
 
         $s = $db->prepare("SELECT functionName FROM questions WHERE questionID = '$qID'");
