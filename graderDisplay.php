@@ -109,7 +109,6 @@ foreach ($questions as $qNum) {
         echo "		<th>Question Text</th>";
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qText</td>"; // questionText from  questions
         echo "		<td style='text-align: center; vertical-align: middle;'>$qPoints pts</td>"; // QPoints from questionassignments
-        echo "    <td></td>";
         echo "	</tr>";
 
         $s = $db->prepare("SELECT Submission FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
@@ -126,7 +125,6 @@ foreach ($questions as $qNum) {
         echo "		<th>Submission</th>";
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$dataString</td>"; // Submission from answers
         echo "		<td style='text-align: center; vertical-align: middle;'>$studentPoints / $qPoints</td>"; // Total Score
-        echo "    <td></td>";
         echo "	</tr>";
 
         $s = $db->prepare("SELECT functionName FROM questions WHERE questionID = '$qID'");
@@ -180,7 +178,6 @@ foreach ($questions as $qNum) {
         echo "		<th>Expected Output</th>";
         echo "		<th>Student Submission</th>";
         echo "		<th></th>";
-        echo "		<th></th>";
         echo "	</tr>";
 
         $s = $db->prepare("SELECT testAmount FROM questions WHERE questionID = '$qID'");
@@ -233,7 +230,7 @@ foreach ($questions as $qNum) {
         $comment = $result["comment$qNum"];
 
         echo "  <form></form>";
-        echo " 	<td colspan = '5'>";
+        echo " 	<td colspan = '4'>";
         echo "    <textarea class = 'formInput1' name='comment$qNum' id='comment$qNum' placeholder = '$comment'></textarea>";
         echo "	</td>";
     }
