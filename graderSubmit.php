@@ -218,8 +218,7 @@ foreach ($questions as $qNum) {
             $s->execute();
             $r = $s->fetch(PDO::FETCH_ASSOC);
 
-            $testCasePoints = round($r["$testNum"], 2);
-            $PointsPerTestCase = round($PointsPerTestCase, 2);
+            $testCasePoints = $r["$testNum"];
 
             echo "	<tr>";
             echo "		<th>$testCaseName</th>";
