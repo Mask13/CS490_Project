@@ -119,12 +119,12 @@ foreach ($questions as $qNum) {
         $s = $db->prepare("SELECT STP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
         $s->execute();
         $r = $s->fetch(PDO::FETCH_ASSOC);
-        $studentPoints = $r["STP"];
+        $studentPoints = round($r["STP"],2);
 
         echo "	<tr>";
         echo "		<th>Submission</th>";
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$dataString</td>"; // Submission from answers
-        echo "		<td style='text-align: center; vertical-align: middle;'>Score: $studentPoints / $qPoints</td>"; // Total Score
+        echo "		<td style='text-align: center; vertical-align: middle;'>Question Score: $studentPoints / $qPoints</td>"; // Total Score
         echo "	</tr>";
 
         $s = $db->prepare("SELECT functionName FROM questions WHERE questionID = '$qID'");
@@ -248,6 +248,7 @@ $r = $s->fetch(PDO::FETCH_ASSOC);
 $totalPoints = $r["Total_Points"];
 
 $finalPercent = ($finalScore / $totalPoints) * 100;
+$finalPercent = round($finalPercent,2)
 
 // final score
 echo "<br>";

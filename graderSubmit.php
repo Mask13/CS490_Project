@@ -110,7 +110,7 @@ foreach ($questions as $qNum) {
 
         echo "		<th>Question Text</th>";
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$qText</td>"; // questionText from  questions
-        echo "		<td style='text-align: center; vertical-align: middle;'>Possible Points: $qPoints</td>"; // QPoints from questionassignments
+        echo "		<td style='text-align: center; vertical-align: middle;'></td>"; // QPoints from questionassignments
         echo "    <td></td>";
         echo "	</tr>";
 
@@ -127,7 +127,7 @@ foreach ($questions as $qNum) {
         echo "	<tr>";
         echo "		<th>Submission</th>";
         echo " 		<td style='text-align: center; vertical-align: middle;' colspan='2'>$dataString</td>"; // Submission from answers
-        echo "		<td style='text-align: center; vertical-align: middle;'>Score: $studentPoints / $qPoints</td>"; // Total Score
+        echo "		<td style='text-align: center; vertical-align: middle;'>Question Score: $studentPoints / $qPoints</td>"; // Total Score
         echo "    <td></td>";
         echo "	</tr>";
 
@@ -255,6 +255,7 @@ $r = $s->fetch(PDO::FETCH_ASSOC);
 $totalPoints = $r["Total_Points"];
 
 $finalPercent = ($finalScore / $totalPoints) * 100;
+$finalPercent = round($finalPercent,2)
 
 // final score
 echo "<br>";
