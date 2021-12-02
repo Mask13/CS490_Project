@@ -122,7 +122,7 @@ foreach ($questions as $qNum) {
         $s = $db->prepare("SELECT STP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
         $s->execute();
         $r = $s->fetch(PDO::FETCH_ASSOC);
-        $studentPoints = $r["STP"];
+        $studentPoints = round($r["STP"],2);
 
         echo "	<tr>";
         echo "		<th>Submission</th>";
