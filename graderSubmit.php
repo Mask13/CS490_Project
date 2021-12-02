@@ -256,6 +256,7 @@ $totalPoints = $r["Total_Points"];
 
 $finalPercent = ($finalScore / $totalPoints) * 100;
 $finalPercent = round($finalPercent,2);
+$finalScore = round($finalScore, 2);
 
 // final score
 echo "<br>";
