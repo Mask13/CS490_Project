@@ -325,7 +325,7 @@ if (!empty($_POST)) {
           $sql->execute();
         }
 
-        if (isset($_POST["FNB$qNum"])) {
+        if (isset($_POST["FNB$qNum"]) && $_POST["FNB$qNum"] != "") {
             $s = $db->prepare("SELECT FNP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
             $s->execute();
             $r = $s->fetch(PDO::FETCH_ASSOC);
@@ -370,7 +370,7 @@ if (!empty($_POST)) {
 
         }
 
-        if (isset($_POST["CB$qNum"])) {
+        if (isset($_POST["CB$qNum"]) && $_POST["CB$qNum"] != "") {
             $s = $db->prepare("SELECT CP FROM answers WHERE resultID = '$reID' and QuestionID = '$qID'");
             $s->execute();
             $r = $s->fetch(PDO::FETCH_ASSOC);
