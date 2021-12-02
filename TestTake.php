@@ -134,7 +134,7 @@ else{
             echo "<div class='test'>";
             echo "  <lable for=Q1A> 1) ($QIDS[Q1P] Points) </lable>";
             echo "  <lable for=Q1A> $QText[questionText] </lable><br>";
-            echo "  <textarea form = 'test' name = 'Q1A' id='Q1A'></textarea>";
+            echo "  <textarea form = 'test' rows='10' name = 'Q1A' id='Q1A'></textarea>";
             echo "</div>";
             echo "<br>";
             //Q2
