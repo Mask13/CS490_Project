@@ -209,31 +209,12 @@ foreach ($questions as $value) {
 
     if($messedupName == false) {
       // correct name
-      if (($counterCorrect / $testAmount) == 1) {
-        $studentPoints += $testPoints;
-      }
-      elseif ((($counterCorrect / $testAmount) == 2/3)) {
-        $studentPoints += $tcPoints * 2;
-      }
-      elseif ((($counterCorrect / $testAmount) == 1/3)) {
-        $studentPoints += $tcPoints;
-      }
+      $studentPoints += $tcPoints * $counterCorrect;
       $studentPoints += $FNPoints;
     }
     else {
       // messed up name
-      if (($counterCorrect / $testAmount) == 1) {
-        $studentPoints += $testPoints;
-      }
-      elseif ((($counterCorrect / $testAmount) == 2/3)) {
-        $studentPoints += $tcPoints * 2;
-      }
-      elseif ((($counterCorrect / $testAmount) == 1/3)) {
-        $studentPoints += $tcPoints;
-      }
-      else {
-        $studentPoints += 0;
-      }
+      $studentPoints += $tcPoints * $counterCorrect;
     }
 
     // updating FN
