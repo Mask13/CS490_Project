@@ -14,93 +14,222 @@
    </div>
   </head><br>
   <style>
+      /*All sections */
+      titles{
+        width: 200px;
+        text-align: center;
+        font-size: 40;
+        font-family: Trebuchet MS;
+        text-decoration-color:#c6a226;
+        border-bottom: 5px solid #c6a226;
+        border-top: 5px solid #c6a226;
+        padding: 2px;
+      }
+      splitscreen{
+        width:60%;
+        float: right;
+        padding-top: 30px;
+      }
+      table, th, td {
+        border: 1px solid black;
+        border-radius: 10px;
+        border-color: #c6a226;
+        color: white;
+        padding: 2px;
+        padding-bottom: 6px;
+      }
+      th, td {
+        background-color: black;
+        font-family: Bahnschrift;
+        padding: 5px;
+      }
       text{
-          font-size: 20px;
+        font-size: 20px;
       }
       br {
-          line-height: 250%;
-          }
+        line-height: 250%;
+      }
       body{
-           background-color: #000033;
-           background-image: url('https://images.unsplash.com/photo-1445905595283-21f8ae8a33d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80');
-           height: 100%;
-           background-position: center;
-           background-repeat: no-repeat;
-           background-size: cover;
-           color: #bcbdbe;
-           }
-					 .button {
-              background-color: Transparent;
-              border: inset #c6a226;
-              color: #bcbdbe;
-              padding: 15px 19px;
-              text-align: center;
-              text-decoration: none;
-              display: inline-block;
-              border-radius: 25px;
-              font-size: 16px;
-          }
-          .label {
-            padding: 12px 12px 12px 0;
-            display: inline-block;
-          }
-          titles{
-            width: 200px;
-            text-align: center;
-            font-size: 40;
-            font-family: Trebuchet MS;
-            text-decoration-color:#c6a226;
-            border-bottom: 5px solid #c6a226;
-            border-top: 5px solid #c6a226;
-            padding: 2px;
-          }
- </style>
+        background-color: #000033;
+        background-image: url('https://media.giphy.com/media/BHNfhgU63qrks/giphy.gif');
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #bcbdbe;
+      }
+      /* All Classes */
+      .button {
+        background-color: rgb(230, 231, 208);
+        border: inset #c6a226;
+        color: #c6a226;
+        padding: 15px 19px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 25px;
+        font-size: 16px;
+      }
+      .button:hover {background-color: rgb(69, 74, 28);}
+
+      .button:active {
+        background-color: rgb(69, 74, 28);
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+      }
+      .formNT{
+        width:40%;
+        position: relative; top:90px;
+      }
+      .formNt input{
+        width: 95%;
+        padding: 10px;
+        margin:3px;
+        border: 2px solid #c6a226;
+        border-radius: 25px;
+        box-sizing: border-box;
+        resize: vertical;
+      }
+      .qForm-Container{
+        display: table;
+        width: 100%;
+        float: left;
+      }
+      .formField{
+        display: table-cell;
+        margin-right:7px;
+        background-color: Transparent;
+        border: inset #c6a226;
+        color: #bcbdbe;
+        padding: 10px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 25px;
+        font-size: 16px;
+      }
+      .qForm-Container select{
+        display: table-cell;
+        margin-right:7px;
+        background-color: Transparent;
+        border: inset #c6a226;
+        color: #bcbdbe;
+        padding: 10px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 25px;
+        font-size: 16px;
+      }
+      .qForm-Container select option{
+        background-color: black;
+      }
+  </style>
   <body>
     <!-- Display All Questons -->
-    <?php
-      echo "<style>";
-      echo " table, th, td {";
-      echo " border:1px solid black;}";
-      echo "</style>";
-      require "config.php";
-      $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
-      $db= new PDO($connection_string, $dbuser, $dbpass);
-      try{
-        $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, QI1, QI2, QI3  from `questions`";
-        echo "<table>"; // list box select command
-        echo "<tr>";
-        echo "<td>Question ID</td>";
-        echo "<td>Question Text</td>";
-        echo "<td>Catagory</td>";
-        echo "<td>Difficulty</td>";
-        echo "<td>Input</td>";
-        echo "<td>Expected Output:</td>";
-        echo "<td>Input</td>";
-        echo "<td>Expected Output:</td>";
-        echo "<td>Input</td>";
-        echo "<td>Expected Output:</td>";
-        echo "</tr>";
-        foreach ($db->query($sql) as $row){//Array or records stored in $row
+    <splitscreen>
+      <!-- Form to choose what difficulty and catagory to display-->
+      <form class="qForm-Container" method="post">
+        <select name="difficulty" value="">Difficulty</option>
+          <option value="all">Difficulty</option>
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <select name="catagory" value="">Catagory</option>
+          <option value="all">Catagory</option>
+          <option value="for">For</option>
+          <option value="while">While</option>
+          <option value="recursion">Recursion</option>
+          <option value="other">Other</option>
+        </select>
+        <input type="submit" class="formField" value="Submit" style="padding: 10px 24px;"></input>
+      </form>
+      <!-- Display All Questons -->
+      <?php
+        require "config.php";
+        $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+        $db= new PDO($connection_string, $dbuser, $dbpass);
+        try{
+          if(isset($_POST['difficulty'])&&isset($_POST['catagory'])){
+            if($_POST['difficulty'] == "all" && $_POST['catagory'] == "all"){
+              $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, QI1, QI2, QI3, QI4 from `questions`";
+            }
+            elseif($_POST['difficulty'] == "all"){
+              $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, QI1, QI2, QI3, QI4 from `questions` WHERE category = '$_POST[catagory]'";
+            }
+            elseif ($_POST['catagory'] == "all") {
+              $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, QI1, QI2, QI3, QI4 from `questions` WHERE difficultyLevel = '$_POST[difficulty]'";
+            }
+            else{
+              $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, QI1, QI2, QI3, QI4 from `questions` WHERE difficultyLevel = '$_POST[difficulty]' and category = '$_POST[catagory]'";
+            }
+          }
+          else{
+            $sql = "SELECT questionID, questionText, category, difficultyLevel, Answer1, Answer2, Answer3, Answer4, QI1, QI2, QI3, QI4 from `questions`";
+          }
+          echo "<table>"; // list box select command
           echo "<tr>";
-          echo "<td>$row[questionID]</td>";
-          echo "<td>$row[questionText]</td>";
-          echo "<td>$row[category]</td>";
-          echo "<td>$row[difficultyLevel]</td>";
-          echo "<td>$row[QI1]</td>";
-          echo "<td>$row[Answer1]</td>";
-          echo "<td>$row[QI2]</td>";
-          echo "<td>$row[Answer2]</td>";
-          echo "<td>$row[QI3]</td>";
-          echo "<td>$row[Answer3]</td>";
+          echo "<th>Question ID</th>";
+          echo "<th>Question Text</th>";
+          echo "<th>Catagory</th>";
+          echo "<th>Difficulty</th>";
+          echo "<th>Input</th>";
+          echo "<th>Expected Output:</th>";
+          echo "<th>Input</th>";
+          echo "<th>Expected Output:</th>";
+          echo "<th>Input</th>";
+          echo "<th>Expected Output:</th>";
+          echo "<th>Input</th>";
+          echo "<th>Expected Output:</th>";
           echo "</tr>";
-        }
+          foreach ($db->query($sql) as $row){//Array or records stored in $row
+            echo "<tr>";
+            echo "<td>$row[questionID]</td>";
+            echo "<td>$row[questionText]</td>";
+            echo "<td>$row[category]</td>";
+            echo "<td>$row[difficultyLevel]</td>";
+            echo "<td>$row[QI1]</td>";
+            echo "<td>$row[Answer1]</td>";
+            echo "<td>$row[QI2]</td>";
+            echo "<td>$row[Answer2]</td>";
+            echo "<td>$row[QI3]</td>";
+            echo "<td>$row[Answer3]</td>";
+            echo "<td>$row[QI4]</td>";
+            echo "<td>$row[Answer4]</td>";
+            echo "</tr>";
+          }
 
-        echo "</table>";// Closing of list box
-      }
-      finally{}
-     ?>
-   <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
-   <form name="NewTest" id="myForm" method="POST">
+          echo "</table>";// Closing of list box
+        }
+        finally{}
+       ?><br>
+       <!-- Display all tests with a SQL Query. View Test, and Delete Test -->
+       <?php
+           require "config.php";
+           $connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
+           $db= new PDO($connection_string, $dbuser, $dbpass);
+           try{
+             $sql = "SELECT EID, Exam_Name, Total_Points from exams";
+             echo "<table>"; // list box select command
+             echo "<tr>";
+             echo "<td>EID</td>";
+             echo "<td>Exam Name</td>";
+             echo "<td>Total Points</td>";
+             echo "</tr>";
+             foreach ($db->query($sql) as $row){//Array or records stored in $row
+               echo "<tr>";
+               echo "<td>$row[EID]</td>";
+               echo "<td>$row[Exam_Name]</td>";
+               echo "<td>$row[Total_Points]</td>";
+               echo "</tr>";
+             }
+             echo "</table>";// Closing of list box
+           }
+           finally{}
+        ?>
+    </splitscreen>
+   <form class = "formNT" name="NewTest" id="myForm" method="POST">
      <input type="text" name="TestName" id="TestName" placeholder="Test Name"></input><br>
      <input type= "number" name = "Q1ID" id="Q1ID" placeholder="Question 1 ID"></input><br>
      <input type= "number" name = "Q1P" id="Q1P" placeholder="Question 1 Points"></input><br>
@@ -136,8 +265,6 @@
     try{
       $sql = $db->prepare("SELECT EID from `exams` Where Exam_Name = '$_POST[TestName]'");
       $r = $sql->execute();
-      echo "<pre>" . var_export($r, true) . "</pre>";
-      echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
       $EID = $sql->fetch();
       $sql2 = $db->prepare("INSERT INTO `QuestionAssignments`
                   (EID, Q1, Q1P) VALUES
@@ -149,12 +276,9 @@
   }
   //for question 2
   if(isset($_POST['Q2ID']) && isset($_POST['Q2P'])) {
-    echo "$_POST[Q2ID]";
     try{
       $sql = $db->prepare("SELECT EID from exams Where Exam_Name = '$_POST[TestName]'");
       $r = $sql->execute();
-      echo "<pre>" . var_export($r, true) . "</pre>";
-      echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
       $EID = $sql->fetch();
       $sql2 = $db->prepare("UPDATE `QuestionAssignments`
                   SET Q2= '$_POST[Q2ID]', Q2P='$_POST[Q2P]' WHERE EID = '$EID[EID]' ");
@@ -167,8 +291,6 @@
     try{
       $sql = $db->prepare("SELECT EID from exams Where Exam_Name = '$_POST[TestName]'");
       $r = $sql->execute();
-      echo "<pre>" . var_export($r, true) . "</pre>";
-      echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
       $EID = $sql->fetch();
       $sql2 = $db->prepare("UPDATE `QuestionAssignments`
                   SET Q3= '$_POST[Q3ID]', Q3P='$_POST[Q3P]' WHERE EID = '$EID[EID]' ");
@@ -181,8 +303,6 @@
     try{
       $sql = $db->prepare("SELECT EID from exams Where Exam_Name = '$_POST[TestName]'");
       $r = $sql->execute();
-      echo "<pre>" . var_export($r, true) . "</pre>";
-      echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
       $EID = $sql->fetch();
       $sql2 = $db->prepare("UPDATE `QuestionAssignments`
                   SET Q4= '$_POST[Q4ID]', Q4P='$_POST[Q4P]' WHERE EID = '$EID[EID]' ");
@@ -195,8 +315,6 @@
     try{
       $sql = $db->prepare("SELECT EID from exams Where Exam_Name = '$_POST[TestName]'");
       $r = $sql->execute();
-      echo "<pre>" . var_export($r, true) . "</pre>";
-      echo "<pre>" . var_export($sql->errorInfo(), true) . "</pre>";
       $EID = $sql->fetch();
       $sql2 = $db->prepare("UPDATE `QuestionAssignments`
                   SET Q5= '$_POST[Q5ID]', Q5P='$_POST[Q5P]' WHERE EID = '$EID[EID]' ");

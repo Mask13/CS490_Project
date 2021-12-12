@@ -37,25 +37,39 @@
           }
       body{
            background-color: #000033;
-           background-image: url('https://images.unsplash.com/photo-1445905595283-21f8ae8a33d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80');
+           background-image: url('https://i1.wp.com/thumbs.gfycat.com/FeminineVillainousFlea-size_restricted.gif');
            height: 100%;
            background-position: center;
            background-repeat: no-repeat;
            background-size: cover;
            color: #bcbdbe;
            }
-					 .button {
-              background-color: #000033;
-              border: 3px outset #c6a226;
-              color: white;
-              padding: 15px 19px;
-              text-align: center;
-              text-decoration: none;
-              display: inline-block;
-              font-size: 16px;
-              font-family: Trebuchet MS;
-              position: relative; top:0px;
-            }
+          .button {
+            background-color: #000033;
+            border: 3px outset #c6a226;
+            color: white;
+            padding: 15px 19px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            font-family: Sans-serif;
+            position: relative; top:0px;
+
+            background-repeat:no-repeat;
+            background-position:bottom left;
+            background-position:bottom left, top right, 0 0, 0 0;
+            background-clip:border-box;
+
+            -moz-border-radius:8px;
+            -webkit-border-radius:8px;
+            border-radius:8px;
+
+            -moz-box-shadow:0 0 1px #fff inset;
+            -webkit-box-shadow:0 0 1px #fff inset;
+            box-shadow:0 0 1px #fff inset;
+          }
+
           .formInput1{
             width: 100%;
             padding: 10px;
@@ -82,11 +96,10 @@
 
  </style>
 	<body>
-		<!-- This is how you comment -->
     <div id= container>
       <font size="9">
       <center><form name="loginform" id="myForm" method="POST">
-          <center style="position: relative; bottom: 80px; color:white" > Login:</center>
+          <center style="position: relative; bottom: 80px; font-family:Avant Garde; color:white" > Login:</center>
           <center style="font-size: 15px; position: relative; bottom: 70px; color:gray" > Log in as a instructor or student</center>
   			  <input class = "formInput1" type="username" id="username" name="username" placeholder="Enter Username"/><br>
   			  <input class = "formInput2" type="password" id="pass" name="password" placeholder="Enter Password"/><br>
@@ -109,7 +122,6 @@ ini_set('display_errors', 1);
 
 // CONNECTING TO DATABASE //
 if(isset($_POST['username'])&& isset($_POST['password'])){
-    require("config.php");
     // getting the username and password
     $userName = $_POST["username"];
     $passWord = $_POST["password"];
@@ -119,7 +131,6 @@ if(isset($_POST['username'])&& isset($_POST['password'])){
     //$passWord = password_hash($passWord, password_bcrypt);
     //filter thing here
 
-		require "config.php";
 		$connection_string = "mysql:host=$dbhost;dbname=$dbdatabase;charset=utf8mb4";
 		$db= new PDO($connection_string, $dbuser, $dbpass);
     try
@@ -139,10 +150,10 @@ if(isset($_POST['username'])&& isset($_POST['password'])){
 						$_SESSION['UID'] = $result['UID'];
             //echo $_SESSION['IsAdmiin'];
             if($_SESSION['IsAdmin']==0){
-                echo'<script type="text/javascript">window.open("UserHome.php","_self");</script>';
+                echo'<html><script type="text/javascript">window.open("UserHome.php","_self");</script></html>';
             }
             else{
-                echo'<script type="text/javascript">window.open("AdminHome.php","_self");</script>';
+                echo'<html><script type="text/javascript">window.open("AdminHome.php","_self");</script></html>';
             }
         }
     }
