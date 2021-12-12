@@ -129,6 +129,7 @@
          echo "<th>Expected Output:</th>";
          echo "<th>Input</th>";
          echo "<th>Expected Output:</th>";
+
          echo "</tr>";
          foreach ($db->query($sql) as $row){//Array or records stored in $row
            echo "<tr>";
